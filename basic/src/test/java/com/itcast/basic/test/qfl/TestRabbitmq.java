@@ -71,13 +71,29 @@ public class TestRabbitmq {
     @Test
     public void testService() {
         try {
-
+            System.out.println("hello world!");
+            System.err.println("error occur");
+            String dir = System.getProperty("user.dir");
+            System.out.println("dir=" + dir);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
