@@ -14,7 +14,7 @@ public class SpringBeanLifecycleServiceClient {
 
     public static void main(String[] args) {
         try {
-            ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring/bean/application.xml");
+            ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("spring/beanlifecycle/application.xml");
             PlainOldBean plainOldBean = (PlainOldBean) classPathXmlApplicationContext.getBean("plainOldBean");
             log.info("name is " + plainOldBean.getName());
             classPathXmlApplicationContext.registerShutdownHook();
