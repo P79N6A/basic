@@ -45,9 +45,16 @@
     </bean>
 
     <!--
-     枚举说明bean属性的作用
-            abstract:用来声明一个bean是否被实例化(true表示 false表示需要spring容器实例化)
+     bean常见属性的作用
+            parent:用来声明该bean继承的父bean（属性值的继承和类的继承不同）
+            abstract:用来声明一个bean是否被实例化(true表示不需要spring容器实例化 false表示需要spring容器实例化)
+            depends-on:用来声明该bean实例化之前必须先实例化 depends-on依赖的bean
+            singleton:用来声明该bean是否启用单例模式(true开启 false关闭 默认true spring-3.0废弃)
+            scope:用来声明该bean的作用域(singleton:每个spring ioc容器中一个bean定义对应一个实例 prototype:每次获取bean对应一个新的实例 request:基于web application context下有效 每次http request请求生成不同实例 session:基于web application context下有效 同一个http session回话中共用一个相同的bean实例 global session:基于web application context有效 一个全局的http session中共用一个bean实例)
+            lazy-init:用来声明该bean实例化的时机(true:立即加载 false:懒加载 default:懒加载)
+            autowrite:用来声明bean中属性自动设值的方式(byName:按照属性名字查找进行注入 byType:按照属性类型查找进行注入 no:关闭自动bean的属性注入机制 default:采用父级标签(即beans的default-autowire属性)的配置 constructor:按照属性类型查找通过bean构造方法对bean属性注入 autodetect系统自动根据需求进行注入(要么进行constructor方式的注入 要么进行byType方式的注入),spring-3.0中已废弃)
+            dependency-check:用来声明该bean中的属性必须在配置文件中配置(all:表示必须在spring.xml配置文件中显式配置bean的所有属性 simple:表示必须在spring.xml配置文件中显式配置bean的简单属性(基本数据类型 系统通过的类对象(基本类型包装类 字符串 日期等)) objects:表示必须在spring.xml配置文件中显式配置bean的用户自定义对象 none:表示不进行依赖注入检查),spring-3.0已废弃
     -->
-    <bean abstract=""/>
+
 
 </beans>
