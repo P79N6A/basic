@@ -46,7 +46,8 @@
 
     <!--
      枚举说明bean属性的作用
+            abstract:用来声明一个bean是否被实例化(true表示 false表示需要spring容器实例化)
     -->
-    <bean abstract="false" autowire="byType"/>
+    <bean abstract=""/>
 
 </beans>
