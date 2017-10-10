@@ -1,3 +1,6 @@
 /basic/*.iml
 /basic/target
 /.idea
+/sdk-service/*.iml
+/sdk-service/target
+/sdk-api/*.iml

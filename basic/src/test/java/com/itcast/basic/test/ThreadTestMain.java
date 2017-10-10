@@ -36,7 +36,12 @@ public class ThreadTestMain {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        System.out.println("i=" + callerRes0());
+//        System.out.println("i=" + callerRes0());
+//        ClassLoader classLoader = (new ThreadTestMain()).getClass().getClassLoader();
+//        System.out.println("classLoader=" + classLoader.getParent());
+        char c = 'a';
+        int s = a;
+        System.out.println("");
     }
 
     private static int callerRes0() {
