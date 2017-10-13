@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="personMessage" class="com.itcast.basic.spring.aop.instroductionadvice.PersonMessage"/>
+
+    <bean id="springAroundAdvice" class="com.itcast.basic.spring.aop.instroductionadvice.SpringAroundAdvice"/>
+
+    <bean id="springBeforeAdvice" class="com.itcast.basic.spring.aop.instroductionadvice.SpringBeforeAdvice"/>
+
+    <!--全限定名匹配-->
+    <bean id="springAroundAdviceFilter" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="springAroundAdvice"/>
+        <property name="mappedNames">
+            <value>sendEmailMessage</value>
+        </property>
+    </bean>
+
+    <!--正则表达式匹配-->
+    <bean id="regexBeforeAdviceFilter" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="pattern">
+            <value>com.itcast.basic.spring.aop.instroductionadvice.*.*Message</value>
+        </property>
+        <property name="advice" ref="springBeforeAdvice"/>
+    </bean>
+
+
+    <bean id="adviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="personMessage"/>
+        <property name="proxyInterfaces" value="com.itcast.basic.spring.aop.instroductionadvice.MessageService"/>
+        <property name="interceptorNames">
+            <list>
+                <value>springAroundAdviceFilter</value>
+                <value>regexBeforeAdviceFilter</value>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>
