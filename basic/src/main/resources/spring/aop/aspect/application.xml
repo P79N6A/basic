@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--自动扫描-->
+    <context:component-scan base-package="com.itcast.basic.spring.aop.aspect"/>
+
+    <!--添加spring aspect aop-->
+    <aop:config>
+        <aop:aspect id="loggerAspect" ref="loggerSevice">
+            <aop:pointcut id="loggerPointcut"
+                          expression="execution(* com.itcast.basic.spring.aop.aspect.service..*.*(..))"/>
+            <aop:around method="logger" pointcut-ref="loggerPointcut"/>
+        </aop:aspect>
+
+        <aop:aspect id="redisAspect" ref="redisService">
+            <aop:after method="deleteCache"
+                       pointcut="execution(* com.itcast.basic.spring.aop.aspect.service..*.find*(..))||execution(* com.itcast.basic.spring.aop.aspect.service..*.delete*(..))"/>
+            <aop:after method="updateCache"
+                       pointcut="execution(* com.itcast.basic.spring.aop.aspect.service..*.update*(..))"/>
+            <aop:after method="createCache"
+                       pointcut="execution(* com.itcast.basic.spring.aop.aspect.service..*.create*(..))"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--公共业务bean-->
+    <bean id="loggerSevice" class="com.itcast.basic.spring.aop.aspect.util.LoggerSevice"/>
+    <bean id="redisService" class="com.itcast.basic.spring.aop.aspect.util.RedisService"/>
+</beans>
