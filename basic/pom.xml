@@ -5,7 +5,7 @@
     <groupId>com.ittest.basic</groupId>
     <artifactId>basic</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>j</packaging>
 
     <name>basic</name>
     <url>http://maven.apache.org</url>

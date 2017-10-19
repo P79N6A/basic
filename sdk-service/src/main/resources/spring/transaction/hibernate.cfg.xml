@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">
+            update
+        </property>
+        <!--
+        配置mysql方言
+        -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <!--
+        配置数据库连接池
+        -->
+        <property name="hibernate.connection.pool.size">
+            20
+        </property>
+        <!--
+        使用unicode编码
+        -->
+        <property name="hibernate.connection.useUnicode">
+            true
+        </property>
+        <!--
+        设置数据库编码集
+        -->
+        <property name="hibernate.connection.characterEncoding">
+            utf8
+        </property>
+        <!--
+        设置是否显示hibernate执行的sql语句
+        -->
+        <property name="hibernate.show_sql">
+            true
+        </property>
+        <!--
+        设置hibernate执行的sql语句显示的格式
+        -->
+        <property name="hibernate.format_sql">
+            true
+        </property>
+        <!--
+        配置事务管理级别
+        -->
+        <!--<property name="hibernate.current_session_context_class">-->
+            <!--thread-->
+        <!--</property>-->
+        <!--
+        设置批量查询数据的条数
+        -->
+        <property name="jdbc.fetch_size">
+            50
+        </property>
+        <!--
+        设置批量更新数据的条数
+        -->
+        <property name="jdbc.batch_size">
+            30
+        </property>
+        <!--
+        设置数据库是否支持可滚动的结果集
+        -->
+        <property name="jdbc.use_scrollable_resultset">
+            false
+        </property>
+
+     </session-factory>
+</hibernate-configuration>
