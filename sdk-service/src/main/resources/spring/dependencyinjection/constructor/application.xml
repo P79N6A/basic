@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!--构造器注入-->
+    <bean id="student" class="com.itcast.basic.spring.ioc.dependencyinjection.constructor.Student">
+        <constructor-arg ref="money"/>
+    </bean>
+
+    <bean id="money" class="com.itcast.basic.spring.ioc.dependencyinjection.Money">
+        <property name="bigDecimal" value="125.69"/>
+    </bean>
+
+</beans>
