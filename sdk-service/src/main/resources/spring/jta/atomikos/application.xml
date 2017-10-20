@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="userTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager" init-method="init"
+          destroy-method="close">
+        <property name="forceShutdown">
+            <value type="java.lang.Boolean">true</value>
+        </property>
+    </bean>
+
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+        <property name="transactionTimeout" value="240"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager" ref="userTransactionManager"/>
+        <property name="userTransaction" ref="atomikosUserTransaction"/>
+        <property name="allowCustomIsolationLevels" value="true"/>
+    </bean>
+
+    <bean id="baseSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+          init-method="init" destroy-method="close" abstract="true">
+        <!--数据库驱动类名-->
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
+
+        <property name="poolSize" value="10"/>
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="borrowConnectionTimeout" value="60"/>
+        <property name="reapTimeout" value="20"/>
+        <!-- 最大空闲时间 -->
+        <property name="maxIdleTime" value="60"/>
+        <property name="maintenanceInterval" value="60"/>
+        <property name="loginTimeout" value="60"/>
+    </bean>
+
+    <bean id="orderSource" parent="baseSource">
+        <property name="uniqueResourceName" value="orderSource"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="url">jdbc:mysql://10.108.28.26:3306/tongzhuwang</prop>
+                <prop key="user">root</prop>
+                <prop key="password">a123456</prop>
+                <prop key="encoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="refundDatasource" parent="baseSource">
+        <property name="uniqueResourceName" value="refundDatasource"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="url">jdbc:mysql://10.108.28.26:3306/refund_center</prop>
+                <prop key="user">root</prop>
+                <prop key="password">a123456</prop>
+                <prop key="encoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
