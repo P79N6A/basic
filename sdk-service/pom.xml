@@ -37,6 +37,10 @@
         <aopalliance.version>1.0</aopalliance.version>
         <!--配置分布式事务atomikos版本号-->
         <atomikos.version>4.0.4</atomikos.version>
+        <!--配置spring-data-redis版本号-->
+        <spring.data.redis.version>1.6.2.RELEASE</spring.data.redis.version>
+        <!--配置jedis版本号-->
+        <jedis.version>2.7.2</jedis.version>
         <!-- log4j日志文件管理包版本 -->
         <!--<slf4j.version>1.7.7</slf4j.version>-->
         <!--<log4j.version>1.2.17</log4j.version>-->
@@ -47,38 +51,6 @@
 
     <dependencies>
 
-        <!--atomikos实现jta-->
-        <dependency>
-            <groupId>com.atomikos</groupId>
-            <artifactId>transactions</artifactId>
-            <version>${atomikos.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atomikos</groupId>
-            <artifactId>transactions-api</artifactId>
-            <version>${atomikos.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atomikos</groupId>
-            <artifactId>transactions-jta</artifactId>
-            <version>${atomikos.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atomikos</groupId>
-            <artifactId>transactions-jdbc</artifactId>
-            <version>${atomikos.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.atomikos</groupId>
-            <artifactId>atomikos-util</artifactId>
-            <version>${atomikos.version}</version>
-        </dependency>
-
-        <!--atomikos实现jta-->
 
         <dependency>
             <groupId>junit</groupId>
@@ -177,6 +149,39 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!--atomikos实现jta-->
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions</artifactId>
+            <version>${atomikos.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-api</artifactId>
+            <version>${atomikos.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jta</artifactId>
+            <version>${atomikos.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jdbc</artifactId>
+            <version>${atomikos.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>atomikos-util</artifactId>
+            <version>${atomikos.version}</version>
+        </dependency>
+
+        <!--atomikos实现jta-->
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -222,6 +227,20 @@
             <version>${jackson.version}</version>
         </dependency>
         <!--配置spring rabbitmq -->
+        <!--配置spring redis-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${spring.data.redis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+        <!--配置spring redis-->
+
     </dependencies>
 
     <build>
