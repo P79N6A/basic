@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:/spring/tools/ftp/ftp.properties</value>
+        </property>
+    </bean>
+
+    <bean id="ftpClient" class="com.itcast.basic.spring.tools.ftp.SpringFtpClient"
+          init-method="init" destroy-method="close">
+        <property name="ftpHost" value="${ftp.host}"/>
+        <property name="ftpPort" value="${ftp.port}"/>
+        <property name="loginName" value="${ftp.username}"/>
+        <property name="loginPassword" value="${ftp.password}"/>
+        <property name="connectTimeout" value="${ftp.connectTimeout}"/>
+        <property name="dataTimeout" value="${ftp.dataTimeout}"/>
+        <property name="bufferSize" value="${ftp.bufferSize}"/>
+        <property name="controlEncoding" value="${ftp.controlEncoding}"/>
+        <property name="fileType" value="${ftp.fileType}"/>
+        <property name="openUpload" value="${ftp.isOpenUpload}"/>
+    </bean>
+
+
+</beans>

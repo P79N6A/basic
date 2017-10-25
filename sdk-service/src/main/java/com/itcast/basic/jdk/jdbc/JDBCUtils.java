@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class JDBCUtils {
 
     private static final Log log = LogFactory.getLog(JDBCUtils.class);
-    private static final ThreadLocal<Connection> connectionThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<Connection> connectionThreadLocal = new ThreadLocal<Connection>();
     private static String userName;
     private static String password;
     private static String url;

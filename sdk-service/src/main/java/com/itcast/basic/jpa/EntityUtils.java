@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 public class EntityUtils {
     private static final String jpaEntityManager = "jpaEntityManager";
 
-    private static ThreadLocal<EntityManager> jpaEntityManagers = new ThreadLocal<>();
+    private static ThreadLocal<EntityManager> jpaEntityManagers = new ThreadLocal<EntityManager>();
 
     public static EntityManager newEntityManagerInstance() {
         EntityManager entityManager = jpaEntityManagers.get();
