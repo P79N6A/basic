@@ -51,6 +51,8 @@
         <mongodb.version>1.10.7.RELEASE</mongodb.version>
         <!--配置mongodb驱动版本号-->
         <mongodb.driver.version>3.5.0</mongodb.driver.version>
+        <!--配置quartz版本号-->
+        <quartz.version>2.3.0</quartz.version>
         <!-- log4j日志文件管理包版本 -->
         <!--<slf4j.version>1.7.7</slf4j.version>-->
         <!--<log4j.version>1.2.17</log4j.version>-->
@@ -68,6 +70,14 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+
+        <!--配置日志-->
+        <!--<dependency>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-log4j12</artifactId>-->
+        <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
+        <!--配置日志-->
 
         <dependency>
             <groupId>com.jcraft</groupId>
@@ -138,7 +148,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <version>3.2.17.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -221,6 +231,12 @@
             <artifactId>hibernate</artifactId>
             <version>${hibernate.version}</version>
             <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -273,6 +289,12 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
             <version>${mongodb.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -281,6 +303,15 @@
             <version>${mongodb.driver.version}</version>
         </dependency>
         <!--配置spring mongodb-->
+
+        <!--配置spring quartz-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+
+        <!--配置spring quartz-->
     </dependencies>
 
     <build>

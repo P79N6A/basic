@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.itcast.basic.spring.quartz.simple.JobService"/>
+        <property name="jobDataMap">
+            <map>
+                <entry key="jobName" value="logJob"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="jobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"/>
+        <property name="startDelay" value="2000"/>
+        <property name="repeatInterval" value="1000"/>
+        <property name="repeatCount" value="5"/>
+    </bean>
+
+    <bean id="jobScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="jobTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
