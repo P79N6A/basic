@@ -53,6 +53,16 @@
         <mongodb.driver.version>3.5.0</mongodb.driver.version>
         <!--配置quartz版本号-->
         <quartz.version>2.3.0</quartz.version>
+        <!--配置hessian版本号-->
+        <hessian.version>4.0.38</hessian.version>
+        <!--配置servlet-api版本号-->
+        <servlet.version>2.5</servlet.version>
+        <!--配置burla版本号-->
+        <!--<burlap.version>2.1.12</burlap.version>-->
+        <!--配置codec版本号-->
+        <codec.version>1.10</codec.version>
+        <!--配置httpclient版本号-->
+        <httpclient.version>3.1</httpclient.version>
         <!-- log4j日志文件管理包版本 -->
         <!--<slf4j.version>1.7.7</slf4j.version>-->
         <!--<log4j.version>1.2.17</log4j.version>-->
@@ -78,6 +88,30 @@
         <!--<version>${slf4j.version}</version>-->
         <!--</dependency>-->
         <!--配置日志-->
+
+        <!--<dependency>-->
+        <!--<groupId>com.caucho</groupId>-->
+        <!--<artifactId>burlap</artifactId>-->
+        <!--<version>2.1.12</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${codec.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>${hessian.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.jcraft</groupId>
@@ -185,6 +219,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!--atomikos实现jta-->

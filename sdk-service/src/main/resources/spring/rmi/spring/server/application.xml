@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:/spring/rmi/rmi.properties</value>
+        </property>
+    </bean>
+
+    <bean id="savePerson" class="com.itcast.basic.spring.rmi.api.SavePersonImpl"/>
+
+    <bean id="rmiServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="registryPort" value="${remote.registryPort}"/>
+        <property name="serviceName" value="${remote.serviceName}"/>
+        <property name="service" ref="savePerson"/>
+        <property name="serviceInterface" value="com.itcast.basic.spring.rmi.api.SavePerson"/>
+    </bean>
+
+</beans>

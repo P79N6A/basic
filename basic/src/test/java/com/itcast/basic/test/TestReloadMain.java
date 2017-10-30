@@ -1,5 +1,7 @@
 package com.itcast.basic.test;
 
+import org.junit.Test;
+
 /**
  * Created by treey.qian on 2017/9/20.
  */
@@ -30,6 +32,12 @@ public class TestReloadMain {
     public static void main(String[] arg) {
         char c = 'a';
         sys(c);
+    }
+
+    @Test
+    public void testService() {
+        int i = 0;
+        System.out.println("i++=" + " ++i=" + (++i));
     }
 
 }

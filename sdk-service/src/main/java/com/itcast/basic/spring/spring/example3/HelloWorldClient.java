@@ -15,7 +15,7 @@ public class HelloWorldClient {
     public HelloWorldClient() {
 //        try {
 //            log.info("enter example3.HelloWorldClient");
-//            Resource resource=new ClassPathResource("spring/application.xml");
+//            Resource resource=new ClassPathResource("spring/spring.xml");
 //            BeanFactory beanFactory=new XmlBeanFactory(resource);
 //            HelloWorld helloWorld=(HelloWorld)beanFactory.getBean("helloWorld");
 //            log.info("content is " + helloWorld.getContent());
