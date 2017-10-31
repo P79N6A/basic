@@ -63,6 +63,12 @@
         <codec.version>1.10</codec.version>
         <!--配置httpclient版本号-->
         <httpclient.version>3.1</httpclient.version>
+        <!--配置freemarker版本号-->
+        <freemarker.version>2.3.23</freemarker.version>
+        <!--配置velocity版本号-->
+        <velocity.version>1.7</velocity.version>
+        <!--配置velocity-tools版本号-->
+        <velocity.tools.verson>2.0</velocity.tools.verson>
         <!-- log4j日志文件管理包版本 -->
         <!--<slf4j.version>1.7.7</slf4j.version>-->
         <!--<log4j.version>1.2.17</log4j.version>-->
@@ -94,6 +100,24 @@
         <!--<artifactId>burlap</artifactId>-->
         <!--<version>2.1.12</version>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>${velocity.tools.verson}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>commons-httpclient</groupId>
