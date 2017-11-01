@@ -2,7 +2,10 @@
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
+    <!--配置应用名字-->
     <display-name>Archetype Created Web Application</display-name>
+
+
     <!--配置spring 上下文-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -24,7 +27,7 @@
     </filter>
     <filter-mapping>
         <filter-name>SpringEncodingFilter</filter-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <!--配置spring容器监听器-->
@@ -44,12 +47,29 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
+
+    <!--会话超时配置（单位为分钟）-->
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
 
     <!--配置首页-->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
     </welcome-file-list>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/500.html</location>
+    </error-page>
 
 </web-app>

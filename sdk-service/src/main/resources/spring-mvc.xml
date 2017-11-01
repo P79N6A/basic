@@ -64,8 +64,8 @@
         <property name="contentType" value="text/html;charset=UTF-8"/>
         <property name="cache" value="true"/>
         <property name="suffix" value=".vm"/>
-        <property name="exposeSpringMacroHelpers" value="true" /><!--是否使用spring对宏定义的支持-->
-        <property name="exposeSessionAttributes" value="true" /><!--是否开放request属性-->
+        <property name="exposeSpringMacroHelpers" value="true"/><!--是否使用spring对宏定义的支持-->
+        <property name="exposeSessionAttributes" value="true"/><!--是否开放request属性-->
         <property name="exposeRequestAttributes" value="true"/>
         <property name="requestContextAttribute" value="request"/><!--request属性引用名称-->
         <property name="dateToolAttribute" value="dateTool"/>
@@ -77,4 +77,10 @@
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/view/" p:suffix=".jsp"/>
 
+    <!--配置静态资源-->
+    <mvc:resources location="/images/" mapping="/image/**"></mvc:resources>
+    <mvc:resources location="/fonts/" mapping="/fonts/**"></mvc:resources>
+    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+    <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+    <mvc:resources location="/video/" mapping="/video/**"></mvc:resources>
 </beans>
