@@ -4,7 +4,7 @@
        xmlns:rabbit="http://www.springframework.org/schema/rabbit"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/rabbit
-        http://www.springframework.org/schema/rabbit/spring-rabbit-1.7.xsd"
+        http://www.springframework.org/schema/rabbit/spring-rabbit-1.6.xsd"
        default-lazy-init="false">
 
     <bean id="propertyPlaceholderConfigurer"

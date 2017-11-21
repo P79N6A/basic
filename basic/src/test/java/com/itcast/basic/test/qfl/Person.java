@@ -5,7 +5,7 @@ package com.itcast.basic.test.qfl;
  */
 public class Person {
 
-    private  int id;
+    private int id;
 
     private String name;
 
@@ -45,13 +45,35 @@ public class Person {
         this.age = age;
     }
 
+    public Person(EventSource source) {
+        System.out.println("enter not param Person");
+        source.registerListener(new EventListener() {
+            public void onEvent() {
+                doSomething();
+            }
+        });
+    }
+
     public Person(int id, String name, char sex, int age) {
+        System.out.println("enter  params Person");
         this.id = id;
         this.name = name;
         this.sex = sex;
         this.age = age;
     }
 
+    void doSomething() {
+        System.out.println("enter doSomething Person");
+    }
+
+
+    interface EventSource {
+        void registerListener(EventListener e);
+    }
+
+    interface EventListener {
+        void onEvent();
+    }
 
     @Override
     public String toString() {
