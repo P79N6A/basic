@@ -1,28 +1,179 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.itcast.sdk</groupId>
-  <artifactId>sdk-api</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <groupId>com.itcast.sdk</groupId>
+    <artifactId>sdk-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <name>sdk-api</name>
-  <url>http://maven.apache.org</url>
+    <name>sdk-api</name>
+    <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- spring版本号 -->
+        <spring.version>4.3.11.RELEASE</spring.version>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.4.1</mybatis.version>
+        <!--hibernate版本号-->
+        <hibernate.version>3.5.4-Final</hibernate.version>
+        <!---->
+        <hibernate.core.version>5.2.10.Final</hibernate.core.version>
+        <!--jackson版本号-->
+        <jackson.version>2.6.0</jackson.version>
+        <!--mysql 连接驱动版本号-->
+        <mysql.connector.version>5.1.38</mysql.connector.version>
+        <!--rabbit-client版本号-->
+        <amqp.client.version>3.5.3</amqp.client.version>
+        <!--spring-rabbit版本号-->
+        <spring.rabbit.version>1.6.0.RELEASE</spring.rabbit.version>
+        <!--cglib版本号-->
+        <cglib.version>3.2.4</cglib.version>
+        <!--aspectjweaver版本号-->
+        <aspectjweaver.version>1.6.10</aspectjweaver.version>
+        <!--aspectjrt版本号-->
+        <aspectjrt.version>1.6.0</aspectjrt.version>
+        <!--aopalliance版本号-->
+        <aopalliance.version>1.0</aopalliance.version>
+        <!--配置分布式事务atomikos版本号-->
+        <atomikos.version>4.0.4</atomikos.version>
+        <!--配置spring-data-redis版本号-->
+        <spring.data.redis.version>1.6.2.RELEASE</spring.data.redis.version>
+        <!--配置jedis版本号-->
+        <jedis.version>2.0.0</jedis.version>
+        <!--配置mail版本号-->
+        <mail.version>1.4.7</mail.version>
+        <!--配置ftp版本号-->
+        <ftp.version>3.6</ftp.version>
+        <!--配置sftp版本号-->
+        <sftp.version>0.1.54</sftp.version>
+        <!--配置mongodb版本号-->
+        <mongodb.version>1.10.7.RELEASE</mongodb.version>
+        <!--配置mongodb驱动版本号-->
+        <mongodb.driver.version>3.5.0</mongodb.driver.version>
+        <!--配置quartz版本号-->
+        <quartz.version>2.3.0</quartz.version>
+        <!--配置hessian版本号-->
+        <hessian.version>4.0.38</hessian.version>
+        <!--配置servlet-api版本号-->
+        <servlet.version>2.5</servlet.version>
+        <!--配置burla版本号-->
+        <!--<burlap.version>2.1.12</burlap.version>-->
+        <!--配置codec版本号-->
+        <codec.version>1.10</codec.version>
+        <!--配置httpclient版本号-->
+        <httpclient.version>3.1</httpclient.version>
+        <!--配置freemarker版本号-->
+        <freemarker.version>2.3.23</freemarker.version>
+        <!--配置velocity版本号-->
+        <velocity.version>1.7</velocity.version>
+        <!--配置velocity-tools版本号-->
+        <velocity.tools.verson>2.0</velocity.tools.verson>
+        <!--配置zkClient版本号-->
+        <zkClient.version>0.10</zkClient.version>
+        <!--配置zk版本号-->
+        <zk.version>3.4.10</zk.version>
+        <!--配置dubbo版本号-->
+        <dubbo.version>2.5.3</dubbo.version>
+        <!--配置common版本号-->
+        <common.version>1.6</common.version>
+        <!--配置thrift版本号-->
+        <thrift.version>0.9.3</thrift.version>
+        <!--配置jetty版本号-->
+        <jetty.version>7.0.0.pre5</jetty.version>
+        <!--配置hibernate-validator版本号-->
+        <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
+        <!--配置validation-api版本号-->
+        <validation.api.version>1.1.0.Final</validation.api.version>
+        <!--配置javax.el-api版本号-->
+        <javax.el.api.version>3.0.0</javax.el.api.version>
+        <!--配置javax.el版本号-->
+        <javax.el.version>2.2.6</javax.el.version>
+        <!-- log4j日志文件管理包版本 -->
+        <!--<slf4j.version>1.7.7</slf4j.version>-->
+        <!--<log4j.version>1.2.17</log4j.version>-->
+        <!--<cxf.version>3.1.1</cxf.version>-->
+        <!--<jstl.version>1.2</jstl.version>-->
+        <!--<org.apache.shiro.version>1.2.4</org.apache.shiro.version>-->
+    </properties>
 
-  <dependencies>
+    <dependencies>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
 
+        <!--配置dubbo-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-  </dependencies>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zk.version}</version>
+            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkClient.version}</version>
+            <!--<exclusions>-->
+            <!--<exclusion>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--</exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>${common.version}</version>
+        </dependency>
+        <!--配置dubbo-->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.2.17.RELEASE</version>
+        </dependency>
+
+    </dependencies>
 </project>

@@ -77,6 +77,18 @@
         <dubbo.version>2.5.3</dubbo.version>
         <!--配置common版本号-->
         <common.version>1.6</common.version>
+        <!--配置thrift版本号-->
+        <thrift.version>0.9.3</thrift.version>
+        <!--配置jetty版本号-->
+        <jetty.version>7.0.0.pre5</jetty.version>
+        <!--配置hibernate-validator版本号-->
+        <hibernate.validator.version>5.4.1.Final</hibernate.validator.version>
+        <!--配置validation-api版本号-->
+        <validation.api.version>1.1.0.Final</validation.api.version>
+        <!--配置javax.el-api版本号-->
+        <javax.el.api.version>3.0.0</javax.el.api.version>
+        <!--配置javax.el版本号-->
+        <javax.el.version>2.2.6</javax.el.version>
         <!-- log4j日志文件管理包版本 -->
         <!--<slf4j.version>1.7.7</slf4j.version>-->
         <!--<log4j.version>1.2.17</log4j.version>-->
@@ -108,7 +120,50 @@
         <!--<artifactId>burlap</artifactId>-->
         <!--<version>2.1.12</version>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>${javax.el.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>${javax.el.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation.api.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-threadpool</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>${thrift.version}</version>
+            <type>pom</type>
+        </dependency>
 
         <!--配置dubbo-->
         <dependency>
@@ -157,10 +212,10 @@
             <artifactId>zkclient</artifactId>
             <version>${zkClient.version}</version>
             <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>log4j</groupId>-->
-                    <!--<artifactId>log4j</artifactId>-->
-                <!--</exclusion>-->
+            <!--<exclusion>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--</exclusion>-->
             <!--</exclusions>-->
         </dependency>
 

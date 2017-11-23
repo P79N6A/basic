@@ -13,7 +13,9 @@
     <!--dubbo:application节点用来声明dubbo节点名称 必须存在-->
     <dubbo:application name="dubbo_prodiver"/>
     <!--dubbo:registry用于配置dubbo注册中心 必填-->
-    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="true"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="true" dynamic="false"/>
+    <!--dubbo提供者默认配置 retries失败重试次数 cluster集群策略 loadbalance负载均衡策略 threadpool和threads线程模型配置 -->
+    <!--<dubbo:provider retries="2" cluster="failover" loadbalance="random" threadpool="fixed" threads="100"/>-->
     <!--<dubbo:registry address="redis://127.0.0.1:6379" check="true"/>-->
     <dubbo:protocol name="dubbo" port="20880"/>
     <!---->
