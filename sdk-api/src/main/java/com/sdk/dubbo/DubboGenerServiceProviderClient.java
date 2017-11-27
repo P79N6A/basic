@@ -10,7 +10,7 @@ public class DubboGenerServiceProviderClient {
     public static void main(String[] args){
         try {
             System.out.println("enter into DubboGenerServiceProviderClient");
-            ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{"dubbo/provider.xml"});
+            ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{"spring/spring.xml"});
             String lock = "lock";
             synchronized (lock) {
                 lock.wait();

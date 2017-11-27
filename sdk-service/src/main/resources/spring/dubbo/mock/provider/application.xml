@@ -6,14 +6,15 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-
+    <!--引入ben-->
+    <bean id="updateService"
+          class="com.itcast.basic.spring.dubbo.mock.impl.UpdateServiceImpl"/>
     <!--dubbo:application节点用来声明dubbo节点名称 必须存在-->
-    <dubbo:application name="dubbo_consumer"/>
+    <dubbo:application name="dubbo_provider"/>
     <!--dubbo:registry用于配置dubbo注册中心 必填-->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
 
     <!--暴露服务-->
-    <dubbo:reference interface="com.sdk.service.IDubboGenerService"
-                   id="generService"/>
-
+    <dubbo:service interface="com.itcast.basic.spring.dubbo.mock.service.UpdateService"
+                   ref="updateService"/>
 </beans>
