@@ -1,0 +1,15 @@
+package com.itcast.basic.designpatterntype.chain.impl;
+
+import com.itcast.basic.designpatterntype.chain.service.AbstractLogger;
+
+public class ErrorLogger extends AbstractLogger {
+
+    public ErrorLogger(int level) {
+        this.level = level;
+    }
+
+    @Override
+    protected void write(String message) {
+        System.out.println("Error Console::Logger: " + message);
+    }
+}
