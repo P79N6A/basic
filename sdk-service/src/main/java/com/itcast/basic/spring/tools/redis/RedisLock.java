@@ -6,10 +6,12 @@ import org.springframework.data.redis.core.RedisTemplate;
  * Created by treey.qian on 2017/10/23.
  */
 public class RedisLock {
-    private RedisTemplate redisTemplate;
-    private String lockKey;
-    private volatile boolean locked = false;
-    private final int DEFAULT_ACQUIRY_RESOLUTION_MILLIS = 100;
+
+    /**
+     * 延迟时间
+     */
+    private final long DEFAULT_ACQUIRY_RESOLUTION_MILLIS = 10 * 1000;
+
     /**
      * 锁超时时间，防止线程在入锁以后，无限的执行等待
      */
@@ -18,71 +20,48 @@ public class RedisLock {
     /**
      * 锁等待时间，防止线程饥饿
      */
-    private int timeoutMsecs = 10 * 1000;
+    private long timeoutMsecs = 60 * 100 * 1000;
+
+    private volatile boolean locked = false;
+
+    private static RedisTemplate redisTemplate;
+    private static String lockKey;
+
+    public RedisLock(RedisTemplate redisTemplate, String lockKey) {
+        this.redisTemplate = redisTemplate;
+        this.lockKey = lockKey;
+    }
 
     public RedisLock(RedisTemplate redisTemplate, String lockKey, long lockTimeValue) {
         this.redisTemplate = redisTemplate;
         this.lockKey = lockKey;
         this.lockTimeValue = lockTimeValue;
+        this.timeoutMsecs = (lockTimeValue > timeoutMsecs ? lockTimeValue : timeoutMsecs);
     }
 
-    public RedisLock(RedisTemplate redisTemplate, String lockKey, long lockTimeValue, int timeoutMsecs) {
-        this.redisTemplate = redisTemplate;
-        this.lockKey = lockKey;
-        this.lockTimeValue = lockTimeValue;
-        this.timeoutMsecs = timeoutMsecs;
+    //多线程获取不同时间戳
+    private Long currentTimeMillis() {
+        return redisTemplate.getConnectionFactory().getConnection().time();
     }
 
-    public RedisLock() {
-    }
-
-    public RedisTemplate getRedisTemplate() {
-        return redisTemplate;
-    }
-
-    public void setRedisTemplate(RedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
-
-    public String getLockKey() {
-        return lockKey;
-    }
-
-    public void setLockKey(String lockKey) {
-        this.lockKey = lockKey;
-    }
-
-    public long getLockTimeValue() {
-        return lockTimeValue;
-    }
-
-    public void setLockTimeValue(long lockTimeValue) {
-        this.lockTimeValue = lockTimeValue;
-    }
-
-    public synchronized boolean lock() throws InterruptedException {
-        int timeout = timeoutMsecs;
+    public synchronized boolean lockWithExpire() throws InterruptedException {
+        long timeout = timeoutMsecs;
         while (timeout >= 0) {
-            String expiresStr = System.currentTimeMillis() + lockTimeValue + 1 + "";
-            if (redisTemplate.opsForValue().setIfAbsent(lockKey, expiresStr)) {
-                // redis为单进程单线程模型 此处不存在并发问题
+            String expiresValue = new StringBuilder().append(currentTimeMillis() + lockTimeValue).toString();
+            if (redisTemplate.opsForValue().setIfAbsent(lockKey, expiresValue)) {
                 locked = true;
                 return true;
             }
-
-            Object currentValueStr = redisTemplate.opsForValue().get(lockKey); //redis为单进程单线程模型 此处不存在并发问题
-            if (currentValueStr != null && Long.parseLong(currentValueStr.toString()) < System.currentTimeMillis()) {//会存在多个线程满足次条件进入if代码块
-                //判断是否为空，不为空的情况下，如果被其他线程设置了值，则第二个条件判断是过不去的
-                expiresStr = System.currentTimeMillis() + lockTimeValue + 1 + "";
-                Object oldValueStr = redisTemplate.opsForValue().getAndSet(lockKey, expiresStr);//redis为单进程单线程模型 此处不存在并发问题 若2个线程同时到达此处 则2个线程设置的
-                //获取上一个锁到期时间，并设置现在的锁到期时间，
-                if (oldValueStr != null && oldValueStr.equals(currentValueStr.toString())) {
+            Object expiresValueObject = redisTemplate.opsForValue().get(lockKey);
+            if (expiresValueObject != null && Long.parseLong(expiresValueObject.toString()) < currentTimeMillis()) {
+                expiresValue = new StringBuilder().append(currentTimeMillis() + lockTimeValue).toString();
+                Object oldexpiresValue = redisTemplate.opsForValue().getAndSet(lockKey, expiresValue);
+                if (oldexpiresValue != null && oldexpiresValue.toString().equals(expiresValueObject.toString())) {
                     locked = true;
                     return true;
                 }
             }
             timeout -= DEFAULT_ACQUIRY_RESOLUTION_MILLIS;
-
             /*
                 延迟100 毫秒,  这里使用随机时间可能会好一点,可以防止饥饿进程的出现,即,当同时到达多个进程,
                 只会有一个进程获得锁,其他的都用同样的频率进行尝试,后面有来了一些进行,也以同样的频率申请锁,这将可能导致前面来的锁得不到满足.
@@ -91,6 +70,29 @@ public class RedisLock {
             Thread.sleep(DEFAULT_ACQUIRY_RESOLUTION_MILLIS);
         }
         return false;
+    }
+
+    public synchronized boolean lock() {
+        while (!locked) {
+            String lockValue = currentTimeMillis().toString();
+            // redis为单进程单线程模型 redisTemplate.opsForValue().setIfAbsent(lockKey, lockValue) 不存在并发问题
+            if (redisTemplate.opsForValue().setIfAbsent(lockKey, lockValue)) {
+                locked = true;
+            }
+            //redis为单进程单线程模型 redisTemplate.opsForValue().get(lockKey) 不存在并发问题
+            Object lockValueObject = redisTemplate.opsForValue().get(lockKey);
+            //判断锁是否过期
+            //多节点存在同时满足lockValueObject != null && Long.parseLong(lockValueObject.toString()) < currentTimeMillis() 条件进入if代码块
+            if (lockValueObject != null && Long.parseLong(lockValueObject.toString()) < currentTimeMillis()) {
+                lockValue = currentTimeMillis().toString();
+                Object oldValueObject = redisTemplate.opsForValue().getAndSet(lockKey, lockValue);
+                //判断是否为空，不为空的情况下，如果被其他线程设置了值，则第二个条件判断是过不去的
+                if (oldValueObject != null && oldValueObject.toString().equals(lockValueObject.toString())) {
+                    locked = true;
+                }
+            }
+        }
+        return locked;
     }
 
     public synchronized void unlock() {
