@@ -76,12 +76,136 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
 
     public synchronized void midOrderDispaly() {
         //左根右
-
+        StringBuilder stringBuilder = new StringBuilder();
+        midOrderDispaly(stringBuilder, root);
+        System.out.println("midOrderDispaly tree is " + stringBuilder.substring(0, stringBuilder.lastIndexOf("-->")).toString());
     }
+
+    private void midOrderDispaly(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+            //遍历左子树
+            if (parent.left != null) {
+                midOrderDispaly(stringBuilder, parent.left);
+            }
+
+            stringBuilder.append(parent.getData());
+            stringBuilder.append(" --> ");
+            //遍历右子树
+            if (parent.right != null) {
+                midOrderDispaly(stringBuilder, parent.right);
+            }
+        }
+    }
+
 
     public synchronized void postOrderDispaly() {
         //左右根
+        StringBuilder stringBuilder = new StringBuilder();
+        postOrderDispaly(stringBuilder, root);
+        System.out.println("postOrderDispaly tree is " + stringBuilder.substring(0, stringBuilder.lastIndexOf("-->")).toString());
+    }
 
+    private void postOrderDispaly(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+
+            //遍历左子树
+            if (parent.left != null) {
+                postOrderDispaly(stringBuilder, parent.left);
+            }
+
+            //遍历右子树
+            if (parent.right != null) {
+                postOrderDispaly(stringBuilder, parent.right);
+            }
+
+            stringBuilder.append(parent.getData()).append(" --> ");
+
+        }
+    }
+
+    public synchronized boolean removeNode(T data) {
+        if (data == null) {
+            throw new IllegalArgumentException("data is not valid");
+        }
+        if (!delNode(data, root)) {
+            throw new IllegalArgumentException("data is not exists");
+        }
+        return true;
+    }
+
+    private boolean delNode(T data, Node parent) {
+        if (data != null && parent != null) {
+            Object nodeData = parent.getData();
+            int result = data.compareTo(nodeData);
+            if (result > 0) {
+                return delNode(data, parent.right);
+            } else if (result < 0) {
+                return delNode(data, parent.left);
+            } else {
+
+                if (parent.left == null && parent.right == null) {
+                    //不存在子树
+                    Node delParent = parent.parent;
+                    if (delParent.left != null && delParent.left.getData().equals(data)) {
+                        delParent.left = null;
+                    } else if (delParent.right != null && delParent.right.getData().equals(data)) {
+                        delParent.right = null;
+                    }
+                    parent.parent = null;
+                    size--;
+                } else if (parent.left != null && parent.right != null) {
+                    //左右子树均存在(取左子树最大值或右子树最小值)
+                    Object swapData = findSwapNode(parent.left, "right");
+//                    Object swapData = findSwapNode(parent.right, "left");
+                    parent.data = (T) swapData;
+                    size--;
+                } else if (parent.left != null) {
+                    //存在左子树
+                    Node delParent = parent.parent;
+                    if (delParent.left != null && delParent.left.getData().equals(data)) {
+                        delParent.left = parent.left;
+                    } else if (delParent.right != null && delParent.right.getData().equals(data)) {
+                        delParent.right = parent.left;
+                    }
+                    parent.left.parent = delParent;
+                    parent.left = null;
+                    size--;
+                } else if (parent.right != null) {
+                    //存在右子树
+                    Node delParent = parent.parent;
+                    if (delParent.left != null && delParent.left.getData().equals(data)) {
+                        delParent.left = parent.right;
+                    } else if (delParent.right != null && delParent.right.getData().equals(data)) {
+                        delParent.right = parent.right;
+                    }
+                    parent.right.parent = delParent;
+                    parent.right = null;
+                    size--;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Object findSwapNode(Node parent, String flag) {
+        if ("left".equalsIgnoreCase(flag)) {
+            if (parent.left == null) {
+                parent.parent.right = null;
+                parent.parent = null;
+                return parent.getData();
+            } else {
+                return findSwapNode(parent.left, flag);
+            }
+        } else {
+            if (parent.right == null) {
+                parent.parent.left = null;
+                parent.parent = null;
+                return parent.getData();
+            } else {
+                return findSwapNode(parent.right, flag);
+            }
+        }
     }
 
     public synchronized int size() {
@@ -95,15 +219,6 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         } else {
             return "tree has no nodes";
         }
-    }
-
-    public synchronized boolean removeNode(T data) {
-        if (data == null) {
-            throw new IllegalArgumentException("data is not valid");
-        }
-        boolean isSuccess = true;
-
-        return isSuccess;
     }
 
     private class Node {
