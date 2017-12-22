@@ -19,8 +19,8 @@ public class TwoTreeClient {
             integerDataTwoTree.addNode(5);
             integerDataTwoTree.addNode(9);
             integerDataTwoTree.addNode(4);
-//            integerDataTwoTree.addNode(6);
-//            integerDataTwoTree.addNode(7);
+            integerDataTwoTree.addNode(6);
+            integerDataTwoTree.addNode(7);
             integerDataTwoTree.addNode(11);
 //            Random random = new Random();
 //            for (int i = 0; i < 10; i++) {
