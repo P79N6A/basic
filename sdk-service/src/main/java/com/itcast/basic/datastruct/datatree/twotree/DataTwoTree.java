@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by treey.qian on 2017/12/11.
+ * 二叉排序树
  */
 public class DataTwoTree<T extends Comparable> implements Serializable {
     private Node root;
