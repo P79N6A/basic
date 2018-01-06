@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/rabbit
+        http://www.springframework.org/schema/rabbit/spring-rabbit-1.3.xsd"
+       default-lazy-init="false">
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:/spring/tools/rabbitmq/rabbitmq.properties</value>
+        </property>
+    </bean>
+
+    <bean id="orderCustomer" class="com.itcast.basic.spring.tools.rabbitmq.queuecustomer.OrderCustomer"/>
+
+    <!--rabbitmq 连接工厂-->
+    <rabbit:connection-factory id="connectionFactory"
+                               host="${rabbitmq.server}" port="${rabbitmq.port}"
+                               channel-cache-size="${rabbitmq.channelcachesize}"
+                               username="${rabbitmq.username}" password="${rabbitmq.password}"
+                               requested-heartbeat="${rabbitmq.heartbeat}" virtual-host="/"/>
+    <!--rabbitmq 用户-->
+    <rabbit:admin connection-factory="connectionFactory"/>
+    <!--队列参数详解:
+                   durable  队列是否持久化
+                   exclusive  当前连接不在时，队列是否自动删除
+                   aoto_delete 没有consumer时，队列是否自动删除-->
+    <rabbit:queue id="orderQueue" name="orderQueue" auto-delete="false" durable="true" exclusive="false">
+        <rabbit:queue-arguments>
+            <entry key="x-max-priority">
+                <value type="java.lang.Long">5000</value>
+            </entry>
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+
+    <rabbit:direct-exchange name="orderExchange" auto-delete="false" durable="true" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="orderQueue" key="pro.order.process"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:listener-container acknowledge="manual" connection-factory="connectionFactory" concurrency="1">
+        <rabbit:listener queues="orderQueue" ref="orderCustomer"/>
+    </rabbit:listener-container>
+
+    <rabbit:template id="orderAmqpTemplate" exchange="orderExchange" message-converter="jsonMessageConverter"
+                     connection-factory="connectionFactory"/>
+    <!--消息对象转换器-->
+    <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"/>
+</beans>

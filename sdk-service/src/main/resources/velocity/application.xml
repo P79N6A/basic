@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd"
+       default-lazy-init="true">
+
+    <!-- velocity环境配置 -->
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <!-- velocity配置文件路径  或者直接用velocityProperties属性 -->
+        <property name="configLocation" value="classpath:velocity/velocity.properties"/>
+        <!-- velocity模板路径 -->
+        <property name="resourceLoaderPath" value="/WEB-INF/view/velocity"/>
+    </bean>
+</beans>

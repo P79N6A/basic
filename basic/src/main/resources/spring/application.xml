@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="helloWorld" class="com.itcast.basic.spring.spring.example3.HelloWorld">
+        <constructor-arg ref="fileHello"/>
+    </bean>
+
+
+    <bean id="fileHello" class="com.itcast.basic.spring.spring.example3.FileHelloStr">
+        <constructor-arg index="1">
+            <value>spring/helloWorld.properties</value>
+        </constructor-arg>
+
+        <constructor-arg index="0">
+            <value>helloworld2</value>
+        </constructor-arg>
+    </bean>
+
+</beans>

@@ -1,0 +1,6 @@
+安装rabbitmq_delayed_message_exchange插件实现延迟队列
+https://dl.bintray.com/rabbitmq/community-plugins/
+首先到http://www.rabbitmq.com/community-plugins.html网页下载适合的“rabbitmq_delayed_message_exchange插件”。
+下载完成后将它放到RabbitMQ插件安装目录（{rabbitmq-server}/plugins/），
+然后执行命令rabbitmq-plugins enable rabbitmq_delayed_message_exchange启用插件，
+执行命令rabbitmq-plugins disable rabbitmq_delayed_message_exchange也可以关闭插件

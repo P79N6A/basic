@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="person" class="com.itcast.basic.spring.ioc.bean.inherit.Person">
+        <property name="name" value="lily"/>
+        <property name="age" value="22"/>
+        <property name="sex" value="w"/>
+    </bean>
+
+    <!--
+     继承父bean
+    -->
+    <bean id="student" parent="person">
+        <property name="name" value="lucy"/>
+    </bean>
+
+</beans>

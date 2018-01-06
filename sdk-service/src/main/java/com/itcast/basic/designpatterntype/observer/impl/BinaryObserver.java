@@ -1,0 +1,18 @@
+package com.itcast.basic.designpatterntype.observer.impl;
+
+import com.itcast.basic.designpatterntype.observer.Subject;
+import com.itcast.basic.designpatterntype.observer.service.Observer;
+
+public class BinaryObserver extends Observer {
+
+    public BinaryObserver(Subject subject) {
+        this.subject = subject;
+        this.subject.attach(this);
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Binary String: "
+                + Integer.toBinaryString(subject.getState()));
+    }
+}

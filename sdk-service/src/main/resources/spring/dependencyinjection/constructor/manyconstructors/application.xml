@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!--多个构造器注入时 type默认是String -->
+    <bean id="student" class="com.itcast.basic.spring.ioc.dependencyinjection.constructor.manyconstructors.Human">
+        <constructor-arg index="0" value="2011416843"/>
+        <!--<constructor-arg index="0" value="2011416843" type="long"/>-->
+    </bean>
+
+    <!--内部类-->
+    <bean id="inner"
+          class="com.itcast.basic.spring.ioc.dependencyinjection.constructor.manyconstructors.Human$InnerInfo">
+        <constructor-arg index="0" ref="student"></constructor-arg>
+        <property name="name" value="innerClass"/>
+    </bean>
+
+    <!--静态内部类-->
+    <bean id="staticInnerInfo"
+          class="com.itcast.basic.spring.ioc.dependencyinjection.constructor.manyconstructors.Human$StaticInnerInfo">
+        <property name="name" value="StaticInnerClass"/>
+    </bean>
+
+</beans>

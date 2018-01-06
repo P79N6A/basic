@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="beanPostProcessorTool" class="com.itcast.basic.spring.ioc.beanlifecycle.BeanPostProcessorTool"/>
+
+    <bean id="instantiationAwareBeanPostProcessorTool"
+          class="com.itcast.basic.spring.ioc.beanlifecycle.InstantiationAwareBeanPostProcessorTool"/>
+
+    <bean id="beanFactoryPostProcessorTool"
+          class="com.itcast.basic.spring.ioc.beanlifecycle.BeanFactoryPostProcessorTool"/>
+
+
+    <bean id="plainOldBean" class="com.itcast.basic.spring.ioc.beanlifecycle.PlainOldBean" init-method="initMethod"
+          destroy-method="destroyMethod">
+        <property name="name" value="plainOldBean"/>
+    </bean>
+
+</beans>

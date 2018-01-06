@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="savePersonProxy" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:8080/sdk-service/hessianExport</value>
+        </property>
+        <property name="serviceInterface" value="com.itcast.basic.spring.rmi.api.SavePerson"/>
+    </bean>
+
+    <bean id="burlapServiceExporter" class="org.springframework.remoting.caucho.BurlapProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:8080/sdk-service/burlapServiceExporter</value>
+        </property>
+        <property name="serviceInterface" value="com.itcast.basic.spring.rmi.api.SavePerson"/>
+    </bean>
+
+    <bean id="httpInvokerProxyFactoryBean" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl">
+            <value>http://localhost:8080/sdk-service/burlapServiceExporter</value>
+        </property>
+        <property name="serviceInterface" value="com.itcast.basic.spring.rmi.api.SavePerson"/>
+    </bean>
+
+</beans>

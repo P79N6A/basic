@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+           http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.6.xsd">
+
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:/spring/tools/rabbitmq/rabbitmq.properties</value>
+        </property>
+    </bean>
+
+    <!--rabbitmq 连接工厂-->
+    <rabbit:connection-factory id="connectionFactory"
+                               host="${rabbitmq.server}" port="${rabbitmq.port}"
+                               channel-cache-size="${rabbitmq.channelcachesize}"
+                               username="${rabbitmq.username}" password="${rabbitmq.password}"
+                               requested-heartbeat="${rabbitmq.heartbeat}"/>
+    <!--rabbitmq 用户-->
+    <rabbit:admin connection-factory="connectionFactory"/>
+    <!--延迟队列-->
+    <rabbit:queue id="delayMessageQueue" name="delayMessageQueue" auto-delete="false" durable="true" exclusive="false"/>
+    <!--延迟exchange配置-->
+    <rabbit:direct-exchange name="delayExchange" delayed="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="delayMessageQueue" key="delay.message.process"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    <!--消息发送器模板-->
+    <rabbit:template id="delayAmqpTemplate" exchange="delayExchange" message-converter="jsonMessageConverter"
+                     connection-factory="connectionFactory"/>
+    <!--消息对象转换器-->
+    <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"/>
+</beans>

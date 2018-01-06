@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <bean id="personService" class="com.itcast.basic.spring.dubbo.configdetail.prodiver.PersonServiceImpl"/>
+    <bean id="humService" class="com.itcast.basic.spring.dubbo.configdetail.prodiver.HumServiceImpl"/>
+
+    <!--dubbo:application节点用来声明dubbo节点名称 必须存在-->
+    <dubbo:application name="dubbo_prodiver"/>
+    <!--dubbo:registry用于配置dubbo注册中心 必填-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="true" dynamic="false"/>
+    <!--dubbo提供者默认配置 retries失败重试次数 cluster集群策略 loadbalance负载均衡策略 threadpool和threads线程模型配置 -->
+    <!--<dubbo:provider retries="2" cluster="failover" loadbalance="random" threadpool="fixed" threads="100"/>-->
+    <!--<dubbo:registry address="redis://127.0.0.1:6379" check="true"/>-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <!---->
+    <dubbo:service interface="com.itcast.basic.spring.dubbo.configdetail.service.SaveService" ref="personService"
+                   group="person"/>
+
+    <dubbo:service interface="com.itcast.basic.spring.dubbo.configdetail.service.SaveService" ref="humService"
+                   group="hum"/>
+
+</beans>

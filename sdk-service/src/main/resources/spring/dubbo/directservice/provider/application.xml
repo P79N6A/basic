@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--引入测试ben-->
+    <bean id="saveService" class="com.itcast.basic.spring.dubbo.directservice.provider.PersonSave"/>
+    <!--引入dubbo配置-->
+    <import resource="classpath*:spring/dubbo/directservice/spring.xml"/>
+    <!--dubbo:application节点用来声明dubbo节点名称 必须存在-->
+    <dubbo:application name="${dubbo.name}"/>
+    <!--dubbo:registry用于配置dubbo注册中心 必填-->
+    <dubbo:registry address="${dubbo.address}"/>
+    <!--指定dubbo 暴露服务的端口-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <dubbo:service interface="com.itcast.basic.spring.dubbo.directservice.service.SaveService" ref="saveService"/>
+
+</beans>

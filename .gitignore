@@ -1,1 +1,10 @@
 /basic/*.iml
+/basic/target
+/.idea
+/sdk-service/*.iml
+/sdk-service/target
+/sdk-api/*.iml
+/sdk-api/target
+/.idea/modules.xml
+/.idea/encodings.xml
+/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
