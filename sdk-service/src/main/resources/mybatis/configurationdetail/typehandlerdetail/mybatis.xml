@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置类型别名-->
+    <typeAliases>
+        <typeAlias alias="user" type="com.itcast.basic.mybatis.configurationdetail.typehandlerdetail.model.User"/>
+    </typeAliases>
+
+    <!--type handler 此处指定javaType属性或者在mapper文件中指定字段的typehandler 方可生效-->
+    <typeHandlers>
+        <typeHandler
+                handler="com.itcast.basic.mybatis.configurationdetail.typehandlerdetail.typehandler.SimpleStringTypeHandler"
+                javaType="java.lang.String"/>
+        <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"
+                     javaType="com.itcast.basic.mybatis.configurationdetail.typehandlerdetail.model.Sex"
+                     jdbcType="INTEGER"/>
+
+        <!--<typeHandler handler="org.apache.ibatis.type.EnumTypeHandler"-->
+        <!--javaType="com.itcast.basic.mybatis.configurationdetail.typehandlerdetail.model.Sex"-->
+        <!--jdbcType="VARCHAR"/>-->
+    </typeHandlers>
+
+    <!--结果集实例初始化工厂-->
+    <objectFactory
+            type="com.itcast.basic.mybatis.configurationdetail.typehandlerdetail.objectfactory.SimpleObjectFactory"/>
+
+
+    <!--数据库环境信息设置-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--
+                连接数据库
+                -->
+                <property name="url" value="jdbc:mysql://localhost:3306/tongzhuwang"/>
+                <!--
+                数据库用户名
+                -->
+                <property name="username" value="root"/>
+                <!--
+                 数据库密码
+                -->
+                <property name="password" value="a123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--配置自定义数据库厂家标识提供者-->
+    <databaseIdProvider type="com.itcast.basic.mybatis.configurationdetail.typehandlerdetail.SimpleDatabaseIdProvider">
+        <property name="SQL Server" value="sqlserver"/>
+        <property name="MySQL" value="mysql"/>
+        <property name="DB2" value="db2"/>
+        <property name="Oracle" value="oracle"/>
+    </databaseIdProvider>
+
+    <!--mapper映射器-->
+    <mappers>
+        <mapper resource="mybatis/configurationdetail/typehandlerdetail/user.xml"/>
+    </mappers>
+</configuration>
