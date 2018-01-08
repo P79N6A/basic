@@ -1,1 +1,24 @@
 本包演示mybatis
+mybatis四大组件
+sqlsessionfactorybuilder 初始化sqlsessionfactory
+sqlsessionfactory 全局唯一(单例模式) 初始化sqlsession
+sqlsession 初始化sqlmapper
+sqlmapper 执行sql语句
+
+mybatis配置文件中节点配置顺序为
+<configuration>
+    <properties/>配置属性
+    <settings/>配置设置
+    <typeAliases/>配置类型别名
+    <typeHandlers/>配置类型处理器
+    <objectFactory/>配置对象工厂用来实例化结果对象
+    <plugins/>配置插件
+    <environments>配置环境
+       <environment>配置环境变量
+          <transactionManager/>配置数据库事务管理器
+          <dataSource/>配置数据源
+       </environment>
+    </environments>
+    <databaseIdProvider/>配置数据库厂商标识
+    <mappers/>配置映射器
+</configuration>
