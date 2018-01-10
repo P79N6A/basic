@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.mapperdetail.resultmapdetail.service.StudentMapper">
+
+    <resultMap id="studentResultMap" type="Student">
+        <constructor>
+            <idArg column="id" javaType="long"/>
+            <arg column="name" javaType="string"/>
+            <arg column="sex" javaType="sex"/>
+            <arg column="number" javaType="string"/>
+            <arg column="school_name" javaType="string"/>
+        </constructor>
+    </resultMap>
+
+    <sql id="columns">
+        id,name,school_name,number,sex
+    </sql>
+
+    <select id="selectUserById" resultMap="studentResultMap">
+        select
+        <include refid="columns"/>
+        from student where id = #{id}
+    </select>
+
+
+    <sql id="columnsAlias">
+        ${prefix}.id, ${prefix}.name, ${prefix}.school_name, ${prefix}.number, ${prefix}.sex
+    </sql>
+
+
+    <select id="selectUserAliasById" resultMap="studentResultMap">
+        select
+        <include refid="columnsAlias">
+            <property name="prefix" value="s"/>
+        </include>
+        from student s where id = #{id}
+    </select>
+
+    <select id="selectMapById" resultType="map">
+        select
+        *
+        from student where id = #{id}
+    </select>
+
+</mapper>
