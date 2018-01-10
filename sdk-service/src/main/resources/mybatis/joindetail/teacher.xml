@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.joindetail.service.TeacherMapper">
+
+    <sql id="columns">
+        name,sex,school_name
+    </sql>
+
+    <resultMap id="teacherResultMap" type="Teacher">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="school_name" property="schoolName"/>
+        <association column="id" property="teacherCard"
+                     select="com.itcast.basic.mybatis.joindetail.service.TeacherCardMapper.selectTeacherCardByTeacherId"/>
+        <collection column="id" property="lessons"
+                    select="com.itcast.basic.mybatis.joindetail.service.LessonMapper.selectLessonByTeacherId"/>
+        <discriminator column="sex" javaType="com.itcast.basic.mybatis.joindetail.model.Sex">
+            <case value="MAN" resultMap="manTeacherHealthMap"/>
+            <case value="WOMAN" resultMap="femaleTeacherHealthMap"/>
+        </discriminator>
+    </resultMap>
+
+    <resultMap id="femaleTeacherHealthMap" type="Teacher" extends="teacherResultMap">
+        <association property="teacherHealth" column="id"
+                     select="com.itcast.basic.mybatis.joindetail.service.TeacherHealthMapper.selectFemaleTeacherHealthByTeacherId"/>
+    </resultMap>
+
+    <resultMap id="manTeacherHealthMap" type="Teacher" extends="teacherResultMap">
+        <association property="teacherHealth" column="id"
+                     select="com.itcast.basic.mybatis.joindetail.service.TeacherHealthMapper.selectManTeacherHealthByTeachId"/>
+    </resultMap>
+
+    <insert id="insertTeacher" useGeneratedKeys="true" keyProperty="id" parameterType="Teacher">
+        insert into teacher(<include refid="columns"/>) values(#{name},#{sex},#{schoolName})
+    </insert>
+
+    <select id="selectTeacherById" resultMap="teacherResultMap">
+        select * from teacher where id = #{id}
+    </select>
+
+</mapper>
