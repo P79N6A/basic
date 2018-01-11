@@ -11,9 +11,9 @@
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>
         <result column="school_name" property="schoolName"/>
-        <association column="id" property="teacherCard"
+        <association column="id" property="teacherCard" fetchType="eager"
                      select="com.itcast.basic.mybatis.joindetail.service.TeacherCardMapper.selectTeacherCardByTeacherId"/>
-        <collection column="id" property="lessons"
+        <collection column="id" property="lessons" fetchType="lazy"
                     select="com.itcast.basic.mybatis.joindetail.service.LessonMapper.selectLessonByTeacherId"/>
         <discriminator column="sex" javaType="com.itcast.basic.mybatis.joindetail.model.Sex">
             <case value="MAN" resultMap="manTeacherHealthMap"/>

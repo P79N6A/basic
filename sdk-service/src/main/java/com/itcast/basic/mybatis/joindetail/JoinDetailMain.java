@@ -29,14 +29,14 @@ public class JoinDetailMain {
             TeacherMapper teacherMapper = sqlSession.getMapper(TeacherMapper.class);
             //noe to one config
             Teacher teacher = teacherMapper.selectTeacherById(3);
-            System.out.println("teacher=" + teacher);
-
-            TeacherHealthMapper teacherHealthMapper = sqlSession.getMapper(TeacherHealthMapper.class);
-            ManTeacherHealth manTeacherHealth = teacherHealthMapper.selectManTeacherHealthById(1);
-            System.out.println("manTeacherHealth=" + manTeacherHealth);
-            FemaleTeacherHealth femaleTeacherHealth = teacherHealthMapper.selectFemaleTeacherHealthById(1);
-            System.out.println("femaleTeacherHealth=" + femaleTeacherHealth);
-
+//            System.out.println("teacher=" + teacher);
+//            System.out.println("teacherLessons=" + teacher.getLessons());
+            System.out.println("teacherCard=" + teacher.getTeacherCard());
+//            TeacherHealthMapper teacherHealthMapper = sqlSession.getMapper(TeacherHealthMapper.class);
+//            ManTeacherHealth manTeacherHealth = teacherHealthMapper.selectManTeacherHealthById(1);
+//            System.out.println("manTeacherHealth=" + manTeacherHealth);
+//            FemaleTeacherHealth femaleTeacherHealth = teacherHealthMapper.selectFemaleTeacherHealthById(1);
+//            System.out.println("femaleTeacherHealth=" + femaleTeacherHealth);
         } catch (Exception e) {
             e.printStackTrace();
         }
