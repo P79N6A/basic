@@ -4,4 +4,4 @@ CREATE TABLE `users` (
   `nick_name` varchar(255) NOT NULL DEFAULT '',
   `school` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;

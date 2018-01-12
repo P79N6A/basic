@@ -12,14 +12,14 @@ public class RedisService {
     private final Log log = LogFactory.getLog(RedisService.class);
 
     public void createCache() {
-        log.info("create redis cache");
+        log.info("create redis cachedetail");
     }
 
     public void updateCache() {
-        log.info("update redis cache");
+        log.info("update redis cachedetail");
     }
 
     public void deleteCache() {
-        log.info("delete redis cache");
+        log.info("delete redis cachedetail");
     }
 }
