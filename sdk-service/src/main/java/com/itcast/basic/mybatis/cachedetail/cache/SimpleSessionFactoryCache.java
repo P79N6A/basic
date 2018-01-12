@@ -1,9 +1,13 @@
 package com.itcast.basic.mybatis.cachedetail.cache;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ibatis.cache.Cache;
 import redis.clients.jedis.Jedis;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -15,7 +19,7 @@ public class SimpleSessionFactoryCache implements Cache {
 
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
 
-    private final Gson gson = new Gson();
+    private final ObjectMapper jsonMapper = new ObjectMapper();
 
     private String id;
 
@@ -23,10 +27,15 @@ public class SimpleSessionFactoryCache implements Cache {
 
     private String host;
     private int port;
+    private String genType;
+
+    public SimpleSessionFactoryCache() {
+        System.out.println("enter into not param");
+    }
 
     public SimpleSessionFactoryCache(String id) {
         this.id = id;
-        jedis = new Jedis("127.0.0.1", 6379);
+        System.out.println("enter into  params");
     }
 
     public String getHost() {
@@ -34,7 +43,17 @@ public class SimpleSessionFactoryCache implements Cache {
     }
 
     public void setHost(String host) {
+        System.out.println("enter into set host");
         this.host = host;
+    }
+
+    public String getGenType() {
+        return genType;
+    }
+
+    public void setGenType(String genType) {
+        System.out.println("enter into set genType");
+        this.genType = genType;
     }
 
     public int getPort() {
@@ -42,6 +61,7 @@ public class SimpleSessionFactoryCache implements Cache {
     }
 
     public void setPort(int port) {
+        System.out.println("enter into set port");
         this.port = port;
     }
 
@@ -53,17 +73,36 @@ public class SimpleSessionFactoryCache implements Cache {
 
     @Override
     public void putObject(Object key, Object value) {
-        String valueJson = gson.toJson(value);
-        System.out.println("valueJson= " + valueJson);
+        String valueJson = null;
+        try {
+            valueJson = jsonMapper.writeValueAsString(value);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("key class type is " + key.getClass().getName() + " value class type is " + value.getClass().getName() + " valueJson= " + valueJson);
         jedis.set(key.toString(), valueJson);
     }
 
     @Override
     public Object getObject(Object key) {
-        Object valueObj = jedis.get(key.toString());
-        System.out.println("valueObj= " + valueObj);
-        List list = gson.fromJson("", List.class);
-        return list.get(0);
+        List list = null;
+        try {
+            if (jedis == null) {
+                jedis = new Jedis(getHost(), getPort());
+            }
+            String valueObj = jedis.get(key.toString());
+            System.out.println("valueObj is  " + valueObj);
+            if (valueObj != null) {
+                JavaType javaType = jsonMapper.getTypeFactory().constructParametricType(ArrayList.class, Class.forName(getGenType()));
+                list = jsonMapper.readValue(valueObj, javaType);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 
     @Override
@@ -84,5 +123,16 @@ public class SimpleSessionFactoryCache implements Cache {
     @Override
     public ReadWriteLock getReadWriteLock() {
         return readWriteLock;
+    }
+
+
+    @Override
+    public String toString() {
+        return "SimpleSessionFactoryCache{" +
+                "host='" + host + '\'' +
+                ", port=" + port +
+                ", genType='" + genType + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }
