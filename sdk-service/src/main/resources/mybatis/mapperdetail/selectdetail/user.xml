@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.mapperdetail.selectdetail.service.UserMapper">
+
+    <resultMap id="userResultMap" type="User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="school" column="school"/>
+    </resultMap>
+
+
+    <select id="selectUserById" resultMap="userResultMap">
+        select * from users where id = #{id}
+    </select>
+
+    <!--启动mapUnderscoreToCamelCase配置后 nickName方可正确映射-->
+    <select id="selectUser" parameterType="long" resultType="User">
+        select * from users where id = #{id}
+    </select>
+
+    <select id="selectUserByParams" parameterType="map" resultType="User">
+        select * from users where name like concat(#{name},'%') and school=#{school}
+    </select>
+
+    <select id="selectUserByConditions" resultType="User">
+        select * from users where name like concat(#{name},'%') and school=#{school}
+    </select>
+
+    <select id="selectUserByUserParam" resultType="User" parameterType="UserParam">
+        select * from users where name like concat(#{name},'%') and school=#{school}
+    </select>
+
+    <!--测试mybatis字段自动映射机制 默认情况 mybatis只映射数据库字段名和javabean字段域名相同的字段-->
+    <!--<select id="selectUser" parameterType="long" resultType="User">-->
+    <!--select id,name,nick_name as nickName,school from users where id = #{id}-->
+    <!--</select>-->
+
+    <insert id="insertUser" parameterType="User">
+        insert into users values(#{id},#{name},#{nickName},#{school})
+    </insert>
+
+    <select id="count" parameterType="string" resultType="int">
+        select count(*) from users where name like concat(#{name},'%')
+    </select>
+
+</mapper>

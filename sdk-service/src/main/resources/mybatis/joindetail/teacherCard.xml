@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.joindetail.service.TeacherCardMapper">
+
+    <sql id="columns">
+        number,address,note,teacher_id
+    </sql>
+
+    <resultMap id="teacherCardResultMap" type="TeacherCard">
+        <id column="id" property="id"/>
+        <result column="number" property="number"/>
+        <result column="address" property="address"/>
+        <result column="note" property="note"/>
+        <result column="teacher_id" property="teacherId"/>
+    </resultMap>
+
+    <insert id="insertTeacherCard" useGeneratedKeys="true" keyProperty="id" parameterType="TeacherCard">
+        insert into teacher_card(<include refid="columns"/>) values(#{number},#{address},#{note},#{teacherId})
+    </insert>
+
+    <select id="selectTeacherCardById" resultMap="teacherCardResultMap">
+        select
+        <include refid="columns"/>
+        from teacher_card where id = #{id}
+    </select>
+
+
+    <select id="selectTeacherCardByTeacherId" resultMap="teacherCardResultMap">
+        select
+        <include refid="columns"/>
+        from teacher_card where teacher_id = #{id}
+        limit 1
+    </select>
+
+</mapper>

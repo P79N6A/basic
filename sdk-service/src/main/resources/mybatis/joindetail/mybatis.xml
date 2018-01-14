@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置驼峰命名和下划线命名映射-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Teacher" type="com.itcast.basic.mybatis.joindetail.model.Teacher"/>
+        <typeAlias alias="Lesson" type="com.itcast.basic.mybatis.joindetail.model.Lesson"/>
+        <typeAlias alias="TeacherCard" type="com.itcast.basic.mybatis.joindetail.model.TeacherCard"/>
+        <typeAlias alias="TeacherHealth" type="com.itcast.basic.mybatis.joindetail.model.TeacherHealth"/>
+        <typeAlias alias="ManTeacherHealth" type="com.itcast.basic.mybatis.joindetail.model.ManTeacherHealth"/>
+        <typeAlias alias="FemaleTeacherHealth" type="com.itcast.basic.mybatis.joindetail.model.FemaleTeacherHealth"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--
+                连接数据库
+                -->
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/tongzhuwang?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"/>
+                <!--
+                数据库用户名
+                -->
+                <property name="username" value="root"/>
+                <!--
+                 数据库密码
+                -->
+                <property name="password" value="a123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mybatis/joindetail/teacherCard.xml"/>
+        <mapper resource="mybatis/joindetail/teacher.xml"/>
+        <mapper resource="mybatis/joindetail/lesson.xml"/>
+        <mapper resource="mybatis/joindetail/teacherHealth.xml"/>
+    </mappers>
+</configuration>

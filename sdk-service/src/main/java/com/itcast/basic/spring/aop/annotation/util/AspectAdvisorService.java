@@ -47,6 +47,6 @@ public class AspectAdvisorService {
 
     @AfterReturning("saveMethod()")
     public void createCache() {
-        log.info("execute create cache");
+        log.info("execute create cachedetail");
     }
 }

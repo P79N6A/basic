@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.mapperdetail.insertdetail.service.StudentMapper">
+
+    <resultMap id="userResultMap" type="Student">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="schoolName" column="school_name"/>
+        <result property="number" column="number"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
+
+    <insert id="insertStudent" useGeneratedKeys="true" keyProperty="id" parameterType="Student">
+        insert into student(name,school_name,number,sex) values (#{name},#{schoolName},#{number},#{sex})
+    </insert>
+
+    <insert id="insertShareStudent" parameterType="Student">
+        <selectKey keyProperty="id" order="BEFORE" resultType="int">
+            select if(max(id) is null,cast(date_format(curdate(),'%Y%m') as UNSIGNED INTEGER)*10000,max(id)+1) from
+            student
+        </selectKey>
+        insert into student(id,name,school_name,number,sex) values (#{id},#{name},#{schoolName},#{number},#{sex})
+    </insert>
+
+    <delete id="deleteStudentById">
+        delete from student where id = #{id}
+    </delete>
+
+    <update id="updateNameAndSexOfStudentById">
+        update student set name=#{name},sex=#{sex} where id = #{id}
+    </update>
+
+</mapper>

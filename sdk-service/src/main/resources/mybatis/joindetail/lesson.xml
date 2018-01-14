@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.joindetail.service.LessonMapper">
+
+    <sql id="columns">
+        les_name,note,teacher_id
+    </sql>
+
+    <resultMap id="lessonResultMap" type="Lesson">
+        <id column="id" property="id"/>
+        <result column="les_name" property="lesName"/>
+        <result column="note" property="note"/>
+        <result column="teacher_id" property="teacherId"/>
+    </resultMap>
+
+    <insert id="insertLesson" useGeneratedKeys="true" keyProperty="id" parameterType="Lesson">
+        insert into lesson(<include refid="columns"/>) values(#{lesName},#{note},#{teacherId})
+    </insert>
+
+    <select id="selectLessonById" resultMap="lessonResultMap">
+        select
+        <include refid="columns"/>
+        from lesson where id = #{id}
+    </select>
+
+
+    <select id="selectLessonByTeacherId" resultMap="lessonResultMap">
+        select
+        <include refid="columns"/>
+        from lesson where teacher_id = #{teacherId}
+    </select>
+
+</mapper>
