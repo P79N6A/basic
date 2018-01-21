@@ -28,7 +28,7 @@ public class JoinDetailMain {
 //            System.out.println("result=" + result);
             TeacherMapper teacherMapper = sqlSession.getMapper(TeacherMapper.class);
             //noe to one config
-            Teacher teacher = teacherMapper.selectTeacherById(3);
+            Teacher teacher = teacherMapper.selectTeacherById(1);
 //            System.out.println("teacher=" + teacher);
 //            System.out.println("teacherLessons=" + teacher.getLessons());
             System.out.println("teacherCard=" + teacher.getTeacherCard());

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.manytomany.service.ParentModelMapper">
+
+    <resultMap id="userResultMap" type="ParentModel">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="childrenId" column="children_id"/>
+    </resultMap>
+
+    <resultMap id="userResultsMap" type="ParentModel">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="childrenId" column="children_id" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <collection column="id" property="childrenModelList" fetchType="lazy"
+                    select="com.itcast.basic.mybatis.manytomany.service.ChildrenModelMapper.findByParentId"/>
+    </resultMap>
+
+    <!--trim sql语句替换标签-->
+    <select id="findById" resultMap="userResultsMap">
+        select * from parent
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+        </trim>
+    </select>
+
+
+    <select id="findByChildrenId" resultMap="userResultMap">
+        select * from parent
+        <trim prefix="where" prefixOverrides="and">
+            <if test="childrenId!=null and childrenId!=''">
+                and children_id=#{childrenId}
+            </if>
+        </trim>
+    </select>
+
+
+    <insert id="insertParentModel" useGeneratedKeys="true" keyProperty="id" parameterType="ParentModel">
+            insert into parent(name,children_id) values(#{name},#{childrenId})
+        </insert>
+
+</mapper>

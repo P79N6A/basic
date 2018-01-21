@@ -33,6 +33,8 @@ public class SimplePlugin implements Interceptor {
             Object object = metaStatementHandler.getValue("target");
             metaStatementHandler = SystemMetaObject.forObject(object);
         }
+        String sql = (String) metaStatementHandler.getValue("delegate.boundSql.sql");
+        System.out.println("sql=" + sql);
         return invocation.proceed();
     }
 
