@@ -1,6 +1,5 @@
 package com.itcast.basic.mybatis.mybatisspring.transactionmanager;
 
-import com.itcast.basic.mybatis.mybatisspring.sqlsessiontemplate.model.User;
 import com.itcast.basic.mybatis.mybatisspring.transactionmanager.service.UserServiceImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,12 +14,14 @@ public class TransactionManagerMain {
             ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{"classpath*:mybatis/mybatisspring/transactionmanager/spring-mybatis.xml"});
             System.out.println("applicationContext=" + applicationContext);
             UserServiceImpl userService = (UserServiceImpl) applicationContext.getBean("userService");
-            User user = new User();
-            user.setId(51);
-            user.setName("admin");
-            user.setSchool("wuhan");
-            user.setNickName("root");
-            userService.updateUser(user);
+//            int result = userService.testTransaction();
+//            int result = userService.testTrtansactionTarget0();
+//            int result = userService.testTrtansactionTarget1();
+//            int result = userService.testTransactionInThread();
+//            int result = userService.testTransactionServiceMethod();
+//            int result = userService.testNestedTransaction();
+            int result = userService.testRollbackNestedTransaction();
+            System.out.println("result=" + result);
         } catch (Exception e) {
             e.printStackTrace();
         }
