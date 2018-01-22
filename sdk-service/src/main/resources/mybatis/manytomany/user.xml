@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.manytomany.service.UserMapper">
+
+    <sql id="columns">
+        name,nick_name,school,note,role_id
+    </sql>
+
+    <resultMap id="userResultMap" type="User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="school" property="school"/>
+        <result column="note" property="note"/>
+        <result column="role_id" property="roleId"/>
+        <collection property="roleList" column="id"
+                    select="com.itcast.basic.mybatis.manytomany.service.RoleMapper.findRolesByUserId"/>
+    </resultMap>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        insert into user(<include refid="columns"/>) values(#{name},#{nickName},#{school},#{note},#{roleId})
+    </insert>
+
+    <select id="findUserById" resultMap="userResultMap">
+        select * from user where id = #{id}
+    </select>
+
+
+    <select id="findUsersByRoleId" resultMap="userResultMap">
+        select
+        <include refid="columns"/>
+        from user where role_id = #{roleId}
+    </select>
+
+</mapper>

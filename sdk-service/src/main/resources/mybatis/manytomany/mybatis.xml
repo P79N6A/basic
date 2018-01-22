@@ -6,12 +6,14 @@
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
 
     <!--配置别名-->
     <typeAliases>
-        <typeAlias alias="ChildrenModel" type="com.itcast.basic.mybatis.manytomany.model.ChildrenModel"/>
-        <typeAlias alias="ParentModel" type="com.itcast.basic.mybatis.manytomany.model.ParentModel"/>
+        <typeAlias alias="Role" type="com.itcast.basic.mybatis.manytomany.model.Role"/>
+        <typeAlias alias="User" type="com.itcast.basic.mybatis.manytomany.model.User"/>
     </typeAliases>
 
     <environments default="development">
@@ -37,8 +39,8 @@
     </environments>
 
     <mappers>
-        <mapper resource="mybatis/manytomany/children.xml"/>
-        <mapper resource="mybatis/manytomany/parent.xml"/>
+        <mapper resource="mybatis/manytomany/role.xml"/>
+        <mapper resource="mybatis/manytomany/user.xml"/>
     </mappers>
 
 </configuration>

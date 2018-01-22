@@ -14,7 +14,7 @@
         <!-- spring版本号 -->
         <spring.version>4.3.11.RELEASE</spring.version>
         <!-- mybatis版本号 -->
-        <mybatis.version>3.4.1</mybatis.version>
+        <mybatis.version>3.4.5</mybatis.version>
         <!--hibernate版本号-->
         <hibernate.version>3.5.4-Final</hibernate.version>
         <!---->
