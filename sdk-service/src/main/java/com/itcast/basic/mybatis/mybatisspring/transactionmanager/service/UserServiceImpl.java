@@ -53,14 +53,14 @@ public class UserServiceImpl {
      */
     @Transactional
     public int testTrtansactionTarget1() {
-        System.out.println("enter into testTrtansactionTarget1");
+        System.out.println("enter into testTrtansactionTarget1"+this);
         int result = 0;
         User user = new User();
         user.setName("admin");
         user.setSchool("wuhan");
         user.setNickName("lucy");
         result += userService.insertUser(user);
-        System.out.println("enter into testTrtansactionTarget1 insert end");
+        System.out.println("enter into testTrtansactionTarget1 insert end"+userService);
         user.setId(5);
         result += userDao.updateUser(user);
         System.out.println("enter into testTrtansactionTarget1 sleep");

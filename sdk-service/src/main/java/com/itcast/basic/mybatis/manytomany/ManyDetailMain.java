@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.Reader;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/1/21.
@@ -22,10 +23,10 @@ public class ManyDetailMain {
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             SqlSession sqlSession = sqlSessionFactory.openSession();
             int result = 0;
-            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+//            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
 //            List<Role> roleList = roleMapper.findRolesByUserId(1);
-            Role role = roleMapper.findRoleById(1);
-            System.out.println("role=" + role);
+//            Role role = roleMapper.findRoleById(1);
+//            System.out.println("role=" + role);
 //            System.out.println("size of roleList is " + roleList.size());
 //            for (int i = 0; i < 10; i++) {
 //                Role role = new Role();
@@ -35,10 +36,10 @@ public class ManyDetailMain {
 //                result += roleMapper.insertRole(role);
 //            }
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-//            List<User> userList = userMapper.findUsersByRoleId(1);
-//            System.out.println("size of userList is " + userList.size());
-            User user = userMapper.findUserById(1);
-            System.out.println("user=" + user);
+            List<User> userList = userMapper.findUsersByRoleId(10);
+            System.out.println("size of userList is " + userList.size());
+//            User user = userMapper.findUserById(1);
+//            System.out.println("user=" + user);
 //            for (int i = 0; i < 10; i++) {
 //                User user = new User();
 //                user.setNote("this is user"+i);

@@ -16,11 +16,11 @@ public class TransactionManagerMain {
             UserServiceImpl userService = (UserServiceImpl) applicationContext.getBean("userService");
 //            int result = userService.testTransaction();
 //            int result = userService.testTrtansactionTarget0();
-//            int result = userService.testTrtansactionTarget1();
+            int result = userService.testTrtansactionTarget1();
 //            int result = userService.testTransactionInThread();
 //            int result = userService.testTransactionServiceMethod();
 //            int result = userService.testNestedTransaction();
-            int result = userService.testRollbackNestedTransaction();
+//            int result = userService.testRollbackNestedTransaction();
             System.out.println("result=" + result);
         } catch (Exception e) {
             e.printStackTrace();
