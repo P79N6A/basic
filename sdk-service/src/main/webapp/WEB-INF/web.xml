@@ -53,6 +53,19 @@
         <filter-name>SpringEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--登录拦截器-->
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>com.itcast.basic.controller.filter.LoginFilter</filter-class>
+        <init-param>
+            <param-name>urlPath</param-name>
+            <param-value>/index</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!--配置spring容器监听器-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

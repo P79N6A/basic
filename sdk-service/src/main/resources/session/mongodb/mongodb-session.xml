@@ -43,4 +43,9 @@
     <mongo:db-factory id="mongoDbFactory" mongo-ref="mongo"
                       dbname="${mongodb.dbname}"/>
 
+    <!--配置mongodb模板-->
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+    </bean>
+
 </beans>
