@@ -11,8 +11,17 @@
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
-    <context:component-scan base-package="com.itcast.basic.controller"/>
-    <mvc:annotation-driven/>
+    <context:component-scan base-package="com.itcast.basic.web.controller"/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <bean id="conversionService"
+          class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.itcast.basic.web.converters.SexConverter"/>
+            </set>
+        </property>
+    </bean>
 
     <!--配置spring hessian-->
     <import resource="classpath*:spring/rmi/hessian/server/application.xml"/>

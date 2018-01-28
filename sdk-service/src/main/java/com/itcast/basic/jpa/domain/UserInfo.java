@@ -150,7 +150,7 @@ public class UserInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "UserInfo{" +
+        return "UserInfoVO{" +
                 "id=" + id +
                 ", nickName='" + nickName + '\'' +
                 ", constell='" + constell + '\'' +

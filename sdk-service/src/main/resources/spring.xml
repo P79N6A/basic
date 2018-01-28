@@ -1,13 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.itcast.basic.webservice.service.impl"/>
+
+    <bean id="beanMapper" class="com.sdk.common.util.BeanMapperFactory" factory-method="initBeanMapper"/>
+    <bean class="com.itcast.basic.web.context.SimpleApplicationContext"/>
 
     <import resource="classpath*:session/redis/redis-session.xml"/>
     <!--<import resource="classpath*:session/mongodb/mongodb-session.xml"/>-->
     <import resource="classpath*:freemarker/application.xml"/>
     <import resource="classpath*:velocity/application.xml"/>
-
-    <bean class="com.itcast.basic.controller.context.SimpleApplicationContext"/>
+    <import resource="spring-mybatis.xml"/>
 </beans>

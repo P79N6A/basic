@@ -11,6 +11,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--配置sdk-api版本号-->
+        <sdk.api.version>1.0-SNAPSHOT</sdk.api.version>
         <!-- spring版本号 -->
         <spring.version>4.3.11.RELEASE</spring.version>
         <!-- mybatis版本号 -->
@@ -119,6 +121,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.itcast.sdk</groupId>
+            <artifactId>sdk-api</artifactId>
+            <version>${sdk.api.version}</version>
+        </dependency>
         <!--配置日志-->
         <!--<dependency>-->
         <!--<groupId>org.slf4j</groupId>-->
@@ -549,8 +556,6 @@
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
         </dependency>
-
-
     </dependencies>
 
     <build>

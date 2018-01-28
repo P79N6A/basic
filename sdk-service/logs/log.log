@@ -3,9 +3,9 @@
 2018-01-27 15:53:57  [ main:801 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 15:53:58  [ main:1420 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 15:53:58  [ main:2010 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 15:53:59  [ main:2507 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 15:53:59  [ main:2509 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 15:53:59  [ main:2510 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 15:53:59  [ main:2507 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 15:53:59  [ main:2509 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 15:53:59  [ main:2510 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 15:53:59  [ main:2694 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 15:54:00  [ main:3700 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:53:57 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 15:54:00  [ main:3819 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:53:57 CST 2018]; parent: Root WebApplicationContext
@@ -13,9 +13,9 @@
 2018-01-27 15:54:01  [ main:4547 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 15:54:01  [ main:4547 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 15:54:01  [ main:4587 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 15:54:01  [ main:4590 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 15:54:01  [ main:4592 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 15:54:01  [ main:4593 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 15:54:01  [ main:4590 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 15:54:01  [ main:4592 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 15:54:01  [ main:4593 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 15:54:01  [ main:4609 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:53:57 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 15:54:01  [ main:4703 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 15:54:01  [ main:4706 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -28,9 +28,9 @@
 2018-01-27 15:55:15  [ main:660 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 15:55:17  [ main:1872 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 15:55:19  [ main:4104 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 15:55:20  [ main:5257 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 15:55:20  [ main:5261 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 15:55:20  [ main:5265 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 15:55:20  [ main:5257 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 15:55:20  [ main:5261 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 15:55:20  [ main:5265 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 15:55:21  [ main:5867 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 15:55:24  [ main:8667 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:55:15 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 15:55:24  [ main:8895 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:55:15 CST 2018]; parent: Root WebApplicationContext
@@ -38,9 +38,9 @@
 2018-01-27 15:55:24  [ main:9503 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 15:55:24  [ main:9503 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 15:55:24  [ main:9548 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 15:55:24  [ main:9552 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 15:55:24  [ main:9554 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 15:55:24  [ main:9555 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 15:55:24  [ main:9552 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 15:55:24  [ main:9554 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 15:55:24  [ main:9555 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 15:55:24  [ main:9571 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:55:15 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 15:55:25  [ main:9929 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 15:55:25  [ main:9938 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -54,9 +54,9 @@
 2018-01-27 15:59:03  [ main:4785 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 15:59:05  [ main:6714 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 15:59:06  [ main:7478 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 15:59:06  [ main:7941 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 15:59:06  [ main:7943 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 15:59:06  [ main:7945 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 15:59:06  [ main:7941 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 15:59:06  [ main:7943 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 15:59:06  [ main:7945 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 15:59:07  [ main:8297 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 15:59:12  [ main:13890 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:59:03 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 15:59:13  [ main:14190 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:59:03 CST 2018]; parent: Root WebApplicationContext
@@ -64,9 +64,9 @@
 2018-01-27 15:59:14  [ main:15469 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 15:59:14  [ main:15469 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 15:59:14  [ main:15542 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 15:59:14  [ main:15549 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 15:59:14  [ main:15553 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 15:59:14  [ main:15556 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 15:59:14  [ main:15549 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 15:59:14  [ main:15553 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public void com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 15:59:14  [ main:15556 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 15:59:14  [ main:15573 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 15:59:03 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 15:59:14  [ main:15827 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 15:59:14  [ main:15830 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -88,9 +88,9 @@
 2018-01-27 16:02:01  [ main:1561 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:02:02  [ main:2550 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 16:02:03  [ main:3277 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:02:03  [ main:4022 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:02:03  [ main:4026 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:02:03  [ main:4028 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:02:03  [ main:4022 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:02:03  [ main:4026 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:02:03  [ main:4028 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:02:04  [ main:4598 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:02:08  [ main:8847 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:02:01 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:02:08  [ main:9216 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:02:01 CST 2018]; parent: Root WebApplicationContext
@@ -98,9 +98,9 @@
 2018-01-27 16:02:09  [ main:9649 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 16:02:09  [ main:9650 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 16:02:09  [ main:9671 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:02:09  [ main:9675 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:02:09  [ main:9677 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:02:09  [ main:9678 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:02:09  [ main:9675 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:02:09  [ main:9677 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:02:09  [ main:9678 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:02:09  [ main:9695 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:02:01 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:02:09  [ main:9775 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:02:09  [ main:9778 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -113,9 +113,9 @@
 2018-01-27 16:06:33  [ main:3280 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:06:34  [ main:3868 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 16:06:34  [ main:4365 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:06:35  [ main:4834 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:06:35  [ main:4836 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:06:35  [ main:4838 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:06:35  [ main:4834 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:06:35  [ main:4836 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:06:35  [ main:4838 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:06:35  [ main:5069 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:06:36  [ main:6021 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:06:33 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:06:36  [ main:6117 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:06:33 CST 2018]; parent: Root WebApplicationContext
@@ -123,9 +123,9 @@
 2018-01-27 16:06:37  [ main:6752 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 16:06:37  [ main:6752 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 16:06:37  [ main:6775 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:06:37  [ main:6779 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:06:37  [ main:6781 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:06:37  [ main:6782 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:06:37  [ main:6779 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:06:37  [ main:6781 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:06:37  [ main:6782 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:06:37  [ main:6800 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:06:33 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:06:37  [ main:6890 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:06:37  [ main:6894 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -145,9 +145,9 @@
 2018-01-27 16:07:47  [ main:496 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:07:48  [ main:795 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 16:07:48  [ main:964 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:07:48  [ main:1249 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:07:48  [ main:1251 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:07:48  [ main:1253 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:07:48  [ main:1249 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:07:48  [ main:1251 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:07:48  [ main:1253 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:07:48  [ main:1320 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:07:49  [ main:1915 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:07:47 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:07:49  [ main:1990 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:07:47 CST 2018]; parent: Root WebApplicationContext
@@ -155,9 +155,9 @@
 2018-01-27 16:07:49  [ main:2188 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 16:07:49  [ main:2189 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 16:07:49  [ main:2202 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:07:49  [ main:2205 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:07:49  [ main:2207 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:07:49  [ main:2208 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:07:49  [ main:2205 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:07:49  [ main:2207 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:07:49  [ main:2208 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:07:49  [ main:2224 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:07:47 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:07:49  [ main:2290 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:07:49  [ main:2293 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -176,16 +176,16 @@
 2018-01-27 16:14:50  [ main:1550 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:14:50 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:14:50  [ main:1551 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:14:51  [ main:2734 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:14:52  [ main:3225 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:14:52  [ main:3228 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:14:52  [ main:3229 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:14:52  [ main:3225 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:14:52  [ main:3228 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:14:52  [ main:3229 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:14:52  [ main:3402 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:14:53  [ main:4801 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:14:50 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:14:53  [ main:4927 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:14:50 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:14:54  [ main:5069 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:14:54  [ main:5072 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:14:54  [ main:5074 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:14:54  [ main:5075 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:14:54  [ main:5072 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:14:54  [ main:5074 ] - [ INFO ]  Mapped "{[/common/create/logfile]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:14:54  [ main:5075 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:14:54  [ main:5094 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:14:50 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:14:54  [ main:5202 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:14:54  [ main:5206 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -201,16 +201,16 @@
 2018-01-27 16:16:08  [ main:462 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:16:08 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:16:08  [ main:462 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:16:08  [ main:792 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:16:09  [ main:1086 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:16:09  [ main:1088 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:16:09  [ main:1090 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:16:09  [ main:1086 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:16:09  [ main:1088 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:16:09  [ main:1090 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:16:09  [ main:1153 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:16:09  [ main:1761 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:16:08 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:16:09  [ main:1837 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:16:08 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:16:09  [ main:1951 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:16:09  [ main:1955 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:16:09  [ main:1956 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:16:09  [ main:1957 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:16:09  [ main:1955 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:16:09  [ main:1956 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:16:09  [ main:1957 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:16:09  [ main:1978 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:16:08 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:16:10  [ main:2030 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:16:10  [ main:2034 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -225,16 +225,16 @@
 2018-01-27 16:17:11  [ main:448 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:17:11 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:17:11  [ main:449 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:17:11  [ main:932 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:17:12  [ main:1216 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:17:12  [ main:1218 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:17:12  [ main:1220 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:17:12  [ main:1216 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:17:12  [ main:1218 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:17:12  [ main:1220 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:17:12  [ main:1278 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:17:12  [ main:1900 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:17:11 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:17:13  [ main:1993 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:17:11 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:17:13  [ main:2102 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:17:13  [ main:2106 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:17:13  [ main:2108 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:17:13  [ main:2109 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:17:13  [ main:2106 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:17:13  [ main:2108 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:17:13  [ main:2109 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:17:13  [ main:2131 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:17:11 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:17:13  [ main:2177 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:17:13  [ main:2181 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -248,9 +248,9 @@
 2018-01-27 16:21:16  [ main:5444 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 16:21:17  [ main:7136 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 16:21:19  [ main:8447 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 16:21:20  [ main:9251 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:21:20  [ main:9255 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:21:20  [ main:9256 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:21:20  [ main:9251 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:21:20  [ main:9255 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:21:20  [ main:9256 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:21:20  [ main:9492 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 16:21:21  [ main:11028 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:21:16 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:21:21  [ main:11140 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:21:16 CST 2018]; parent: Root WebApplicationContext
@@ -258,9 +258,9 @@
 2018-01-27 16:21:22  [ main:11449 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 16:21:22  [ main:11449 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 16:21:22  [ main:11471 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 16:21:22  [ main:11474 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 16:21:22  [ main:11476 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 16:21:22  [ main:11477 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 16:21:22  [ main:11474 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 16:21:22  [ main:11476 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 16:21:22  [ main:11477 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 16:21:22  [ main:11495 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 16:21:16 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 16:21:22  [ main:11614 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 16:21:22  [ main:11617 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -276,9 +276,9 @@
 2018-01-27 17:23:50  [ main:6761 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 17:23:50  [ main:7116 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 17:23:50  [ main:7432 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 17:23:51  [ main:7815 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 17:23:51  [ main:7817 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 17:23:51  [ main:7818 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 17:23:51  [ main:7815 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 17:23:51  [ main:7817 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 17:23:51  [ main:7818 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 17:23:51  [ main:7958 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 17:23:53  [ main:10412 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:23:50 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 17:23:53  [ main:10599 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:23:50 CST 2018]; parent: Root WebApplicationContext
@@ -286,9 +286,9 @@
 2018-01-27 17:23:54  [ main:11398 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 17:23:54  [ main:11398 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 17:23:54  [ main:11457 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 17:23:54  [ main:11460 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 17:23:54  [ main:11461 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile()
-2018-01-27 17:23:54  [ main:11462 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 17:23:54  [ main:11460 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 17:23:54  [ main:11461 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile()
+2018-01-27 17:23:54  [ main:11462 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 17:23:54  [ main:11478 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:23:50 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 17:23:54  [ main:11657 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 17:23:54  [ main:11662 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -313,9 +313,9 @@
 2018-01-27 17:32:51  [ main:3391 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 17:32:52  [ main:3716 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 17:32:52  [ main:4056 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 17:32:52  [ main:4315 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 17:32:52  [ main:4317 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-01-27 17:32:52  [ main:4318 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 17:32:52  [ main:4315 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 17:32:52  [ main:4317 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-27 17:32:52  [ main:4318 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 17:32:52  [ main:4439 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 17:32:53  [ main:5396 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:32:51 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 17:32:53  [ main:5494 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:32:51 CST 2018]; parent: Root WebApplicationContext
@@ -323,9 +323,9 @@
 2018-01-27 17:32:54  [ main:5787 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 17:32:54  [ main:5787 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 17:32:54  [ main:5807 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 17:32:54  [ main:5809 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 17:32:54  [ main:5811 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-01-27 17:32:54  [ main:5812 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 17:32:54  [ main:5809 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 17:32:54  [ main:5811 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-27 17:32:54  [ main:5812 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 17:32:54  [ main:5828 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:32:51 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 17:32:54  [ main:5922 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 17:32:54  [ main:5925 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -339,9 +339,9 @@
 2018-01-27 17:35:29  [ main:1853 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 17:35:30  [ main:2018 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 17:35:30  [ main:2144 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 17:35:30  [ main:2418 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 17:35:30  [ main:2420 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-01-27 17:35:30  [ main:2422 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 17:35:30  [ main:2418 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 17:35:30  [ main:2420 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-27 17:35:30  [ main:2422 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 17:35:30  [ main:2605 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 17:35:31  [ main:3082 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:35:29 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 17:35:31  [ main:3162 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:35:29 CST 2018]; parent: Root WebApplicationContext
@@ -349,9 +349,9 @@
 2018-01-27 17:35:31  [ main:3372 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 17:35:31  [ main:3373 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 17:35:31  [ main:3393 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 17:35:31  [ main:3396 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 17:35:31  [ main:3398 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-01-27 17:35:31  [ main:3400 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 17:35:31  [ main:3396 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 17:35:31  [ main:3398 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-27 17:35:31  [ main:3400 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 17:35:31  [ main:3417 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 17:35:29 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 17:35:31  [ main:3485 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 17:35:31  [ main:3487 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -366,9 +366,9 @@
 2018-01-27 18:45:34  [ main:11508 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
 2018-01-27 18:45:34  [ main:12343 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
 2018-01-27 18:45:35  [ main:13431 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
-2018-01-27 18:45:36  [ main:14215 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 18:45:36  [ main:14217 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-01-27 18:45:36  [ main:14219 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 18:45:36  [ main:14215 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 18:45:36  [ main:14217 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-27 18:45:36  [ main:14219 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 18:45:37  [ main:14868 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
 2018-01-27 18:45:42  [ main:19702 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 18:45:34 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 18:45:42  [ main:20201 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 18:45:34 CST 2018]; parent: Root WebApplicationContext
@@ -376,9 +376,9 @@
 2018-01-27 18:45:43  [ main:21117 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
 2018-01-27 18:45:43  [ main:21117 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
 2018-01-27 18:45:43  [ main:21176 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-2018-01-27 18:45:43  [ main:21179 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.controller.freemarker.FreemarkerController.getUserInfo()
-2018-01-27 18:45:43  [ main:21180 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.controller.log4j.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-01-27 18:45:43  [ main:21181 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-27 18:45:43  [ main:21179 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-27 18:45:43  [ main:21180 ] - [ INFO ]  Mapped "{[/common/create/logfile],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-27 18:45:43  [ main:21181 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
 2018-01-27 18:45:43  [ main:21199 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sat Jan 27 18:45:34 CST 2018]; parent: Root WebApplicationContext
 2018-01-27 18:45:44  [ main:21451 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 2018-01-27 18:45:44  [ main:21454 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
@@ -506,3 +506,474 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at redis.clients.jedis.Connection.connect(Connection.java:158)
 	... 35 more
 2018-01-27 18:50:05  [ redisMessageListenerContainer-17:282700 ] - [ ERROR ]  Connection failure occurred. Restarting subscription task after 5000 ms
+2018-01-28 15:07:50  [ main:4815 ] - [ INFO ]  enter into LoginFilter init
+2018-01-28 15:07:50  [ main:5094 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2018-01-28 15:07:50  [ main:5097 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:07:50 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:07:50  [ main:5098 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-01-28 15:07:50  [ main:5554 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
+2018-01-28 15:07:51  [ main:5816 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-28 15:07:51  [ main:6298 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 15:07:51  [ main:6299 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 15:07:51  [ main:6300 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 15:07:51  [ main:6301 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 15:07:51  [ main:6430 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
+2018-01-28 15:07:53  [ main:7685 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:07:50 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:07:53  [ main:7791 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:07:50 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:07:53  [ main:8073 ] - [ INFO ]  Mapped URL path [/burlapServiceExporter] onto handler 'burlapServiceExporter'
+2018-01-28 15:07:53  [ main:8074 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
+2018-01-28 15:07:53  [ main:8074 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
+2018-01-28 15:07:53  [ main:8099 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2018-01-28 15:07:53  [ main:8102 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 15:07:53  [ main:8103 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 15:07:53  [ main:8104 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 15:07:53  [ main:8105 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 15:07:53  [ main:8119 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:07:50 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:07:53  [ main:8204 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-28 15:07:53  [ main:8207 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-28 15:07:53  [ main:8210 ] - [ INFO ]  Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-28 15:07:53  [ main:8213 ] - [ INFO ]  Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-28 15:07:53  [ main:8215 ] - [ INFO ]  Mapped URL path [/video/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-28 15:07:53  [ main:8294 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 3200 ms
+2018-01-28 15:08:18  [ http-8080-2:33555 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-2:33702 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-4:33709 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-1:33708 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-3:33713 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-5:34133 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-6:34153 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-3:34155 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-2:34380 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-1:34394 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:19  [ http-8080-2:34623 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:24  [ http-8080-2:38837 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:24  [ http-8080-5:38853 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:24  [ http-8080-1:38856 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:24  [ http-8080-6:38909 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:24  [ http-8080-4:38920 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:08:24  [ http-8080-3:39271 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:09:09  [ http-8080-3:84575 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:10:00  [ http-8080-3:135396 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:10:13  [ http-8080-3:148455 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:10:13  [ http-8080-3:148545 ] - [ INFO ]  enter into CommonController,creating log file 
+2018-01-28 15:11:03  [ http-8080-3:198041 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:03  [ http-8080-3:198060 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:06  [ http-8080-3:201616 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:06  [ http-8080-3:201621 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:07  [ http-8080-3:202483 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:07  [ http-8080-3:202486 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:08  [ http-8080-3:203293 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:08  [ http-8080-3:203295 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:09  [ http-8080-3:204018 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:09  [ http-8080-3:204022 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:09  [ http-8080-3:204553 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:09  [ http-8080-3:204554 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:10  [ http-8080-3:204974 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:10  [ http-8080-3:204976 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:10  [ http-8080-3:205432 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:10  [ http-8080-3:205436 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:11  [ http-8080-3:205671 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:11  [ http-8080-3:205674 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:11  [ http-8080-3:205851 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:11  [ http-8080-3:205855 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:11  [ http-8080-3:206054 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:11  [ http-8080-3:206056 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:11  [ http-8080-3:206398 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:11  [ http-8080-3:206403 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:12  [ http-8080-3:206930 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:12  [ http-8080-3:206936 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:12  [ http-8080-3:207468 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:12  [ http-8080-3:207470 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:13  [ http-8080-3:208636 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:13  [ http-8080-3:208638 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:14  [ http-8080-3:209288 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:14  [ http-8080-3:209293 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:15  [ http-8080-3:209740 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:15  [ http-8080-3:209745 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:15  [ http-8080-3:209899 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:15  [ http-8080-3:209904 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:15  [ http-8080-3:210080 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:15  [ http-8080-3:210085 ] - [ INFO ]  enter create image 
+2018-01-28 15:11:15  [ http-8080-3:210249 ] - [ INFO ]  enter into LoginFilter doFilter
+2018-01-28 15:11:15  [ http-8080-3:210251 ] - [ INFO ]  enter create image 
+2018-01-28 15:15:05  [ main:1807 ] - [ INFO ]  enter into LoginFilter init
+2018-01-28 15:15:05  [ main:1865 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2018-01-28 15:15:05  [ main:1868 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:15:05 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:15:05  [ main:1869 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-01-28 15:15:05  [ main:1998 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
+2018-01-28 15:15:05  [ main:2112 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-28 15:15:06  [ main:2435 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 15:15:06  [ main:2436 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 15:15:06  [ main:2437 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 15:15:06  [ main:2438 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 15:15:06  [ main:2561 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
+2018-01-28 15:15:07  [ main:3151 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:15:05 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:15:07  [ main:3226 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:15:05 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:15:07  [ main:3448 ] - [ INFO ]  Mapped URL path [/burlapServiceExporter] onto handler 'burlapServiceExporter'
+2018-01-28 15:15:07  [ main:3448 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
+2018-01-28 15:15:07  [ main:3449 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
+2018-01-28 15:15:07  [ main:3463 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2018-01-28 15:15:07  [ main:3466 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 15:15:07  [ main:3467 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 15:15:07  [ main:3468 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 15:15:07  [ main:3469 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 15:15:07  [ main:3483 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 15:15:05 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 15:15:07  [ main:3554 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-28 15:15:07  [ main:3557 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-28 15:15:07  [ main:3560 ] - [ INFO ]  Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-28 15:15:07  [ main:3563 ] - [ INFO ]  Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-28 15:15:07  [ main:3565 ] - [ INFO ]  Mapped URL path [/video/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-28 15:15:07  [ main:3632 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 1766 ms
+2018-01-28 15:15:11  [ http-8080-1:7447 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/common/create/valicode
+2018-01-28 15:15:11  [ http-8080-1:7976 ] - [ INFO ]  enter create image 
+2018-01-28 20:41:56  [ main:6034 ] - [ INFO ]  enter into LoginFilter init
+2018-01-28 20:41:56  [ main:6219 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2018-01-28 20:41:56  [ main:6222 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:41:56 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:41:56  [ main:6223 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-01-28 20:41:56  [ main:6420 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
+2018-01-28 20:41:57  [ main:6702 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-28 20:41:57  [ main:6952 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:41:57  [ main:6954 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:41:57  [ main:6955 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:41:57  [ main:6956 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:41:57  [ main:6957 ] - [ INFO ]  Mapped "{[/user/create],methods=[POST]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:41:57  [ main:7089 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
+2018-01-28 20:41:58  [ main:8454 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:41:56 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:41:59  [ main:8625 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:41:56 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:41:59  [ main:8903 ] - [ INFO ]  Mapped URL path [/burlapServiceExporter] onto handler 'burlapServiceExporter'
+2018-01-28 20:41:59  [ main:8903 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
+2018-01-28 20:41:59  [ main:8904 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
+2018-01-28 20:41:59  [ main:8927 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2018-01-28 20:41:59  [ main:8930 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:41:59  [ main:8930 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:41:59  [ main:8932 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:41:59  [ main:8933 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:41:59  [ main:8933 ] - [ INFO ]  Mapped "{[/user/create],methods=[POST]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:41:59  [ main:8948 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:41:56 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:41:59  [ main:9036 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-28 20:41:59  [ main:9039 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-28 20:41:59  [ main:9043 ] - [ INFO ]  Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-28 20:41:59  [ main:9046 ] - [ INFO ]  Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-28 20:41:59  [ main:9049 ] - [ INFO ]  Mapped URL path [/video/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-28 20:41:59  [ main:9135 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 2916 ms
+2018-01-28 20:42:36  [ main:2574 ] - [ INFO ]  enter into LoginFilter init
+2018-01-28 20:42:36  [ main:2629 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2018-01-28 20:42:36  [ main:2632 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:42:36 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:42:36  [ main:2632 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-01-28 20:42:36  [ main:2723 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
+2018-01-28 20:42:37  [ main:2827 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-28 20:42:37  [ main:3035 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:42:37  [ main:3036 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:42:37  [ main:3037 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:42:37  [ main:3038 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:42:37  [ main:3039 ] - [ INFO ]  Mapped "{[/user/create],methods=[POST]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:42:37  [ main:3093 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
+2018-01-28 20:42:37  [ main:3651 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:42:36 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:42:37  [ main:3728 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:42:36 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:42:38  [ main:3912 ] - [ INFO ]  Mapped URL path [/burlapServiceExporter] onto handler 'burlapServiceExporter'
+2018-01-28 20:42:38  [ main:3912 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
+2018-01-28 20:42:38  [ main:3913 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
+2018-01-28 20:42:38  [ main:3925 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2018-01-28 20:42:38  [ main:3928 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:42:38  [ main:3928 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:42:38  [ main:3930 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:42:38  [ main:3931 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:42:38  [ main:3932 ] - [ INFO ]  Mapped "{[/user/create],methods=[POST]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:42:38  [ main:3946 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:42:36 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:42:38  [ main:4016 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-28 20:42:38  [ main:4019 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-28 20:42:38  [ main:4022 ] - [ INFO ]  Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-28 20:42:38  [ main:4025 ] - [ INFO ]  Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-28 20:42:38  [ main:4028 ] - [ INFO ]  Mapped URL path [/video/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-28 20:42:38  [ main:4093 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 1464 ms
+2018-01-28 20:43:58  [ http-8080-1:83982 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/user/create
+2018-01-28 20:43:58  [ http-8080-1:84102 ] - [ INFO ]  enter into create user controller
+2018-01-28 20:44:00  [ http-8080-1:86200 ] - [ INFO ]  insert user data success, result=1
+2018-01-28 20:44:00  [ http-8080-1:86345 ] - [ INFO ]  Loading Velocity config from [class path resource [velocity/velocity.properties]]
+2018-01-28 20:44:00  [ http-8080-1:86351 ] - [ INFO ]  ClasspathResourceLoader with name 'springMacro' added to configured VelocityEngine
+2018-01-28 20:44:00  [ http-8080-1:86578 ] - [ ERROR ]  ResourceManager : unable to find resource 'user/create.vm' in any resource loader.
+2018-01-28 20:44:01  [ http-8080-1:86904 ] - [ INFO ]  ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-28 20:45:18  [ main:2677 ] - [ INFO ]  enter into LoginFilter init
+2018-01-28 20:45:18  [ main:2736 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2018-01-28 20:45:18  [ main:2740 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:45:18 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:45:18  [ main:2741 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-01-28 20:45:18  [ main:2846 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
+2018-01-28 20:45:18  [ main:2947 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-28 20:45:18  [ main:3163 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:45:18  [ main:3164 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:45:18  [ main:3165 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:45:18  [ main:3167 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:45:18  [ main:3168 ] - [ INFO ]  Mapped "{[/user/create],methods=[POST]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:45:19  [ main:3222 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
+2018-01-28 20:45:19  [ main:3730 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:45:18 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:45:19  [ main:3798 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:45:18 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:45:19  [ main:3986 ] - [ INFO ]  Mapped URL path [/burlapServiceExporter] onto handler 'burlapServiceExporter'
+2018-01-28 20:45:19  [ main:3987 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
+2018-01-28 20:45:19  [ main:3988 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
+2018-01-28 20:45:19  [ main:4002 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2018-01-28 20:45:19  [ main:4011 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:45:19  [ main:4012 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:45:19  [ main:4014 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:45:19  [ main:4016 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:45:19  [ main:4017 ] - [ INFO ]  Mapped "{[/user/create],methods=[POST]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:45:19  [ main:4032 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:45:18 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:45:19  [ main:4078 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-28 20:45:19  [ main:4083 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-28 20:45:19  [ main:4089 ] - [ INFO ]  Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-28 20:45:19  [ main:4093 ] - [ INFO ]  Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-28 20:45:19  [ main:4097 ] - [ INFO ]  Mapped URL path [/video/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-28 20:45:19  [ main:4176 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 1440 ms
+2018-01-28 20:45:24  [ http-8080-1:8508 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/user/create
+2018-01-28 20:45:24  [ http-8080-1:8578 ] - [ INFO ]  enter into create user controller
+2018-01-28 20:45:24  [ http-8080-1:8935 ] - [ INFO ]  insert user data success, result=1
+2018-01-28 20:46:39  [ main:2621 ] - [ INFO ]  enter into LoginFilter init
+2018-01-28 20:46:39  [ main:2680 ] - [ INFO ]  FrameworkServlet 'spring': initialization started
+2018-01-28 20:46:39  [ main:2683 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:46:39 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:46:39  [ main:2683 ] - [ INFO ]  Loading XML bean definitions from class path resource [spring-mvc.xml]
+2018-01-28 20:46:39  [ main:2788 ] - [ INFO ]  Loading XML bean definitions from URL [file:/E:/basic/sdk-service/target/classes/spring/rmi/hessian/server/application.xml]
+2018-01-28 20:46:39  [ main:2903 ] - [ INFO ]  JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-28 20:46:39  [ main:3123 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:46:39  [ main:3125 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:46:39  [ main:3126 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:46:39  [ main:3127 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:46:39  [ main:3128 ] - [ INFO ]  Mapped "{[/user/create],methods=[GET]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:46:39  [ main:3185 ] - [ INFO ]  HV000001: Hibernate Validator 5.4.1.Final
+2018-01-28 20:46:40  [ main:3736 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:46:39 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:46:40  [ main:3824 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:46:39 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:46:40  [ main:4037 ] - [ INFO ]  Mapped URL path [/burlapServiceExporter] onto handler 'burlapServiceExporter'
+2018-01-28 20:46:40  [ main:4038 ] - [ INFO ]  Mapped URL path [/httpInvokerServiceExporter] onto handler 'httpInvokerServiceExporter'
+2018-01-28 20:46:40  [ main:4039 ] - [ INFO ]  Mapped URL path [/hessianExport] onto handler 'hessianExport'
+2018-01-28 20:46:40  [ main:4055 ] - [ INFO ]  Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+2018-01-28 20:46:40  [ main:4058 ] - [ INFO ]  Mapped "{[/common/create/valicode],methods=[GET]}" onto public void com.itcast.basic.web.controller.common.CommonController.valicode(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpSession)
+2018-01-28 20:46:40  [ main:4059 ] - [ INFO ]  Mapped "{[/common/create/session],methods=[POST]}" onto public java.lang.String com.itcast.basic.web.controller.common.CommonController.createLogFile(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-28 20:46:40  [ main:4061 ] - [ INFO ]  Mapped "{[/freemarker/user],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itcast.basic.web.controller.freemarker.FreemarkerController.getUserInfo()
+2018-01-28 20:46:40  [ main:4062 ] - [ INFO ]  Mapped "{[/velocity/user],methods=[GET]}" onto public java.lang.String com.itcast.basic.web.controller.velocity.VelocityController.getUserInfo(org.springframework.ui.Model)
+2018-01-28 20:46:40  [ main:4063 ] - [ INFO ]  Mapped "{[/user/create],methods=[GET]}" onto public com.itcast.basic.web.response.ResponseEntity com.itcast.basic.web.controller.webcontroller.UserController.createUser(com.itcast.basic.web.vo.UserVO)
+2018-01-28 20:46:40  [ main:4077 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Sun Jan 28 20:46:39 CST 2018]; parent: Root WebApplicationContext
+2018-01-28 20:46:40  [ main:4150 ] - [ INFO ]  Mapped URL path [/image/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-28 20:46:40  [ main:4154 ] - [ INFO ]  Mapped URL path [/fonts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-28 20:46:40  [ main:4158 ] - [ INFO ]  Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-28 20:46:40  [ main:4161 ] - [ INFO ]  Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-28 20:46:40  [ main:4164 ] - [ INFO ]  Mapped URL path [/video/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-28 20:46:40  [ main:4238 ] - [ INFO ]  FrameworkServlet 'spring': initialization completed in 1558 ms
+2018-01-28 20:47:24  [ http-8080-1:48286 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/user/create
+2018-01-28 20:47:25  [ http-8080-1:48434 ] - [ INFO ]  enter into create user controller
+2018-01-28 20:47:26  [ http-8080-1:49426 ] - [ INFO ]  Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-01-28 20:47:26  [ http-8080-1:49500 ] - [ INFO ]  SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-01-28 20:47:26  [ http-8080-1:49558 ] - [ INFO ]  error message is {}
+org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'name' cannot be null
+### The error may involve com.itcast.basic.webservice.repository.UserRepository.insert-Inline
+### The error occurred while setting parameters
+### SQL: insert into users(          name,          nick_name,          sex,          school_name,          create_time,          update_time          ) values(          ?,          ?,           ?,          ?,          now(),          now()          )
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'name' cannot be null
+; SQL []; Column 'name' cannot be null; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'name' cannot be null
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:85)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:75)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:447)
+	at com.sun.proxy.$Proxy38.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:279)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:57)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy39.insert(Unknown Source)
+	at com.itcast.basic.webservice.service.impl.UserServiceImpl.insert(UserServiceImpl.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy41.insert(Unknown Source)
+	at com.itcast.basic.web.controller.webcontroller.UserController.createUser(UserController.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at com.itcast.basic.web.filter.LoginFilter.doFilter(LoginFilter.java:27)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:164)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:80)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:298)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:857)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:588)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'name' cannot be null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:932)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2478)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2625)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2551)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1192)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:434)
+	... 62 more
+2018-01-28 20:47:26  [ http-8080-1:49877 ] - [ INFO ]  Loading Velocity config from [class path resource [velocity/velocity.properties]]
+2018-01-28 20:47:26  [ http-8080-1:49888 ] - [ INFO ]  ClasspathResourceLoader with name 'springMacro' added to configured VelocityEngine
+2018-01-28 20:47:26  [ http-8080-1:50175 ] - [ ERROR ]  ResourceManager : unable to find resource 'user/create.vm' in any resource loader.
+2018-01-28 20:47:27  [ http-8080-1:50363 ] - [ INFO ]  ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-28 20:48:31  [ http-8080-1:115232 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/user/create
+2018-01-28 20:48:31  [ http-8080-1:115268 ] - [ INFO ]  enter into create user controller
+2018-01-28 20:48:32  [ http-8080-1:115356 ] - [ INFO ]  error message is {}
+org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'school_name' cannot be null
+### The error may involve com.itcast.basic.webservice.repository.UserRepository.insert-Inline
+### The error occurred while setting parameters
+### SQL: insert into users(          name,          nick_name,          sex,          school_name,          create_time,          update_time          ) values(          ?,          ?,           ?,          ?,          now(),          now()          )
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'school_name' cannot be null
+; SQL []; Column 'school_name' cannot be null; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'school_name' cannot be null
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:85)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:75)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:447)
+	at com.sun.proxy.$Proxy38.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:279)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:57)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy39.insert(Unknown Source)
+	at com.itcast.basic.webservice.service.impl.UserServiceImpl.insert(UserServiceImpl.java:37)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:333)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:282)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:213)
+	at com.sun.proxy.$Proxy41.insert(Unknown Source)
+	at com.itcast.basic.web.controller.webcontroller.UserController.createUser(UserController.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at com.itcast.basic.web.filter.LoginFilter.doFilter(LoginFilter.java:27)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:164)
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:80)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:298)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:857)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:588)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'school_name' cannot be null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:932)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2478)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2625)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2551)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1192)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:434)
+	... 62 more
+2018-01-28 20:48:32  [ http-8080-1:115628 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/user/favicon.ico
+2018-01-28 20:48:33  [ http-8080-1:116769 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/video/Crocodile.gif
+2018-01-28 20:48:33  [ http-8080-2:116886 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/video/Crocodile.jpeg
+2018-01-28 20:48:33  [ http-8080-1:116974 ] - [ INFO ]  enter into LoginFilter doFilter,request url is /sdk-service/video/Crocodile.png
