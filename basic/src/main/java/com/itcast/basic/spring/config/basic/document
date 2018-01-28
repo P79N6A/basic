@@ -1,0 +1,57 @@
+对spring属性配置方式的思考:
+
+静态域属性的注入方法应去掉static
+普通非静态域(int integer String)注入方式:
+<property name="propertyName" value="propertyValue"/>
+日期类型注入方式:
+<property name="birthday" ref="birthday"/>
+<bean id="birthday" class="java.util.Date"/>
+枚举域注入方式:
+<property name="sex" ref="sex" />
+<bean id="sex" class="org.springframework.beans,factory.config.FieldRetrievingFactoryBean">
+<property name="staticField" value="com.itcast.basic.spring.config.basic.Sex.MAN" />
+</bean>
+
+spring集合属性配置
+
+list
+<property name="listName">
+  <list>
+    <value>value</value>
+    <value>value</value>
+    <value>value</value>
+  </list>
+</property>
+
+set
+<property name="setName">
+   <set>
+      <value>value</value>
+      <value>value</value>
+      <value>value</value>
+   </set>
+</property>
+
+map
+<property>
+   <map>
+      <entry key="keyName">
+        <value>value</value>
+      </entry>
+      <entry key="keyName">
+        <value>value</value>
+      </entry>
+   </map>
+</property>
+
+properties
+<property name="propertyName">
+    <props>
+       <prop key="keyName">
+        <value>value</value>
+       </prop>
+       <prop key="keyName">
+         <value>value</value>
+       </prop>
+    </props>
+</property>

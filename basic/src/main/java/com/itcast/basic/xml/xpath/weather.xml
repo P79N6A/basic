@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<weather> 
+    <city code="101010400" name="顺义">
+        <windy unint="级">6</windy>
+        <temperature unint="C">20</temperature>
+        <hits>适合出行</hits>
+    </city>
+    <city code="101010401" name="海淀">
+        <windy unint="级">4</windy>
+        <temperature unint="C">18</temperature>
+        <hits>适合出行</hits>
+    </city>
+    <city code="101010402" name="浦东">
+        <windy unint="级">7</windy>
+        <temperature unint="C">20</temperature>
+        <hits>适合出行</hits>
+    </city>
+    <city code="101010403" name="青浦">
+        <windy unint="级">2</windy>
+        <temperature unint="C">22</temperature>
+        <hits>适合出行</hits>
+    </city>
+</weather>

@@ -1,7 +1,0 @@
-spring bean的依赖注入方式
-构造器注入
-setter注入
-
-spring bean的实例化方式
-静态工厂方法实例化bean
-实例工厂方法实例化bean

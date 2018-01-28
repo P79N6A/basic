@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.queryway.initdata.Item" table="t_items">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="string"/>
+        <property name="singalPrice" type="big_decimal" scale="2" precision="8" column="singal_price"/>
+        <property name="description" type="text"/>
+        <property name="stocks" type="int"/>
+        <property name="stocksValue" type="int" column="stocks_value"
+                  formula="(select stocks*singal_price from t_items i where i.id=id)"/>
+
+    </class>
+</hibernate-mapping>

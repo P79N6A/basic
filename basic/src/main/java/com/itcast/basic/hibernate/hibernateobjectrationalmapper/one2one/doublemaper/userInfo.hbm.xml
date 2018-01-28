@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.hibernateobjectrationalmapper.one2one.doublemaper.UserInfo">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="nickName" type="string" column="user_nick_name"/>
+        <property name="age" column="user_age"/>
+        <property name="school" column="user_school"/>
+        <property name="companyName" column="user_company_name"/>
+        <many-to-one name="user"
+                     class="com.itcast.basic.hibernate.hibernateobjectrationalmapper.one2one.doublemaper.User"
+                     unique="true" column="user_id"/>
+    </class>
+</hibernate-mapping>

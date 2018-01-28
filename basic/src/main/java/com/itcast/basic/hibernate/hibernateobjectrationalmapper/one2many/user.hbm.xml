@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.hibernateobjectrationalmapper.one2many.User">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="birthday" column="user_birthday" type="date"/>
+        <property name="name" column="user_name"/>
+        <property name="phone" column="user_phone"/>
+        <property name="school" column="user_school"/>
+        <set name="orders" inverse="true">
+            <key column="user_id"/>
+            <one-to-many class="com.itcast.basic.hibernate.hibernateobjectrationalmapper.one2many.Order"/>
+        </set>
+    </class>
+</hibernate-mapping>

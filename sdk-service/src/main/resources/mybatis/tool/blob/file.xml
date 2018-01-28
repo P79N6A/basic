@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.mybatis.tool.blob.mapper.FileMapper">
+
+    <insert id="insertFile" keyColumn="id" useGeneratedKeys="true" parameterType="File">
+        insert into file (name,content) values(#{name},#{content})
+    </insert>
+
+    <select id="findFileById" resultType="File">
+         select * from file where id = #{id}
+    </select>
+
+</mapper>

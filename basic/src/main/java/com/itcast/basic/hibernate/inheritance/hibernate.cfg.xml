@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hbm2ddl.auto">
+            update
+        </property>
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <property name="hibernate.connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/tongzhuwang
+        </property>
+
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <property name="hibernate.connection.password">
+            a123456
+        </property>
+
+        <property name="hibernate.connection.useUnicode">
+            true
+        </property>
+
+        <property name="hibernate.connection.characterEncoding">
+            utf8
+        </property>
+
+        <!--<mapping resource="com/itcast/basic/hibernate/inheritance/abstractclass/user.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/inheritance/abstractclass/order.hbm.xml"/>-->
+
+        <!--<mapping resource="com/itcast/basic/hibernate/inheritance/implementationclass/user.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/inheritance/implementationclass/productOrder.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/inheritance/implementationclass/customerOrder.hbm.xml"/>-->
+
+        <mapping resource="com/itcast/basic/hibernate/inheritance/joinsubclass/user.hbm.xml"/>
+        <mapping resource="com/itcast/basic/hibernate/inheritance/joinsubclass/order.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,121 @@
+java键值集合Map详解:
+hashmap:数组链表结构 线程不安全 无序散列表 可存储null值 枚举方法HashIterator
+hashtable:数组链表结构 线程安全 无序散列表 不可存储null 枚举方法 Enumeration
+dictionary      map
+  |             /  \
+  |            /    \
+  |   abstractmap    sortedmap
+  |    /     /  \           \
+  |   /     /    \           \
+  |  /     /      \           \
+hashtable enummap hashmap     navigablemap
+  |            (weakhashmap)        |
+  |           (IdentityHashMap)     |
+  |                 |               |
+  |                 |            treemap
+  |            linkedhashmap
+  |
+  |
+properties
+
+
+
+
+java.util包下类集合框架架构图:
+
+                            collection
+                            /   |     \
+                           /    |      \
+                          /     |       \
+                        list   set----  queue--------priorityqueue
+                          |    |      |      \
+                          |  sortedset|       \
+                      absrtactlist  \  \       deque---------arraydeque
+                      |         | \  \  \
+                      |         |  \  \  abstractset-----------hashset----linkedhashset
+                      |         |   \ treeset    |
+                     arraylist vector\        enumset
+                                  |   abstractsequentiallist
+                                stack         |
+                                              |
+                                          linkedlist
+
+
+
+         dicrionary                 map
+              |                     / |
+              |                    /  |
+              |                   /  sortedmap-------navigablemap
+              |------- abstractmap                       |
+           hashtable   /    |     \\                     |
+             |        /     |      \\                  treemap
+             |     weak     |       \\
+             |     hashmap indentity \\
+        properties         hashmap hash\
+                                   map  enum
+                                    |   map
+                                    |
+                                    |
+                             linkedhashmap
+
+对java.util包下集合框架底层源码的思考:
+
+Collection:
+
+ArrayList 可随机访问的列表 Object数组的包装 需要扩容 线程不安全
+Vector 线程安全的可随机访问列表 Object数组的包装 需要扩容
+Stack  堆栈的实现 线程安全
+LinkedList 无容量限制 可高效动态添加元素的双向链表 静态内部类Node实现 线程安全
+HashSet 无重复元素的集合 HashMap实现  线程不安全 存放顺序无序
+LinkedHashSet LinkedHashMap实现  线程不安全 按添加顺序存放
+EnumSet Enum数组实现 线程不安全 抽象类
+TreeSet 线程不安全 TreeMap实现
+ArrayDeque 线程不安全 双向循环数组实现队列
+PriorityQueue 线程不安全 Object数组的包装 堆排序
+
+Map:
+
+HashTable:线程安全的键值集合 不允许存储null键值对
+Properties:文件属性映射集合 HashTable子类
+WeakHashMap:对HashMap的Key进行弱引用改造
+IdentityHashMap:对Object数组的包装
+HashMap:线程不安全的键值对集合 链表数组 可扩容 静态内部类Entry 存储顺序无序 允许存储null值对
+LinkedHashMap:线程不安全的键值对集合 双向循环链表 无容量限制 静态内部类Entry 有序存储 允许存储null值对
+EnumMap:对Object数组和Class数组的包装 线程不安全
+TreeMap:线程不安全 用红黑树(一种平衡二叉树)实现
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

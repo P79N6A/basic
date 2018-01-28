@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--配置驼峰命名和下划线命名映射-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <setting name="defaultStatementTimeout" value="25000"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="User" type="com.itcast.basic.mybatis.mybatisspring.sqlsessiontemplate.model.User"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mybatis/mybatisspring/sqlsessiontemplate/user.xml"/>
+    </mappers>
+</configuration>

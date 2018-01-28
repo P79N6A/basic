@@ -1,0 +1,10 @@
+本包说明国际化常用的类和文件命名格式:resource_语言名_国家名.properties
+MessageFormat:消息格式
+DateFormat:日期格式
+SimpleDateFormat:简单日期格式
+NumberFormat:数字格式
+Locale:本地化对象
+ResourceBundle:本地资源加载类
+
+资源文件加载机制:
+resource_en_US.properties->resource_en.properties->resource.properties->默认的资源文件

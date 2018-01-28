@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="saveService" class="com.itcast.basic.spring.config.aop.dynamic.introductionadvisor.SaveService"/>
+
+    <bean id="beforeAdvisor"
+          class="com.itcast.basic.spring.config.aop.dynamic.introductionadvisor.SimpleMethodBeforeAdvisor"/>
+    <!--
+    配置切入点表达式
+      1通知方法名字
+      2通知方法正则表达式
+    -->
+    <bean id="saveInterceptorFilter" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="beforeAdvisor"/>
+        <property name="mappedNames">
+            <list>
+                <value>save</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="queryInterceptorFilter" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="beforeAdvisor"/>
+        <property name="patterns">
+            <list>
+                <value>com.itcast.basic.spring.config.aop.dynamic.introductionadvisor.*.query</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="introductionService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces"
+                  value="com.itcast.basic.spring.config.aop.dynamic.introductionadvisor.ServiceInterface"/>
+        <property name="target" ref="saveService"/>
+        <property name="interceptorNames">
+            <list>
+                <value>saveInterceptorFilter</value>
+                <value>queryInterceptorFilter</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

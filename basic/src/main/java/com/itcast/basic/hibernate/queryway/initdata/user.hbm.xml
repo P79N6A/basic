@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.queryway.initdata.User" table="t_users">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="string"/>
+        <property name="sex">
+            <column name="u_sex" not-null="true"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.itcast.basic.hibernate.queryway.initdata.Sex</param>
+                <param name="key">4</param>
+            </type>
+        </property>
+        <property name="bytes" type="binary" length="102400" lazy="true"/>
+        <set name="orders" cascade="all">
+            <key column="user_id"/>
+            <one-to-many class="com.itcast.basic.hibernate.queryway.initdata.Order"/>
+        </set>
+    </class>
+
+    <!--
+    配置文件中配置hql查询语句
+          select u.id,u.name from User u where u.sex = ?
+          from User u where u.name like :likeName
+          from User u join fetch u.userInfo
+    -->
+    <query name="queryUser">
+        select u.id,u.name from User u where u.sex = ?
+    </query>
+
+    <!--
+    <query name="queryUser">
+        <![CDATA[
+          select u.id,u.name from User u where u.sex = ?
+        ]]>
+    </query>
+    -->
+
+</hibernate-mapping>

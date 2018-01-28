@@ -1,0 +1,68 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./config/ehcache.xsd">
+    <!--
+    配置缓存文件存放的地址
+    -->
+    <disStore path="/Users/qfl/cache"/>
+    <!--
+    配置默认的缓存机制
+    -->
+    <defaultCache
+            maxElementInMemory="3"
+            maxElementOnDisk="10"
+            overflowToDisk="true"
+            timeToLiveSeconds="10"
+            timeToIdleSeconds="5"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            eternal="false"
+    />
+
+    <!--
+    配置类级别缓存机制
+    -->
+    <Cache
+            name="com.itcast.basic.hibernate.cacheconfig.domain.User"
+            maxElementInMemory="3"
+            maxElementOnDisk="10"
+            overflowToDisk="true"
+            timeToLiveSeconds="10"
+            timeToIdleSeconds="5"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            eternal="false"
+    />
+
+    <!--
+    配置关联级别缓存机制
+    -->
+    <Cache
+            name="com.itcast.basic.hibernate.cacheconfig.domain.User"
+            maxElementInMemory="3"
+            maxElementOnDisk="10"
+            overflowToDisk="true"
+            timeToLiveSeconds="10"
+            timeToIdleSeconds="5"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            eternal="false"
+    />
+    <!--
+    配置查询缓存
+    -->
+    <cache name="org.hibernate.cache.StandardQueryCache"
+           maxElementsInMemory="5"
+           eternal="false"
+           timeToLiveSeconds="120"
+           overflowToDisk="true"/>
+
+    <cache name="org.hibernate.cache.UpdateTimestampsCache"
+           maxElementsInMemory="5000"
+           eternal="true"
+           overflowToDisk="true"/>
+
+
+</ehcache>

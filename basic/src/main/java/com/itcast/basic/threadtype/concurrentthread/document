@@ -1,0 +1,14 @@
+对java.util.concurrent包下系统线程池的思考:
+Executors.newCacheThreadPool()创建一个可缓存的线程池(缓存60s)
+Executors.newFixedThreadPool()创建一个固定大小的线程池
+Executors.newSingleThreadPool()创建一个单线程的线程池
+Executors.newScheduledThreadPool()创建一个任务队列线程池
+Timer单任务定时器
+Callabel带返回值的任务
+Future接受返回值的队列
+信号量Semaphre
+倒计时门栓CountDownLatch
+障栏CylicBarrier
+线程数据交换器Exchanger
+Fork-Join框架(分治法)
+

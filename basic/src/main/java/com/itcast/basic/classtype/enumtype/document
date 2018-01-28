@@ -1,0 +1,327 @@
+public class com.itcast.basic.classtype.enumtype.EnumClass extends java.lang.Enum<com.itcast.basic.classtype.enumtype.EnumClass>
+  Signature: #65                          // Ljava/lang/Enum<Lcom/itcast/basic/classtype/enumtype/EnumClass;>;
+  SourceFile: "EnumClass.java"
+  InnerClasses:
+       static #22; //class com/itcast/basic/classtype/enumtype/EnumClass$1
+  minor version: 0
+  major version: 51
+  flags: ACC_PUBLIC, ACC_SUPER, ACC_ENUM
+Constant pool:
+    #1 = Methodref          #5.#68        //  com/itcast/basic/classtype/enumtype/EnumClass."<init>":(Ljava/lang/String;I)V
+    #2 = Fieldref           #5.#69        //  com/itcast/basic/classtype/enumtype/EnumClass.$VALUES:[Lcom/itcast/basic/classtype/enumtype/EnumClass;
+    #3 = Methodref          #70.#71       //  "[Lcom/itcast/basic/classtype/enumtype/EnumClass;".clone:()Ljava/lang/Object;
+    #4 = Class              #46           //  "[Lcom/itcast/basic/classtype/enumtype/EnumClass;"
+    #5 = Class              #72           //  com/itcast/basic/classtype/enumtype/EnumClass
+    #6 = Methodref          #28.#73       //  java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+    #7 = Methodref          #28.#74       //  java/lang/Enum."<init>":(Ljava/lang/String;I)V
+    #8 = Fieldref           #5.#75        //  com/itcast/basic/classtype/enumtype/EnumClass.i:I
+    #9 = Fieldref           #5.#76        //  com/itcast/basic/classtype/enumtype/EnumClass.dataUtils:Lcom/itcast/basic/classtype/enumtype/DataUtils;
+   #10 = Fieldref           #77.#78       //  java/lang/System.out:Ljava/io/PrintStream;
+   #11 = String             #79           //  Hello World
+   #12 = Methodref          #80.#81       //  java/io/PrintStream.println:(Ljava/lang/String;)V
+   #13 = String             #82           //  jumping
+   #14 = String             #31           //  ONE
+   #15 = Fieldref           #5.#83        //  com/itcast/basic/classtype/enumtype/EnumClass.ONE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #16 = String             #33           //  TOW
+   #17 = Fieldref           #5.#84        //  com/itcast/basic/classtype/enumtype/EnumClass.TOW:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #18 = String             #34           //  THREE
+   #19 = Fieldref           #5.#85        //  com/itcast/basic/classtype/enumtype/EnumClass.THREE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #20 = String             #35           //  FOUR
+   #21 = Fieldref           #5.#86        //  com/itcast/basic/classtype/enumtype/EnumClass.FOUR:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #22 = Class              #87           //  com/itcast/basic/classtype/enumtype/EnumClass$1
+   #23 = String             #36           //  SIX
+   #24 = Methodref          #22.#68       //  com/itcast/basic/classtype/enumtype/EnumClass$1."<init>":(Ljava/lang/String;I)V
+   #25 = Fieldref           #5.#88        //  com/itcast/basic/classtype/enumtype/EnumClass.SIX:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #26 = Class              #89           //  com/itcast/basic/classtype/enumtype/DataUtils
+   #27 = Methodref          #26.#90       //  com/itcast/basic/classtype/enumtype/DataUtils."<init>":()V
+   #28 = Class              #91           //  java/lang/Enum
+   #29 = Utf8
+   #30 = Utf8               InnerClasses
+   #31 = Utf8               ONE
+   #32 = Utf8               Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #33 = Utf8               TOW
+   #34 = Utf8               THREE
+   #35 = Utf8               FOUR
+   #36 = Utf8               SIX
+   #37 = Utf8               i
+   #38 = Utf8               I
+   #39 = Utf8               UUID
+   #40 = Utf8               Ljava/lang/String;
+   #41 = Utf8               ConstantValue
+   #42 = String             #92           //  enum
+   #43 = Utf8               dataUtils
+   #44 = Utf8               Lcom/itcast/basic/classtype/enumtype/DataUtils;
+   #45 = Utf8               $VALUES
+   #46 = Utf8               [Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #47 = Utf8               values
+   #48 = Utf8               ()[Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #49 = Utf8               Code
+   #50 = Utf8               LineNumberTable
+   #51 = Utf8               valueOf
+   #52 = Utf8               (Ljava/lang/String;)Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #53 = Utf8               <init>
+   #54 = Utf8               (Ljava/lang/String;I)V
+   #55 = Utf8               Signature
+   #56 = Utf8               ()V
+   #57 = Utf8               getDataUtils
+   #58 = Utf8               ()Lcom/itcast/basic/classtype/enumtype/DataUtils;
+   #59 = Utf8               getI
+   #60 = Utf8               ()I
+   #61 = Utf8               sysHello
+   #62 = Utf8               jump
+   #63 = Utf8               (Ljava/lang/String;ILcom/itcast/basic/classtype/enumtype/EnumClass$1;)V
+   #64 = Utf8               <clinit>
+   #65 = Utf8               Ljava/lang/Enum<Lcom/itcast/basic/classtype/enumtype/EnumClass;>;
+   #66 = Utf8               SourceFile
+   #67 = Utf8               EnumClass.java
+   #68 = NameAndType        #53:#54       //  "<init>":(Ljava/lang/String;I)V
+   #69 = NameAndType        #45:#46       //  $VALUES:[Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #70 = Class              #46           //  "[Lcom/itcast/basic/classtype/enumtype/EnumClass;"
+   #71 = NameAndType        #93:#94       //  clone:()Ljava/lang/Object;
+   #72 = Utf8               com/itcast/basic/classtype/enumtype/EnumClass
+   #73 = NameAndType        #51:#95       //  valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+   #74 = NameAndType        #53:#54       //  "<init>":(Ljava/lang/String;I)V
+   #75 = NameAndType        #37:#38       //  i:I
+   #76 = NameAndType        #43:#44       //  dataUtils:Lcom/itcast/basic/classtype/enumtype/DataUtils;
+   #77 = Class              #96           //  java/lang/System
+   #78 = NameAndType        #97:#98       //  out:Ljava/io/PrintStream;
+   #79 = Utf8               Hello World
+   #80 = Class              #99           //  java/io/PrintStream
+   #81 = NameAndType        #100:#101     //  println:(Ljava/lang/String;)V
+   #82 = Utf8               jumping
+   #83 = NameAndType        #31:#32       //  ONE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #84 = NameAndType        #33:#32       //  TOW:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #85 = NameAndType        #34:#32       //  THREE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #86 = NameAndType        #35:#32       //  FOUR:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #87 = Utf8               com/itcast/basic/classtype/enumtype/EnumClass$1
+   #88 = NameAndType        #36:#32       //  SIX:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+   #89 = Utf8               com/itcast/basic/classtype/enumtype/DataUtils
+   #90 = NameAndType        #53:#56       //  "<init>":()V
+   #91 = Utf8               java/lang/Enum
+   #92 = Utf8               enum
+   #93 = Utf8               clone
+   #94 = Utf8               ()Ljava/lang/Object;
+   #95 = Utf8               (Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+   #96 = Utf8               java/lang/System
+   #97 = Utf8               out
+   #98 = Utf8               Ljava/io/PrintStream;
+   #99 = Utf8               java/io/PrintStream
+  #100 = Utf8               println
+  #101 = Utf8               (Ljava/lang/String;)V
+{
+  public static final com.itcast.basic.classtype.enumtype.EnumClass ONE;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  public static final com.itcast.basic.classtype.enumtype.EnumClass TOW;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  public static final com.itcast.basic.classtype.enumtype.EnumClass THREE;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  public static final com.itcast.basic.classtype.enumtype.EnumClass FOUR;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  public static final com.itcast.basic.classtype.enumtype.EnumClass SIX;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  public static final java.lang.String UUID;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    ConstantValue: String enum
+
+  public static com.itcast.basic.classtype.enumtype.EnumClass[] values();
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: getstatic     #2                  // Field $VALUES:[Lcom/itcast/basic/classtype/enumtype/EnumClass;
+         3: invokevirtual #3                  // Method "[Lcom/itcast/basic/classtype/enumtype/EnumClass;".clone:()Ljava/lang/Object;
+         6: checkcast     #4                  // class "[Lcom/itcast/basic/classtype/enumtype/EnumClass;"
+         9: areturn
+      LineNumberTable:
+        line 6: 0
+
+  public static com.itcast.basic.classtype.enumtype.EnumClass valueOf(java.lang.String);
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: ldc_w         #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+         3: aload_0
+         4: invokestatic  #6                  // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+         7: checkcast     #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+        10: areturn
+      LineNumberTable:
+        line 6: 0
+
+  public int getI();
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #8                  // Field i:I
+         4: ireturn
+      LineNumberTable:
+        line 27: 0
+
+  public static void sysHello();
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #10                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #11                 // String Hello World
+         5: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 31: 0
+        line 32: 8
+
+  public void jump();
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #10                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #13                 // String jumping
+         5: invokevirtual #12                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 35: 0
+        line 36: 8
+
+  com.itcast.basic.classtype.enumtype.EnumClass(java.lang.String, int, com.itcast.basic.classtype.enumtype.EnumClass$1);
+    flags: ACC_SYNTHETIC
+    Code:
+      stack=3, locals=4, args_size=4
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #1                  // Method "<init>":(Ljava/lang/String;I)V
+         6: return
+      LineNumberTable:
+        line 6: 0
+
+  static {};
+    flags: ACC_STATIC
+    Code:
+      stack=4, locals=0, args_size=0
+         0: new           #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+         3: dup
+         4: ldc           #14                 // String ONE
+         6: iconst_0
+         7: invokespecial #1                  // Method "<init>":(Ljava/lang/String;I)V
+        10: putstatic     #15                 // Field ONE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        13: new           #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+        16: dup
+        17: ldc           #16                 // String TOW
+        19: iconst_1
+        20: invokespecial #1                  // Method "<init>":(Ljava/lang/String;I)V
+        23: putstatic     #17                 // Field TOW:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        26: new           #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+        29: dup
+        30: ldc           #18                 // String THREE
+        32: iconst_2
+        33: invokespecial #1                  // Method "<init>":(Ljava/lang/String;I)V
+        36: putstatic     #19                 // Field THREE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        39: new           #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+        42: dup
+        43: ldc           #20                 // String FOUR
+        45: iconst_3
+        46: invokespecial #1                  // Method "<init>":(Ljava/lang/String;I)V
+        49: putstatic     #21                 // Field FOUR:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        52: new           #22                 // class com/itcast/basic/classtype/enumtype/EnumClass$1
+        55: dup
+        56: ldc           #23                 // String SIX
+        58: iconst_4
+        59: invokespecial #24                 // Method com/itcast/basic/classtype/enumtype/EnumClass$1."<init>":(Ljava/lang/String;I)V
+        62: putstatic     #25                 // Field SIX:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        65: iconst_5
+        66: anewarray     #5                  // class com/itcast/basic/classtype/enumtype/EnumClass
+        69: dup
+        70: iconst_0
+        71: getstatic     #15                 // Field ONE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        74: aastore
+        75: dup
+        76: iconst_1
+        77: getstatic     #17                 // Field TOW:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        80: aastore
+        81: dup
+        82: iconst_2
+        83: getstatic     #19                 // Field THREE:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        86: aastore
+        87: dup
+        88: iconst_3
+        89: getstatic     #21                 // Field FOUR:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        92: aastore
+        93: dup
+        94: iconst_4
+        95: getstatic     #25                 // Field SIX:Lcom/itcast/basic/classtype/enumtype/EnumClass;
+        98: aastore
+        99: putstatic     #2                  // Field $VALUES:[Lcom/itcast/basic/classtype/enumtype/EnumClass;
+       102: new           #26                 // class com/itcast/basic/classtype/enumtype/DataUtils
+       105: dup
+       106: invokespecial #27                 // Method com/itcast/basic/classtype/enumtype/DataUtils."<init>":()V
+       109: putstatic     #9                  // Field dataUtils:Lcom/itcast/basic/classtype/enumtype/DataUtils;
+       112: return
+      LineNumberTable:
+        line 8: 0
+        line 9: 52
+        line 6: 65
+        line 20: 102
+}
+
+
+
+public class com.itcast.basic.classtype.enumtype.TestDemon
+  SourceFile: "TestDemon.java"
+  minor version: 0
+  major version: 51
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #6.#23         //  java/lang/Object."<init>":()V
+   #2 = Class              #24            //  com/itcast/basic/classtype/enumtype/DataUtils
+   #3 = Methodref          #2.#23         //  com/itcast/basic/classtype/enumtype/DataUtils."<init>":()V
+   #4 = Fieldref           #5.#25         //  com/itcast/basic/classtype/enumtype/TestDemon.dataUtils:Lcom/itcast/basic/classtype/enumtype/DataUtils;
+   #5 = Class              #26            //  com/itcast/basic/classtype/enumtype/TestDemon
+   #6 = Class              #27            //  java/lang/Object
+   #7 = Utf8               num
+   #8 = Utf8               I
+   #9 = Utf8               ConstantValue
+  #10 = Integer            100
+  #11 = Utf8               UUID
+  #12 = Utf8               Ljava/lang/String;
+  #13 = String             #28            //  hello
+  #14 = Utf8               dataUtils
+  #15 = Utf8               Lcom/itcast/basic/classtype/enumtype/DataUtils;
+  #16 = Utf8               <init>
+  #17 = Utf8               ()V
+  #18 = Utf8               Code
+  #19 = Utf8               LineNumberTable
+  #20 = Utf8               <clinit>
+  #21 = Utf8               SourceFile
+  #22 = Utf8               TestDemon.java
+  #23 = NameAndType        #16:#17        //  "<init>":()V
+  #24 = Utf8               com/itcast/basic/classtype/enumtype/DataUtils
+  #25 = NameAndType        #14:#15        //  dataUtils:Lcom/itcast/basic/classtype/enumtype/DataUtils;
+  #26 = Utf8               com/itcast/basic/classtype/enumtype/TestDemon
+  #27 = Utf8               java/lang/Object
+  #28 = Utf8               hello
+{
+  public com.itcast.basic.classtype.enumtype.TestDemon();
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 6: 0
+
+  static {};
+    flags: ACC_STATIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: new           #2                  // class com/itcast/basic/classtype/enumtype/DataUtils
+         3: dup
+         4: invokespecial #3                  // Method com/itcast/basic/classtype/enumtype/DataUtils."<init>":()V
+         7: putstatic     #4                  // Field dataUtils:Lcom/itcast/basic/classtype/enumtype/DataUtils;
+        10: return
+      LineNumberTable:
+        line 10: 0
+}

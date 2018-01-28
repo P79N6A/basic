@@ -4,6 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <import resource="classpath*:session/redis/redis-session.xml"/>
+    <!--<import resource="classpath*:session/mongodb/mongodb-session.xml"/>-->
     <import resource="classpath*:freemarker/application.xml"/>
     <import resource="classpath*:velocity/application.xml"/>
+
+    <bean class="com.itcast.basic.controller.context.SimpleApplicationContext"/>
 </beans>

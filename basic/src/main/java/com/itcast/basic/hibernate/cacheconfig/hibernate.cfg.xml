@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!--
+        配置实体映射策略
+        -->
+        <property name="hbm2ddl.auto">
+            update
+        </property>
+
+        <!--
+        配置数据库方言
+        -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!--
+        配置数据库驱动
+        -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+
+        <!--
+        配置数据库地址
+        -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/tongzhuwang
+        </property>
+
+        <!--
+        配置数据库用户名
+        -->
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <!--
+        配置数据库密码
+        -->
+        <property name="hibernate.connection.password">
+            a123456
+        </property>
+
+        <!--
+        配置数据库启用unicode编码
+        -->
+        <property name="hibernate.connection.useUnicode">
+            true
+        </property>
+
+        <!--
+        配置数据库字符编码
+        -->
+        <property name="hibernate.connection.characterEncoding">
+            utf8
+        </property>
+
+        <!--
+        配置数据库连接池
+        -->
+        <property name="hibernate.connection.pool.size">
+            20
+        </property>
+
+        <!--
+        配置数据库全局事务
+        -->
+        <property name="hibernate.current_session_context_class">
+            thread
+        </property>
+
+        <!--
+        配置hibernate查询语句是否显示
+        -->
+        <property name="hibernate.show_sql">
+            true
+        </property>
+
+        <!--
+        配置hibernate查询语句显示格式
+        -->
+        <property name="hibernate.format_sql">
+            true
+        </property>
+
+        <!--
+        配置数据库启用滚动集
+        -->
+        <property name="jdbc.use_scrollable_resultset">
+            true
+        </property>
+
+        <!--
+        配置数据库查询结果集大小
+        -->
+        <property name="jdbc.fetch_size">
+            50
+        </property>
+
+        <!--
+        配置数据库提交集大小
+        -->
+        <property name="jdbc.batch_size">
+            30
+        </property>
+
+        <!--
+         配置二级缓存的管理类
+        -->
+        <property name="hibernate.cache.provider_class">
+            org.hibernate.cache.EhCacheProvider
+        </property>
+
+        <!--
+        配置缓存文件
+        -->
+        <property name="hibernate.cache_configuration_file_resource_path">
+            com/itcast/basic/hibernate/cacheconfig/ehcache.xml
+        </property>
+
+        <!--
+        启用查询缓存
+        -->
+        <property name="hibernate.cache.use_query_cache">
+            true
+        </property>
+
+        <!--
+        启用sessionFactory缓存
+        -->
+        <property name="hibernate.cache.use_second_level_cache">
+            true
+        </property>
+
+        <!--
+        配置实体配置文件
+        -->
+        <mapping resource="com/itcast/basic/hibernate/cacheconfig/domain/user.hbm.xml"/>
+        <mapping resource="com/itcast/basic/hibernate/cacheconfig/domain/order.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

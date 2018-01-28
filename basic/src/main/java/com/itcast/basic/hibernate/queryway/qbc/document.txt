@@ -1,0 +1,1 @@
+本包详细讲解hibernate中qbc查询语句

@@ -1,0 +1,181 @@
+URI(Uniform Resource Identity):统一资源标识符
+URL(Uniform Resource Locator):统一资源定位符
+
+http(HyperText Transform protocol):超文本传输协议
+
+特点:
+(1)支持客户端/服务器模式
+(2)简单便捷:客户端向服务器发生请求时,只需要传入请求路径和请求方法
+(3)灵活:http协议支持传输任意类型的数据对象,当前传输的数据类型由Content-Type指定
+(4)无状态:http协议对事务处理没有记忆能力
+(5)无连接:http协议要求每次连接只能处理一个请求
+
+请求方法:
+(1)HEAD:
+(2)GET:
+(3)PUT:
+(4)DELETE:
+(5)POST:
+(6)CONNECT:
+(7)TRACE:
+(8)OPTIONS:
+
+状态码:
+(1)1xx:
+(2)2xx:200(请求成功)
+(3)3xx:304(请求页面资源在指定时间未改变 可直接利用客户端缓存)
+(4)4xx:400(客户端语法错误)401(请求未授权)403(服务器拒绝访问)404(请求路径不存在)
+(5)5xx:500(服务器内部异常)502(网管错误)503(服务器宕机或者过载)
+
+Request请求:
+请求行:METHOD(请求方法) REQUEST-URI(请求路径) HTTP-VERSION(http协议版本)
+消息报头:
+Accept:
+Accept-Language:
+Accept-Charset:
+Accept-Encoding:
+Host:
+Cache-Control:
+Cookie:
+Date:
+Content-Length:
+Content-Type:
+Referer:
+User-Agent:
+Connection:
+If-Modefied-Since:
+If-None-Since:
+请求正文:
+
+Response响应:
+状态行:HTTP-VERSION(http协议版本) STATUS-CODE(状态码) REASON-PHRASE(状态码描述信息)
+消息报头:
+Server:
+Date:
+Connection:
+Set-Cookie:
+Refresh:
+Content-Length:
+Content-Type:
+Content-Encoding:
+Content-Language:
+Expires:
+Cache-Control:
+响应正文:
+
+http 1.0 和 http 1.1 的区别:
+http 1.0 仅支持短暂连接 http 1.1 支持长久连接
+
+http 和 https 的区别:
+https是基于安全套接字层ssl(secure socket layer)的http协议
+https协议支持传输host头信息 用户授权头信息 缓存控制头信息
+
+Session:
+session是服务器用来记录用户状态信息的机制
+
+生命周期:
+
+会话的定义:会话是指从客户端向服务器发送请求到服务器返回相应响应的过程
+
+会话跟踪:会话跟踪是指在客户端和服务器交互过程中对用户状态信息进行监听的过程
+
+会话跟踪的实现方案:
+(1)url重写:将sessionid添加到url结尾
+(2)隐藏表单域:利用hidden属性提交sessionid
+(3)cookie机制:将cookie的值设置为sessionid
+
+tomcat之session机制(会话跟踪):
+当服务器收到客户端的请求时,服务器首先在request中查找sessionid,
+如果不存在,服务器会创建一个新的session并放入session管理池,并把session设置到cookie中,
+如果存在则直接通过sessionid在session管理池中得到相应session并且进行相应处理
+
+Cookie:
+cookie是客户端用来记录用户状态信息的机制
+
+cookie属性:
+key-value:键值对集
+MaxAge:过期时间(小于0则仅存在当前会话中 等于0表示删除该cookie 大于0时cookie的值被持久化后将保存到过期日期之前 )
+Domain:domain的值必须以.开头,默认值为当前域名(cookie不能跨域访问)www.baidu.com页面下的cookie的域默认为.baid.com
+       如果将域手动设置为.google.com则www.image.google.com和www.google.com均可访问该cookie
+Path:path的值必须以/开头,默认值为当前网址(即当前域名下服务器的相应路由) www.baidu.com/article/129 网页下cookie的path为/article/129
+     path具有可继承性即路由/article/129下的页面可以访问/article页面的cookie(域名相同时候)
+Version: 0表示网景公司提出的cookie版本 1表示使用w3c提出的cookie版本
+Secure:该Cookie是否仅被使用安全协议传输
+Comment:对cookie的文字描述
+
+表单重复提交问题:
+javascript控制提交按钮
+服务器token校验
+数据库唯一性约束
+
+单点登录问题
+共享session
+统一校验标识
+
+web安全问题(sql注入 跨域脚本攻击 跨域请求伪造)
+
+Ajax(Asynchronous javascript and xml)即异步的javascript和xml
+
+名词解释:
+(1)利用html和div实现页面的展示
+(2)利用xsl进行xml数据格式的转换
+(3)利用xmlhttprequest向服务器发送请求
+(4)利用javascript进行数据填充和交互
+
+跨域问题:跨域问题是由于浏览器的同源(同域名 同端口 同http协议)策略引起
+
+解决方案:
+(1)统一document.domain
+(2)jsonp
+(3)设置window.name
+(4)利用html5的postMessage
+
+实现原理:浏览器支持通过<script>标签引入不同域名的javascript代码
+
+常用协议名词:
+TCP(Transmissions Control Protocol):传输控制协议
+UDP(User Datagram Protocol):用户数据报协议
+FTP(File Transform Protocol):文件传输协议
+SMTP(Simple Mail Transform Protocol):简单邮件传输协议
+Telnet:远程终端协议
+Echo:应答协议
+POP(PostOfficeProtocol):邮局协议
+Http(HyperText Transform Protocol):超文本传输协议
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
