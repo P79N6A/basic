@@ -1,4 +1,4 @@
-package com.itcast.basic.test.qfl;
+package com.itcast.basic.test.qfl.client;
 
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;

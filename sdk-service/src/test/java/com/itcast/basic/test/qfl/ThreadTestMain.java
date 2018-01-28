@@ -1,4 +1,4 @@
-package com.itcast.basic.test;
+package com.itcast.basic.test.qfl;
 
 /**
  * Created by treey.qian on 2017/9/6.

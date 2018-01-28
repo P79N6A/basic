@@ -1,9 +1,4 @@
-package com.itcast.basic.test.qfl;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.LineNumberReader;
+package com.itcast.basic.test.qfl.client;
 
 /**
  * Created by treey.qian on 2017/11/7.
