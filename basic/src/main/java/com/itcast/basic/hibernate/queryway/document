@@ -1,0 +1,8 @@
+本包详细讲解hibernate session加载实体的方式
+类级别
+关联对象级别
+load方法和get方法
+query接口方法
+hibernate query language
+query by criteria
+常用查询语法

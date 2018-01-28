@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.hibernatebasicconfig.domain.User">
+
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <!--
+        使用版本号实现乐观锁
+        -->
+        <version name="version" type="int" column="version"/>
+
+        <property name="number" type="string"/>
+        <property name="deposit" type="big_decimal" scale="2" precision="8"/>
+        <property name="birthday" type="date"/>
+
+        <property name="sex">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">
+                    com.itcast.basic.hibernate.hibernatebasicconfig.domain.Sex
+                </param>
+                <param name="type">
+                    12
+                </param>
+            </type>
+        </property>
+
+        <property name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">
+                    com.itcast.basic.hibernate.hibernatebasicconfig.domain.Status
+                </param>
+                <param name="type">
+                    12
+                </param>
+            </type>
+        </property>
+
+        <property name="name" type="com.itcast.basic.hibernate.hibernatebasicconfig.usertype.NameType">
+            <column name="first_name"/>
+            <column name="last_name"/>
+        </property>
+
+        <component name="address" class="com.itcast.basic.hibernate.hibernatebasicconfig.domain.Address">
+            <property name="province"/>
+            <property name="city"/>
+            <property name="district"/>
+        </component>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.inheritance.abstractclass.Order" table="orders">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <discriminator type="string" column="order_type"/>
+        <property name="name" type="string"/>
+        <property name="count" type="int"/>
+        <property name="price" type="big_decimal" scale="2" precision="8"/>
+        <many-to-one name="user" class="com.itcast.basic.hibernate.inheritance.abstractclass.User" cascade="all"
+                     column="user_id"/>
+
+        <subclass name="com.itcast.basic.hibernate.inheritance.abstractclass.ProductOrder"
+                  discriminator-value="product_order">
+            <property name="createAt" type="date" column="create_at"/>
+        </subclass>
+
+        <subclass name="com.itcast.basic.hibernate.inheritance.abstractclass.CustomerOrder"
+                  discriminator-value="customer_order">
+            <property name="expendAt" type="date" column="expend_at"/>
+        </subclass>
+
+    </class>
+</hibernate-mapping>

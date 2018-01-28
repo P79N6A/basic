@@ -1,0 +1,24 @@
+本包演示spring中bean的属性配置
+scrop用来声明bean的生命周期,其值可以设置为以下内容之一
+singleton每次获得该bean都是同一个即单例模式
+prototype每次获得该bean都是新创建一个即原型模式
+request相同的request中的对象相同
+session同一次回话中的对象相同
+global session所有回话中相同
+dependency-check用来声明bean中的属性必须在配置文件中配置,其值可以设置为以下内容之一
+all表示必须在spring.xml配置文件中显式配置bean的所有属性
+simple表示必须在spring.xml配置文件中显式配置bean的简单属性(基本数据类型 系统通过的类对象(基本类型包装类 字符串 日期等))
+objects表示必须在spring.xml配置文件中显式配置bean的用户自定义对象
+none表示不进行依赖注入检查
+autowire用来声明bean中属性自动注入不需要显式配置,其值可以设置为以下内容之一
+byName根据属性的名字去查找id与其相同的bean进行注入 如果找不到将报错
+byType根据属性的类型去查找类型与其相同的bean进行注入 如果找不到报错 如果找到多个也报错
+contructor根据构造方法中参数(方法参数和类型一致)进行注入
+autodetect系统自动根据需求进行注入(要么进行constructor方式的注入 要么进行byType方式的注入)
+no忽略自动注入
+default根据beans节点设置的配置项进行注入
+depend-on表示在初始化当前bean时首先初始化depend-on指定的bean
+singleton表示该bean是否启用单例模式(true启用false不启用)
+abstruct表示该bean是否为抽象类(true表示为抽象类false表示为具象类)当为true时 applicationcontext初始化时 忽略此bean的加载
+parent表示指定当前bean的父bean(指定后将继承父bean设置的属性(该继承不同java类的继承))
+<context:property-placeholder location="classpath:property.properties"/>

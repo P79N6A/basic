@@ -1,0 +1,16 @@
+常用Buffer:
+LongBuffer
+ByteBuffer
+MappedByteBuffer
+CharBuffer
+ShortBuffer
+FloatBuffer
+DoubleBuffer
+常见channel:
+FileChannel
+ServerSocketChannel
+SocketChannel
+文件压缩和解压操作:
+ZipFile
+
+

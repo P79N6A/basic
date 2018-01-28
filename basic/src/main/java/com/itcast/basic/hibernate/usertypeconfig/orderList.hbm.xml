@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.usertypeconfig.OrderList">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="string" column="order_name"/>
+        <property name="number" type="string" column="order_number"/>
+        <property name="price" type="big_decimal" column="order_price" precision="8" scale="2"/>
+        <property name="count" type="int" column="order_count"/>
+        <property name="address" type="com.itcast.basic.hibernate.usertypeconfig.AddressType">
+            <column name="order_province"/>
+            <column name="order_city"/>
+            <column name="order_district"/>
+        </property>
+    </class>
+</hibernate-mapping>

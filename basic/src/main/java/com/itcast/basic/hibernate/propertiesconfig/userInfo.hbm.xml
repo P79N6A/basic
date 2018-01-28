@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.propertiesconfig.UserInfo" table="t_user_info">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="com.itcast.basic.hibernate.propertiesconfig.NameType">
+            <column name="first_name"/>
+            <column name="last_name"/>
+        </property>
+        <property name="description" column="description" type="string"/>
+        <property name="number" column="number" type="string"/>
+        <property name="school" column="school" type="string"/>
+    </class>
+</hibernate-mapping>

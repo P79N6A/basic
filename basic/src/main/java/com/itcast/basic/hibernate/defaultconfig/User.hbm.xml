@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.defaultconfig.User" table="t_user">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="user_name" type="string"/>
+        <property name="birthday" column="user_birth" type="date"/>
+        <property name="description" column="user_desc" type="text"/>
+        <property name="sex">
+            <column name="user_sex" not-null="true"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.itcast.basic.hibernate.defaultconfig.Sex</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,56 @@
+对lucene的思考:
+  词频:文档中某词元出现的次数
+  文档频率:包含某词元的文档的数目
+  lucene索引过程剖析:
+  首先利用分词器对要索引的文档进行分词处理 消除停用词 消除标点符号
+  然后利用语言处理器对分词后的词元进行转为小写字符 缩减为词根 减少为词根
+  最后利用索引器对分词后的词元建立索引字典并对索引字典进行按字典顺序进行排序
+  然后把包含相同词条的文档合并建立倒排索引链表
+lucene核心内容:
+   Directory:
+   IndexReader:
+   IndexWriter:
+   IndexSearcher:
+   QueryParser:万能查询(queryParser.parser("*") queryParser.parser("Lily*") queryParser.parser("lily~") queryParser.parser("\"java\"") queryParser.parser("-name:Lily +language:java") queryParser.parser("count:[1 To 3]") queryParser.parser("count:{1 To 9}"))
+   FuzzyQuery:模糊查询
+   PrefixQuery:前缀查询
+   TermQuery:完全匹配查询
+   BooleanQuery:组合查询
+   PhraseQuery:短语查询
+   TermRangeQuery:词元组查询
+   NumericRangeQuery:数字范围查询
+   WildcardQuery:通配符查询
+   自定义停用词分词器(继承Analyzer)
+   自定义同义词分词器(继承TokenFilter)
+   自定义评分(继承CustomsCoreQuery)
+   高亮(Highlighter)
+   排序(Sort)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

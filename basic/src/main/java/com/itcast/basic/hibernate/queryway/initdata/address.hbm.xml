@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.itcast.basic.hibernate.queryway.initdata.Address" table="t_addresses">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="province" type="string"/>
+        <property name="city" type="string"/>
+        <property name="district" type="string"/>
+        <many-to-one name="user" class="com.itcast.basic.hibernate.queryway.initdata.User" cascade="all" column="user_id"/>
+        <!--<many-to-one name="user" class="com.itcast.basic.hibernate.queryloadad.initdata.User" cascade="all" lazy="false"/>-->
+
+    </class>
+
+    <!--
+   配置文件中配置sql语句
+   -->
+    <sql-query name="queryAddressBySql">
+        <return alias="a" class="com.itcast.basic.hibernate.queryway.initdata.Address"/>
+        <return-join alias="u" property="a.user"/>
+        <![CDATA[
+           select {u.*},{a.*} from t_addresses a inner join t_users u on u.id = a.user_id
+        ]]>
+    </sql-query>
+
+    <!--
+    配置文件中配置可选取字段的sql语句
+    -->
+    <sql-query name="queryAddressColumnsBySql">
+        <return-scalar column="city" type="string"/>
+        <return-scalar column="province" type="string"/>
+        <![CDATA[
+           select a.city as city,a.province as province from t_addresses a inner join t_users u on u.id = a.user_id
+        ]]>
+    </sql-query>
+
+</hibernate-mapping>

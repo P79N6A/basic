@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="hbm2ddl.auto">
+            update
+        </property>
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <property name="hibernate.connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/tongzhuwang
+        </property>
+
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <property name="hibernate.connection.password">
+            a123456
+        </property>
+
+        <property name="hibernate.connection.useUnicode">
+            true
+        </property>
+
+        <property name="hibernate.connection.characterEncoding">
+            utf8
+        </property>
+
+        <property name="hibernate.show_sql">
+            true
+        </property>
+
+        <property name="hibernate.format_sql">
+            true
+        </property>
+
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/singal/user.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/singal/userInfo.hbm.xml"/>-->
+
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/singalone/user.hbm.xml"/>-->
+        <!--<mapping-->
+        <!--resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/singalone/userInfo.hbm.xml"/>-->
+
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/doublemaper/user.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/doublemaper/userInfo.hbm.xml"/>-->
+
+        <!--<mapping-->
+        <!--resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/doublemaperone/user.hbm.xml"/>-->
+        <!--<mapping-->
+        <!--resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2one/doublemaperone/userInfo.hbm.xml"/>-->
+
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/many2one/user.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/many2one/order.hbm.xml"/>-->
+
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2many/user.hbm.xml"/>-->
+        <!--<mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/one2many/order.hbm.xml"/>-->
+
+        <mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/many2many/category.hbm.xml"/>
+        <mapping resource="com/itcast/basic/hibernate/hibernateobjectrationalmapper/many2many/product.hbm.xml"/>
+
+
+    </session-factory>
+</hibernate-configuration>

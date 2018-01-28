@@ -1,0 +1,1 @@
+本包演示hibernate中本地sql查询语法

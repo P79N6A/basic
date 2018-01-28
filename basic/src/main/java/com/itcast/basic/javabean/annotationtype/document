@@ -1,0 +1,20 @@
+/**
+ * Created by qfl on 16/4/22.
+ * 对注解的思考:
+ * 注解仅仅是java中的一种标示没有特殊意义
+ *
+ * @Documented:标明该注解将会包含到javaDoc文档中
+ * @inherited:标明该注解可以由子类继承
+ * @Retention:标明该注解保留时间
+ * RetentionPoicy.SOURCE 源文件保留
+ * RetentionPoicy.CLASS  类加载时保留
+ * RetentionPoicy.RUNTIME 运行时保留
+ * @Target:标明该注解作用的范围
+ * ElementType.TYPE 用于类 接口 枚举 注解
+ * ElementType.FIELD 用于字段
+ * ElementType.METHOD 用于方法
+ * ElementType.PACKAGE 用于包
+ * ElementType.CONSTRUCTOR 用于构造方法
+ * ElementType.LOCAL_VARIABLE 用于局部变量
+ * ElementType.PARAMETER 用于信息描述
+ */
