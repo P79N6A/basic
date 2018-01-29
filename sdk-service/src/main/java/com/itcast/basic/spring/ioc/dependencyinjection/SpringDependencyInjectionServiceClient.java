@@ -15,10 +15,10 @@ public class SpringDependencyInjectionServiceClient {
     private static Log log = LogFactory.getLog(SpringDependencyInjectionServiceClient.class);
 
     public static void main(String[] args) {
-        initManyConstructorsWay();
+//        initManyConstructorsWay();
 //        initConstructorWay();
 //        initInjectorWay();
-//        staticFactoryMethod();
+        staticFactoryMethod();
 //        factoryMethod();
     }
 
@@ -46,9 +46,9 @@ public class SpringDependencyInjectionServiceClient {
             ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext(new String[]{"spring/dependencyinjection/staticfactorymethod/application.xml"});
             Money money = (Money) classPathXmlApplicationContext.getBean("money");
             log.info("money=" + money);
-
         } catch (Exception e) {
             log.info("error is {}", e);
+            e.printStackTrace();
         }
     }
 

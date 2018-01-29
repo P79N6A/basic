@@ -9,4 +9,6 @@
     <bean id="money" class="com.itcast.basic.spring.ioc.dependencyinjection.staticfactorymethod.School"
           factory-method="setSchoolMoney"/>
 
+    <bean id="beanMapper" class="com.sdk.common.util.BeanMapperFactory" factory-method="initBeanMapper"/>
+
 </beans>

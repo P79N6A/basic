@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcast.basic.webservice.repository.UserRepository">
+
+    <resultMap id="userResultMap" type="User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="sex" property="sex"/>
+        <result column="school_name" property="schoolName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="columns">
+         name,
+         nick_name,
+         sex,
+         school_name,
+         create_time,
+         update_time
+    </sql>
+
+    <select id="countCondition" parameterType="ConditionParam" resultType="int">
+        select count(*) from users
+        <where>
+            <if test="condition.name!=null and condition.name!=''">
+                and name = #{condition.name}
+            </if>
+            <if test="condition.nickName!=null and condition.nickName!=''">
+                and nick_name = #{condition.nickName}
+            </if>
+            <if test="condition.sex!=null">
+                and sex = #{condition.sex}
+            </if>
+            <if test="condition.schoolName!=null and condition.schoolName!=''">
+                and school_name = #{condition.schoolName}
+            </if>
+
+            <if test="condition.beginCreateTime!=null">
+                and date_format(create_time,'%Y-%m-%d') &gt;= #{condition.beginCreateTime}
+            </if>
+            <if test="condition.endCreateTime!=null">
+                and date_format(create_time,'%Y-%m-%d') &lt;= #{condition.endCreateTime}
+            </if>
+
+            <if test="condition.beginUpdateTime!=null">
+                and date_format(update_time,'%Y-%m-%d') &gt;= #{condition.beginUpdateTime}
+            </if>
+            <if test="condition.endUpdateTime!=null">
+                and date_format(update_time,'%Y-%m-%d') &lt;= #{condition.endUpdateTime}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="findUsersByCondition" resultType="QueryConditionParam" resultMap="userResultMap">
+        <choose>
+            <when test="columns.size>0">
+                select
+                <foreach collection="columns" item="item" separator=",">
+                    ${item}
+                </foreach>
+            </when>
+            <otherwise>
+                select *
+            </otherwise>
+        </choose>
+        from users
+        <where>
+            <if test="condition.name!=null and condition.name!=''">
+                and name = #{condition.name}
+            </if>
+            <if test="condition.nickName!=null and condition.nickName!=''">
+                and nick_name = #{condition.nickName}
+            </if>
+            <if test="condition.sex!=null">
+                and sex = #{condition.sex}
+            </if>
+            <if test="condition.schoolName!=null and condition.schoolName!=''">
+                and school_name = #{condition.schoolName}
+            </if>
+
+            <if test="condition.beginCreateTime!=null">
+                and date_format(create_time,'%Y-%m-%d') &gt;= #{condition.beginCreateTime}
+            </if>
+            <if test="condition.endCreateTime!=null">
+                and date_format(create_time,'%Y-%m-%d') &lt;= #{condition.endCreateTime}
+            </if>
+
+            <if test="condition.beginUpdateTime!=null">
+                and date_format(update_time,'%Y-%m-%d') &gt;= #{condition.beginUpdateTime}
+            </if>
+            <if test="condition.endUpdateTime!=null">
+                and date_format(update_time,'%Y-%m-%d') &lt;= #{condition.endUpdateTime}
+            </if>
+        </where>
+        <if test="sortColumns.size>0">
+            <foreach collection="sortColumns" item="sortColumn" separator=",">
+                ${sortColumn.column} ${sortColumn.sort}
+            </foreach>
+        </if>
+        <if test="offset>=0 and fetchSize>=0">
+            limit #{offset},#{fetchSize}
+        </if>
+    </select>
+
+    <select id="findUserById" resultType="User">
+        select * from users where id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        delete from users where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="User">
+        update users
+        <set>
+            <if test="name!=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="nickName!=null and nickName!=''">
+                nick_name = #{nickName},
+            </if>
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+            <if test="schoolName!=null and schoolName!=''">
+                school_name = #{schoolName},
+            </if>
+        </set>
+        <where>
+            <if test="id!=null and id!=''">
+                id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        insert into users(
+         name,
+         nick_name,
+         sex,
+         school_name,
+         create_time,
+         update_time
+         ) values(
+         #{name},
+         #{nickName},
+          #{sex},
+         #{schoolName},
+         now(),
+         now()
+         )
+    </insert>
+
+</mapper>

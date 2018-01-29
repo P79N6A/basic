@@ -11,6 +11,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--配置sdk-api版本号-->
+        <sdk.api.version>1.0-SNAPSHOT</sdk.api.version>
         <!-- spring版本号 -->
         <spring.version>4.3.11.RELEASE</spring.version>
         <!-- mybatis版本号 -->
@@ -102,8 +104,9 @@
         <!--配置spring mongodb session 版本号-->
         <spring.mongodb.session>2.0.0.RELEASE</spring.mongodb.session>
         <!-- log4j日志文件管理包版本 -->
-        <!--<slf4j.version>1.7.7</slf4j.version>-->
-        <!--<log4j.version>1.2.17</log4j.version>-->
+        <slf4j.api.version>1.7.5</slf4j.api.version>
+        <slf4j.version>1.7.12</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
         <!--<cxf.version>3.1.1</cxf.version>-->
         <!--<jstl.version>1.2</jstl.version>-->
         <!--<org.apache.shiro.version>1.2.4</org.apache.shiro.version>-->
@@ -119,12 +122,29 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.itcast.sdk</groupId>
+            <artifactId>sdk-api</artifactId>
+            <version>${sdk.api.version}</version>
+        </dependency>
         <!--配置日志-->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-log4j12</artifactId>-->
-        <!--<version>${slf4j.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
         <!--配置日志-->
 
         <!--<dependency>-->
@@ -549,8 +569,6 @@
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -571,8 +589,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>utf-8</encoding>
                     <skip>true</skip>
                 </configuration>

@@ -5,6 +5,4 @@
 /sdk-service/target
 /sdk-api/*.iml
 /sdk-api/target
-/.idea/modules.xml
-/.idea/encodings.xml
-/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+/sdk-service/logs/*.log ## å¼å¸¸æ¥å¿æä»¶å
