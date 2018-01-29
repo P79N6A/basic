@@ -7,10 +7,14 @@ import java.io.Serializable;
  */
 public class Page implements Serializable {
 
+    public static final int DEFAULT_PAGE_SIZE=15;
+
+    public static final int DEFAULT_CURRENT_PAGE=1;
+
     //当前页码
-    private int currentPage;
+    protected int currentPage;
     //页大小
-    private int pageSize;
+    protected int pageSize;
 
     public Page() {
     }
@@ -34,5 +38,13 @@ public class Page implements Serializable {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
+    }
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "currentPage=" + currentPage +
+                ", pageSize=" + pageSize +
+                '}';
     }
 }

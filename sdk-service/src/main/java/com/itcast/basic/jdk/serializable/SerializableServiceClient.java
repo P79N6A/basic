@@ -21,7 +21,7 @@ public class SerializableServiceClient {
             personInfo.setSchool("wuhan");
             person.setPersonInfo(personInfo);
             writeObject(person);
-            System.out.println(readObject());
+            System.out.println((String) readObject());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("error message is {}" + e);

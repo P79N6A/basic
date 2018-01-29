@@ -1,6 +1,7 @@
 package com.sdk.service;
 
 import com.sdk.common.model.ConditionParam;
+import com.sdk.common.model.QueryConditionParam;
 import com.sdk.model.UserModel;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface UserService {
 
     UserModel findUserModelById(long id);
 
-    List<UserModel> findUserModelsByCondition(ConditionParam conditionParam);
+    List<UserModel> findUserModelsByCondition(QueryConditionParam conditionParam);
 
     int updateUserModelById(UserModel userModel);
 }

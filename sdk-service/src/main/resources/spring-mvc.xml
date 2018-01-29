@@ -87,9 +87,9 @@
           p:prefix="/WEB-INF/view/" p:suffix=".jsp"/>
 
     <!--配置静态资源-->
-    <mvc:resources location="/images/" mapping="/image/**"></mvc:resources>
-    <mvc:resources location="/fonts/" mapping="/fonts/**"></mvc:resources>
-    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
-    <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
-    <mvc:resources location="/video/" mapping="/video/**"></mvc:resources>
+    <!--<mvc:resources location="classpath:/images/" mapping="/image/**"></mvc:resources>-->
+    <!--<mvc:resources location="classpath:/fonts/" mapping="/fonts/**"></mvc:resources>-->
+    <!--<mvc:resources location="classpath:/css/" mapping="/css/**"></mvc:resources>-->
+    <!--<mvc:resources location="classpath:/js/" mapping="/js/**"></mvc:resources>-->
+    <!--<mvc:resources location="classpath:/video/" mapping="/video/**"></mvc:resources>-->
 </beans>

@@ -5,3 +5,4 @@
 /sdk-service/target
 /sdk-api/*.iml
 /sdk-api/target
+/sdk-service/logs/*.log ## å¼å¸¸æ¥å¿æä»¶å

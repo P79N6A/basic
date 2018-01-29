@@ -2,6 +2,7 @@ package com.itcast.basic.webservice.repository;
 
 import com.itcast.basic.webservice.entity.User;
 import com.sdk.common.model.ConditionParam;
+import com.sdk.common.model.QueryConditionParam;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,9 +19,9 @@ public interface UserRepository {
 
     User findUserById(long id);
 
-    List<User> findUsersByCondition(ConditionParam conditionParam);
+    List<User> findUsersByCondition(QueryConditionParam conditionParam);
 
-   int countCondition(ConditionParam conditionParam);
+    int countCondition(ConditionParam conditionParam);
 
     int updateUserById(User user);
 }

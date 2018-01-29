@@ -4,12 +4,14 @@
 
     <!--配置驼峰命名和下划线命名映射-->
     <settings>
+        <!--<setting name="logImpl" value="LOG4J"/>-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 
     <typeAliases>
         <typeAlias alias="User" type="com.itcast.basic.webservice.entity.User"/>
         <typeAlias alias="ConditionParam" type="com.sdk.common.model.ConditionParam"/>
+        <typeAlias alias="QueryConditionParam" type="com.sdk.common.model.QueryConditionParam"/>
     </typeAliases>
 
 </configuration>

@@ -4,6 +4,7 @@ package com.itcast.basic.webservice.service.impl;
 import com.itcast.basic.webservice.entity.User;
 import com.itcast.basic.webservice.repository.UserRepository;
 import com.sdk.common.model.ConditionParam;
+import com.sdk.common.model.QueryConditionParam;
 import com.sdk.model.UserModel;
 import com.sdk.service.UserService;
 import ma.glasnost.orika.MapperFacade;
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<UserModel> findUserModelsByCondition(ConditionParam conditionParam) {
+    public List<UserModel> findUserModelsByCondition(QueryConditionParam conditionParam) {
         return beanMapper.mapAsList(userRepository.findUsersByCondition(conditionParam), UserModel.class);
     }
 

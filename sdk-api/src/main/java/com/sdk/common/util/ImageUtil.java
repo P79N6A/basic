@@ -90,5 +90,9 @@ public final class ImageUtil {
         return color;
     }
 
+    //防止实例被构建
+    private ImageUtil(){
+
+    }
 
 }

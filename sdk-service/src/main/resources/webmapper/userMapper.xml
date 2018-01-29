@@ -21,7 +21,7 @@
          update_time
     </sql>
 
-    <select id="countCondition" resultType="ConditionParam">
+    <select id="countCondition" parameterType="ConditionParam" resultType="int">
         select count(*) from users
         <where>
             <if test="condition.name!=null and condition.name!=''">
@@ -38,23 +38,23 @@
             </if>
 
             <if test="condition.beginCreateTime!=null">
-                and date_format(create_time,'%Y%m%d') &gt;= #{condition.beginCreateTime}
+                and date_format(create_time,'%Y-%m-%d') &gt;= #{condition.beginCreateTime}
             </if>
             <if test="condition.endCreateTime!=null">
-                and date_format(create_time,'%Y%m%d') &lt;= #{condition.endCreateTime}
+                and date_format(create_time,'%Y-%m-%d') &lt;= #{condition.endCreateTime}
             </if>
 
             <if test="condition.beginUpdateTime!=null">
-                and date_format(update_time,'%Y%m%d') &gt;= #{condition.beginUpdateTime}
+                and date_format(update_time,'%Y-%m-%d') &gt;= #{condition.beginUpdateTime}
             </if>
             <if test="condition.endUpdateTime!=null">
-                and date_format(update_time,'%Y%m%d') &lt;= #{condition.endUpdateTime}
+                and date_format(update_time,'%Y-%m-%d') &lt;= #{condition.endUpdateTime}
             </if>
         </where>
     </select>
 
 
-    <select id="findUsersByCondition" resultType="ConditionParam" resultMap="userResultMap">
+    <select id="findUsersByCondition" resultType="QueryConditionParam" resultMap="userResultMap">
         <choose>
             <when test="columns.size>0">
                 select
@@ -82,17 +82,17 @@
             </if>
 
             <if test="condition.beginCreateTime!=null">
-                and date_format(create_time,'%Y%m%d') &gt;= #{condition.beginCreateTime}
+                and date_format(create_time,'%Y-%m-%d') &gt;= #{condition.beginCreateTime}
             </if>
             <if test="condition.endCreateTime!=null">
-                and date_format(create_time,'%Y%m%d') &lt;= #{condition.endCreateTime}
+                and date_format(create_time,'%Y-%m-%d') &lt;= #{condition.endCreateTime}
             </if>
 
             <if test="condition.beginUpdateTime!=null">
-                and date_format(update_time,'%Y%m%d') &gt;= #{condition.beginUpdateTime}
+                and date_format(update_time,'%Y-%m-%d') &gt;= #{condition.beginUpdateTime}
             </if>
             <if test="condition.endUpdateTime!=null">
-                and date_format(update_time,'%Y%m%d') &lt;= #{condition.endUpdateTime}
+                and date_format(update_time,'%Y-%m-%d') &lt;= #{condition.endUpdateTime}
             </if>
         </where>
         <if test="sortColumns.size>0">

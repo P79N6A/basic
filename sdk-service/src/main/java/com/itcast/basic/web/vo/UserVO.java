@@ -1,5 +1,7 @@
 package com.itcast.basic.web.vo;
 
+import com.itcast.basic.web.response.Condition;
+import com.itcast.basic.web.response.Page;
 import com.sdk.model.Sex;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,7 +11,7 @@ import java.util.Date;
 /**
  * Created by treey.qian on 2018/1/8.
  */
-public class UserVO implements Serializable {
+public class UserVO extends Condition implements Serializable {
 
     //序列号
     private static final long serialVersionUID = 1L;
@@ -134,6 +136,10 @@ public class UserVO implements Serializable {
                 ", endCreateTime='" + endCreateTime + '\'' +
                 ", beginUpdateTime='" + beginUpdateTime + '\'' +
                 ", endUpdateTime='" + endUpdateTime + '\'' +
+                ", currentPage='" + currentPage + '\'' +
+                ", pageSize='" + pageSize + '\'' +
+                ", sortColumn='" + sortColumn + '\'' +
+                ", resultColumns='" + resultColumns + '\'' +
                 '}';
     }
 }
