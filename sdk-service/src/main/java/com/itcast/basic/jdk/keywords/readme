@@ -88,7 +88,17 @@ abstract关键字修饰方法表示该方法是抽象方法,抽象方法只能�
 abstract关键字不能与小于public访问控制权限的关键字一起使用
 
 关于interface关键字的思考:
-interface关键字用来声明接口,接口中只能声明public static final形式的常量和public abstract 形式的方法,接口中不能存在方法体,只能用来声明方法
+interface关键字用来声明接口,接口中只能声明public static final形式的常量和public abstract 形式的方法,接口中不能存在方法体,只能用来声明方法(jdk1.7)
+接口中可以声明静态方法和默认方法(jdk1.8)
+public interface FunctionnalInterface {
+    static void sys() {
+
+    }
+
+    default void sysHell() {
+
+    }
+}
 
 关于类和接口区别的思考:
 类只支持单继承,接口支持多继承,类和接口都支持多层继承
