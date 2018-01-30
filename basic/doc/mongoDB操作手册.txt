@@ -1,0 +1,337 @@
+一、安装mongoDB数据库并配置环境变量
+    在系统环境变量path中添加mongodb的安装目录D:\Program Files\MongoDB\Server\3.0\bin
+二、测试mongoDB数据库是否成功安装并配置默认的数据库文件路径
+    新建文件夹D:\Program Files\MongoData
+    指定mongoDB的数据库文件夹路径 mongod --dbpath "D:\Program Files\MongoData"（window系统目录名中有空格需要用""包起来）
+三、启动mongoDB数据库
+    mongo 127.0.0.1:27017/admin
+四、mongoDB常见操作命令	
+    (1)创建一个数据库（此操作创建一个临时的数据库,不插入数据集合时会被自动收回）
+       use footdb	
+	(2)插入数据集合person
+	   db.person.insert({name:"Lily",sex:"man"})
+	(3)查询集合person中的document
+	   db.person.findOne() 查询一条document
+       db.person.find()	查询所有document
+	(4)修改集合person中的document
+       	db.person.update({name:"Lily"},{$set:{sex:"men"}})
+	(5)删除集合person中的document
+       db.person.remove({name:"Lucy"})
+    (6)查询数据库中mongoDB的集合 	   
+	   show collections
+	(7)查询所有数据库
+       show dbs	
+	(8)删除数据库
+       db.dropDatabase()
+    (9)删除数据库中集合
+       db.person.drop()
+    (10)查询命令帮助
+       db.help()
+       db.person.help()
+	(11)执行JavaScript脚本
+        function insert(object) {
+		  db.person.insert(object)
+		}	
+	   	insert({name:"Lily"})
+	(12)直接执行JavaScript代码
+	    db.eval("return 'mongoDB'")
+    (13)查询数据集合的状态信息
+        db.person.stats()	
+五、数据增删改查详解
+    (1)插入文档(插入单个文档)
+      db.person.insert({_id:10,name:"Lily"})
+    (2)批量插入文档
+       for(var i=11;i<15;i++) {
+	     db.person.insert({_id:i,name:"java"})
+	   }
+    (3)save操作
+       save操作和insert操作最主要的区别在于当遇到_id相同的情况时
+       insert会报错save可以保存成功
+       db.person.save({_id:11,name:"root"})
+	(4)删除集合中所有数据（集合本身和索引不删除）	   
+       db.person.remove()
+	(5)删除指定条件的集合数据
+       db.person.remove({name:"lily"})	
+    (6)更新操作
+       db.person.update({name:"lily"},{_id:11,sex:"man"})	
+       该语句默认修改查询结果中的一条数据，当_id冲突时执行失败
+	(7)insertOrUpdate操作
+	   db.person.update({name:"lily"},{name:"tim"},true)
+    (8)批量操作
+	   db.person.update({name:"lily"},{name:"tom"},false,true)
+    (9)修改器详解
+	   $set修改器 指定一个键值对如果存在键就进行修改不存在就进行插入
+	   db.person.update({name:"root"},{$set:{name:"admin"}})
+	   
+	   $inc修改器 可以指定的值对应的数字类型的数值进行加减操作
+	   db.person.insert({_id:11,name:"tomcat",age:44})
+	   对age进行加5操作
+       db.person.update({name:"tomcat"},{$inc:{age:5}}) 	   
+       
+	   $unset修改器 删除指定键
+       db.person.update({name:"tomcat"},{$unset:{age:1}})	   
+	   
+	   $push修改器（针对数组）向指定数组插入单个元素,当数组不存在时创建
+	   db.person.insert({_id:10,name:"language",table:["java","ruby","css","lucene"]})
+       db.person.update({name:"language"},{$push:{table:"hadoop"}})
+      
+	   $pushAll修改器 向指定数组批量插入元素(可以存在相同元素)	   
+       db.person.update({name:"language"},{$pushAll:{table:["golang","spark","docker"]}})
+	   
+	   $addToSet修改器 向指定数组单个插入元素（数组存在该元素不用添加）
+	   db.person.update({_id:8},{$addToSet:{table:"golang"}})
+	   
+	   $pop修改器 从指定的数组删除值 (1代表删除第一个插入的元素 -1代表最后一个插入的元素)
+	   db.person.update({name:"language"},{$pop:{table:1}})
+	   
+	   $pull修改器 删除指定元素
+	   db.person.update({name:"langeage"},{$pull:{table:"java"}})
+	   
+	   $pullAll修改器 删除指定的多个值
+	   db.person.update({name:"language"},{$pullAll:{table:["java","ruby","spark"]}}})
+	  
+	   $占位符
+	   db.person.insert({_id:10,name:"language",table:[{type:"javascript",count:44},{type:"java",count:55}]})
+	   db.person.update({"table.type"},{$set:{"table.$.auth":"Lily"}})
+	   
+	   $addToSet和$each结合完成批量更新数组
+	   db.person.update({_id:10},{$addToSet:{table:{$each:["jquery","mongodb"]}}})
+	   
+	   返回更新后的数据
+	   ps=db.runCommand({
+	     findAndModify:"person",
+		 query:{name:"admin"},
+		 update:{"$set":{"age":100}},
+		 new:true
+	   }) 
+	   ps.value返回操作的结果集
+六、数据查询语句详解
+    (1)mongoDB查询语句
+       db.documentName.find({查询条件},{返回字段})
+	   for(var i=1;i<10;i++) {
+         db.person.insert({_id:i,name:"lily"+i,age:i+20,books:["java","ruby","swift","css"],country:"china"+i})
+	   }
+       查询所有数据的指定键值 
+	   db.person.find({},{_id:0,name:1})
+       查询年龄在25到27之间的学生 
+	   db.person.find({age:{$gte:25,$lt:27}},{_id:0,name:1,age:1})	   
+	   查询年龄小于25或者大于等于27的学生 
+	   db.person.find({$or:[{age:{$lt:25}},{age:{$gte:27}}]},{_id:0,name:1,age:1})
+       查询国家不是china1的学生
+	   db.person.find({country:{$ne:"china1"}},{_id:0,name:1,age:1})
+	   查询年龄是25或者27的学生
+	   db.person.find({age:{$in:[25,27]}},{_id:0,name:1,age:1})
+	   查询年龄不是25或者27的学生
+	   db.find({age:{$nin:[25,27]}},{_id:0,name:1,age:1})
+       查询名字中存在li的学生
+	   db.person.find({name:/li/i},{_id:0,name:1,age:1})
+	   查询名字中不存在li的学生
+	   db.person.find({name:{$not:/li/i}},{_id:0,name:1,age:1})
+       查询喜欢ruby和swift书籍的学生
+	   db.person.find({books:{$all:["ruby","swift"]}},{_id:0,name:1,books:1})
+       查询第二本书喜欢ruby的学生
+	   db.person.find({"books.1":"ruby"},{_id:0,name:1,books:1})
+	   查询指定长度数组的大小
+       db.person.find({"books":{$size:4}},{_id:0,name:1,books:1})
+       返回文档中指定数组的内部值
+       db.person.find({name:"lily1"},{school:{$slice:[1,2]}})	
+       条件组合查询(将{school:"A",score:22}作为一个组合条件查询)
+	   db.person.find({school:{$elemMatch:{school:"A",score:22}}},{_id:1,name:1})
+      (将{school:"A"}和{score:22}的结果取并集)
+	   db.person.find({"school.school":"A","school.score":10},{_id:1,name:1})	   
+       完全匹配{school:"A",score:10}查询条件(包括字段顺序和值)
+	   db.person.find({school:{school:"A",score:10}},{_id:1,name:1})
+       万能查询器$where(查询年龄大于25在A上过学的学生)
+	   db.person.find("$where",function() {
+	       var school=this.school
+		   var age=this.age
+		   if(age > 25) {
+		      for(var i = 0; i < school.length; i++) {
+			      if(school[1] == "A") {
+				      return true;
+				  }
+			  }
+		   }
+	   })
+	  返回查询5条结果
+      db.person.find({},{_id:1,name:1,age:1}).limit(5)	
+      分页查询(返回查询结果的第3到8条)
+	  db.person.find({},{_id:1,name:1}).limit(5).skip(3)
+      正向排序
+	  db.person.find({},{_id:1,name:1}).sort({age:1})
+	  逆向排序
+	  db.person.find({},{_id:1,name:1}).sort({age:-1})
+      游标(游标默认10min后销毁、迭代完毕后销毁、客户端发消息主动销毁)
+	  var persons=db.person.find()
+	  while(persons.hasNext()) {
+	    obj = persons.next()
+		print(obj.name)
+	  }
+	 mongodb索引详解 
+     创建索引名字为book的唯一索引(1表示正向索引-1表示逆向索引)
+     dropDups:true表示如果建立唯一性索引之前有重复数值将删除
+	 background:true设置创建索引后台执行
+	 db.person.ensureIndex({number:1},{name:"book"},{unique:true},{dropDups:true},{background:true})	 
+     当集合有多个索引时指定当前查询使用的索引
+	 db.perosn.find({name:"lily1",number:1}).hint({name:1})
+     查看语句执行的状态信息
+	 db.person.find({name:"lily1",number:1}).explain()
+	 查看所有索引信息
+	 db.system.indexes.find()
+	 db.system.namespaces.find()
+	 批量删除索引
+	 db.runCommand({dropIndexes:"person",index:"book"})
+     db.runCommand({dropIndexes:"person",index:"*"})
+     二维索引
+     创建二维索引
+	(gid:"2d"==>gid表示索引名字,"2d"表示索引类型,min表示索引最小值,max表示索引最大值)
+    db.person.ensureIndex({gid:"2d"},{min:-1,max:201})	 
+	查询点(70,180)最近的三个点
+    db.person.find({gid:{$near:[70,180]}},{_id:0,gid:1}).limit(3)	
+    查询以点(50,50)和点(190,190)为对角线的正方形中的所有点
+	db.person.find(gid:{"$within":{$box:[[50,50],[190,190]]}},{_id:0,gid:1})
+	查询以圆心(50,50)半径为50规则下的圆心面积中的点
+	db.person.find({gid:{$within:{$center:[[50,50],50]}}},{_id:0,gid:1})
+    count查询
+	db.person.find().count()
+    distinct去重(distinct:"person"指明对person集合进行去重 key指明去重的键值)
+	db.runCommand({distinct:"person",key:"name"}).value
+	分组查询
+	1.key：用来分组文档的字段。和keyf两者必须有一个
+ 2.keyf：可以接受一个javascript函数。用来动态的确定分组文档的字段。和key两者必须有一个
+ 3.initial：reduce中使用变量的初始化
+ 4.reduce：执行的reduce函数。函数需要返回值。
+ 5.condition：执行过滤的条件。
+ 6.finallize：在reduce执行完成，结果集返回之前对结果集最终执行的函数。可选的。
+	db.runCommand({
+	   ns:"person",
+	   key:{age:true},
+	   $reduce:function(doc,prev){
+	     prev.num++
+	   },
+	   condition:{age:{$gt2}},
+	   finallize:function(doc){
+	     doc.age="age:"+doc.age
+	   }
+	})
+	命令执行器runCommand
+	删除操作db.runCommand({drop:"map"})
+	查询执行命令列表db.listCommands()
+	固定集合详解
+	创建一个固定集合
+	size表示字节数max表示可存储10个文档
+	db.createCollection("mycoll",{size:1000,max:100,capped:true})
+	把一个普通集合转为固定集合
+	db.runCommand({converToCapped:"person",size:10000000})
+	反向排序(默认按照插入顺序)
+	db.mycoll.find().sort({$natural:-1})
+	关闭mongodb数据库
+	use admin
+	db.shutdownServer()
+	数据库导出(-d指明使用的库 -c指明要导出的表 -o指明导出的文件名)
+	mongoexport -d footbar -c persons -o D://persons.json
+	导出其它主机数据库文档
+	mongoexport -host 192.168.0.12 -port 33062 -d footbar -c persons -o D://persons.json
+	导入数据库文件
+	mongoimport --db footbar --collection persons --file d://person.json
+	运行时备份
+	mongodump --host 127.0.0.1:27017 -d footbar -o d://footbar
+    运行时恢复
+    mongorestore --host 127.0.0.1:27017 -d footbar -directoryperdb d:/footbar/footbar	
+	mongodb数据库上锁
+	use admin
+	db.runCommand({fsync:1,lock:1})
+	解锁
+	db.currentOp()
+    数据修复
+    db.repairDatabase()	
+	权限机制
+	添加用户
+	use footbar
+	db.adduser("root":"a123456")
+	启用用户
+	db.auth("root","a123456")
+	安全检查
+	db.auth("username","passsword")
+	删除用户
+	db.system.users.remove({user:"username"})
+    主从配置
+   （从服务器设置项）
+	#设置数据库文件存放地址
+	dbpath=D:\slave\database
+	#设置复制主服务器的数据库
+	only=footbar
+	#设置主数据库同步数据的延迟（单位是秒）
+	slavedelay=20
+	#以主数据库的节点快照为节点启动从数据库
+	fastsync=true
+	#如果不同步则从新同步数据库
+	autoresync=true
+	#设置数据库监听端口
+	port=7777
+	#从数据库所在服务器
+	bind_ip=127.0.0.1
+	#监听的主数据库的端口
+	source=127.0.0.1:8888
+	#设置为从数据库
+	slave=true
+   （主数据库配置）
+	#设置数据库文件存放地址
+	dbpath=D:\slave\database
+	#端口号
+	port=8888
+	#主数据库所在服务器
+	bind_ip=127.0.0.1
+    #声明为主数据库
+	master=true
+    #设置操作日志文件大小
+	oplogsize=2000000
+	
+	动态添加从节点
+	db.sources.insert("host":"127.0.0.1:8888")
+	删除从节点
+	db.sources.remove("host":"127.0.0.1:8888")
+	
+	集群设置
+	（1）副本A
+	    dbpath=D:\A
+		port=1111#端口
+	    bind_ip=127.0.0.1#服务器地址
+		replSet=child/127.0.0.1:2222#设置同伴
+	（2）副本B
+	    dbpath=D:\B
+		port=2222#端口
+	    bind_ip=127.0.0.1#服务器地址
+		replSet=child/127.0.0.1:3333#设置同伴
+    （3）副本C
+	    dbpath=D:\C
+		port=3333#端口
+	    bind_ip=127.0.0.1#服务器地址
+		replSet=child/127.0.0.1:1111#设置同伴
+	 初始化副本集
+	 use admin
+	 db.runCommand({
+	   "_id":"child",
+	   "members":[
+	   {
+	       "_id":1,
+	       "host":"127.0.0.1:1111"
+	   },
+	   {
+	       "_id":2,
+	       "host":"127.0.0.1:2222"
+	   },
+	   {
+	       "_id":3,
+	       "host":"127.0.0.1:3333"
+	   }
+	   ]
+	 })
+	查看集群状态
+	rs.status()
+	 
+	
+	
+	
+	
+	
