@@ -15,6 +15,7 @@ public class PersonInfo implements Externalizable {
 
     private String job;
 
+
     public String getAddress() {
         return address;
     }
