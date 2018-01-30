@@ -140,6 +140,30 @@ package new instanceof import do while for return if else continue break
 goto const
 
 
+本包演示序列化详解
+(1)java.lang.serializable 接口没有任何方法和属性域,仅仅表明实现该接口就可序列化,序列化可以继承(可序列化父类的子类也可序列化)
+(2)serialVersionUID序列化版本号,serialVersionUID的默认取值是Java运行时环境根据类的内部细节自动生成的,如果对类的源代码作了修改,
+   再重新编译,新生成的类文件的serialVersionUID的取值有可能也会发生变化,类的serialVersionUID的默认值完全依赖于Java编译器的实现,
+   对于同一个类,用不同的Java编译器编译,有可能会导致不同的serialVersionUID也有可能相同。
+   为提高serialVersionUID的独立性和确定性,强烈建议在一个可序列化类中显示的定义serialVersionUID,为它赋予明确的值。
+   显式地定义serialVersionUID有两种用途:希望类的不同版本对序列化兼容,因此需要确保类的不同版本具有相同的serialVersionUID;
+   不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID
+(3)自定义序列化：
+   自定义序列化是由ObjectOutputStream/ObjectInputStream在序列化/反序列化时候,通过反射检查该类是否存在以下方法:
+   执行顺序从上往下,序列化调用1和2,反序列调用3和4;transient关键字当某个字段被声明为transient后,默认序列化机制就会忽略该字段。
+
+ Object writeReplace() throws ObjectStreamException; 通过此方法修改序列化的对象
+
+ void writeObject(java.io.ObjectOutputStream out) throws IOException;方法中调用out.defaultWriteObject()使用writeObject的默认的序列化方式,也可添加额外的序列化对象到输出:out.writeObject("XX")
+
+ void readObject(java.io.ObjectInputStream in) throws Exception;方法中调用in.defaultReadObject()使用readObject默认的反序列化方式,也可额外的序列化对象到输入:in.readObject()
+
+ Object readResolve() throws ObjectStreamException; 通过此方法修改返回的对象
+
+ (4)实现java.io.Externalizable接口中的 void readExternal(ObjectInput in) throws IOException, ClassNotFoundException
+  和void writeExternal(ObjectOutput out) throws IOException方法可进行序列化
+
+
 
 
 
