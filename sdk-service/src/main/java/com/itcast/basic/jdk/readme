@@ -122,7 +122,6 @@ public interface FunctionnalInterface {
 关于重载的思考:
 方法签名:方法名称+参数列表(参数类型+参数顺序+参数个数)
 方法名相同但参数列表不同的多个方法可以重载
-重载是通过jvm运行时在子类class文件中自动生成桥方法字节码机制实现
 
 关于重载和覆盖的思考:
 返回值不同但方法签名相同的多个方法编译器不支持
@@ -173,6 +172,12 @@ goto const
 
  (4)实现java.io.Externalizable接口中的 void readExternal(ObjectInput in) throws IOException, ClassNotFoundException
   和void writeExternal(ObjectOutput out) throws IOException方法可进行序列化
+
+ 对java引用的思考:
+ 强引用:使用new关键字声明的引用类型称为强引用 jvm宁可报OutOfMemoryError错误也不会回收强引用占用的对象
+ 软引用:SoftReference声明的引用类型 jvm在堆内存不够时选择回收
+ 弱引用:WeakReference声明的引用类型 jvm执行内存回收时立即回收
+ 虚引用:PhantomReference声明的引用类型 jvm随时进行回收
 
 
 

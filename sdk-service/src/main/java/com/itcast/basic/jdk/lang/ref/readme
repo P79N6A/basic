@@ -1,0 +1,6 @@
+对java引用的思考:
+强引用:使用new关键字声明的引用类型称为强引用 jvm宁可报OutOfMemoryError错误也不会回收强引用占用的对象
+软引用:SoftReference声明的引用类型 jvm在堆内存不够时选择回收
+弱引用:WeakReference声明的引用类型 jvm执行内存回收时立即回收
+虚引用:PhantomReference声明的引用类型 jvm随时进行回收
+
