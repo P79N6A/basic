@@ -61,7 +61,7 @@ public final class BasicInteger extends BasicNumber implements Comparable<BasicI
         return Integer.toString(value);
     }
 
-    @Override
+
     public int compareTo(BasicInteger o) {
         return comapre(value, o.intValue());
     }
@@ -70,25 +70,25 @@ public final class BasicInteger extends BasicNumber implements Comparable<BasicI
         return i < ic ? -1 : (i == ic ? 0 : 1);
     }
 
-    static class BasicIntegerCache {
-        private static final BasicInteger[] cache;
-        private static final int low = -128;
-        private static final int hight;
+      class BasicIntegerCache {
+//        private static final BasicInteger[] cache;
+//        private static final int low = -128;
+//        private static final int hight;
 
-        static {
-            int h = 127;
-            String integerCacheHighPropValue =
-                    sun.misc.VM.getSavedProperty("java.lang.Integer.IntegerCache.high");
-            if (integerCacheHighPropValue != null) {
-                int i = Integer.parseInt(integerCacheHighPropValue);
-                i = Math.min(h, i);
-                h = Math.min(i, Integer.MAX_VALUE - (-low) - 1);
-            }
-            hight = h;
-            int k = low;
-            cache = new BasicInteger[hight - low + 1];
-            for (int j = 0; j < cache.length; j++)
-                cache[j] = new BasicInteger(k++);
+          {
+//            int h = 127;
+//            String integerCacheHighPropValue =
+//                    sun.misc.VM.getSavedProperty("java.lang.Integer.IntegerCache.high");
+//            if (integerCacheHighPropValue != null) {
+//                int i = Integer.parseInt(integerCacheHighPropValue);
+//                i = Math.min(h, i);
+//                h = Math.min(i, Integer.MAX_VALUE - (-low) - 1);
+//            }
+//            hight = h;
+//            int k = low;
+//            cache = new BasicInteger[hight - low + 1];
+//            for (int j = 0; j < cache.length; j++)
+//                cache[j] = new BasicInteger(k++);
 
         }
 
