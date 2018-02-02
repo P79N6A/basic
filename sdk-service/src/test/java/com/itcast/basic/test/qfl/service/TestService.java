@@ -3,6 +3,9 @@ package com.itcast.basic.test.qfl.service;
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
 import org.junit.Test;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 /**
  * Created by treey.qian on 2018/1/29.
  */
@@ -36,8 +39,34 @@ public class TestService {
 //            boolean isLetter = Character.isLetter(',');
 //            System.out.println("isLetter=" + isLetter);
             String dir = System.getProperty("user.dir");
-            System.out.println("dir=" + dir+" class name is "+ ClassFileObject.class.getName());
+            System.out.println("dir=" + dir + " class name is " + ClassFileObject.class.getName());
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void testStringBuilder() {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream("E:\\1.txt");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("admin");
+            objectOutputStream.writeObject(stringBuilder);
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testClone(){
+        try {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("admin");
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
