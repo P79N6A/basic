@@ -3,7 +3,7 @@ package com.itcast.basic.jdk.lang.basictype.basictype;
 /**
  * Created by Administrator on 2018/2/1.
  */
-public final class JDKInteger extends JDKNumber implements Comparable<JDKInteger> {
+public final class JDKInteger extends JDKNumber implements JDKComparable<JDKInteger> {
 
     private final int value;
 

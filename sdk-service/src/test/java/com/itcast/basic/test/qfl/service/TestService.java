@@ -1,10 +1,7 @@
 package com.itcast.basic.test.qfl.service;
 
+import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
 import org.junit.Test;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ConcurrentModificationException;
 
 /**
  * Created by treey.qian on 2018/1/29.
@@ -28,6 +25,18 @@ public class TestService {
             boolean isTrue = !true ? false : true;
 
             System.out.println("isTrue=" + isTrue);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testLetter() {
+        try {
+//            boolean isLetter = Character.isLetter(',');
+//            System.out.println("isLetter=" + isLetter);
+            String dir = System.getProperty("user.dir");
+            System.out.println("dir=" + dir+" class name is "+ ClassFileObject.class.getName());
         } catch (Exception e) {
             e.printStackTrace();
         }

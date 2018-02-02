@@ -81,3 +81,40 @@
  * Serializable接口没有方法
  * Number抽象类(见源码)
  */
+
+
+
+
+ 对基本类型包装类的思考:
+ 装箱:基本类型装换为基本类型包装类
+ 拆箱:基本类型包装类装换为基本类型
+
+ 基本类型类继承链
+                java.io.Serializable    java.lang.Comparable
+                          \                 /
+                           \               /
+                            \             /
+                             \           /
+                            java.lang.number
+                            /       |       \
+                           /        |        \
+                          /         |         \
+ java.lang.Interger java.lang.Byte  java.lang.Float java.lang.Double java.lang.Short java.lang.Long
+
+
+
+                               java.io.Serializable    java.lang.Comparable
+                                      \                      /
+                                       \                    /
+                                        \                  /
+                                         \                /
+                                         ------------------
+                                                 ||
+                                                 ||
+                                                 \/
+                                         -------------------
+                                                /   \
+                                java.lang.Charater java.lang.Boolean
+
+
+

@@ -1,0 +1,12 @@
+对类加载器的思考:
+启动类加载器(bootstrap):负责加载JAVA_HOME/lib下的包 通过本地方法方式实现 在jdk中无对应类
+扩展类加载器(sun.misc.Launcher.ExtClassLoader):负责加载JAVA_HOME/lib/ext下的包 对应sun.misc.Launcher.ExtClassloader类
+系统类加载器(sun.misc.Launcher.AppClassLoader):负责加载classpath类路径下的包 对应cun.misc.Launcher.AppClaaaLoader类
+相同字节码和相同类加载器加载的类相等
+jvm双亲委派机制:
+当自定义类加载器试图加载指定类时,该类加载器首先会将加载请求发送给parent(类型:java.lang.ClassLoader)域指向的系统类加载器去加载,
+系统类加载器收到类加载请求时会立即发送给其parent域指向的扩展类加载器去加载,扩展类加载器收到类加载请求时会立即发送给启动类加载器去加载,
+若启动类加载器找到此类便立即返回;若启动类加载器找不到此类则让扩展类加载器去加载,若扩展类加载器加载到此类便立即返回;若扩展类加载器找不到此类
+则让系统类加载器去加载此类,若系统类加载器加载到此类则立即返回;若系统类加载器加载不到此类则让自定义类加载器加载此类,若加载到则返回;
+否则抛出java.lang.ClassNotFoundException
+
