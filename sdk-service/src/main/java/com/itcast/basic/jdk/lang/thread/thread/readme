@@ -1,0 +1,2 @@
+对线程的思考:
+继承java.lang.Thread类或实现java.lang.Runnable接口便可实现线程

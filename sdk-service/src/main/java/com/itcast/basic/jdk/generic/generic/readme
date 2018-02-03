@@ -1,0 +1,34 @@
+对泛型的思考:
+泛型类声明:public class Generic<T>{}
+泛型字段声明:private T data;
+泛型方法声明:public static <T> T revert(){}
+
+泛型方法可独立存在即单独声明 泛型字段必须在泛型类里声明
+
+泛型擦除机制:
+List<?> 擦除后变成 List<Object>
+List<T extends Number> 擦除后变成 List<Number>
+List<T extends java.lang.Appendable,java.lang.Number> 擦除后变成List<T extends java.lang.Appendable>
+
+
+<?>表示任意类型只能声明不能实例化
+(List<?> lists = new ArrayList<Integer>()正确)
+(List<?> lists = new ArrayList<?>()错误)
+
+泛型继承的准则:
+List<? extends Number> 是List<Integer>的父类
+Collection<? extends Number>是List<? extends Number>的父类
+
+
+List<String> names=new ArrayList<String>();
+首先编译器得知用户定义一个List<String> 类型的引用变量names
+其次编译器会查看引用执行对象new ArrayList<String>();的类型是否和引用变量类型相同 如果不同编译器报错 拒绝继续编译 否则执行下一步
+编译器安装泛型范围进行相应类型擦除
+
+泛型擦除对多态的影响:编译器会生成桥方法用来连接相应方法
+public class com.itcast.basic.jdk.generic.generic.Sub extends
+com.itcast.basic.jdk.generic.generic.Super<java.lang.String> {
+  public com.itcast.basic.jdk.generic.generic.Sub();
+  public void forEach(java.lang.String);
+  public void forEach(java.lang.Object);//桥接方法
+}

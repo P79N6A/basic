@@ -1,5 +1,0 @@
-本包演示对java.lang包下线程的思考:
-线程的实现方法(extends Thread 和 implements Runnable)
-线程常用方法(stop resume suspend join yield sleep isAlive interrupt setName concurrentThread interrupted isInterrupted)
-线程内置同步(Synchronized方法 Synchronized代码块)
-线程睡眠和唤醒即不可控线程调度(wait notify notifyAll)
