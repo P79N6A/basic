@@ -13,7 +13,7 @@ public enum EnumClass {
     };
     private int i = 100;
 
-    private EnumClass() {
+    EnumClass() {
     }
 
     public static final String UUID = "enum";

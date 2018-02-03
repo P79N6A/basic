@@ -62,11 +62,24 @@ public class TestService {
     }
 
     @Test
-    public void testClone(){
+    public void testClone() {
         try {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("admin");
-        }catch (Exception e){
+//            StringBuilder stringBuilder = new StringBuilder();
+//            stringBuilder.append("admin");
+//            Person person = new Person();
+//            person.setName("admin");
+//            Person person1 = (Person) person.clone();
+//            person.sys(null);
+//            System.out.println("person =" + person1);
+//            int i = 0;
+//            int j=0;
+//            int k=i++;
+//            System.out.println("k="+k);
+//            System.out.println("i++ " + (i++) + " ++j " + (++j));
+
+            int result = Sex.MAN.compareTo(Sex.WOMAN);
+            System.out.println("result is " + result);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
