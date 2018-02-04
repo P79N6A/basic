@@ -3,6 +3,7 @@ package com.itcast.basic.test.qfl.service;
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -77,8 +78,13 @@ public class TestService {
 //            System.out.println("k="+k);
 //            System.out.println("i++ " + (i++) + " ++j " + (++j));
 
-            int result = Sex.MAN.compareTo(Sex.WOMAN);
-            System.out.println("result is " + result);
+//            int result = Sex.MAN.compareTo(Sex.WOMAN);
+//            System.out.println("result is " + result);
+            File[] files = new File("E:\\技术文档").listFiles();
+            for (File file : files) {
+                System.out.println("file name is " + file.getName() + " path is " + file.getPath());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

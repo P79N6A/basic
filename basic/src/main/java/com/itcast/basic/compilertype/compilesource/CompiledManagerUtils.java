@@ -11,6 +11,7 @@ import java.util.jar.Manifest;
 
 import com.sun.tools.javac.Main;
 
+
 /**
  * Created by qfl on 16/5/15.
  * 本类演示java代码编译java源代码的方法
@@ -34,10 +35,10 @@ public class CompiledManagerUtils {
         initFileLists(file, fileLists);
         for (String path : fileLists) {
             compileParams = new String[]{"-encoding", "UTF-8", "-d", to, path};
-//            result = compiler.run(null, null, null, compileParams);
-//            result = Main.compile(compileParams);
+            result = compiler.run(null, null, null, new String[]{"-encoding", "UTF-8", "-d", to, path});
+            result = Main.compile(compileParams);
             compileParams = new String[]{"javac", "-encoding", "UTF-8", "-d", to, path};
-            ProcessBuilder processBuilder = new ProcessBuilder(compileParams);
+            ProcessBuilder processBuilder = new ProcessBuilder(new String[]{"javac", "-encoding", "UTF-8", "-d", to, path});
             try {
                 processBuilder.start();
             } catch (IOException e) {

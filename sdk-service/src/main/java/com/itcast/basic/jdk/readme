@@ -562,6 +562,21 @@ Trace跟踪参数
 
   - 设置永久区的初始空间和最大空间
 
+对complier方式的思考:
+(1)javax.tools.JavaCompiler
+(2)com.sun.tools.javac.Main
+(3)java.lang.ProcessBuilder
+
+
+
+
+
+
+
+
+
+
+
 
 
 

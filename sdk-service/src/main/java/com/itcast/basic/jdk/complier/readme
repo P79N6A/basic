@@ -1,0 +1,4 @@
+对complier方式的思考:
+(1)javax.tools.JavaCompiler
+(2)com.sun.tools.javac.Main
+(3)java.lang.ProcessBuilder
