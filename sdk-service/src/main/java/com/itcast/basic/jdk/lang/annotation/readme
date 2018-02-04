@@ -1,0 +1,95 @@
+对注解的思考:
+/**
+ * Created by Administrator on 2018/1/30.
+ *
+ * @Target注解声明该注解作用对象范围
+ * @Inherited注解声明该注解作用对象被继承时仍然有效
+ * @Retentation声明该注解生效的保留时间
+ * @Documented声明该注解将会包含在javadoc文件中
+ */
+
+public interface com.itcast.basic.jdk.lang.annotation.HttpSign extends
+java.lang.annotation.Annotation {
+  public abstract java.lang.String version();
+  public abstract java.lang.String protocol();
+  public abstract java.lang.String port();
+}
+@Target可选值
+public enum ElementType {
+    /** Class, interface (including annotation type), or enum declaration */
+    TYPE,
+
+    /** Field declaration (includes enum constants) 字段域 */
+    FIELD,
+
+    /** Method declaration  方法*/
+    METHOD,
+
+    /** Formal parameter declaration 参数 */
+    PARAMETER,
+
+    /** Constructor declaration 构造方法*/
+    CONSTRUCTOR,
+
+    /** Local variable declaration 局部变量 */
+    LOCAL_VARIABLE,
+
+    /** Annotation type declaration 注解类型*/
+    ANNOTATION_TYPE,
+
+    /** Package declaration 包类型*/
+    PACKAGE,
+
+    /**
+     * Type parameter declaration
+     *
+     * @since 1.8
+     */
+    TYPE_PARAMETER,
+
+    /**
+     * Use of a type
+     *
+     * @since 1.8
+     */
+    TYPE_USE
+}
+
+@Retentation可选值
+public enum RetentionPolicy {
+    /**
+     * Annotations are to be discarded by the compiler.
+     * .java源文件
+     */
+    SOURCE,
+
+    /**
+     * Annotations are to be recorded in the class file by the compiler
+     * but need not be retained by the VM at run time.  This is the default
+     * behavior.
+     * .class字节码文件
+     */
+    CLASS,
+
+    /**
+     * Annotations are to be recorded in the class file by the compiler and
+     * retained by the VM at run time, so they may be read reflectively.
+     *
+     * @see java.lang.reflect.AnnotatedElement
+     * jvm内存中
+     */
+    RUNTIME
+}
+
+@Repeatale 可重复注解 可选值为存储该注解数组的注解
+
+public interface com.itcast.basic.jdk.lang.annotation.Authorities extends
+java.lang.annotation.Annotation {
+  public abstract com.itcast.basic.jdk.lang.annotation.Authority[] value();
+}
+
+public interface com.itcast.basic.jdk.lang.annotation.Authority extends
+java.lang.annotation.Annotation {
+  public abstract java.lang.String role();
+  public abstract java.lang.String name();
+}

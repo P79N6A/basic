@@ -12,5 +12,7 @@ public class ClassHelperUtils {
         ApplicationContext context = new ClassPathXmlApplicationContext("com/itcast/basic/spring/config/transcation/applicationContext.xml");
         GeneratorDao jdbcUtils = (GeneratorDao) context.getBean("userDao");
         System.out.println("size is " + jdbcUtils.query("select * from t_users"));
+
+
     }
 }

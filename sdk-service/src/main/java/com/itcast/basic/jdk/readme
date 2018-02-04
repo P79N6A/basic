@@ -1,1 +1,630 @@
 本包演示jdk 8常用知识
+
+
+本包讲解java常用关键字(Java常见关键字的枚举)
+
+实例域和实例方法访问权限
+private:私有域访问控制符,被修饰域仅能在实例内访问
+default:默认域访问控制符,被修饰域仅能在实例内和同包类访问
+protected:保护域访问控制符,被修饰域仅能在实例内、同包类内和其子类内访问
+public:公共域访问控制符
+
+关于final关键字的思考:
+final修饰类表示该类不可被继承且该类的方法默认为final,
+final修饰字段表示该字段为常量不可修改且该字段必须被初始化(声明时初始化或在构造方法中初始化或在方法块中初始化),
+final修饰方法表示该方法不可被覆盖。
+final关键字可以屏蔽java编译器的重编译和jvm运行期的动态链接
+
+关于transient关键字的思考:
+transient修饰变量表示该变量是临时变量不能进行持久化
+
+关于native关键字的思考:
+native只能修饰方法即本地方法也即是其他语言实现的方法且该方法不能有方法体
+
+关于static关键字的思考:
+static只能修饰内部类即静态内部类,实例化方式为:new OutClass.InnerClass(),静态内部类只能访问外部类的静态变量不能访问外部类的实例变量
+static修饰代码块即静态代码块,静态代码块在类实例化或类静态域或类静态方法被调用时初始化,静态代码块中只能访问静态变量不能访问实例变量
+static修饰域变量即静态域变量,静态域变量表示该变量在类的所有实例中共享一个相同引用,static不能修饰局部变量,静态域不能被子类覆盖
+static修饰方法即静态方法,静态方法只能访问静态变量,不能访问实例变量,静态方法不能被子类覆盖
+
+关于volatile关键字的思考:
+volatitle可以通过防止编译器指令重排保证有序性,但是不能保证指令的原子性,
+volatitle修饰的变量具有线程可见性(一个线程修改volatile变量时在另一个线程中立即可见)
+
+关于基本数据类型关键字的思考:
+byte长度为8bit
+short长度为16bit
+char长度为16bit
+int长度为32bit
+float长度为32bit
+long长度为64bit
+double长度为64bit
+以上基本类型 长度小的类型可以自动转为长度大的类型 且精度不丢失 逆向需要显示转换 且精度丢失
+boolean void
+
+关于释放资源关键字的思考:
+finalize可用来释放资源(不建议使用)
+
+关于内置同步关键字的思考:
+synchronized只能修饰方法和方法块且被修饰的方法和方法块不存在线程安全问题
+
+关于throw和throws异常关键字的思考:
+throws用于方法签名后,用来声明该方法有异常抛出(仅用来声明)
+throw用于方法体内且用来抛出一个真实的异常信息
+
+关于静态导入关键字(import static)的思考:
+import static 仅用来导入静态方法、静态域、静态常量
+
+关于类继承和实现关键字(extends implements )的思考:
+extends和implements两个关键字同时使用时, 必须先继承父类(支持单父类继承和多层父类继承)后实现接口(多个接口用逗号隔开)
+
+关于实例引用关键字(this和super)的思考:
+this可用于调用类实例的方法(有参构造方法、无参构造方法、域方法、字段域),但不可在类静态方法和静态代码块中引用
+super可用于调用父类实例的方法(有参构造方法、无参构造方法、域方法、字段域),但不可在类静态方法和静态代码块中引用
+
+关于逻辑跳转关键字(break和continue)的思考:
+break跳出当前循环体 continue跳出当前循环进行下一次循环(不跳出当前循环体)
+
+关于多重条件选择关键字(switch)的思考:
+switch(contentValue)中contentValue必须是被初始化的变量且变量类型可为(int short char byte java.lang.String(仅jdk1.7支持))
+switch(contentValue){ case one:doSomething();break;default:doOtherthing();break;}中break关键字仅跳出switch方法块
+
+关于异常捕获关键字组(try(){}cache(Exception e){}finally{})的思考:
+try(InputStream input){}cache(Exception e){}该语句块在jdk7环境下会自动回收释放实现java.io.closeable接口的实例
+try{}cache(IOException ioe){}cache(Exception e){}finally{}异常捕获建议写法
+
+关于异常捕获关键字组(try(){}cache(Exception e){}finally{})和返回关键字(return)组合使用时代码运行顺序的思考:
+(1)try{doSomething();throw new Exception("exception");return;}cache(Exception e){printError();return;}finally{colse();return;}
+先执行doSomething()函数然后执行printError()函数然后执行colse()然后在finally块中返回并结束该方法
+(2)try{doSomething();throw new Exception("exception");return;}cache(Exception e){printError();return;}finally{colse();}
+先执行doSomething()函数然后执行printError()函数然后执行colse()然后在cache块中返回并结束该方法
+(3)try{doSomething();throw new Exception("exception");return;}cache(Exception e){printError();}finally{colse();}
+先执行doSomething()函数然后执行printError()函数然后执行colse()然后在try块中返回并结束该方法
+(4)try{doSomething();return;}cache(Exception e){printError();return;}finally{colse();return;}
+先执行doSomething()函数然后执行colse()然后在finally块中返回并结束该方法
+(5)try{doSomething();return;}cache(Exception e){printError();return;}finally{colse();}
+先执行doSomething()函数然后执行colse()然后在try块中返回并结束该方法
+
+关于abstract关键字的思考:
+abstract关键字修饰类表示该类是抽象类,抽象类可以包含抽象方法,除此之外抽象类和非抽象类的特性一致
+abstract关键字修饰方法表示该方法是抽象方法,抽象方法只能存在于抽象类和接口中,抽象方法不能存在方法体,切抽象类的非抽象子类必须实现该抽象类的抽象方法
+abstract关键字不能与小于public访问控制权限的关键字一起使用
+
+关于interface关键字的思考:
+interface关键字用来声明接口,接口中只能声明public static final形式的常量和public abstract 形式的方法,接口中不能存在方法体,只能用来声明方法
+接口中可以声明静态方法和默认方法(jdk1.8)
+public interface FunctionnalInterface {
+    static void sys() {
+
+    }
+
+    default void sysHell() {
+
+    }
+}
+
+
+关于类和接口区别的思考:
+类只支持单继承,接口支持多继承,类和接口都支持多层继承
+
+关于字符串连接符+的思考:
+字符串连接符+是java中唯一一个被重新定义的操作符,字符串连接符+相当于new StringBuilder().append()操作
+
+关于覆盖的思考:
+方法签名:方法名称+参数列表(参数类型+参数顺序+参数个数)
+子类不能覆盖父类的静态方法和静态域
+子类可以覆盖父类的非静态方法和非静态域
+子类非静态方法的方法签名必须和父类非静态方法的签名相同
+且子类非静态方法的返回值类型必须与父类方法返回值类型相同
+且子类方法访问控制权限大于父类方法访问控制权限才可覆盖父类方法
+子类覆盖父类方法是通过jvm动态绑定(动态分派)机制实现
+
+关于重载的思考:
+方法签名:方法名称+参数列表(参数类型+参数顺序+参数个数)
+方法名相同但参数列表不同的多个方法可以重载
+
+关于重载和覆盖的思考:
+返回值不同但方法签名相同的多个方法编译器不支持
+
+关于异常的思考:
+      java.lang.throwable
+            /     \
+           /       \
+          /         \
+         /           \
+       error       exception
+                    /     \
+                   /       \
+                  /         \
+        RuntimeException   SQLException/IOException
+子类覆盖方法声明抛出运行时异常时 其父类被覆盖方法无需做任何调整
+子类覆盖方法声明抛出非运行时异常时 其父类被覆盖方法不能声明抛出运行时异常 只能声明抛出子类异常和子类异常的父类
+常见的运行时异常:
+NullPointerException IllegalArgumentException ConcurrentModificationException ClassCastException
+ArrayIndexOutOfBoundsException ArrayStoreException CloneNotSupportedException
+
+其他关键字:
+package new instanceof import do while for return if else continue break
+
+待使用关键字:
+goto const
+
+
+本包演示序列化详解
+(1)java.lang.serializable 接口没有任何方法和属性域,仅仅表明实现该接口就可序列化,序列化可以继承(可序列化父类的子类也可序列化)
+(2)serialVersionUID序列化版本号,serialVersionUID的默认取值是Java运行时环境根据类的内部细节自动生成的,如果对类的源代码作了修改,
+   再重新编译,新生成的类文件的serialVersionUID的取值有可能也会发生变化,类的serialVersionUID的默认值完全依赖于Java编译器的实现,
+   对于同一个类,用不同的Java编译器编译,有可能会导致不同的serialVersionUID也有可能相同。
+   为提高serialVersionUID的独立性和确定性,强烈建议在一个可序列化类中显示的定义serialVersionUID,为它赋予明确的值。
+   显式地定义serialVersionUID有两种用途:希望类的不同版本对序列化兼容,因此需要确保类的不同版本具有相同的serialVersionUID;
+   不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有不同的serialVersionUID
+(3)自定义序列化：
+   自定义序列化是由ObjectOutputStream/ObjectInputStream在序列化/反序列化时候,通过反射检查该类是否存在以下方法:
+   执行顺序从上往下,序列化调用1和2,反序列调用3和4;transient关键字当某个字段被声明为transient后,默认序列化机制就会忽略该字段。
+
+ Object writeReplace() throws ObjectStreamException; 通过此方法修改序列化的对象
+
+ void writeObject(java.io.ObjectOutputStream out) throws IOException;方法中调用out.defaultWriteObject()使用writeObject的默认的序列化方式,也可添加额外的序列化对象到输出:out.writeObject("XX")
+
+ void readObject(java.io.ObjectInputStream in) throws Exception;方法中调用in.defaultReadObject()使用readObject默认的反序列化方式,也可额外的序列化对象到输入:in.readObject()
+
+ Object readResolve() throws ObjectStreamException; 通过此方法修改返回的对象
+
+ (4)实现java.io.Externalizable接口中的 void readExternal(ObjectInput in) throws IOException, ClassNotFoundException
+  和void writeExternal(ObjectOutput out) throws IOException方法可进行序列化
+
+ 对java引用的思考:
+ 强引用:使用new关键字声明的引用类型称为强引用 jvm宁可报OutOfMemoryError错误也不会回收强引用占用的对象
+ 软引用:SoftReference声明的引用类型 jvm在堆内存不够时选择回收
+ 弱引用:WeakReference声明的引用类型 jvm执行内存回收时立即回收
+ 虚引用:PhantomReference声明的引用类型 jvm随时进行回收
+
+ /**
+  * Created by qfl
+  * date 16/04/19 16:28:40
+  * java 基本数据类型的长度和jvm有关 c++基本数据的长度和操作系统有关 (长度:在计算机中表示该数值的位数)
+  * 基本数据类型的基础概念:
+  * 1.自动装箱:自动装箱指的是将基本数据类型转换为对应的包装器类型
+  * 2.自动拆箱:自动拆箱指的是将基本数据类型的包装器类型转换成相应的基本数据类型
+  * 3.基本数据类型的长度
+  * double:64bit
+  * float:32bit
+  * long:64bit
+  * int:32bit
+  * short:16bit
+  * char:16bit
+  * byte:8bit
+  * boolean:1bit
+  * void:0bit
+  * 4.boolean不可以和其他基本数据类型进行转换
+  * 5.除boolean类型的其它基本数据类型的转换原则:
+  * 表示范围小的基本数据类型可以隐式转换为大的基本数据类型,
+  * 表示范围大的基本数据类型需要强制转换为表示范围小的基本数据类型(会有精度丢失)
+  * 6.基本数据类型的包装器类:
+  * 基本数据类型的包装器类不能进行相互转换
+  * double->Double
+  * float->Float
+  * long->Long
+  * int->Integer
+  * short->Short
+  * char->Character
+  * byte->Byte
+  * boolean->Boolean
+  * void->Void
+  * 7.浮点数在计算机表示的格式特殊,因此会出现误差(浮点数计算时建议使用bigdecimal)
+  * 浮点数在计算机中表示由 符号位  指数位  尾数位
+  * double类型:1 11 52
+  * float类型:1 8 23
+  * 1.0在计算机表示为float: 0 01111111 00000 00000 00000 00000 000
+  * 补充计算机组成原理知识辅助理解
+  * 二进制转为十进制:
+  * 1010.011->10.375
+  * 整数部分转换->依次取每位乘以2的相应次幂求和
+  * 1x2^3=8
+  * 0x2^2=0
+  * 1x2^1=2
+  * 0x2^0=0
+  * 对每次乘积结果求和得到对应十进制表示 8+0+2+0=10
+  * 小数部分转换->依次取每位乘以2的负次幂求和
+  * 0x2^(-1)=0
+  * 1x2^(-2)=0.25
+  * 1x2^(-3)=0.175
+  * 对每次乘积结果求和得到对应十进制表示 0+0.25+0.175=0.375
+  * 十进制转为二级制:10.375->1010.011
+  * 整数部分转换->整数部分不断模2直到商为0然后把每次得到的余数按倒序排列
+  * 10->1010计算过程:
+  * 10%2=5......0
+  * 5%2=2.......1
+  * 2%2=1.......0
+  * 1%2=0.......1
+  * 逆序排列余数得到整数部分二级制表示 1010
+  * 小数部分转换->小数部分(每次计算的积数的小数部分)不断乘2直到积的小数部分为0把每次得到的积的整数部分正序排列
+  * 0.375->0.011转换过程:
+  * 0.375x2=0.750......0
+  * 0.75x2=1.50........1
+  * 0.5x2=1.0..........1
+  * 正序排列商的整数部分得到小数部分的二级制表示为011
+  * 将二进制数1010.011转换为计算机中相应格式的数
+  * 首先将1010.011转换为1.010011x2^3可以得到相应的尾数部分为0.010011和符号位0(正数符号位为0)
+  * 然后求出移位数字127+3=130转换为二进制为10000010
+  * 最后依次拼接为float: 0 10000010 01001 10000 00000 00000 000
+  * 补充知识点,基本数据类型的运算操作:单目乘除位关系 三目逻辑后赋值
+  * 单目运算: ++ --
+  * 乘除:+ - x /
+  * 位:>> << >>>
+  * 关系:> < >= <= != ==
+  * 三目: A ? B : C
+  * 逻辑:& | ^ && || !
+  * 赋值:= += -= /= *=
+  * 关于基本数据类型包装器类的继承链
+  * 基本包装器的共同抽象父类为Number 共同实现接口为Comparable 可序列化Serializable
+  * Comparable接口仅有一个方法 compareTo
+  * Serializable接口没有方法
+  * Number抽象类(见源码)
+  */
+
+  对基本类型包装类的思考:
+  装箱:基本类型装换为基本类型包装类
+  拆箱:基本类型包装类装换为基本类型
+
+  基本类型类继承链
+                 java.io.Serializable    java.lang.Comparable
+                           \                 /
+                            \               /
+                             \             /
+                              \           /
+                             java.lang.number
+                             /       |       \
+                            /        |        \
+                           /         |         \
+  java.lang.Interger java.lang.Byte  java.lang.Float java.lang.Double java.lang.Short java.lang.Long
+
+
+
+                                java.io.Serializable    java.lang.Comparable
+                                       \                      /
+                                        \                    /
+                                         \                  /
+                                          \                /
+                                          ------------------
+                                                  ||
+                                                  ||
+                                                  \/
+                                          -------------------
+                                                 /   \
+                                 java.lang.Charater java.lang.Boolean
+
+
+对字符串的思考:
+java.lang.StringBuilder线程不安全
+java.lang.StringBuffer线程安全
+java.lang.String字符串常量类
+
+
+类关系图解
+                java.lang.Appendable     java.lang.CharSequence
+                         |                      |
+                         |                      |
+                         ------------------------
+                                     ||
+                                     \/
+                        java.lang.AbstractStringBuilder                    java.io.Serializable
+                                     |                                             |
+                                     |                                             |
+                                     |                                             |
+                                     -----------------------------------------------
+                                                        ||
+                                                        \/
+                                     ------------------------------------------
+                                     |                                        |
+                                     |                                        |
+                                     |                                        |
+                            java.lang.StringBuilder              java.lang.StringBuffer
+
+
+
+               java.io.Serializable  java.lang.Comparable java.lang.CharSequence
+                      |                     |                           |
+                      |                     |                           |
+                      |                     |                           |
+                      ---------------------------------------------------
+                                            ||
+                                            \/
+                                     java.lang.String
+
+
+对枚举的思考:
+枚举类型默认编译后自动继承java.lang.Enum类
+枚举常量必须位于首位声明 构造方法只能是private
+
+public class com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject extends java.lang.Enum<com.itcas
+t.basic.jdk.lang.enumtype.enumtype.EnumObject> {
+  public static final com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject ONE;
+  public static final com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject TWO;
+  public static final com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject THREE;
+  java.lang.String name;
+  public static final java.lang.String value;
+  public static com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject[] values();
+  public static com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject valueOf(java.lang.String);
+  public java.lang.String getName();
+  public void setName(java.lang.String);
+  public int getIndex();
+  public void setIndex(int);
+  com.itcast.basic.jdk.lang.enumtype.enumtype.EnumObject(java.lang.String, int, int, com.itcast.basi
+c.jdk.lang.enumtype.enumtype.EnumObject$1);
+  static {};
+}
+
+
+对java.lang.ThreadLocal的思考:
+线程本地变量：
+kay-value键值对entry
+type of key:java.lang.WeakReference
+type of value:java.lang.Object
+
+
+非静态内部类实例化必须依赖于外部类实例
+OutterObject.InnerObject0 innerObject0 = new OutterObject().new InnerObject0();
+静态内部类实例化只需要依赖外部类类名
+OutterObject.InnerObject innerObject = new OutterObject.InnerObject();
+
+非静态内部类不能声明静态域、静态方法、静态代码块
+
+静态内部类只能访问外部类的静态域、静态方法
+非静态内部类可以访问外部类的属性 只要非静态内部类遵循引用规则
+
+外部类可以访问内部类的属性 只要外部类遵循引用规则
+
+
+局部内部类:
+定义在方法内部或者方法块内部的持名类
+
+匿名内部类:
+定义在方法内部或方法块内部的无名类 匿名内部类没有构造方法 匿名内部类只能访问常量(final)
+
+静态内部类
+class com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject {
+  com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject();
+  static java.lang.String access$000();
+  static {};
+}
+非静态内部类 存在指向外部类的引用
+class com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject0 {
+  final com.itcast.basic.jdk.classtype.classtype.OutterObject this$0;
+  public com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject0(com.itcast.basic.jdk.classtype.classtype.OutterObject);
+}
+
+
+
+对jvm的思考:
+
+字节码获取方式:className.class Class.forName() instance.getClass()
+
+new Instance()执行过程:
+jvm实例化对象时首先递归初始化该实例对应类的父类即初始化父类的静态代码(静态代码块和静态域 初始化顺序按照代码中出现顺序)
+若实例对应类的父类均被初始化完毕 则执行子类实例的初始化即初始化子类静态代码(静态代码块和静态域 初始化顺序按照代码中出现顺序)
+然后递归初始化父类实例代码(代码块和实例域初始化)初始化完毕后调用自身的构造方法
+最后初始化自己的实例代码(代码块和实力域)初始化完毕后调用自身构造方法
+
+jvm内存模型
+               .java源文件
+                   ||
+                   ||编译器
+                   \/
+                .class文件
+                   ||
+                   ||
+                   \/
+      -------------------------------------------                         -------------------------------------------------
+     |                                          |                        |    程序计数器          栈      本地方法栈       |
+     |     classloader<-------执行引擎          |                        |                                                 |
+     |        |                   |             |                        |                                                 |
+     |        |                   |             |    运行时数据区        |                      堆                         |
+     |       -----------------------            |------------------>     |    方法区                                       |
+     |       | 运行时数据区         |           |                        |                                                 |
+     |       |                      |           |                        |                                                 |
+     |       ------------------------           |                        ----------------------------------------------------
+     |                                          |
+     --------------------------------------------
+
+(1)程序计数器:记录当前CPU即将执行的下一条指令的地址
+(2)方法区(永久代):存放字节码(类信息 静态变量等) 字符串常量池
+(3)栈(线程栈):局部变量表、方法返回地址、运行时指向方法区的引用、附加信息
+(4)堆:存放数组和对象
+
+对jvm程序运行机制的思考:
+java程序执行过程包括加载 连接(验证 准备 解析) 初始化 使用 卸载
+(1)加载
+jvm通过Class.forName()全类名的方式将.class字节码加载到内存,然后将字节码转换为运行时方法区数据结构,最后在堆中创建java.lang.Class对象
+(2)连接
+ * (1)验证
+ *    首先验证二进制文件格式(保证输入的字节流能正确地解析并存储)
+ *    其次验证元数据(对类的元数据信息进行语义校验)
+ *    然后验证字节码(数据流和控制流的验证)
+ *    最后验证符号引用
+ * (2)准备
+ *    为类变量和常量申请内存空间并赋系统默认值
+ * (3)解析
+ *   虚拟机将常量池内的符号引用替换为直接引用的过程(类和接口的解析 字段解析 类方法解析 接口方法解析 )
+ (3)初始化
+  * (1)<clinit>方法是由虚拟机自动收集类中静态变量的赋值语句和静态代码块中的语句合并而产生,虚拟机收集的顺序取决于代码在源文件中出现的顺序
+  * (2)<clinit>方法和类的构造函数不同,它不需要显式的被调用,虚拟机会保证父类的<clinit>总是在子类的<clinit>方法调用前被调用.因此虚拟机中
+  *    第一个执行<clinit>方法的类一定是java.lang.Object
+  * (3)由于父类的<clinit>函数优先于子类的<clinit>执行,所以父类的静态变量赋值和静态代码块由于子类的静态变量赋值和静态代码块的执行
+  * (4)<clinit>方法对于类和接口不是必须的,如果一个类或接口中没有静态变量赋值语句和静态代码块则编译器不会为其生成<clinit>方法
+  * (5)接口的实现类初始化话时不会调用接口的<clinit>方法(笔者在探索中..)
+  * (6)虚拟机会保证一个类的<clinit>方法在多线程执行环境中保证正确的加锁和同步
+
+ * 标记删除法:标记删除法分为标记阶段和删除阶段 标记阶段主要是标记jvm中可以回收的对象 删除阶段主要是释放标记阶段标记的对象 缺点:会造成大量内存碎片
+ * 标记整理法:标记整理法首先将存活对象移动到内存中的一端 当需要垃圾回收时 直接释放端外边缘的内存
+ * 复制法:将内存分为2块 一块用来保存对象 一块空闲 当需要垃圾回收时 首先将存活的对象复制到空闲块中 然后直接释放保存对象块的内存 缺点:内存利用率不高
+ * 分代法:分代法根据对象存活的周期将内存分为新生代和老年代 新生代存放存活周期短的对象 老年代存放存活周期长的对象
+ * java jvm垃圾回收机制和过程:
+ * 当创建一个新对象时 jvm会首先检查新生代(Eden+Survivor(from space+to space))的Eden中是否有足够空间存放新对象 如果有则将新对象存放到Eden区
+ * 否则触发垃圾回收(首先标记Eden和from space中存活的对象然后逐个复制到to space中,当to space中的内存不能存放某个对象时则将该对象直接存到老年代
+ * 然后释放Eden和from space的内存)
+
+
+
+
+对jvm垃圾回收机制的思考:
+jvm垃圾回收仅限于堆内存的回收 jvm使用根搜索算法判断堆中对象是否存活
+(1)标记清除算法
+jvm首先标记待回收对象 然后在gc时直接清空被标记对象占用内存 造成大量内存碎片
+(2)标记整理算法
+jvm首先将待回收对象移到内存空间的一端(连续的内存空间) 然后在gc时直接清空整理好的内存
+(3)复制算法
+jvm首先将内存空间均分为2份 将存活对象移到其中一份 然后在gc时直接清空另一份内存
+(4)分代算法
+jvm根据对象存活周期将其分为新生代和老年代
+
+分代算法执行过程:
+当new object时 jvm首先会检查新生代(Eden +Survivor(from space + to space))空间 若空间充足则将对象存入新生代
+否则 jvm触发垃圾回收机制 jvm标记Eden区和from space区存活的对象 然后逐个复制到to space 若空间充足 则复制后清空 Eden区和from space区 然后将对象存入Eden区
+否则直接将对象存入老年代 然后清空Eden区和from space区
+
+
+对jvm垃圾收集器的思考:
+(1)serial(串行收集器):
+(2)parNew:
+(3)parallel Scavenge
+(1)(2)(3)新生代收集器
+(4)CMS:
+(5)serial old
+(6)parallel old
+(4)(5)(6)老年代收集器
+(7)G1:新生代+老年代
+
+jvm常用操作命令:
+jps:主要用来输出JVM中运行的进程状态信息
+jstat:JVM统计监测工具
+jstack:主要用来查看某个Java进程内的线程堆栈信息
+jmap:用来查看堆内存使用状况
+
+
+jvm常用配置介绍:
+Trace跟踪参数
+
+ -verbose:gc
+
+ -XX:+printGC
+
+ -XX:+PrintGCDetails
+
+ -XX:+PrintGCTimeStamps
+
+ -Xloggc:log/gc.log // 指定GC log的位置，以文件输出
+
+ -XX:PrintHeapAtGC // 每一次GC后，都打印堆信息
+
+// 类加载信息
+
+-XX:TraceClassLoading
+
+-XX:+PrintClassHistogram
+
+ -Ctrl +Break  打印类信息， 类的使用情况
+
+
+-XX: +HeapDumpOnOutOfMemoryError
+
+     - OOM时导出堆到文件
+
+-XX:+HeapDumpPath
+
+     - 导出OOM的路径
+
+     栈大小分配
+
+     -Xss
+-Xmn
+
+ -设置新生代大小
+
+ -XX：NewRatio
+
+ - 新生代（eden +2*s） 和老年代（不含永久区）的比值
+
+ -4 表示新生代：老年代=1：4 ，即年轻代占堆的1/5
+
+-XX：SurvivorRatio
+
+ - 设置两个SurvivorRatio  区和eden 的比
+
+ -8 表示 两个Survivor:eden =2:8,即一个Survivor 占年轻代的1/10
+
+
+ -Xmx  -Xms
+
+  - 指定最大堆 和最大堆
+
+  -XX:PermSize -XX:MaxPermSize
+
+  - 设置永久区的初始空间和最大空间
+
+对complier方式的思考:
+(1)javax.tools.JavaCompiler
+(2)com.sun.tools.javac.Main
+(3)java.lang.ProcessBuilder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

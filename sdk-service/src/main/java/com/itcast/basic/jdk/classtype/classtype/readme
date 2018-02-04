@@ -1,0 +1,30 @@
+非静态内部类实例化必须依赖于外部类实例
+OutterObject.InnerObject0 innerObject0 = new OutterObject().new InnerObject0();
+静态内部类实例化只需要依赖外部类类名
+OutterObject.InnerObject innerObject = new OutterObject.InnerObject();
+
+非静态内部类不能声明静态域、静态方法、静态代码块
+
+静态内部类只能访问外部类的静态域、静态方法
+非静态内部类可以访问外部类的属性 只要非静态内部类遵循引用规则
+
+外部类可以访问内部类的属性 只要外部类遵循引用规则
+
+
+局部内部类:
+定义在方法内部或者方法块内部的持名类
+
+匿名内部类:
+定义在方法内部或方法块内部的无名类 匿名内部类没有构造方法 匿名内部类只能访问常量(final)
+
+静态内部类
+class com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject {
+  com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject();
+  static java.lang.String access$000();
+  static {};
+}
+非静态内部类 存在指向外部类的引用
+class com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject0 {
+  final com.itcast.basic.jdk.classtype.classtype.OutterObject this$0;
+  public com.itcast.basic.jdk.classtype.classtype.OutterObject$InnerObject0(com.itcast.basic.jdk.classtype.classtype.OutterObject);
+}

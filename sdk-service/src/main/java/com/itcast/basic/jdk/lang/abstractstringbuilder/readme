@@ -1,0 +1,38 @@
+对字符串的思考:
+java.lang.StringBuilder线程不安全
+java.lang.StringBuffer线程安全
+java.lang.String字符串常量类
+
+
+类关系图解
+                java.lang.Appendable     java.lang.CharSequence
+                         |                      |
+                         |                      |
+                         ------------------------
+                                     ||
+                                     \/
+                        java.lang.AbstractStringBuilder                    java.io.Serializable
+                                     |                                             |
+                                     |                                             |
+                                     |                                             |
+                                     -----------------------------------------------
+                                                        ||
+                                                        \/
+                                     ------------------------------------------
+                                     |                                        |
+                                     |                                        |
+                                     |                                        |
+                            java.lang.StringBuilder              java.lang.StringBuffer
+
+
+
+               java.io.Serializable  java.lang.Comparable java.lang.CharSequence
+                      |                     |                           |
+                      |                     |                           |
+                      |                     |                           |
+                      ---------------------------------------------------
+                                            ||
+                                            \/
+                                     java.lang.String
+
+

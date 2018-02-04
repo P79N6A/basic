@@ -1,0 +1,15 @@
+maven自动化构建工具
+   maven项目目录结构：
+       首先创建一个src根目录和pom.xml文件同级,
+	   然后在src中创建一个main和test的目录,
+	   然后分别在main和test目录下创建一个java目录,
+	   然后在java目录下创建自己的工程的包和代码
+   mvn -v查看maven版本号
+   mvn compile编译项目
+   mvn test执行测试代码
+   mvn clean清空编译代码
+   mvn package编译打包
+   mvn install安装项目
+   mvn archetype:generate -DgoupId=com.itcast.maven -DartifactId=maven01 -Dversion=0.0.1  
+   按指定的配置自动构建maven项目  
+   

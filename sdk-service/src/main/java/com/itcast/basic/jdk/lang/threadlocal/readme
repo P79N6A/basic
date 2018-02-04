@@ -1,0 +1,5 @@
+对java.lang.ThreadLocal的思考:
+线程本地变量：
+kay-value键值对entry
+type of key:java.lang.WeakReference
+type of value:java.lang.Object

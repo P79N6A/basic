@@ -1,0 +1,180 @@
+本包讲解java常用关键字(Java常见关键字的枚举)
+
+实例域和实例方法访问权限
+private:私有域访问控制符,被修饰域仅能在实例内访问
+default:默认域访问控制符,被修饰域仅能在实例内和同包类访问
+protected:保护域访问控制符,被修饰域仅能在实例内、同包类内和其子类内访问
+public:公共域访问控制符
+
+关于final关键字的思考:
+final修饰类表示该类不可被继承且该类的方法默认为final,
+final修饰字段表示该字段为常量不可修改且该字段必须被初始化(声明时初始化或在构造方法中初始化或在方法块中初始化),
+final修饰方法表示该方法不可被覆盖。
+final关键字可以屏蔽java编译器的重编译和jvm运行期的动态链接
+
+关于transient关键字的思考:
+transient修饰变量表示该变量是临时变量不能进行持久化
+
+关于native关键字的思考:
+native只能修饰方法即本地方法也即是其他语言实现的方法且该方法不能有方法体
+
+关于static关键字的思考:
+static只能修饰内部类即静态内部类,实例化方式为:new OutClass.InnerClass(),静态内部类只能访问外部类的静态变量不能访问外部类的实例变量
+static修饰代码块即静态代码块,静态代码块在类实例化或类静态域或类静态方法被调用时初始化,静态代码块中只能访问静态变量不能访问实例变量
+static修饰域变量即静态域变量,静态域变量表示该变量在类的所有实例中共享一个相同引用,static不能修饰局部变量,静态域不能被子类覆盖
+static修饰方法即静态方法,静态方法只能访问静态变量,不能访问实例变量,静态方法不能被子类覆盖
+
+关于volatile关键字的思考:
+volatitle可以通过防止编译器指令重排保证有序性,但是不能保证指令的原子性,
+volatitle修饰的变量具有线程可见性(一个线程修改volatile变量时在另一个线程中立即可见)
+
+关于基本数据类型关键字的思考:
+byte长度为8bit
+short长度为16bit
+char长度为16bit
+int长度为32bit
+float长度为32bit
+long长度为64bit
+double长度为64bit
+以上基本类型 长度小的类型可以自动转为长度大的类型 且精度不丢失 逆向需要显示转换 且精度丢失
+boolean void
+
+关于释放资源关键字的思考:
+finalize可用来释放资源(不建议使用)
+
+关于内置同步关键字的思考:
+synchronized只能修饰方法和方法块且被修饰的方法和方法块不存在线程安全问题
+
+关于throw和throws异常关键字的思考:
+throws用于方法签名后,用来声明该方法有异常抛出(仅用来声明)
+throw用于方法体内且用来抛出一个真实的异常信息
+
+关于静态导入关键字(import static)的思考:
+import static 仅用来导入静态方法、静态域、静态常量
+
+关于类继承和实现关键字(extends implements )的思考:
+extends和implements两个关键字同时使用时, 必须先继承父类(支持单父类继承和多层父类继承)后实现接口(多个接口用逗号隔开)
+
+关于实例引用关键字(this和super)的思考:
+this可用于调用类实例的方法(有参构造方法、无参构造方法、域方法、字段域),但不可在类静态方法和静态代码块中引用
+super可用于调用父类实例的方法(有参构造方法、无参构造方法、域方法、字段域),但不可在类静态方法和静态代码块中引用
+
+关于逻辑跳转关键字(break和continue)的思考:
+break跳出当前循环体 continue跳出当前循环进行下一次循环(不跳出当前循环体)
+
+关于多重条件选择关键字(switch)的思考:
+switch(contentValue)中contentValue必须是被初始化的变量且变量类型可为(int short char byte java.lang.String(仅jdk1.7支持))
+switch(contentValue){ case one:doSomething();break;default:doOtherthing();break;}中break关键字仅跳出switch方法块
+
+关于异常捕获关键字组(try(){}cache(Exception e){}finally{})的思考:
+try(InputStream input){}cache(Exception e){}该语句块在jdk7环境下会自动回收释放实现java.io.closeable接口的实例
+try{}cache(IOException ioe){}cache(Exception e){}finally{}异常捕获建议写法
+
+关于异常捕获关键字组(try(){}cache(Exception e){}finally{})和返回关键字(return)组合使用时代码运行顺序的思考:
+(1)try{doSomething();throw new Exception("exception");return;}cache(Exception e){printError();return;}finally{colse();return;}
+先执行doSomething()函数然后执行printError()函数然后执行colse()然后在finally块中返回并结束该方法
+(2)try{doSomething();throw new Exception("exception");return;}cache(Exception e){printError();return;}finally{colse();}
+先执行doSomething()函数然后执行printError()函数然后执行colse()然后在cache块中返回并结束该方法
+(3)try{doSomething();throw new Exception("exception");return;}cache(Exception e){printError();}finally{colse();}
+先执行doSomething()函数然后执行printError()函数然后执行colse()然后在try块中返回并结束该方法
+(4)try{doSomething();return;}cache(Exception e){printError();return;}finally{colse();return;}
+先执行doSomething()函数然后执行colse()然后在finally块中返回并结束该方法
+(5)try{doSomething();return;}cache(Exception e){printError();return;}finally{colse();}
+先执行doSomething()函数然后执行colse()然后在try块中返回并结束该方法
+
+关于abstract关键字的思考:
+abstract关键字修饰类表示该类是抽象类,抽象类可以包含抽象方法,除此之外抽象类和非抽象类的特性一致
+abstract关键字修饰方法表示该方法是抽象方法,抽象方法只能存在于抽象类和接口中,抽象方法不能存在方法体,切抽象类的非抽象子类必须实现该抽象类的抽象方法
+abstract关键字不能与小于public访问控制权限的关键字一起使用
+
+关于interface关键字的思考:
+interface关键字用来声明接口,接口中只能声明public static final形式的常量和public abstract 形式的方法,接口中不能存在方法体,只能用来声明方法(jdk1.7)
+接口中可以声明静态方法和默认方法(jdk1.8)
+public interface FunctionnalInterface {
+    static void sys() {
+
+    }
+
+    default void sysHell() {
+
+    }
+}
+
+关于类和接口区别的思考:
+类只支持单继承,接口支持多继承,类和接口都支持多层继承
+
+关于字符串连接符+的思考:
+字符串连接符+是java中唯一一个被重新定义的操作符,字符串连接符+相当于new StringBuilder().append()操作
+
+关于覆盖的思考:
+方法签名:方法名称+参数列表(参数类型+参数顺序+参数个数)
+子类不能覆盖父类的静态方法和静态域
+子类可以覆盖父类的非静态方法和非静态域
+子类非静态方法的方法签名必须和父类非静态方法的签名相同
+且子类非静态方法的返回值类型必须与父类方法返回值类型相同
+且子类方法访问控制权限大于父类方法访问控制权限才可覆盖父类方法
+子类覆盖父类方法是通过jvm动态绑定(动态分派)机制实现
+
+关于重载的思考:
+方法签名:方法名称+参数列表(参数类型+参数顺序+参数个数)
+方法名相同但参数列表不同的多个方法可以重载
+
+关于重载和覆盖的思考:
+返回值不同但方法签名相同的多个方法编译器不支持
+
+关于异常的思考:
+      java.lang.throwable
+            /     \
+           /       \
+          /         \
+         /           \
+       error       exception
+                    /     \
+                   /       \
+                  /         \
+        RuntimeException   SQLException/IOException
+子类覆盖方法声明抛出运行时异常时 其父类被覆盖方法无需做任何调整
+子类覆盖方法声明抛出非运行时异常时 其父类被覆盖方法不能声明抛出运行时异常 只能声明抛出子类异常和子类异常的父类
+常见的运行时异常:
+NullPointerException IllegalArgumentException ConcurrentModificationException ClassCastException
+ArrayIndexOutOfBoundsException ArrayStoreException CloneNotSupportedException
+
+其他关键字:
+package new instanceof import do while for return if else continue break
+
+待使用关键字:
+goto const
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
