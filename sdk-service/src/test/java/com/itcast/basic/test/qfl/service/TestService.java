@@ -3,9 +3,9 @@ package com.itcast.basic.test.qfl.service;
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.*;
 
 /**
  * Created by treey.qian on 2018/1/29.
@@ -80,11 +80,13 @@ public class TestService {
 
 //            int result = Sex.MAN.compareTo(Sex.WOMAN);
 //            System.out.println("result is " + result);
-            File[] files = new File("E:\\技术文档").listFiles();
-            for (File file : files) {
-                System.out.println("file name is " + file.getName() + " path is " + file.getPath());
-            }
+//            File[] files = new File("E:\\技术文档").listFiles();
+//            for (File file : files) {
+//                System.out.println("file name is " + file.getName() + " path is " + file.getPath());
+//            }
 
+//            int a = 1 | 2;
+//            System.out.println("a=" + a);
         } catch (Exception e) {
             e.printStackTrace();
         }
