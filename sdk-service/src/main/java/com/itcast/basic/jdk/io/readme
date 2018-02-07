@@ -1,0 +1,38 @@
+对io的思考:
+字节处理类:
+java.io.FileInputStream        java.io.FileOutputStream
+java.io.ObjectInputStream      java.io.ObjectOutputStream
+java.io.PipedInputStream       java.io.PipedOutputStream
+java.io.DataInputStream        java.io.DataOutputStream
+java.io.PushbackInputStream
+java.io.BufferedInputStream    java.io.BufferedOutputStream
+java.io.ByteArrayInputStream   java.io.ByteArrayOutputStream
+
+字节转换类:
+java.io.InputStreamReader      java.io.OutputStreamWriter
+
+字符处理类:
+java.io.FileReader             java.io.FileWriter
+java.io.PipedReader            java.io.PipedWriter
+java.io.CharArrayReader        java.io.CharArrayWriter
+java.io.BufferedReader         java.io.BufferedWriter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

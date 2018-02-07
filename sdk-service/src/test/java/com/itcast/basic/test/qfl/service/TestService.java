@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.util.*;
 
 /**
  * Created by treey.qian on 2018/1/29.
@@ -87,6 +86,9 @@ public class TestService {
 
 //            int a = 1 | 2;
 //            System.out.println("a=" + a);
+            //1802032187887460100 1802032187901610200
+            Long num = Long.valueOf("1802032187887460100");
+            System.out.println("num=" + Long.MAX_VALUE);
         } catch (Exception e) {
             e.printStackTrace();
         }

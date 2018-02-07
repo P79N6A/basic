@@ -12,6 +12,12 @@ public class RandomAccessFileUtils {
 
     public static volatile long defaultThreadFileSize = 50 * 1024 * 1024;
 
+    /**
+     * 多线程下载
+     *
+     * @param path 文件路径
+     * @throws IOException
+     */
     public static void copyFile(String path) throws IOException {
         if (path == null) {
             throw new NullPointerException(path);
