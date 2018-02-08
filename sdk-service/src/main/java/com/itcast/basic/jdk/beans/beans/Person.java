@@ -1,4 +1,4 @@
-package com.itcast.basic.javabean.beantpropertylisten;
+package com.itcast.basic.jdk.beans.beans;
 
 import java.beans.*;
 
@@ -80,6 +80,22 @@ public class Person {
         if (index < 0 || index >= numbers.length)
             throw new ArrayIndexOutOfBoundsException("数组越界");
         return numbers[index];
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        this.propertyChangeSupport = propertyChangeSupport;
+    }
+
+    public VetoableChangeSupport getVetoableChangeSupport() {
+        return vetoableChangeSupport;
+    }
+
+    public void setVetoableChangeSupport(VetoableChangeSupport vetoableChangeSupport) {
+        this.vetoableChangeSupport = vetoableChangeSupport;
     }
 
     public long[] getNumbers() {

@@ -1,6 +1,6 @@
 package com.itcast.basic.jdk.lang.basictype.basictype;
 
-import com.itcast.basic.jdk.io.io.JDKSerializable;
+import com.itcast.basic.jdk.io.jdkserializable.JDKSerializable;
 
 /**
  * Created by treey.qian on 2018/2/2.

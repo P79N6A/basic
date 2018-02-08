@@ -1,6 +1,6 @@
 package com.itcast.basic.jdk.lang.abstractstringbuilder.abstractstringbuilder;
 
-import com.itcast.basic.jdk.io.io.JDKSerializable;
+import com.itcast.basic.jdk.io.jdkserializable.JDKSerializable;
 import com.itcast.basic.jdk.lang.basictype.basictype.JDKComparable;
 
 import java.util.Arrays;
