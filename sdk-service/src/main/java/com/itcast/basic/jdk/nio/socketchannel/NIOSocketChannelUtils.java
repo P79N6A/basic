@@ -59,8 +59,8 @@ public class NIOSocketChannelUtils {
                     byte[] data = buffer.array();
                     String msg = new String(data).trim();
                     System.out.println("server receive from client: " + msg);
-                    ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
-                    channel.write(outBuffer);
+//                    ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
+//                    channel.write(outBuffer);
                 }
             }
 
@@ -87,6 +87,7 @@ public class NIOSocketChannelUtils {
             // 这里和服务端的方法不一样，查看api注释可以知道，当至少一个通道被选中时，
             // selector的wakeup方法被调用，方法返回，而对于客户端来说，通道一直是被选中的
             selector.select(); // 获得selector中选中的项的迭代器
+            System.out.println("enter into client");
             Iterator ite = selector.selectedKeys().iterator();
             while (ite.hasNext()) {
                 SelectionKey key = (SelectionKey) ite.next(); // 删除已选的key,以防重复处理
@@ -98,7 +99,7 @@ public class NIOSocketChannelUtils {
                     } // 设置成非阻塞
                     channel0.configureBlocking(false);
                     // 在这里可以给服务端发送信息哦
-                    channel0.write(ByteBuffer.wrap(new String("hello server!").getBytes()));
+                    channel0.write(ByteBuffer.wrap(new String("hello server! i am client").getBytes()));
                     // 在和服务端连接成功之后，为了可以接收到服务端的信息，需要给通道设置读的权限。
                     channel0.register(selector, SelectionKey.OP_READ); // 获得了可读的事件
                 }
@@ -111,8 +112,8 @@ public class NIOSocketChannelUtils {
                     byte[] data = buffer.array();
                     String msg = new String(data).trim();
                     System.out.println("client receive msg from server:" + msg);
-                    ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
-                    channel0.write(outBuffer);
+//                    ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
+//                    channel0.write(outBuffer);
                 }
             }
         }
