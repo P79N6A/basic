@@ -13,7 +13,7 @@ public class NioUtilsMain {
 //            NioChannelUtils.openFileChannel("e:\\1.txt");
 //            NioChannelUtils.copyToFile("e:\\1.txt","e:\\2.txt");
 //            NioChannelUtils.copyFromFile("e:\\1.txt", "e:\\3.txt");
-            NioChannelUtils.mapBigFile("e:\\1.txt");
+//            NioChannelUtils.mapBigFile("e:\\1.txt");
 
             String lock = "lock";
             synchronized (lock) {

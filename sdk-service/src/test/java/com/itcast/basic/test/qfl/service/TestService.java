@@ -1,11 +1,11 @@
 package com.itcast.basic.test.qfl.service;
 
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
+import com.itcast.basic.jdk.nio.socketchannel.SocketChannelBlockUtils;
 import org.junit.Test;
 
-import java.io.*;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Created by treey.qian on 2018/1/29.
@@ -90,19 +90,38 @@ public class TestService {
             //1802032187887460100 1802032187901610200
 //            Long num = Long.valueOf("1802032187887460100");
 //            System.out.println("num=" + Long.MAX_VALUE);
+//
+//            File file = new File("e:\\1.txt");
+//            int fileSize = (int) file.length();
+//            byte[] bytes = new byte[fileSize];
+//            RandomAccessFile fileInputStream = new RandomAccessFile(file, "r");
+//            FileChannel fileChannel = fileInputStream.getChannel();
+//            int size = (int) fileChannel.size();
+//            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileSize);
+//            int index = 0;
+//            while (mappedByteBuffer.hasRemaining()) {
+//                bytes[index++] = mappedByteBuffer.get();
+//            }
+//            System.out.println("size of buffer is " + size / 1024 / 1024);
+//            SocketUtils.startClient("127.0.0.1",2000);
+//            SocketChannelBlockUtils.startSocketClient("127.0.0.1", 2000);
+//            File file = new File("e:\\01.txt");
+//            BufferedReader reader = new BufferedReader(new FileReader(file));
+//            String text = "";
+//            int index = 0;
+//            StringBuilder stringBuilder = new StringBuilder();
+//            while ((text = reader.readLine()) != null) {
+//                stringBuilder.append("\'").append(text).append("\'").append(",");
+//                index++;
+//                while (index > 500) {
+//                    break;
+//                }
+//            }
+//            FileOutputStream fileOutputStream = new FileOutputStream("e:\\02.sql");
+//            fileOutputStream.write(stringBuilder.toString().getBytes());
+//            fileOutputStream.close();
 
-            File file = new File("e:\\1.txt");
-            int fileSize = (int) file.length();
-            byte[] bytes = new byte[fileSize];
-            RandomAccessFile fileInputStream = new RandomAccessFile(file, "r");
-            FileChannel fileChannel = fileInputStream.getChannel();
-            int size = (int) fileChannel.size();
-            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileSize);
-            int index = 0;
-            while (mappedByteBuffer.hasRemaining()) {
-                bytes[index++] = mappedByteBuffer.get();
-            }
-            System.out.println("size of buffer is " + size / 1024 / 1024);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
