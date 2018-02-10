@@ -1,5 +1,4 @@
-package com.itcast.basic.jdk.nio.socketchannel;
-
+package com.itcast.basic.jdk.nio.socketchannel.block;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -8,48 +7,51 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
 /**
- * Created by treey.qian on 2018/2/8.
+ * Created by Administrator on 2018/2/10.
  */
-public class SocketChannelBlockUtils {
+public class SocketUtils {
 
     /**
-     * 打开客户端
+     * 创建客户端连接
      *
-     * @param host 地址
-     * @param port 端口
-     * @throws IOException
+     * @param host
+     * @param port
      */
     public static void startSocketClient(String host, int port) throws IOException {
         SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress(host, port));
-        String text = "hello world";
+        //创建字节缓存区
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-        byteBuffer.put(text.getBytes());
-        //切换缓存模式为可写
+        //写入字节数据
+        byteBuffer.put("hello i am client".getBytes());
+        //切换写模式
         byteBuffer.flip();
+        //写入通道
         socketChannel.write(byteBuffer);
         socketChannel.close();
     }
 
     /**
-     * 开启渠道
+     * 开启服务器
      *
      * @param port
      * @throws IOException
      */
-    public static void startSocketChannel(int port) throws IOException {
+    public static void startSocketServer(int port) throws IOException {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.bind(new InetSocketAddress(port));
         while (true) {
             SocketChannel socketChannel = serverSocketChannel.accept();
+            //构造字节缓存区
             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
             socketChannel.read(byteBuffer);
-            byte[] bytes = byteBuffer.array();
-            System.out.println("size of buffer is " + bytes.length + " text is " + new String(bytes));
+            //读出数据
+            System.out.println("text is " + new String(byteBuffer.array()));
             socketChannel.close();
         }
     }
 
-    private SocketChannelBlockUtils() {
+
+    private SocketUtils() {
 
     }
 }

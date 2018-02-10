@@ -1,13 +1,12 @@
 package com.itcast.basic.test.qfl.service;
 
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
-import com.itcast.basic.jdk.nio.socketchannel.NIOSocketChannelUtils;
-import com.itcast.basic.jdk.nio.socketchannel.SocketChannelBlockUtils;
+import com.itcast.basic.jdk.nio.socketchannel.block.SocketUtils;
+import com.itcast.basic.jdk.nio.socketchannel.noblock.NIOSocketChannelUtils;
 import org.junit.Test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.nio.channels.Selector;
 
 /**
  * Created by treey.qian on 2018/1/29.
@@ -125,7 +124,18 @@ public class TestService {
 //            Selector selector=Selector.open();
 //            Selector selector1=Selector.open();
 //            System.out.println(" istrue "+(selector==selector1));
-            NIOSocketChannelUtils.startNIOServerClient("127.0.0.1",2000);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void testSocketChannel() {
+        try {
+//            SocketUtils.startSocketClient("127.0.0.1", 2000);
+            NIOSocketChannelUtils.startNIOSocketClient("127.0.0.1", 2000);
         } catch (Exception e) {
             e.printStackTrace();
         }

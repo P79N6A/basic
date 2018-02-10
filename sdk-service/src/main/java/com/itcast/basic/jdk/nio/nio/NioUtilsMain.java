@@ -1,4 +1,4 @@
-package com.itcast.basic.jdk.nio;
+package com.itcast.basic.jdk.nio.nio;
 
 import com.itcast.basic.jdk.nio.nio.NioChannelUtils;
 
