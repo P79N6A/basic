@@ -1,17 +1,9 @@
-package com.itcast.basic.sockettype.socket.client;
+package com.itcast.basic.jdk.net.chatroom.client;
 
-import java.awt.Frame;
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.Socket;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class ClientBean extends Frame implements ActionListener {
 

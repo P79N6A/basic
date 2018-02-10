@@ -1,4 +1,4 @@
-package com.itcast.basic.sockettype.socket.client;
+package com.itcast.basic.jdk.net.chatroom.client;
 
 /**
  * Created by qfl on 16/4/28.

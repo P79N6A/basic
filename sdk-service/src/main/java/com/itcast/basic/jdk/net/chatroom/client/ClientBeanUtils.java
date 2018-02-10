@@ -1,4 +1,4 @@
-package com.itcast.basic.sockettype.socket.client;
+package com.itcast.basic.jdk.net.chatroom.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
