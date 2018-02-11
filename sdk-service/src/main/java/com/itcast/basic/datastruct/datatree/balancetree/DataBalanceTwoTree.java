@@ -1,4 +1,4 @@
-package com.itcast.basic.datastruct.datatree.twotree;
+package com.itcast.basic.datastruct.datatree.balancetree;
 
 import java.io.Serializable;
 
