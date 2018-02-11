@@ -124,6 +124,12 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
+    /**
+     * 删除一个节点
+     *
+     * @param data 要删除节点
+     * @return
+     */
     public synchronized boolean removeNode(T data) {
         if (data == null) {
             throw new IllegalArgumentException("data is not valid");
@@ -209,6 +215,35 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
+    /**
+     * 查询节点
+     *
+     * @param data
+     * @return
+     */
+    public synchronized Node findNode(T data) {
+        return findNode(root, data);
+    }
+
+    private Node findNode(Node parent, T data) {
+        Node node = null;
+        int result = parent.getData().compareTo(data);
+        if (result > 0) {
+            //查找root 左子树
+            node = findNode(parent.left, data);
+        } else if (result < 0) {
+            //查找root 右子树
+            node = findNode(parent.right, data);
+        } else {
+            node = new Node(parent.parent, parent.getData());
+            node.setLeft(parent.left);
+            node.setRight(parent.right);
+        }
+        return node;
+
+    }
+
+
     public synchronized int size() {
         return size;
     }
@@ -222,11 +257,23 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
-    private class Node {
+    public class Node {
         private Node parent;
         private Node left;
         private Node right;
         private T data;
+
+        public Node getParent() {
+            return parent;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public Node getRight() {
+            return right;
+        }
 
         public Node(Node parent, T data) {
             this.parent = parent;

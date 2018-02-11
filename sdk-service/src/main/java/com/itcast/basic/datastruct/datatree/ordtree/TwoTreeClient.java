@@ -1,8 +1,5 @@
 package com.itcast.basic.datastruct.datatree.ordtree;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Created by treey.qian on 2017/12/11.
  */
@@ -29,21 +26,23 @@ public class TwoTreeClient {
             integerDataTwoTree.preOrderDispaly();
 //            integerDataTwoTree.midOrderDispaly();
 //            integerDataTwoTree.postOrderDispaly();
-            integerDataTwoTree.removeNode(8);
+            integerDataTwoTree.removeNode(3);
             System.out.println("size is " + integerDataTwoTree.size());
             integerDataTwoTree.preOrderDispaly();
 //            integerDataTwoTree.midOrderDispaly();
 //            integerDataTwoTree.postOrderDispaly();
-
-            List<String> stringList = Arrays.asList(new String[]{"java", "ruby", "spark", "c", "c++", "c#", "swift"});
-            DataTwoTree<String> stringDataTwoTree = new DataTwoTree<>();
-            for (String s : stringList) {
-                stringDataTwoTree.addNode(s);
-            }
-            stringDataTwoTree.preOrderDispaly();
-            stringDataTwoTree.midOrderDispaly();
-            stringDataTwoTree.postOrderDispaly();
-            System.out.println("size is " + stringDataTwoTree.size());
+            DataTwoTree.Node node = integerDataTwoTree.findNode(5);
+            System.out.println("node is " + node + " right is " + node.getRight()
+                    + " parent is " + node.getParent() + " left is " + node.getLeft());
+//            List<String> stringList = Arrays.asList(new String[]{"java", "ruby", "spark", "c", "c++", "c#", "swift"});
+//            DataTwoTree<String> stringDataTwoTree = new DataTwoTree<>();
+//            for (String s : stringList) {
+//                stringDataTwoTree.addNode(s);
+//            }
+//            stringDataTwoTree.preOrderDispaly();
+//            stringDataTwoTree.midOrderDispaly();
+//            stringDataTwoTree.postOrderDispaly();
+//            System.out.println("size is " + stringDataTwoTree.size());
         } catch (Exception e) {
             System.out.println("error message is " + e);
         }

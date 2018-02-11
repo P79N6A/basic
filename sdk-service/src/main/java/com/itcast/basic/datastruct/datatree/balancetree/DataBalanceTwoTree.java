@@ -11,6 +11,12 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
     private Node root;
     private transient int size;
 
+    /**
+     * 插入节点
+     *
+     * @param data 节点信息
+     * @return
+     */
     public synchronized boolean addNode(T data) {
         boolean isSuccess = false;
         try {
@@ -319,7 +325,19 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
         return size;
     }
 
-    private class Node {
+    public synchronized void preOrderDisplay(){
+
+    }
+
+    public synchronized void midOrderDisplay(){
+
+    }
+
+    public synchronized void postOrderDisplay(){
+
+    }
+
+    public class Node {
         private T data;
         private Node parent;
         private Node left;
