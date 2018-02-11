@@ -1,4 +1,9 @@
-package com.itcast.basic.datastruct.linkedlist.dataonewaylinkedlist;
+package com.itcast.basic.datastruct.linkedlist;
+
+import com.itcast.basic.datastruct.linkedlist.loop.OneWayLoopLinkList;
+import com.itcast.basic.datastruct.linkedlist.loop.TwoWayLoopLinkList;
+import com.itcast.basic.datastruct.linkedlist.unloop.OneWayLinkList;
+import com.itcast.basic.datastruct.linkedlist.unloop.TwoWayLinkList;
 
 /**
  * Created by treey.qian on 2017/12/6.

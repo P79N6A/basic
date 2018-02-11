@@ -1,15 +1,15 @@
-package com.itcast.basic.datastruct.linkedlist.dataonewaylinkedlist;
+package com.itcast.basic.datastruct.linkedlist.unloop;
 
 import java.io.Serializable;
 
 /**
  * Created by treey.qian on 2017/12/7.
  */
-public class TwoWayLoopLinkList<T> implements Serializable {
-
+public class TwoWayLinkList<T> implements Serializable {
+    private transient int size;
     private Node head;
     private Node tail;
-    private transient int size;
+
 
     public synchronized boolean addNode(T data) {
         if (data == null) {
@@ -21,79 +21,78 @@ public class TwoWayLoopLinkList<T> implements Serializable {
         } else {
             Node temp = tail;
             tail = tail.next = new Node(data);
-            tail.per = temp;
-            tail.next = head;
-            head.per = tail;
+            tail.pre = temp;
         }
+        size++;
         return isSuccess;
     }
 
     public synchronized boolean removeNode(T data) {
-        if (data == null) {
-            throw new IllegalArgumentException("data is not valid");
-        }
         boolean isSuccess = true;
         Node temp = head;
-        do {
+        while (temp != null) {
             if (data.equals(head.getData())) {
                 temp = temp.next;
-                head.per = head.next = null;
-                tail.next = head = temp;
+                head.next = temp.pre = null;
+                head = temp;
+                size--;
             } else if (data.equals(temp.getData())) {
-                temp.per.next = temp.next;
-                temp.next.per = temp.per;
-                temp.next = temp.per = null;
+                temp.pre.next = temp.next;
+                temp.next.pre = temp.pre;
+                temp.next = temp.pre = null;
+                size--;
             } else {
                 temp = temp.next;
             }
-        } while (temp != head);
+        }
         return isSuccess;
     }
 
     public synchronized String revert() {
-        StringBuilder stringBuilder = new StringBuilder(" linkList nodes is { ");
+        StringBuilder stringBuilder = new StringBuilder("linkList nodes is { ");
         Node temp = tail;
-        do {
-            if (temp != head) {
-                stringBuilder.append(temp.getData()).append(" ===> ");
+        while (temp != null) {
+            if (temp == head) {
+                stringBuilder.append(temp.getData()).append(" ");
             } else {
-                stringBuilder.append(temp.getData());
+                stringBuilder.append(temp.getData()).append(" ===> ");
             }
-            temp = temp.per;
-        } while (temp != tail);
+            temp = temp.pre;
+        }
         stringBuilder.append(" }");
         return stringBuilder.toString();
     }
 
     public synchronized String toString() {
-        StringBuilder stringBuilder = new StringBuilder(" linkList nodes is { ");
+        StringBuilder stringBuilder = new StringBuilder("linkList nodes is { ");
         Node temp = head;
-        do {
-            if (temp != tail) {
-                stringBuilder.append(temp.getData()).append(" ===> ");
+        while (temp != null) {
+            if (temp == tail) {
+                stringBuilder.append(temp.getData()).append(" ");
             } else {
-                stringBuilder.append(temp.getData());
+                stringBuilder.append(temp.getData()).append(" ===> ");
             }
             temp = temp.next;
-        } while (temp != head);
+        }
         stringBuilder.append(" }");
         return stringBuilder.toString();
     }
 
     public synchronized void display() {
-        StringBuilder stringBuilder = new StringBuilder(" linkList nodes is { ");
+        StringBuilder stringBuilder = new StringBuilder("linkList nodes is { ");
         Node temp = head;
-        do {
-            if (temp != tail) {
-                stringBuilder.append(temp.getData()).append(" ===> ");
+        while (temp != null) {
+            if (temp == tail) {
+                stringBuilder.append(temp.getData()).append(" ");
             } else {
-                stringBuilder.append(temp.getData());
+                stringBuilder.append(temp.getData()).append(" ===> ");
             }
             temp = temp.next;
-        } while (temp != head);
+        }
         stringBuilder.append(" }");
         System.out.println(stringBuilder.toString());
     }
+
 
     public synchronized int size() {
         return size;
@@ -101,8 +100,8 @@ public class TwoWayLoopLinkList<T> implements Serializable {
 
     private class Node {
         private T data;
-        private Node per;
         private Node next;
+        private Node pre;
 
         public Node(T data) {
             this.data = data;

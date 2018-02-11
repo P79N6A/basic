@@ -1,4 +1,4 @@
-package com.itcast.basic.datastruct.linkedlist.dataonewaylinkedlist;
+package com.itcast.basic.datastruct.linkedlist.loop;
 
 import java.io.Serializable;
 

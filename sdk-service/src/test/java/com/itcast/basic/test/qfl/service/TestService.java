@@ -1,12 +1,16 @@
 package com.itcast.basic.test.qfl.service;
 
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
-import com.itcast.basic.jdk.nio.socketchannel.block.SocketUtils;
-import com.itcast.basic.jdk.nio.socketchannel.noblock.NIOSocketChannelUtils;
+import com.itcast.basic.jdk.util.jar.JarFileUtils;
+import com.itcast.basic.jdk.util.zip.ZipFileUtils;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /**
  * Created by treey.qian on 2018/1/29.
@@ -135,9 +139,15 @@ public class TestService {
     public void testSocketChannel() {
         try {
 //            SocketUtils.startSocketClient("127.0.0.1", 2000);
-            NIOSocketChannelUtils.startNIOSocketClient("127.0.0.1", 2000);
+//            NIOSocketChannelUtils.startNIOSocketClient("127.0.0.1", 2000);
+            JarFileUtils.deCompressJarFlie("e:\\target.jar");
+//            JarFileUtils.compressJarFile("e:\\jar", "e:\\target.jar");
+//            ZipFileUtils.compressZip("E:\\zip");
+//            ZipFileUtils.deCompressZip("E:\\files.zip");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 }

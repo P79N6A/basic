@@ -1,4 +1,4 @@
-package com.itcast.basic.datastruct.datatree.twotree;
+package com.itcast.basic.datastruct.datatree.balancetree;
 
 /**
  * Created by treey.qian on 2017/12/27.
