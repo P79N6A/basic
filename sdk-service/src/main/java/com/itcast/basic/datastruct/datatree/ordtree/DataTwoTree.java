@@ -1,5 +1,7 @@
 package com.itcast.basic.datastruct.datatree.ordtree;
 
+import com.itcast.basic.datastruct.datatree.ElectoralModel;
+
 import java.io.Serializable;
 
 /**
@@ -9,7 +11,9 @@ import java.io.Serializable;
 public class DataTwoTree<T extends Comparable> implements Serializable {
     private Node root;
     private transient int size;
+    private ElectoralModel defaultElectoralModel = ElectoralModel.LEFT;
 
+    //加入节点
     public synchronized boolean addNode(T data) {
         if (data == null) {
             throw new IllegalArgumentException("data is not valid");
@@ -50,6 +54,7 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
+    //前序遍历
     public synchronized void preOrderDispaly() {
         //根左右
         StringBuilder stringBuilder = new StringBuilder();
@@ -75,6 +80,7 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
+    //中序遍历
     public synchronized void midOrderDispaly() {
         //左根右
         StringBuilder stringBuilder = new StringBuilder();
@@ -98,7 +104,7 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
-
+    //后序遍历
     public synchronized void postOrderDispaly() {
         //左右根
         StringBuilder stringBuilder = new StringBuilder();
@@ -124,93 +130,192 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
+    /**
+     * 删除一个节点
+     *
+     * @param data 要删除节点
+     * @return
+     */
     public synchronized boolean removeNode(T data) {
         if (data == null) {
             throw new IllegalArgumentException("data is not valid");
         }
-        if (!delNode(data, root)) {
-            throw new IllegalArgumentException("data is not exists");
-        }
-        return true;
+        return delNode(data, root);
     }
 
     private boolean delNode(T data, Node parent) {
-        if (data != null && parent != null) {
-            Object nodeData = parent.getData();
-            int result = data.compareTo(nodeData);
+        if (parent != null) {
+            int result = parent.getData().compareTo(data);
             if (result > 0) {
-                return delNode(data, parent.right);
-            } else if (result < 0) {
                 return delNode(data, parent.left);
+            } else if (result < 0) {
+                return delNode(data, parent.right);
             } else {
-
+                Node pNode = parent.parent;
+                parent.parent = null;
                 if (parent.left == null && parent.right == null) {
-                    //不存在子树
-                    Node delParent = parent.parent;
-                    if (delParent.left != null && delParent.left.getData().equals(data)) {
-                        delParent.left = null;
-                    } else if (delParent.right != null && delParent.right.getData().equals(data)) {
-                        delParent.right = null;
+                    //叶子节点
+                    if (pNode != null) {
+                        if (pNode.left == parent) {
+                            pNode.left = null;
+                        } else {
+                            pNode.right = null;
+                        }
+                    } else {
+                        root = null;
                     }
-                    parent.parent = null;
-                    size--;
-                } else if (parent.left != null && parent.right != null) {
-                    //左右子树均存在(取左子树最大值或右子树最小值)
-                    Object swapData = findSwapNode(parent.left, "right");
-//                    Object swapData = findSwapNode(parent.right, "left");
-                    parent.data = (T) swapData;
-                    size--;
+                } else if (parent.right != null && parent.left != null) {
+                    switch (defaultElectoralModel.getIndex()) {
+                        case 0:
+                            //左子树最大值
+                            parent.data = swapLeftNode(parent);
+                            break;
+                        case 1:
+                            //右子树最小值
+                            parent.data = swapRightNode(parent);
+                            break;
+                    }
                 } else if (parent.left != null) {
-                    //存在左子树
-                    Node delParent = parent.parent;
-                    if (delParent.left != null && delParent.left.getData().equals(data)) {
-                        delParent.left = parent.left;
-                    } else if (delParent.right != null && delParent.right.getData().equals(data)) {
-                        delParent.right = parent.left;
-                    }
-                    parent.left.parent = delParent;
+                    Node lNode = parent.getLeft();
                     parent.left = null;
-                    size--;
-                } else if (parent.right != null) {
-                    //存在右子树
-                    Node delParent = parent.parent;
-                    if (delParent.left != null && delParent.left.getData().equals(data)) {
-                        delParent.left = parent.right;
-                    } else if (delParent.right != null && delParent.right.getData().equals(data)) {
-                        delParent.right = parent.right;
+                    if (pNode != null) {
+                        if (pNode.right == parent) {
+                            pNode.right = lNode;
+                        } else {
+                            pNode.left = lNode;
+                        }
+                        lNode.parent = pNode;
+                    } else {
+                        lNode.parent = null;
+                        root = lNode;
                     }
-                    parent.right.parent = delParent;
+                } else if (parent.right != null) {
+                    Node rNode = parent.getRight();
                     parent.right = null;
-                    size--;
+                    if (pNode != null) {
+                        if (pNode.right == parent) {
+                            pNode.right = rNode;
+                        } else {
+                            pNode.left = rNode;
+                        }
+                        rNode.parent = pNode;
+                    } else {
+                        rNode.parent = null;
+                        root = rNode;
+                    }
                 }
-                return true;
             }
         }
         return false;
     }
 
-    private Object findSwapNode(Node parent, String flag) {
-        if ("left".equalsIgnoreCase(flag)) {
+    private T swapLeftNode(Node parent) {
+        Node lNode = parent.left;
+        if (lNode.right == null) {
+            lNode.parent = null;
+            if (lNode.left != null) {
+                lNode.left.parent = parent;
+                parent.left = lNode.left;
+                lNode.left = null;
+            } else {
+                lNode.parent.left = null;
+            }
+            return lNode.getData();
+        } else {
+            return swapLeftNode0(lNode);
+        }
+    }
+
+    private T swapLeftNode0(Node parent) {
+        if (parent.right == null) {
             if (parent.left == null) {
                 parent.parent.right = null;
                 parent.parent = null;
-                return parent.getData();
             } else {
-                return findSwapNode(parent.left, flag);
+                parent.parent.right = parent.left;
+                parent.left.parent = parent.parent;
+                parent.left = null;
+                parent.parent = null;
             }
+            return parent.getData();
         } else {
+            return swapLeftNode0(parent.right);
+        }
+    }
+
+    private T swapRightNode(Node parent) {
+        Node rNode = parent.right;
+        if (rNode.left == null) {
+            rNode.parent = null;
+            if (rNode.right != null) {
+                rNode.right.parent = parent;
+                parent.right = rNode.right;
+                rNode.right = null;
+            } else {
+                rNode.parent.right = null;
+            }
+            return rNode.getData();
+        } else {
+            return swapRightNode0(rNode);
+        }
+    }
+
+    private T swapRightNode0(Node parent) {
+        if (parent.left == null) {
             if (parent.right == null) {
                 parent.parent.left = null;
                 parent.parent = null;
-                return parent.getData();
             } else {
-                return findSwapNode(parent.right, flag);
+                parent.parent.left = parent.right;
+                parent.right.parent = parent.parent;
+                parent.parent = null;
+                parent.left = null;
+            }
+            return parent.getData();
+        } else {
+            return swapRightNode0(parent.left);
+        }
+    }
+
+    /**
+     * 查询节点
+     *
+     * @param data
+     * @return
+     */
+    public synchronized Node findNode(T data) {
+        return findNode(root, data);
+    }
+
+    private Node findNode(Node parent, T data) {
+        Node node = null;
+        if (parent != null) {
+            int result = parent.getData().compareTo(data);
+            if (result > 0) {
+                //查找root 左子树
+                node = findNode(parent.left, data);
+            } else if (result < 0) {
+                //查找root 右子树
+                node = findNode(parent.right, data);
+            } else {
+                node = new Node(parent.parent, parent.getData());
+                node.setLeft(parent.left);
+                node.setRight(parent.right);
             }
         }
+        return node;
     }
 
     public synchronized int size() {
         return size;
+    }
+
+    public ElectoralModel getDefaultElectoralModel() {
+        return defaultElectoralModel;
+    }
+
+    public void setDefaultElectoralModel(ElectoralModel defaultElectoralModel) {
+        this.defaultElectoralModel = defaultElectoralModel;
     }
 
     @Override
@@ -222,11 +327,23 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
         }
     }
 
-    private class Node {
+    public class Node {
         private Node parent;
         private Node left;
         private Node right;
         private T data;
+
+        public Node getParent() {
+            return parent;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public Node getRight() {
+            return right;
+        }
 
         public Node(Node parent, T data) {
             this.parent = parent;
