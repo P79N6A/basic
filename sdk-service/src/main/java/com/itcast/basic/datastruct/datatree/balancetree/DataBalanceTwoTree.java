@@ -1,5 +1,7 @@
 package com.itcast.basic.datastruct.datatree.balancetree;
 
+import com.itcast.basic.datastruct.datatree.ElectoralModel;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
 
     private Node root;
     private transient int size;
+    private ElectoralModel defaultElectoralModel = ElectoralModel.LEFT;
 
     /**
      * 插入节点
@@ -438,13 +441,8 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
      * @param data
      */
     public synchronized boolean removeNode(T data) {
-        return delNode(root, data);
-    }
-
-    private boolean delNode(Node parent, T data) {
-        boolean isSuccess = false;
-        if (parent != null && data != null) {
-            swapNode(parent, data);
+        if (findNode(data) != null) {
+            swapNode(root, data);
             return true;
         }
         return false;
@@ -454,11 +452,11 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
         if (parent != null) {
             int result = parent.getData().compareTo(data);
             if (result > 0) {
-                boolean isSwap = delNode(parent.left, data);
+                boolean isSwap = swapNode(parent.left, data);
                 if (isSwap) {
                     if (parent.bFactor == 1) {
                         parent.setbFactor(0);
-                        return false;
+                        return true;
                     } else if (parent.bFactor == 0) {
                         parent.setbFactor(-1);
                         return false;
@@ -468,9 +466,18 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                     }
                 }
             } else if (result < 0) {
-                boolean isSwap = delNode(parent.right, data);
+                boolean isSwap = swapNode(parent.right, data);
                 if (isSwap) {
-
+                    if (parent.bFactor == 1) {
+                        rightBalance(parent);
+                        return false;
+                    } else if (parent.bFactor == 0) {
+                        parent.setbFactor(1);
+                        return false;
+                    } else if (parent.bFactor == -1) {
+                        parent.setbFactor(0);
+                        return true;
+                    }
                 }
             } else {
                 Node pNode = parent.parent;
@@ -488,8 +495,16 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                         root = null;
                     }
                 } else if (parent.left != null && parent.right != null) {
-
-
+                    switch (defaultElectoralModel.getIndex()) {
+                        case 0:
+                            //左子树最大值
+                            parent.data=swapLeftNode(parent);
+                            break;
+                        case 1:
+                            //you
+                            parent.data=swapRightNode(parent);
+                            break;
+                    }
                 } else if (parent.left != null) {
                     Node lNode = parent.left;
                     if (pNode != null) {
@@ -526,6 +541,15 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
             }
         }
         return false;
+    }
+
+    private T swapLeftNode(Node parent) {
+
+        return null;
+    }
+
+    private T swapRightNode(Node parent) {
+        return null;
     }
 
     public class Node {

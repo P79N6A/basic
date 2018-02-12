@@ -25,16 +25,18 @@ public class BalanceTwoTreeClient {
             dataBalanceTwoTree.addNode(9);
             dataBalanceTwoTree.addNode(8);
             dataBalanceTwoTree.addNode(6);
-            dataBalanceTwoTree.addNode(4);
+//            dataBalanceTwoTree.addNode(40);
+            dataBalanceTwoTree.preOrderDisplay();
+            dataBalanceTwoTree.removeNode(8);
             dataBalanceTwoTree.preOrderDisplay();
 //            dataBalanceTwoTree.midOrderDisplay();
 //            dataBalanceTwoTree.postOrderDisplay();
-            System.out.println("****************************************************************************");
-            DataBalanceTwoTree.Node node = dataBalanceTwoTree.findNode(11);
-            if (node != null) {
-                System.out.println("node is " + node + " parent=" + node.getParent() +
-                        " left=" + node.getLeft() + " right=" + node.getRight());
-            }
+//            System.out.println("****************************************************************************");
+//            DataBalanceTwoTree.Node node = dataBalanceTwoTree.findNode(8);
+//            if (node != null) {
+//                System.out.println("node is " + node + " parent=" + node.getParent() +
+//                        " left=" + node.getLeft() + " right=" + node.getRight());
+//            }
         } catch (Exception e) {
             System.out.println("error message is " + e);
         }
