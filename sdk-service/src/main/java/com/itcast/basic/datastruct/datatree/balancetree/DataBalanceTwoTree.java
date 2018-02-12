@@ -51,10 +51,12 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                     if (parent.bFactor == 0) {
                         //右子树插入前 parent平衡 右子树插入后 parent平衡 但需要调整parent父辈节点(从parent到root节点经过节点)平衡因子为-1
                         parent.setbFactor(-1);
+                        System.out.println("插入right节点data=" + data + " 父节点parent=" + parent);
                         return true;
                     }
                     //右子树插入前 parent平衡 右子树插入后parent平衡 但无需调整parent父辈节点(从parent到root节点经过节点)平衡因子
                     parent.bFactor = 0;
+                    System.out.println("插入right节点data=" + data + " 父节点parent=" + parent);
                 } else {
                     //递归右子树
                     isRotate = createNode(parent.right, data);
@@ -74,6 +76,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                             //节点插入前 parent右子树高于左子树 节点插入后 parent右子树再次高于左子树 需要左旋转parent保持平衡
                             leftBalance(parent);
                             isRotate = false;
+                            System.out.println("节点左平衡后:" + parent);
                         }
                     }
                 }
@@ -89,6 +92,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                         //左子树插入前 parent左右子树高度相同
                         //左子树插入后 parent左子树增高(+1)但parent仍平衡 平衡因子为1 需要调整parent父辈节点(从parent到root节点经过节点)平衡因子
                         parent.setbFactor(1);
+                        System.out.println("插入left节点data=" + data + " 父节点parent=" + parent);
                         return true;
                     }
                     //左子树插入前 parent右子树高于左子树
@@ -178,6 +182,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
         //将旋转节点的父节点置为旋转节点的左子树
         lNode.right = node;
         node.parent = lNode;
+        System.out.println("节点右平衡后:" + node);
     }
 
     @Deprecated
@@ -278,6 +283,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
         //将旋转节点置为其右子树根节点的左子树
         rNode.left = node;
         node.parent = rNode;
+        System.out.println("节点左平衡后:" + node);
     }
 
     @Deprecated
@@ -325,16 +331,182 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
         return size;
     }
 
-    public synchronized void preOrderDisplay(){
-
+    //前序遍历 根左右
+    public synchronized void preOrderDisplay() {
+        StringBuilder stringBuilder = new StringBuilder();
+        preOrderDisplay(stringBuilder, root);
+        System.out.println("preOrderDisplay tree is " + stringBuilder.toString());
     }
 
-    public synchronized void midOrderDisplay(){
+    private void preOrderDisplay(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+            stringBuilder.append(parent);
 
+            if (parent.left != null) {
+                stringBuilder.append(" ---> ");
+                preOrderDisplay(stringBuilder, parent.left);
+            }
+
+            if (parent.right != null) {
+                stringBuilder.append(" ---> ");
+                preOrderDisplay(stringBuilder, parent.right);
+            }
+        }
     }
 
-    public synchronized void postOrderDisplay(){
+    //中序遍历 左根右
+    public synchronized void midOrderDisplay() {
+        StringBuilder stringBuilder = new StringBuilder();
+        midOrderDisplay(stringBuilder, root);
+        System.out.println("midOrderDisplay tree is " + stringBuilder.substring(0, stringBuilder.lastIndexOf("--->")).toString());
+    }
 
+    public void midOrderDisplay(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+            if (parent.left != null) {
+                midOrderDisplay(stringBuilder, parent.left);
+            }
+
+            stringBuilder.append(parent);
+            stringBuilder.append(" ---> ");
+
+            if (parent.right != null) {
+                midOrderDisplay(stringBuilder, parent.right);
+            }
+
+        }
+    }
+
+    //后序遍历
+    public synchronized void postOrderDisplay() {
+        StringBuilder stringBuilder = new StringBuilder();
+        postOrderDisplay(stringBuilder, root);
+        System.out.println("postOrderDisplay tree is " + stringBuilder.substring(0, stringBuilder.lastIndexOf("--->")).toString());
+    }
+
+    private void postOrderDisplay(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+            if (parent.left != null) {
+                postOrderDisplay(stringBuilder, parent.left);
+            }
+
+            if (parent.right != null) {
+                postOrderDisplay(stringBuilder, parent.right);
+            }
+
+            stringBuilder.append(parent).append(" ---> ");
+        }
+    }
+
+    /**
+     * 节点查找
+     *
+     * @param data
+     * @return
+     */
+    public synchronized Node findNode(T data) {
+        return findNodeWarp(root, data);
+    }
+
+    private Node findNodeWarp(Node parent, T data) {
+        Node node = null;
+        int result = parent.getData().compareTo(data);
+        if (result > 0) {
+            return findNodeWarp(parent.left, data);
+        } else if (result < 0) {
+            return findNodeWarp(parent.right, data);
+        } else {
+            node = new Node(parent.parent, data, parent.bFactor);
+            node.left = parent.left;
+            node.right = parent.right;
+        }
+        return node;
+    }
+
+    @Override
+    public String toString() {
+        if (size() > 0) {
+            return "tree has " + size() + " nodes please use function display them";
+        } else {
+            return "tree has no nodes";
+        }
+    }
+
+    /**
+     * 节点删除操作
+     *
+     * @param data
+     */
+    public synchronized boolean removeNode(T data) {
+        if (data == null) {
+            throw new NullPointerException("data is not valid");
+        }
+        return delNode(root, data);
+    }
+
+    private boolean delNode(Node parent, T data) {
+        boolean isSuccess = false;
+        if (parent != null) {
+            int result = parent.getData().compareTo(data);
+            if (result > 0) {
+                boolean isDel = delNode(parent.left, data);
+                if (isDel) {
+
+                }
+            } else if (result < 0) {
+                boolean isDel = delNode(parent.right, data);
+                if (isDel) {
+
+                }
+
+            } else {
+                Node pNode = parent.parent;
+                parent.parent = null;
+                if (parent.left == null && parent.right == null) {
+                    //不存在子树
+                    if (pNode.right == parent) {
+                        pNode.setbFactor(pNode.bFactor + 1);
+                        pNode.right = null;
+                    } else {
+                        pNode.setbFactor(pNode.bFactor - 1);
+                        pNode.left = null;
+                    }
+                } else if (parent.left == null && parent.right != null) {
+                    //仅存在右子树
+                    Node rNode = parent.right;
+                    rNode.parent = pNode;
+                    if (pNode.right == parent) {
+                        pNode.setbFactor(pNode.bFactor + 1);
+                        pNode.right = rNode;
+                    } else {
+                        pNode.setbFactor(pNode.bFactor - 1);
+                        pNode.left = rNode;
+                    }
+                    parent.right = null;
+                } else if (parent.left != null && parent.right == null) {
+                    //仅存在左子树
+                    Node lNode = parent.left;
+                    lNode.parent = pNode;
+                    if (pNode.right == parent) {
+                        pNode.setbFactor(pNode.bFactor + 1);
+                        pNode.right = lNode;
+                    } else {
+                        pNode.setbFactor(pNode.bFactor - 1);
+                        pNode.left = lNode;
+                    }
+                    parent.left = null;
+                } else {
+                    //子树均存在
+                    Node rNode = parent.right;
+                    Node lNode = parent.left;
+
+                    parent.right = null;
+                    parent.left = null;
+                }
+                isSuccess = true;
+            }
+        }
+        return isSuccess;
     }
 
     public class Node {
@@ -349,6 +521,30 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
             this.data = data;
             this.parent = parent;
             this.bFactor = bFactor;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    ", bFactor=" + bFactor +
+                    '}';
+        }
+
+        public Node getParent() {
+            return parent;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public Node getRight() {
+            return right;
+        }
+
+        public int getbFactor() {
+            return bFactor;
         }
 
         public T getData() {
