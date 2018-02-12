@@ -438,75 +438,94 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
      * @param data
      */
     public synchronized boolean removeNode(T data) {
-        if (data == null) {
-            throw new NullPointerException("data is not valid");
-        }
         return delNode(root, data);
     }
 
     private boolean delNode(Node parent, T data) {
         boolean isSuccess = false;
+        if (parent != null && data != null) {
+            swapNode(parent, data);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean swapNode(Node parent, T data) {
         if (parent != null) {
             int result = parent.getData().compareTo(data);
             if (result > 0) {
-                boolean isDel = delNode(parent.left, data);
-                if (isDel) {
-
+                boolean isSwap = delNode(parent.left, data);
+                if (isSwap) {
+                    if (parent.bFactor == 1) {
+                        parent.setbFactor(0);
+                        return false;
+                    } else if (parent.bFactor == 0) {
+                        parent.setbFactor(-1);
+                        return false;
+                    } else if (parent.bFactor == -1) {
+                        leftBalance(parent);
+                        return false;
+                    }
                 }
             } else if (result < 0) {
-                boolean isDel = delNode(parent.right, data);
-                if (isDel) {
+                boolean isSwap = delNode(parent.right, data);
+                if (isSwap) {
 
                 }
-
             } else {
                 Node pNode = parent.parent;
                 parent.parent = null;
+                //叶子节点
                 if (parent.left == null && parent.right == null) {
-                    //不存在子树
-                    if (pNode.right == parent) {
-                        pNode.setbFactor(pNode.bFactor + 1);
-                        pNode.right = null;
+                    if (pNode != null) {
+                        if (pNode.left == parent) {
+                            pNode.left = null;
+                        } else {
+                            pNode.right = null;
+                        }
+                        return true;
                     } else {
-                        pNode.setbFactor(pNode.bFactor - 1);
-                        pNode.left = null;
+                        root = null;
                     }
-                } else if (parent.left == null && parent.right != null) {
-                    //仅存在右子树
-                    Node rNode = parent.right;
-                    rNode.parent = pNode;
-                    if (pNode.right == parent) {
-                        pNode.setbFactor(pNode.bFactor + 1);
-                        pNode.right = rNode;
-                    } else {
-                        pNode.setbFactor(pNode.bFactor - 1);
-                        pNode.left = rNode;
-                    }
-                    parent.right = null;
-                } else if (parent.left != null && parent.right == null) {
-                    //仅存在左子树
-                    Node lNode = parent.left;
-                    lNode.parent = pNode;
-                    if (pNode.right == parent) {
-                        pNode.setbFactor(pNode.bFactor + 1);
-                        pNode.right = lNode;
-                    } else {
-                        pNode.setbFactor(pNode.bFactor - 1);
-                        pNode.left = lNode;
-                    }
-                    parent.left = null;
-                } else {
-                    //子树均存在
-                    Node rNode = parent.right;
-                    Node lNode = parent.left;
+                } else if (parent.left != null && parent.right != null) {
 
-                    parent.right = null;
-                    parent.left = null;
+
+                } else if (parent.left != null) {
+                    Node lNode = parent.left;
+                    if (pNode != null) {
+                        parent.left = null;
+                        lNode.parent = pNode;
+                        if (pNode.left == parent) {
+                            pNode.left = lNode;
+                        } else {
+                            pNode.right = lNode;
+                        }
+                        return true;
+                    } else {
+                        lNode.parent = null;
+                        pNode.left = null;
+                        root = lNode;
+                    }
+                } else if (parent.right != null) {
+                    Node rNode = parent.right;
+                    if (pNode != null) {
+                        parent.right = null;
+                        rNode.parent = pNode;
+                        if (pNode.left == parent) {
+                            pNode.left = rNode;
+                        } else {
+                            pNode.right = rNode;
+                        }
+                        return true;
+                    } else {
+                        rNode.parent = null;
+                        pNode.right = null;
+                        root = rNode;
+                    }
                 }
-                isSuccess = true;
             }
         }
-        return isSuccess;
+        return false;
     }
 
     public class Node {

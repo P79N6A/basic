@@ -204,6 +204,7 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
                         root = rNode;
                     }
                 }
+                size--;
             }
         }
         return false;
