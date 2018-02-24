@@ -8,26 +8,19 @@ public class BalanceTwoTreeClient {
     public static void main(String[] args) {
         try {
             System.out.println("enter into BalanceTwoTreeClient");
-//            DataTwoTree dataTwoTree = new DataTwoTree();
-//            dataTwoTree.addNode(10);
-//            dataTwoTree.addNode(20);
-//            dataTwoTree.addNode(11);
-//            dataTwoTree.addNode(9);
-//            dataTwoTree.addNode(8);
-//            dataTwoTree.addNode(6);
-//            dataTwoTree.addNode(4);
-//            dataTwoTree.preOrderDispaly();
-//            System.out.println("********************************************");
             DataBalanceTwoTree dataBalanceTwoTree = new DataBalanceTwoTree();
+//            dataBalanceTwoTree.addNode(15);
             dataBalanceTwoTree.addNode(10);
-            dataBalanceTwoTree.addNode(20);
-            dataBalanceTwoTree.addNode(11);
             dataBalanceTwoTree.addNode(9);
-            dataBalanceTwoTree.addNode(8);
-            dataBalanceTwoTree.addNode(6);
-//            dataBalanceTwoTree.addNode(40);
+            dataBalanceTwoTree.addNode(13);
+            dataBalanceTwoTree.addNode(16);
+//            dataBalanceTwoTree.addNode(22);
+//            dataBalanceTwoTree.addNode(18);
+//            dataBalanceTwoTree.addNode(7);
+            dataBalanceTwoTree.addNode(11);
+//            dataBalanceTwoTree.addNode(12);
             dataBalanceTwoTree.preOrderDisplay();
-            dataBalanceTwoTree.removeNode(8);
+            dataBalanceTwoTree.removeNode(10);
             dataBalanceTwoTree.preOrderDisplay();
 //            dataBalanceTwoTree.midOrderDisplay();
 //            dataBalanceTwoTree.postOrderDisplay();

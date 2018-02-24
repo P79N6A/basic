@@ -495,15 +495,18 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                         root = null;
                     }
                 } else if (parent.left != null && parent.right != null) {
+                    Swap swap;
                     switch (defaultElectoralModel.getIndex()) {
                         case 0:
                             //左子树最大值
-                            parent.data=swapLeftNode(parent);
-                            break;
+                            swap = swapLeftNode(parent);
+                            parent.data = swap.data;
+                            return swap.isSwap;
                         case 1:
-                            //you
-                            parent.data=swapRightNode(parent);
-                            break;
+                            //右子树最小值
+                            swap = swapRightNode(parent);
+                            parent.data = swap.data;
+                            return swap.isSwap;
                     }
                 } else if (parent.left != null) {
                     Node lNode = parent.left;
@@ -538,18 +541,81 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                         root = rNode;
                     }
                 }
+                size--;
             }
         }
         return false;
     }
 
-    private T swapLeftNode(Node parent) {
+    private Swap swapLeftNode(Node parent) {
+        Node lNode = parent.getLeft();
+        boolean isSwap = false;
+        //删除左节点lNode
+        if (lNode.right == null) {
+            if (lNode.left == null) {
+                lNode.parent = null;
+                parent.left = null;
+            } else {
+                parent.left = lNode.left;
+                lNode.left.parent = parent;
+                lNode.parent = null;
+                lNode.left = null;
+            }
+            if (parent.bFactor == -1) {
+                leftBalance(parent);
+            } else if (parent.bFactor == 0) {
+                parent.bFactor = -1;
+            } else if (parent.bFactor == 1) {
+                parent.bFactor = 0;
+                isSwap = true;
+            }
+            return new Swap(lNode.getData(), isSwap);
+        }
+        return swapLeftNode0(parent.right);
+    }
 
+    private Swap swapLeftNode0(Node parent) {
+        if (parent.right == null) {
+            boolean isSwap = false;
+            if (parent.left == null) {
+                parent.parent.right = null;
+                parent.parent = null;
+            } else {
+                parent.parent.right = parent.left;
+                parent.left.parent = parent.parent;
+                parent.parent = null;
+                parent.left = null;
+            }
+            if (parent.bFactor == -1) {
+                parent.bFactor = 0;
+                isSwap = true;
+            } else if (parent.bFactor == 0) {
+                parent.bFactor = 1;
+            } else if (parent.bFactor == 1) {
+                rightBalance(parent);
+            }
+            return new Swap(parent.getData(), isSwap);
+        } else {
+            return swapLeftNode0(parent.right);
+        }
+    }
+
+    private Swap swapRightNode(Node parent) {
         return null;
     }
 
-    private T swapRightNode(Node parent) {
+    private Swap swapRightNode0(Node parent) {
         return null;
+    }
+
+    private class Swap {
+        private T data;
+        private boolean isSwap = false;
+
+        public Swap(T data, boolean isSwap) {
+            this.data = data;
+            this.isSwap = isSwap;
+        }
     }
 
     public class Node {
