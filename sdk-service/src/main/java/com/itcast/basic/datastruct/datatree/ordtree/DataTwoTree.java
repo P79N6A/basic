@@ -213,17 +213,18 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
     private T swapLeftNode(Node parent) {
         Node lNode = parent.left;
         if (lNode.right == null) {
-            lNode.parent = null;
-            if (lNode.left != null) {
-                lNode.left.parent = parent;
-                parent.left = lNode.left;
-                lNode.left = null;
+            if (lNode.left == null) {
+                parent.left = null;
+                lNode.parent = null;
             } else {
-                lNode.parent.left = null;
+                parent.left = lNode.left;
+                lNode.left.parent = parent;
+                lNode.parent = null;
+                lNode.left = null;
             }
             return lNode.getData();
         } else {
-            return swapLeftNode0(lNode);
+            return swapLeftNode0(lNode.right);
         }
     }
 
@@ -247,17 +248,18 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
     private T swapRightNode(Node parent) {
         Node rNode = parent.right;
         if (rNode.left == null) {
-            rNode.parent = null;
-            if (rNode.right != null) {
-                rNode.right.parent = parent;
-                parent.right = rNode.right;
-                rNode.right = null;
+            if (rNode.right == null) {
+                rNode.parent = null;
+                parent.right = null;
             } else {
-                rNode.parent.right = null;
+                parent.right = rNode.left;
+                rNode.left.parent = parent;
+                rNode.right = null;
+                rNode.parent = null;
             }
             return rNode.getData();
         } else {
-            return swapRightNode0(rNode);
+            return swapRightNode0(rNode.left);
         }
     }
 

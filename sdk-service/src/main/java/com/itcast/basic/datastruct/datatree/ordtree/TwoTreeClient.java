@@ -1,5 +1,7 @@
 package com.itcast.basic.datastruct.datatree.ordtree;
 
+import com.itcast.basic.datastruct.datatree.ElectoralModel;
+
 /**
  * Created by treey.qian on 2017/12/11.
  */
@@ -13,7 +15,7 @@ public class TwoTreeClient {
             integerDataTwoTree.addNode(13);
             integerDataTwoTree.addNode(16);
             integerDataTwoTree.addNode(11);
-            integerDataTwoTree.addNode(10);
+//            integerDataTwoTree.addNode(10);
 //            Random random = new Random();
 //            for (int i = 0; i < 10; i++) {
 //                integerDataTwoTree.addNode(random.nextInt(100));
@@ -21,6 +23,7 @@ public class TwoTreeClient {
             integerDataTwoTree.preOrderDispaly();
 //            integerDataTwoTree.midOrderDispaly();
 //            integerDataTwoTree.postOrderDispaly();
+            integerDataTwoTree.setDefaultElectoralModel(ElectoralModel.RIGHT);
             integerDataTwoTree.removeNode(13);
             System.out.println("size is " + integerDataTwoTree.size());
             integerDataTwoTree.preOrderDispaly();
