@@ -1,7 +1,5 @@
 package com.itcast.basic.jdk.complier.compiler;
 
-import com.sun.tools.javac.Main;
-
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 import java.io.File;
@@ -77,7 +75,7 @@ public class CompilerManagerUtils {
                 break;
             case "main":
                 //com.sun.tools.javac.Main
-                result += Main.compile(compileParams);
+//                result += Main.compile(compileParams);
                 System.out.println("use main compiler");
                 break;
             case "process":

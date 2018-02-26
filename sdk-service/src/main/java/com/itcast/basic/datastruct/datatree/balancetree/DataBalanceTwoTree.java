@@ -1,5 +1,7 @@
 package com.itcast.basic.datastruct.datatree.balancetree;
 
+import com.itcast.basic.datastruct.datatree.ElectoralModel;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
 
     private Node root;
     private transient int size;
+    private ElectoralModel defaultElectoralModel = ElectoralModel.LEFT;
 
     /**
      * 插入节点
@@ -438,75 +441,181 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
      * @param data
      */
     public synchronized boolean removeNode(T data) {
-        if (data == null) {
-            throw new NullPointerException("data is not valid");
+        if (findNode(data) != null) {
+            swapNode(root, data);
+            return true;
         }
-        return delNode(root, data);
+        return false;
     }
 
-    private boolean delNode(Node parent, T data) {
-        boolean isSuccess = false;
+    private boolean swapNode(Node parent, T data) {
         if (parent != null) {
             int result = parent.getData().compareTo(data);
             if (result > 0) {
-                boolean isDel = delNode(parent.left, data);
-                if (isDel) {
-
+                boolean isSwap = swapNode(parent.left, data);
+                if (isSwap) {
+                    if (parent.bFactor == 1) {
+                        parent.setbFactor(0);
+                        return true;
+                    } else if (parent.bFactor == 0) {
+                        parent.setbFactor(-1);
+                        return false;
+                    } else if (parent.bFactor == -1) {
+                        leftBalance(parent);
+                        return false;
+                    }
                 }
             } else if (result < 0) {
-                boolean isDel = delNode(parent.right, data);
-                if (isDel) {
-
+                boolean isSwap = swapNode(parent.right, data);
+                if (isSwap) {
+                    if (parent.bFactor == 1) {
+                        rightBalance(parent);
+                        return false;
+                    } else if (parent.bFactor == 0) {
+                        parent.setbFactor(1);
+                        return false;
+                    } else if (parent.bFactor == -1) {
+                        parent.setbFactor(0);
+                        return true;
+                    }
                 }
-
             } else {
                 Node pNode = parent.parent;
                 parent.parent = null;
+                //叶子节点
                 if (parent.left == null && parent.right == null) {
-                    //不存在子树
-                    if (pNode.right == parent) {
-                        pNode.setbFactor(pNode.bFactor + 1);
-                        pNode.right = null;
+                    if (pNode != null) {
+                        if (pNode.left == parent) {
+                            pNode.left = null;
+                        } else {
+                            pNode.right = null;
+                        }
+                        return true;
                     } else {
-                        pNode.setbFactor(pNode.bFactor - 1);
+                        root = null;
+                    }
+                } else if (parent.left != null && parent.right != null) {
+                    Swap swap;
+                    switch (defaultElectoralModel.getIndex()) {
+                        case 0:
+                            //左子树最大值
+                            swap = swapLeftNode(parent);
+                            parent.data = swap.data;
+                            return swap.isSwap;
+                        case 1:
+                            //右子树最小值
+                            swap = swapRightNode(parent);
+                            parent.data = swap.data;
+                            return swap.isSwap;
+                    }
+                } else if (parent.left != null) {
+                    Node lNode = parent.left;
+                    if (pNode != null) {
+                        parent.left = null;
+                        lNode.parent = pNode;
+                        if (pNode.left == parent) {
+                            pNode.left = lNode;
+                        } else {
+                            pNode.right = lNode;
+                        }
+                        return true;
+                    } else {
+                        lNode.parent = null;
                         pNode.left = null;
+                        root = lNode;
                     }
-                } else if (parent.left == null && parent.right != null) {
-                    //仅存在右子树
+                } else if (parent.right != null) {
                     Node rNode = parent.right;
-                    rNode.parent = pNode;
-                    if (pNode.right == parent) {
-                        pNode.setbFactor(pNode.bFactor + 1);
-                        pNode.right = rNode;
+                    if (pNode != null) {
+                        parent.right = null;
+                        rNode.parent = pNode;
+                        if (pNode.left == parent) {
+                            pNode.left = rNode;
+                        } else {
+                            pNode.right = rNode;
+                        }
+                        return true;
                     } else {
-                        pNode.setbFactor(pNode.bFactor - 1);
-                        pNode.left = rNode;
+                        rNode.parent = null;
+                        pNode.right = null;
+                        root = rNode;
                     }
-                    parent.right = null;
-                } else if (parent.left != null && parent.right == null) {
-                    //仅存在左子树
-                    Node lNode = parent.left;
-                    lNode.parent = pNode;
-                    if (pNode.right == parent) {
-                        pNode.setbFactor(pNode.bFactor + 1);
-                        pNode.right = lNode;
-                    } else {
-                        pNode.setbFactor(pNode.bFactor - 1);
-                        pNode.left = lNode;
-                    }
-                    parent.left = null;
-                } else {
-                    //子树均存在
-                    Node rNode = parent.right;
-                    Node lNode = parent.left;
-
-                    parent.right = null;
-                    parent.left = null;
                 }
-                isSuccess = true;
+                size--;
             }
         }
-        return isSuccess;
+        return false;
+    }
+
+    private Swap swapLeftNode(Node parent) {
+        Node lNode = parent.getLeft();
+        boolean isSwap = false;
+        //删除左节点lNode
+        if (lNode.right == null) {
+            if (lNode.left == null) {
+                lNode.parent = null;
+                parent.left = null;
+            } else {
+                parent.left = lNode.left;
+                lNode.left.parent = parent;
+                lNode.parent = null;
+                lNode.left = null;
+            }
+            if (parent.bFactor == -1) {
+                leftBalance(parent);
+            } else if (parent.bFactor == 0) {
+                parent.bFactor = -1;
+            } else if (parent.bFactor == 1) {
+                parent.bFactor = 0;
+                isSwap = true;
+            }
+            return new Swap(lNode.getData(), isSwap);
+        }
+        return swapLeftNode0(parent.right);
+    }
+
+    private Swap swapLeftNode0(Node parent) {
+        if (parent.right == null) {
+            boolean isSwap = false;
+            if (parent.left == null) {
+                parent.parent.right = null;
+                parent.parent = null;
+            } else {
+                parent.parent.right = parent.left;
+                parent.left.parent = parent.parent;
+                parent.parent = null;
+                parent.left = null;
+            }
+            if (parent.bFactor == -1) {
+                parent.bFactor = 0;
+                isSwap = true;
+            } else if (parent.bFactor == 0) {
+                parent.bFactor = 1;
+            } else if (parent.bFactor == 1) {
+                rightBalance(parent);
+            }
+            return new Swap(parent.getData(), isSwap);
+        } else {
+            return swapLeftNode0(parent.right);
+        }
+    }
+
+    private Swap swapRightNode(Node parent) {
+        return null;
+    }
+
+    private Swap swapRightNode0(Node parent) {
+        return null;
+    }
+
+    private class Swap {
+        private T data;
+        private boolean isSwap = false;
+
+        public Swap(T data, boolean isSwap) {
+            this.data = data;
+            this.isSwap = isSwap;
+        }
     }
 
     public class Node {
