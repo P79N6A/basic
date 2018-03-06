@@ -11,10 +11,10 @@ public class TwoTreeClient {
             System.out.println("enter into TwoTreeClient");
             DataTwoTree<Integer> integerDataTwoTree = new DataTwoTree<>();
             integerDataTwoTree.addNode(10);
-            integerDataTwoTree.addNode(9);
+//            integerDataTwoTree.addNode(5);
+            integerDataTwoTree.addNode(15);
             integerDataTwoTree.addNode(13);
-            integerDataTwoTree.addNode(16);
-            integerDataTwoTree.addNode(11);
+            integerDataTwoTree.addNode(20);
 //            integerDataTwoTree.addNode(10);
 //            Random random = new Random();
 //            for (int i = 0; i < 10; i++) {
@@ -23,8 +23,8 @@ public class TwoTreeClient {
             integerDataTwoTree.preOrderDispaly();
 //            integerDataTwoTree.midOrderDispaly();
 //            integerDataTwoTree.postOrderDispaly();
-            integerDataTwoTree.setDefaultElectoralModel(ElectoralModel.RIGHT);
-            integerDataTwoTree.removeNode(13);
+//            integerDataTwoTree.setDefaultElectoralModel(ElectoralModel.RIGHT);
+            integerDataTwoTree.removeNode(10);
             System.out.println("size is " + integerDataTwoTree.size());
             integerDataTwoTree.preOrderDispaly();
 //            integerDataTwoTree.midOrderDispaly();

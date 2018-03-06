@@ -165,6 +165,7 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
                         root = null;
                     }
                 } else if (parent.right != null && parent.left != null) {
+                    parent.parent = pNode;
                     switch (defaultElectoralModel.getIndex()) {
                         case 0:
                             //左子树最大值
@@ -223,9 +224,9 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
                 lNode.left = null;
             }
             return lNode.getData();
-        } else {
-            return swapLeftNode0(lNode.right);
         }
+        return swapLeftNode0(lNode.right);
+
     }
 
     private T swapLeftNode0(Node parent) {
@@ -240,9 +241,8 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
                 parent.parent = null;
             }
             return parent.getData();
-        } else {
-            return swapLeftNode0(parent.right);
         }
+        return swapLeftNode0(parent.right);
     }
 
     private T swapRightNode(Node parent) {
@@ -258,9 +258,8 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
                 rNode.parent = null;
             }
             return rNode.getData();
-        } else {
-            return swapRightNode0(rNode.left);
         }
+        return swapRightNode0(rNode.left);
     }
 
     private T swapRightNode0(Node parent) {
@@ -275,9 +274,8 @@ public class DataTwoTree<T extends Comparable> implements Serializable {
                 parent.left = null;
             }
             return parent.getData();
-        } else {
-            return swapRightNode0(parent.left);
         }
+        return swapRightNode0(parent.left);
     }
 
     /**

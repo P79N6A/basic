@@ -232,6 +232,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
     //左旋
     private void leftBalance(Node node) {
         //左旋节点的右子树必存在
+//        System.out.println("\n------------leftBalance------------");
         Node rNode = node.right;
         if (rNode.bFactor == -1) {
             //左旋一次平衡
@@ -246,19 +247,38 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                     rNode.bFactor = 0;
                     break;
                 case 1:
-                    rNode.bFactor = 0;
+                    rNode.bFactor = -1;
                     lNode.bFactor = 0;
-                    node.bFactor = 1;
+                    node.bFactor = 0;
                     break;
                 case -1:
-                    node.bFactor = 0;
+                    node.bFactor = 1;
                     lNode.bFactor = 0;
-                    rNode.bFactor = -1;
+                    rNode.bFactor = 0;
                     break;
             }
             rightRotate(rNode);
             leftRotate(node);
+        } else if (rNode.bFactor == 0) {
+            if (node == root) {
+                rNode.left.left = node;
+                node.parent = rNode.left;
+                root = rNode;
+                rNode.parent = null;
+                node.right = null;
+                node.setbFactor(0);
+                rNode.left.bFactor = 1;
+            } else if (rNode.left != null && rNode.right != null) {
+                node.parent.right = node.right;
+                node.right.parent = node.parent;
+                rNode.left.left = node;
+                node.parent = rNode.left;
+                node.right = null;
+                node.setbFactor(0);
+                rNode.left.bFactor = 1;
+            }
         }
+//        System.out.println("------------leftBalance------------\n");
     }
 
     //左旋重构简化版
@@ -462,7 +482,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                         return false;
                     } else if (parent.bFactor == -1) {
                         leftBalance(parent);
-                        return false;
+                        return true;
                     }
                 }
             } else if (result < 0) {
@@ -470,7 +490,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                 if (isSwap) {
                     if (parent.bFactor == 1) {
                         rightBalance(parent);
-                        return false;
+                        return true;
                     } else if (parent.bFactor == 0) {
                         parent.setbFactor(1);
                         return false;
@@ -496,6 +516,7 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                     }
                 } else if (parent.left != null && parent.right != null) {
                     Swap swap;
+                    parent.parent = pNode;
                     switch (defaultElectoralModel.getIndex()) {
                         case 0:
                             //左子树最大值
@@ -555,27 +576,37 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
             if (lNode.left == null) {
                 lNode.parent = null;
                 parent.left = null;
+                //更正平衡因子
+                if (parent.bFactor == -1) {
+                    leftBalance(parent);
+                    isSwap = true;
+                } else if (parent.bFactor == 0) {
+                    parent.bFactor = -1;
+                }
             } else {
                 parent.left = lNode.left;
                 lNode.left.parent = parent;
                 lNode.parent = null;
                 lNode.left = null;
-            }
-            if (parent.bFactor == -1) {
-                leftBalance(parent);
-            } else if (parent.bFactor == 0) {
-                parent.bFactor = -1;
-            } else if (parent.bFactor == 1) {
-                parent.bFactor = 0;
-                isSwap = true;
+                //更正平衡因子
+                if (parent.bFactor == -1) {
+                    leftBalance(parent);
+                    isSwap = true;
+                } else if (parent.bFactor == 0) {
+                    parent.bFactor = -1;
+                } else if (parent.bFactor == 1) {
+                    parent.bFactor = 0;
+                    isSwap = true;
+                }
             }
             return new Swap(lNode.getData(), isSwap);
         }
-        return swapLeftNode0(parent.right);
+        return swapLeftNode0(lNode.right);
     }
 
     private Swap swapLeftNode0(Node parent) {
         if (parent.right == null) {
+            Node pNode = parent.parent;
             boolean isSwap = false;
             if (parent.left == null) {
                 parent.parent.right = null;
@@ -586,18 +617,32 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
                 parent.parent = null;
                 parent.left = null;
             }
-            if (parent.bFactor == -1) {
-                parent.bFactor = 0;
+            //更正平衡因子
+            if (pNode.bFactor == -1) {
+                pNode.setbFactor(0);
                 isSwap = true;
-            } else if (parent.bFactor == 0) {
-                parent.bFactor = 1;
-            } else if (parent.bFactor == 1) {
-                rightBalance(parent);
+            } else if (pNode.bFactor == 0) {
+                pNode.setbFactor(1);
+            } else if (pNode.bFactor == 1) {
+                rightBalance(pNode);
+                isSwap = true;
             }
             return new Swap(parent.getData(), isSwap);
-        } else {
-            return swapLeftNode0(parent.right);
         }
+        Swap swap = swapLeftNode0(parent.right);
+        if (swap.isSwap) {
+            if (parent.bFactor == -1) {
+                parent.setbFactor(0);
+                swap.setSwap(true);
+            } else if (parent.bFactor == 0) {
+                parent.setbFactor(1);
+                swap.setSwap(false);
+            } else if (parent.bFactor == 1) {
+                rightBalance(parent);
+                swap.setSwap(true);
+            }
+        }
+        return swap;
     }
 
     private Swap swapRightNode(Node parent) {
@@ -615,6 +660,10 @@ public class DataBalanceTwoTree<T extends Comparable> implements Serializable {
         public Swap(T data, boolean isSwap) {
             this.data = data;
             this.isSwap = isSwap;
+        }
+
+        public void setSwap(boolean swap) {
+            isSwap = swap;
         }
     }
 
