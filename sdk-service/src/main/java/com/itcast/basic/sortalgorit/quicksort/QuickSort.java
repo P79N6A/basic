@@ -20,20 +20,78 @@ public class QuickSort<T extends Comparable> {
     public void sortElements() {
         switch (sort) {
             case "asc":
-                ascSort();
+                ascSwap(0, elements.size() - 1);
                 break;
             case "desc":
-                descSort();
+                descSwap(0, elements.size() - 1);
                 break;
         }
     }
 
-    private void ascSort() {
+    private void ascSwap(int left, int right) {
 
+        if (left > right) {
+            return;
+        }
+
+        int i = left, j = right;
+        T element = elements.get(left);
+        while (i != j) {
+
+            while (elements.get(j).compareTo(element) >= 0 && i < j) {
+                j--;
+            }
+
+            while (elements.get(i).compareTo(element) <= 0 && i < j) {
+                i++;
+            }
+
+            if (i < j) {
+                //i,j交换
+                T temp = elements.get(j);
+                elements.set(j, elements.get(i));
+                elements.set(i, temp);
+            }
+        }
+
+        elements.set(left, elements.get(i));
+        elements.set(i, element);
+
+        ascSwap(left, i - 1);
+        ascSwap(i + 1, right);
     }
 
-    private void descSort() {
+    private void descSwap(int left, int right) {
 
+        if (left > right) {
+            return;
+        }
+
+        int i = left, j = right;
+        T element = elements.get(left);
+        while (i != j) {
+
+            while (elements.get(j).compareTo(element) <= 0 && i < j) {
+                j--;
+            }
+
+            while (elements.get(i).compareTo(element) >= 0 && i < j) {
+                i++;
+            }
+
+            if (i < j) {
+                //i,j交换
+                T temp = elements.get(j);
+                elements.set(j, elements.get(i));
+                elements.set(i, temp);
+            }
+        }
+
+        elements.set(left, elements.get(i));
+        elements.set(i, element);
+
+        descSwap(left, i - 1);
+        descSwap(i + 1, right);
     }
 
     public void displayElements() {

@@ -2,6 +2,7 @@ package com.itcast.basic.sortalgorit;
 
 import com.itcast.basic.sortalgorit.bubblesort.BulleSort;
 import com.itcast.basic.sortalgorit.insertsort.InsertionSort;
+import com.itcast.basic.sortalgorit.quicksort.QuickSort;
 import com.itcast.basic.sortalgorit.radixsort.RadixSort;
 import com.itcast.basic.sortalgorit.selectionsort.SelectionSort;
 import com.itcast.basic.sortalgorit.shellsort.ShellSort;
@@ -56,6 +57,14 @@ public class SortalgoritMain {
             shellSort.sortElements();
             shellSort.displayElements();
             System.out.println("**********************希尔排序***********************************\n");
+
+            System.out.println("**********************快速排序***********************************");
+            QuickSort quickSort = new QuickSort(Arrays.asList(new Integer[]{5, 8, 7, 2, 10, 6, 3}));
+            quickSort.displayElements();
+            quickSort.setSort("desc");
+            quickSort.sortElements();
+            quickSort.displayElements();
+            System.out.println("**********************快速排序***********************************\n");
 
         } catch (Exception e) {
             e.printStackTrace();
