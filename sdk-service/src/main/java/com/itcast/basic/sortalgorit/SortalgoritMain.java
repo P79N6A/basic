@@ -2,6 +2,7 @@ package com.itcast.basic.sortalgorit;
 
 import com.itcast.basic.sortalgorit.bubblesort.BulleSort;
 import com.itcast.basic.sortalgorit.insertsort.InsertionSort;
+import com.itcast.basic.sortalgorit.radixsort.RadixSort;
 import com.itcast.basic.sortalgorit.selectionsort.SelectionSort;
 
 import java.util.Arrays;
@@ -38,6 +39,14 @@ public class SortalgoritMain {
             insertionSort.sortElements();
             insertionSort.displayElements();
             System.out.println("**********************插入排序***********************************\n");
+
+            System.out.println("**********************基数排序***********************************");
+            RadixSort radixSort = new RadixSort(Arrays.asList(new Integer[]{5, 8, 7, 2, 10, 6, 3}));
+            radixSort.displayElements();
+            radixSort.setSort("desc");
+            radixSort.sortElements();
+            radixSort.displayElements();
+            System.out.println("**********************基数排序***********************************\n");
 
 
         } catch (Exception e) {
