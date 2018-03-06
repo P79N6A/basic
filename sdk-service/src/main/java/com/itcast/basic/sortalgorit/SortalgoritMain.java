@@ -4,6 +4,7 @@ import com.itcast.basic.sortalgorit.bubblesort.BulleSort;
 import com.itcast.basic.sortalgorit.insertsort.InsertionSort;
 import com.itcast.basic.sortalgorit.radixsort.RadixSort;
 import com.itcast.basic.sortalgorit.selectionsort.SelectionSort;
+import com.itcast.basic.sortalgorit.shellsort.ShellSort;
 
 import java.util.Arrays;
 
@@ -48,6 +49,13 @@ public class SortalgoritMain {
             radixSort.displayElements();
             System.out.println("**********************基数排序***********************************\n");
 
+            System.out.println("**********************希尔排序***********************************");
+            ShellSort shellSort = new ShellSort(Arrays.asList(new Integer[]{5, 8, 7, 2, 10, 6, 3}));
+            shellSort.displayElements();
+            shellSort.setSort("desc");
+            shellSort.sortElements();
+            shellSort.displayElements();
+            System.out.println("**********************希尔排序***********************************\n");
 
         } catch (Exception e) {
             e.printStackTrace();
