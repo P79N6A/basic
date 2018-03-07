@@ -1,6 +1,7 @@
 package com.itcast.basic.sortalgorit;
 
 import com.itcast.basic.sortalgorit.bubblesort.BulleSort;
+import com.itcast.basic.sortalgorit.heapsort.HeapSort;
 import com.itcast.basic.sortalgorit.insertsort.InsertionSort;
 import com.itcast.basic.sortalgorit.quicksort.QuickSort;
 import com.itcast.basic.sortalgorit.radixsort.RadixSort;
@@ -65,6 +66,14 @@ public class SortalgoritMain {
             quickSort.sortElements();
             quickSort.displayElements();
             System.out.println("**********************快速排序***********************************\n");
+
+            System.out.println("**********************堆排序***********************************");
+            HeapSort heapSort = new HeapSort(Arrays.asList(new Integer[]{5, 8, 7, 2, 10, 6, 3}));
+            heapSort.displayElements();
+            heapSort.setSort("desc");
+            heapSort.sortElements();
+            heapSort.displayElements();
+            System.out.println("**********************堆排序***********************************\n");
 
         } catch (Exception e) {
             e.printStackTrace();
