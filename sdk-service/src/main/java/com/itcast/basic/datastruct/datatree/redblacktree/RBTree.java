@@ -8,6 +8,16 @@ import com.itcast.basic.datastruct.datatree.ColorModel;
  */
 public class RBTree<T extends Comparable> {
 
+    private Node root;
+    private Node NIL = new Node(null, ColorModel.BLACK);
+
+    public void addNode(T data) {
+        if (root == null) {
+
+        } else {
+
+        }
+    }
 
     private class Node {
         private Node parent;
@@ -31,10 +41,7 @@ public class RBTree<T extends Comparable> {
     }
 
     private Node initInsertNode(Node parent, Node left, Node right, T data) {
-        return new Node(parent, left, right, data, ColorModel.RED);
+        return new Node(parent, NIL, NIL, data, ColorModel.RED);
     }
 
-    private Node initNilNode() {
-        return new Node(null, ColorModel.BLACK);
-    }
 }
