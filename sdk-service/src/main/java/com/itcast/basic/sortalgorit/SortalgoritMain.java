@@ -3,6 +3,7 @@ package com.itcast.basic.sortalgorit;
 import com.itcast.basic.sortalgorit.bubblesort.BulleSort;
 import com.itcast.basic.sortalgorit.heapsort.HeapSort;
 import com.itcast.basic.sortalgorit.insertsort.InsertionSort;
+import com.itcast.basic.sortalgorit.mergesort.MergeSort;
 import com.itcast.basic.sortalgorit.quicksort.QuickSort;
 import com.itcast.basic.sortalgorit.radixsort.RadixSort;
 import com.itcast.basic.sortalgorit.selectionsort.SelectionSort;
@@ -75,6 +76,13 @@ public class SortalgoritMain {
             heapSort.displayElements();
             System.out.println("**********************堆排序***********************************\n");
 
+            System.out.println("**********************归并排序***********************************");
+            MergeSort mergeSort = new MergeSort(Arrays.asList(new Integer[]{5, 8, 7, 2, 10, 6, 3}));
+            mergeSort.displayElements();
+            mergeSort.setSort("desc");
+            mergeSort.sortElements();
+            mergeSort.displayElements();
+            System.out.println("**********************归并排序***********************************\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
