@@ -29,11 +29,59 @@ public class HeapSort<T extends Comparable> {
     }
 
     private void ascSort() {
-
+        int size = elements.size();
+        while (size > 0) {
+            int lastIndex = (size - 2) / 2;
+            while (lastIndex >= 0) {
+//                System.out.println("**************lastIndex=***************" + elements.get(lastIndex));
+                //左孩子
+                int leftIndex = 2 * lastIndex + 1;
+                if (leftIndex <= size - 1 && elements.get(lastIndex).compareTo(elements.get(leftIndex)) < 0) {
+                    swap(lastIndex, leftIndex);
+                }
+                //右孩子
+                int rightIndex = 2 * lastIndex + 2;
+                if (rightIndex <= size - 1 && elements.get(lastIndex).compareTo(elements.get(rightIndex)) < 0) {
+                    swap(lastIndex, rightIndex);
+                }
+                lastIndex--;
+            }
+            size--;
+            swap(0, size);
+//            System.out.println("******************************size**********************************" + size);
+        }
     }
 
-    private void descSort() {
+    private void swap(int sourceIndex, int targetIndex) {
+//        System.out.println(targetIndex + "<====>" + sourceIndex + " swap node:" + elements.get(sourceIndex) + "<=====>" + elements.get(targetIndex));
+        T lastNode = elements.get(sourceIndex);
+        elements.set(sourceIndex, elements.get(targetIndex));
+        elements.set(targetIndex, lastNode);
+    }
 
+
+    private void descSort() {
+        int size = elements.size();
+        while (size > 0) {
+            int lastIndex = (size - 2) / 2;
+            while (lastIndex >= 0) {
+//                System.out.println("**************lastIndex=***************" + elements.get(lastIndex));
+                //左孩子
+                int leftIndex = 2 * lastIndex + 1;
+                if (leftIndex <= size - 1 && elements.get(lastIndex).compareTo(elements.get(leftIndex)) > 0) {
+                    swap(lastIndex, leftIndex);
+                }
+                //右孩子
+                int rightIndex = 2 * lastIndex + 2;
+                if (rightIndex <= size - 1 && elements.get(lastIndex).compareTo(elements.get(rightIndex)) > 0) {
+                    swap(lastIndex, rightIndex);
+                }
+                lastIndex--;
+            }
+            size--;
+            swap(0, size);
+//            System.out.println("******************************size**********************************" + size);
+        }
     }
 
     public void displayElements() {
