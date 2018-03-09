@@ -81,11 +81,12 @@ public class RBTree<T extends Comparable> {
                     boolean isBlance = addNode0(parent.right, data);
                     if (isBlance) {
                         Node rNode = parent.parent;
-                        if (rNode == null) {
+                        if (rNode == null || rNode == root) {
                             root.color = ColorModel.BLACK;
                             return false;
                         } else {
                             Node pNode = rNode.parent;
+                            System.out.println("rNode=" + rNode);
                             if (pNode.color == ColorModel.RED) {
                                 Node gNode = pNode.parent;
                                 if (gNode.left == pNode) {
@@ -156,7 +157,7 @@ public class RBTree<T extends Comparable> {
                     boolean isBlance = addNode0(parent.left, data);
                     if (isBlance) {
                         Node rNode = parent.parent;
-                        if (rNode == null) {
+                        if (rNode == null || rNode == root) {
                             root.color = ColorModel.BLACK;
                             return false;
                         } else {
@@ -206,16 +207,43 @@ public class RBTree<T extends Comparable> {
         }
     }
 
-    //中序遍历
+    //中序遍历 左根右
     public synchronized void midDisplay() {
-
+        StringBuilder stringBuilder = new StringBuilder();
+        midDisplay0(stringBuilder, root);
+        System.out.println("nodes is " + stringBuilder.substring(0, stringBuilder.lastIndexOf("====>")));
     }
 
-    //后续遍历
+    private void midDisplay0(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+            if (parent.left != NIL) {
+                midDisplay0(stringBuilder, parent.left);
+            }
+            stringBuilder.append(parent).append("====>");
+            if (parent.right != NIL) {
+                midDisplay0(stringBuilder, parent.right);
+            }
+        }
+    }
+
+    //后续遍历 左右根
     public synchronized void postDisplay() {
-
+        StringBuilder stringBuilder = new StringBuilder();
+        postDisplay0(stringBuilder, root);
+        System.out.println("nodes is " + stringBuilder.substring(0, stringBuilder.lastIndexOf("====>")));
     }
 
+    private void postDisplay0(StringBuilder stringBuilder, Node parent) {
+        if (parent != null) {
+            if (parent.left != NIL) {
+                midDisplay0(stringBuilder, parent.left);
+            }
+            if (parent.right != NIL) {
+                midDisplay0(stringBuilder, parent.right);
+            }
+            stringBuilder.append(parent).append("====>");
+        }
+    }
 
     public synchronized int size() {
         return size;

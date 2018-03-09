@@ -9,13 +9,18 @@ public class RBTreeClient {
         try {
             System.out.println("enter into RBTreeClient");
             RBTree<Integer> rbTree=new RBTree();
-            rbTree.addNode(5);
-            rbTree.addNode(20);
-            rbTree.addNode(4);
-            rbTree.addNode(12);
-//            rbTree.addNode(10);
-//            rbTree.addNode(15);
-            rbTree.preDisplay();
+            rbTree.addNode(50);
+            rbTree.addNode(35);
+            rbTree.addNode(78);
+            rbTree.addNode(27);
+            rbTree.addNode(45);
+            rbTree.addNode(56);
+            rbTree.addNode(90);
+            rbTree.addNode(40);
+            rbTree.addNode(48);
+//            rbTree.preDisplay();
+//            rbTree.midDisplay();
+            rbTree.postDisplay();
         } catch (Exception e) {
             e.printStackTrace();
         }
