@@ -1,6 +1,7 @@
 package com.itcast.basic.sortalgorit;
 
 import com.itcast.basic.sortalgorit.bubblesort.BulleSort;
+import com.itcast.basic.sortalgorit.buketsort.BuketSort;
 import com.itcast.basic.sortalgorit.heapsort.HeapSort;
 import com.itcast.basic.sortalgorit.insertsort.InsertionSort;
 import com.itcast.basic.sortalgorit.mergesort.MergeSort;
@@ -83,6 +84,14 @@ public class SortalgoritMain {
             mergeSort.sortElements();
             mergeSort.displayElements();
             System.out.println("**********************归并排序***********************************\n");
+
+            System.out.println("**********************桶排序***********************************");
+            BuketSort buketSort = new BuketSort(Arrays.asList(new Integer[]{5, 8, 7, 2, 10, 6, 3}), 4);
+            buketSort.displayElements();
+            buketSort.setSort("desc");
+            buketSort.sortElements();
+            buketSort.displayElements();
+            System.out.println("**********************桶排序***********************************\n");
         } catch (Exception e) {
             e.printStackTrace();
         }
