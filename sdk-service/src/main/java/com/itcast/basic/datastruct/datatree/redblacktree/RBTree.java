@@ -12,6 +12,26 @@ public class RBTree<T extends Comparable> {
     private int size;
     private Node NIL = new Node(null, ColorModel.BLACK);
 
+
+    public synchronized Node findNode(T data) {
+        return findNode0(root, data);
+    }
+
+    private Node findNode0(Node parent, T data) {
+        Node node = null;
+        if (parent != null) {
+            int result = parent.data.compareTo(data);
+            if (result > 0) {
+                return findNode0(parent.left, data);
+            } else if (result < 0) {
+                return findNode0(parent.right, data);
+            } else {
+                return parent;
+            }
+        }
+        return null;
+    }
+
     public synchronized void addNode(T data) {
         if (root == null) {
             root = initInsertNode(null, data);
