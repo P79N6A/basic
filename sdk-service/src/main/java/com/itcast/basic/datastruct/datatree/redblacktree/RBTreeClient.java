@@ -8,7 +8,7 @@ public class RBTreeClient {
     public static void main(String[] args) {
         try {
             System.out.println("enter into RBTreeClient");
-            RBTree<Integer> rbTree=new RBTree();
+            RBTree<Integer> rbTree = new RBTree();
             rbTree.addNode(50);
             rbTree.addNode(35);
             rbTree.addNode(78);
@@ -21,6 +21,7 @@ public class RBTreeClient {
 //            rbTree.preDisplay();
 //            rbTree.midDisplay();
             rbTree.postDisplay();
+            System.out.println("node is " + rbTree.findNode(35));
         } catch (Exception e) {
             e.printStackTrace();
         }
