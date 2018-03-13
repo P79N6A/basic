@@ -18,10 +18,11 @@ public class RBTreeClient {
             rbTree.addNode(90);
             rbTree.addNode(40);
             rbTree.addNode(48);
-//            rbTree.preDisplay();
+            rbTree.preDisplay();
+            rbTree.removeNode(48);
+            rbTree.preDisplay();
 //            rbTree.midDisplay();
-            rbTree.postDisplay();
-            System.out.println("node is " + rbTree.findNode(35));
+//            rbTree.postDisplay();
         } catch (Exception e) {
             e.printStackTrace();
         }
