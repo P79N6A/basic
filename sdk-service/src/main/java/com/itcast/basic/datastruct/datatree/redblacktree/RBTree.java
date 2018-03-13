@@ -1,6 +1,7 @@
 package com.itcast.basic.datastruct.datatree.redblacktree;
 
 import com.itcast.basic.datastruct.datatree.ColorModel;
+import com.itcast.basic.datastruct.datatree.ElectoralModel;
 
 
 /**
@@ -10,8 +11,12 @@ public class RBTree<T extends Comparable> {
 
     private Node root;
     private int size;
+    private ElectoralModel defaultMode = ElectoralModel.LEFT;
     private Node NIL = new Node(null, ColorModel.BLACK);
 
+    public void setDefaultMode(ElectoralModel defaultMode) {
+        this.defaultMode = defaultMode;
+    }
 
     public synchronized Node findNode(T data) {
         return findNode0(root, data);
@@ -204,6 +209,125 @@ public class RBTree<T extends Comparable> {
     }
 
 
+    public void removeNode(T data) {
+        removeNode0(data, root);
+    }
+
+    private boolean removeNode0(T data, Node parent) {
+        if (parent != null) {
+            int result = data.compareTo(parent.data);
+            if (result > 0) {
+                boolean isSwap = removeNode0(data, parent.right);
+            } else if (result < 0) {
+                boolean isSwap = removeNode0(data, parent.left);
+            } else {
+                //得到父节点
+                Node pNode = parent.parent;
+                //被删除节点度为0
+                if (parent.left == NIL && parent.right == NIL) {
+                    if (parent.color == ColorModel.RED) {
+                        //被删除节点为红色 父节点必存在且必定为黑色 直接删除无需其他操作
+                        if (pNode.left == parent) {
+                            pNode.left = NIL;
+                        } else {
+                            pNode.right = NIL;
+                        }
+                    } else {
+                        //被删除节点为黑色 一定是根节点
+                        //被删除节点为根节点
+                        root = null;
+                    }
+                    //删除节点parent
+                    resetNode(parent);
+                } else if (parent.left != NIL && parent.right != NIL) {  //被删除节点度为2 左子树最大节点 右子树最小节点
+                    Swap swap;
+                    switch (defaultMode.getIndex()) {
+                        case 0:
+                            swap = swapLeftNode(parent);
+                            parent.data = swap.getData();
+                            return swap.isSwap();
+                        case 1:
+                            swap = swapRightNode(parent);
+                            parent.data = swap.getData();
+                            return swap.isSwap();
+                    }
+                } else if (parent.left == NIL) { //被删除节点没有左子树
+                    //被删除节点为红色 父节点必存在且必定为黑色 直接删除无需其他操作
+                    if (parent.color == ColorModel.RED) {
+                        if (pNode.right == parent) {
+                            pNode.right = parent.right;
+                        } else {
+                            pNode.left = parent.right;
+                        }
+                    } else {//被删除节点为黑色 且其右孩子为红色节点
+                        //右节点着色为黑色
+                        parent.right.color = ColorModel.BLACK;
+                        if (pNode == null) {
+                            root = parent.right;
+                        } else {
+                            if (pNode.right == parent) {
+                                pNode.right = parent.right;
+                            } else {
+                                pNode.left = parent.right;
+                            }
+                        }
+                    }
+                    parent.right.parent = pNode;
+                    resetNode(parent);
+                } else if (parent.right == NIL) {//删除节点没有右子树
+                    //被删除节点为红色 父节点必存在且必定为黑色 直接删除无需其他操作
+                    if (parent.color == ColorModel.RED) {
+                        if (pNode.right == parent) {
+                            pNode.right = parent.left;
+                        } else {
+                            pNode.left = parent.left;
+                        }
+                    } else {
+                        //左节点着色为黑色
+                        parent.left.color = ColorModel.BLACK;
+                        if (pNode == null) {
+                            root = parent.left;
+                        } else {
+                            if (pNode.right == parent) {
+                                pNode.right = parent.left;
+                            } else {
+                                pNode.left = parent.left;
+                            }
+                        }
+                    }
+                    parent.left.parent = pNode;
+                    resetNode(parent);
+                }
+            }
+        }
+        return false;
+    }
+
+    //左子树最大值
+    private Swap swapLeftNode(Node parent) {
+        //
+        Node lNode = parent.left;
+        if (lNode.right == NIL) {
+
+        }
+        return null;
+    }
+
+    //右子树最小值
+    private Swap swapRightNode(Node parent) {
+
+        return null;
+    }
+
+
+    private void resetNode(Node parent) {
+        if (parent != null) {
+            parent.parent = null;
+            parent.right = null;
+            parent.left = null;
+        }
+    }
+
     //前序遍历 根左右
     public synchronized void preDisplay() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -354,4 +478,22 @@ public class RBTree<T extends Comparable> {
         return new Node(parent, NIL, NIL, data, ColorModel.RED);
     }
 
+
+    private class Swap {
+        private boolean isSwap;
+        private T data;
+
+        public Swap(boolean isSwap, T data) {
+            this.isSwap = isSwap;
+            this.data = data;
+        }
+
+        public boolean isSwap() {
+            return isSwap;
+        }
+
+        public T getData() {
+            return data;
+        }
+    }
 }
