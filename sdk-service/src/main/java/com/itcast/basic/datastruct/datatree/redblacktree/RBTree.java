@@ -65,6 +65,7 @@ public class RBTree<T extends Comparable> {
                                 //叔父节点
                                 Node uNode = gNode.left;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要一次旋转" + "左旋转" + gNode);
                                     //左旋祖父节点
                                     leftBlance(gNode);
                                 } else {
@@ -75,6 +76,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要一次旋转" + "左旋转" + gNode);
                                 //左旋祖父节点
                                 leftBlance(gNode);
                             }
@@ -84,6 +86,7 @@ public class RBTree<T extends Comparable> {
                                 //叔父节点
                                 Node uNode = gNode.right;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要两次旋转" + "左旋转" + parent + " 右旋转" + gNode);
                                     //左旋父节点 右旋祖父节点
                                     leftBlance(parent);
                                     rightBlance(gNode);
@@ -95,6 +98,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要两次旋转" + "左旋转" + parent + " 右旋转" + gNode);
                                 //左旋父节点 右旋祖父节点
                                 leftBlance(parent);
                                 rightBlance(gNode);
@@ -123,6 +127,7 @@ public class RBTree<T extends Comparable> {
                             if (gNode.right != NIL) {
                                 Node uNode = gNode.right;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要一次旋转" + "右旋转" + gNode);
                                     //右旋祖父节点
                                     rightBlance(gNode);
                                 } else {
@@ -133,6 +138,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要两次旋转" + "右旋转" + gNode);
                                 //右旋祖父节点
                                 rightBlance(gNode);
                             }
@@ -141,6 +147,7 @@ public class RBTree<T extends Comparable> {
                             if (gNode.left != NIL) {
                                 Node uNode = gNode.left;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要两次旋转" + "右旋转" + parent + " 左旋转" + gNode);
                                     //右旋父节点 左旋祖父节点
                                     rightBlance(parent);
                                     leftBlance(gNode);
@@ -152,6 +159,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要两次旋转" + "右旋转" + parent + " 左旋转" + gNode);
                                 //右旋父节点 左旋祖父节点
                                 rightBlance(parent);
                                 leftBlance(gNode);
@@ -250,9 +258,10 @@ public class RBTree<T extends Comparable> {
         node.right = rNode.left;
         rNode.left = node;
         node.parent = rNode;
-        //着色调整
-        rNode.color = ColorModel.BLACK;
-        node.color = ColorModel.RED;
+        //着色调整(交换节点颜色)
+        ColorModel temp = node.color;
+        node.color = rNode.color;
+        rNode.color = temp;
     }
 
     //右旋转
@@ -276,6 +285,10 @@ public class RBTree<T extends Comparable> {
         node.left = lNode.right;
         lNode.right = node;
         node.parent = lNode;
+        //着色调整(交换节点颜色)
+        ColorModel temp = node.color;
+        node.color = lNode.color;
+        lNode.color = temp;
     }
 
     public void removeNode(T data) {
