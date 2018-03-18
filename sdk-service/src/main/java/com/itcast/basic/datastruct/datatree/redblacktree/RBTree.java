@@ -22,8 +22,8 @@ public class RBTree<T extends Comparable> {
         return findNode0(root, data);
     }
 
+    //查找节点
     private Node findNode0(Node parent, T data) {
-        Node node = null;
         if (parent != null) {
             int result = parent.data.compareTo(data);
             if (result > 0) {
@@ -46,6 +46,7 @@ public class RBTree<T extends Comparable> {
         }
     }
 
+    //添加节点
     private boolean addNode0(Node parent, T data) {
         boolean isSwap = false;
         if (parent != null) {
@@ -66,6 +67,7 @@ public class RBTree<T extends Comparable> {
                                 //叔父节点
                                 Node uNode = gNode.left;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要一次旋转" + "左旋转" + gNode);
                                     //左旋祖父节点
                                     leftBlance(gNode);
                                 } else {
@@ -76,6 +78,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要一次旋转" + "左旋转" + gNode);
                                 //左旋祖父节点
                                 leftBlance(gNode);
                             }
@@ -85,6 +88,7 @@ public class RBTree<T extends Comparable> {
                                 //叔父节点
                                 Node uNode = gNode.right;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要两次旋转" + "左旋转" + parent + " 右旋转" + gNode);
                                     //左旋父节点 右旋祖父节点
                                     leftBlance(parent);
                                     rightBlance(gNode);
@@ -96,6 +100,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要两次旋转" + "左旋转" + parent + " 右旋转" + gNode);
                                 //左旋父节点 右旋祖父节点
                                 leftBlance(parent);
                                 rightBlance(gNode);
@@ -104,28 +109,9 @@ public class RBTree<T extends Comparable> {
                     }
                 } else {
                     boolean isBlance = addNode0(parent.right, data);
-                    if (isBlance) {
-                        Node rNode = parent.parent;
-                        if (rNode == null || rNode == root) {
-                            root.color = ColorModel.BLACK;
-                            return false;
-                        } else {
-                            Node pNode = rNode.parent;
-                            System.out.println("rNode=" + rNode);
-                            if (pNode.color == ColorModel.RED) {
-                                Node gNode = pNode.parent;
-                                if (gNode.left == pNode) {
-                                    gNode.right.color = ColorModel.BLACK;
-                                } else {
-                                    gNode.left.color = ColorModel.BLACK;
-                                }
-                                gNode.color = ColorModel.RED;
-                                pNode.color = ColorModel.BLACK;
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        }
+                    if (isBlance) {//isBlance为true ===> parent为红色节点
+                        System.out.println("********右子树向上递归调整************");
+                        return adjustNode(parent);
                     }
                 }
             } else if (result < 0) {
@@ -143,6 +129,7 @@ public class RBTree<T extends Comparable> {
                             if (gNode.right != NIL) {
                                 Node uNode = gNode.right;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要一次旋转" + "右旋转" + gNode);
                                     //右旋祖父节点
                                     rightBlance(gNode);
                                 } else {
@@ -153,6 +140,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要两次旋转" + "右旋转" + gNode);
                                 //右旋祖父节点
                                 rightBlance(gNode);
                             }
@@ -161,6 +149,7 @@ public class RBTree<T extends Comparable> {
                             if (gNode.left != NIL) {
                                 Node uNode = gNode.left;
                                 if (uNode.color == ColorModel.BLACK) {
+                                    System.out.println("需要两次旋转" + "右旋转" + parent + " 左旋转" + gNode);
                                     //右旋父节点 左旋祖父节点
                                     rightBlance(parent);
                                     leftBlance(gNode);
@@ -172,6 +161,7 @@ public class RBTree<T extends Comparable> {
                                     isSwap = true;
                                 }
                             } else {
+                                System.out.println("需要两次旋转" + "右旋转" + parent + " 左旋转" + gNode);
                                 //右旋父节点 左旋祖父节点
                                 rightBlance(parent);
                                 leftBlance(gNode);
@@ -181,26 +171,8 @@ public class RBTree<T extends Comparable> {
                 } else {
                     boolean isBlance = addNode0(parent.left, data);
                     if (isBlance) {
-                        Node rNode = parent.parent;
-                        if (rNode == null || rNode == root) {
-                            root.color = ColorModel.BLACK;
-                            return false;
-                        } else {
-                            Node pNode = rNode.parent;
-                            if (pNode.color == ColorModel.RED) {
-                                Node gNode = pNode.parent;
-                                if (gNode.left == pNode) {
-                                    gNode.right.color = ColorModel.BLACK;
-                                } else {
-                                    gNode.left.color = ColorModel.BLACK;
-                                }
-                                gNode.color = ColorModel.RED;
-                                pNode.color = ColorModel.BLACK;
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        }
+                        System.out.println("********左子树向上递归调整************");
+                        return adjustNode(parent);
                     }
                 }
             }
@@ -208,6 +180,255 @@ public class RBTree<T extends Comparable> {
         return isSwap;
     }
 
+    //着色调整
+    private boolean adjustNode(Node parent) {
+        Node pNode = parent.parent;
+        if (pNode == null || pNode == root) {
+            root.color = ColorModel.BLACK;
+            return false;
+        } else {
+            if (pNode.color == ColorModel.BLACK) { //父节点pNode为黑色 红黑树调整结束
+                System.out.println("********无需调整************");
+                return false;
+            } else {//父节点pNode为红色 则gNode存在且为黑色节点 红黑树是否调整需依据叔父节点uNode颜色决定
+                Node gNode = pNode.parent;
+                if (gNode.left == pNode) {//叔父节点在右子树
+                    Node uNode = gNode.right;
+                    if (uNode.color == ColorModel.RED) {//仅需递归着色调整
+                        System.out.println("********仅需递归着色调整************" + parent);
+                        uNode.color = ColorModel.BLACK;
+                        pNode.color = ColorModel.BLACK;
+                        gNode.color = ColorModel.RED;
+                        return true;
+                    } else {//需旋转调整
+                        if (pNode.right == parent) {//节点parent为父节点pNode的左子树 需两次旋转
+                            System.out.println("********需要两次调整************" + "左旋pNode=" + pNode + " 右旋gNode=" + gNode);
+                            //左旋pNode 右旋gNode
+                            leftBlance(pNode);
+                            rightBlance(gNode);
+                        } else {//节点parent为父节点pNode的左子树 需一次旋转
+                            //右旋gNode
+                            System.out.println("********需要一次调整************" + " 右旋gNode=" + gNode);
+                            rightBlance(gNode);
+                        }
+                        return false;
+                    }
+                } else {//叔父节点在左子树
+                    Node uNode = gNode.left;
+                    if (uNode.color == ColorModel.RED) {//仅需递归着色调整
+                        System.out.println("********仅需递归着色调整************" + parent);
+                        uNode.color = ColorModel.BLACK;
+                        pNode.color = ColorModel.BLACK;
+                        gNode.color = ColorModel.RED;
+                        return true;
+                    } else {//需旋转调整
+                        if (pNode.left == parent) {//节点parent为父节点pNode的左子树 需两次旋转
+                            System.out.println("********需要两次调整************" + "右旋pNode=" + pNode + " 左旋gNode=" + gNode);
+                            //右旋pNode 左旋gNode
+                            rightBlance(pNode);
+                            leftBlance(gNode);
+                        } else {//节点parent为父节点pNode的右子树 需一次旋转
+                            //左旋gNode
+                            System.out.println("********需要一次调整************" + " 左旋gNode=" + gNode);
+                            leftBlance(gNode);
+                        }
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    //左旋转
+    private void leftBlance(Node node) {
+        //左旋节点一定存在右子树
+        Node rNode = node.right;
+        Node pNode = node.parent;
+        if (rNode.left != NIL) {
+            rNode.left.parent = node;
+        }
+        rNode.parent = pNode;
+        if (pNode != null) {
+            if (pNode.left == node) {
+                pNode.left = rNode;
+            } else {
+                pNode.right = rNode;
+            }
+        } else {
+            root = rNode;
+        }
+        node.right = rNode.left;
+        rNode.left = node;
+        node.parent = rNode;
+        //着色调整(交换节点颜色)
+        ColorModel temp = node.color;
+        node.color = rNode.color;
+        rNode.color = temp;
+    }
+
+    //右旋转
+    private void rightBlance(Node node) {
+        //右旋节点左子树一定存在
+        Node lNode = node.left;
+        if (lNode.right != NIL) {
+            lNode.right.parent = node;
+        }
+        Node pNode = node.parent;
+        lNode.parent = pNode;
+        if (pNode != null) {
+            if (pNode.left == node) {
+                pNode.left = lNode;
+            } else {
+                pNode.right = lNode;
+            }
+        } else {
+            root = lNode;
+        }
+        node.left = lNode.right;
+        lNode.right = node;
+        node.parent = lNode;
+        //着色调整(交换节点颜色)
+        ColorModel temp = node.color;
+        node.color = lNode.color;
+        lNode.color = temp;
+    }
+
+    public void removeNode(T data) {
+        removeNode0(data, root);
+    }
+
+    private boolean removeNode0(T data, Node parent) {
+        if (parent != null) {
+            int result = data.compareTo(parent.data);
+            if (result > 0) {
+                boolean isSwap = removeNode0(data, parent.right);
+            } else if (result < 0) {
+                boolean isSwap = removeNode0(data, parent.left);
+            } else {
+                if (parent.left == NIL && parent.right != NIL) { //被删除节点没有左子树
+                    System.out.println("实现中");
+                } else if (parent.left != NIL && parent.right == NIL) {//删除节点没有右子树
+                    rotateRightNode(parent);
+                } else {  //被删除节点度为2 左子树最大节点 右子树最小节点
+                    Swap swap;
+                    switch (defaultMode.getIndex()) {
+                        case 0:
+                            swap = swapLeftNode(parent);
+                            parent.data = swap.getData();
+                            return swap.isSwap();
+                        case 1:
+                            swap = swapRightNode(parent);
+                            parent.data = swap.getData();
+                            return swap.isSwap();
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    //左子树是否存在最大值
+    private Swap swapLeftNode(Node parent) {
+        Node lNode = parent.left;
+        if (lNode.right == NIL) {
+            return rotateRightNode(lNode);
+        }
+        return swapRightNode0(lNode.right);
+    }
+
+    //选取左子树最大值
+    private Swap swapRightNode0(Node parent) {
+        if (parent.right == NIL) {//删除节点不存在右子树（右孩子）
+            return rotateRightNode(parent);
+        }
+        return swapRightNode0(parent.right);
+    }
+
+    private Swap rotateRightNode(Node parent) {
+        Node pNode = parent.parent;
+        if (parent.color == ColorModel.RED) {//被删除节点为红色 则其左孩子节点必定为NIL
+            System.out.println("被删除节点" + parent + "为红色且其左孩子为NIL直接删除无需调整");
+            pNode.right = NIL;
+        } else {//被删除节点为黑色
+            if (pNode.color == ColorModel.RED) {//pNode必定存在黑色左子树
+                if (parent.left != NIL) {//parent.left存在则一定为红色
+                    System.out.println("被删除节点父节点" + pNode + "为红色 " + "被删除节点" + parent + "为黑色且其必定存在红色左孩子删除后调整" + parent.left + "为黑色即可");
+                    parent.left.color = ColorModel.BLACK;
+                    parent.left.parent = pNode;
+                    pNode.right = parent.left;
+                } else {//parent.left为NIL
+                    //交换颜色
+                    ColorModel temp = pNode.color;
+                    pNode.color = pNode.left.color;
+                    pNode.left.color = temp;
+                    Node lNode = pNode.left;
+                    if (lNode.right == NIL && lNode.left != NIL) {
+                        System.out.println("被删除节点父节点" + pNode + "为红色 " + "被删除节点" + parent + "为黑色且其左孩子为NIL删除后需一次旋转" + "右旋" + pNode);
+                        pNode.right = NIL;
+                        //右旋pNode
+                        rightBlance(pNode);
+                    } else if (lNode.right != NIL) {
+                        System.out.println("被删除节点父节点" + pNode + "为红色 " + " 被删除节点" + parent + "为黑色且其左孩子为NIL删除后需两次旋转" + "左旋" + lNode + "右旋" + pNode);
+                        pNode.right = NIL;
+                        //左旋lNode 右旋pNode
+                        leftBlance(lNode);
+                        rightBlance(pNode);
+                        if (lNode.left != NIL) {
+                            //重新着色
+                            lNode.color = ColorModel.BLACK;
+                            pNode.color = ColorModel.BLACK;
+                        }
+                    }
+                }
+            } else {//pNode为黑色
+                if (parent.left != NIL) {//parent.left存在则一定为红色
+                    System.out.println("被删除节点父节点" + pNode + "为黑色 " + " 且被删除节点" + parent + "为黑色且其必定存在红色左孩子删除后调整" + parent.left + "为黑色即可");
+                    parent.left.color = ColorModel.BLACK;
+                    parent.left.parent = pNode;
+                    pNode.right = parent.left;
+                } else {//lNode必定存在
+                    pNode.left = NIL;
+                    Node lNode = pNode.left;
+                    if (lNode.color == ColorModel.BLACK) {//lNode至少存在一个红色孩子
+                        if (lNode.left != NIL && lNode.right == NIL) {//lNode.left为红色
+                            //右旋pNode
+                            rightBlance(pNode);
+                            lNode.left.color = ColorModel.BLACK;
+                        } else if (lNode.left == NIL && lNode.right != NIL) {//lNode.right为红色
+                            //右旋lNode 左旋pNode
+                            leftBlance(lNode);
+                            rightBlance(pNode);
+                            lNode.color = ColorModel.BLACK;
+                        } else if (lNode.left != NIL && lNode.right != NIL) {//lNode.left为红色 lNode.right为红色
+                            //右旋lNode 左旋pNode
+                            leftBlance(lNode);
+                            rightBlance(pNode);
+                            lNode.color = ColorModel.BLACK;
+                        }
+                    } else {//lNode必存在两个黑色孩子
+                        //右旋pNode
+                        rightBlance(pNode);
+                    }
+                }
+            }
+        }
+        resetNode(parent);
+        return new Swap(false, parent.data);
+    }
+
+    //右子树最小值
+    private Swap swapRightNode(Node parent) {
+        return null;
+    }
+
+
+    private void resetNode(Node parent) {
+        if (parent != null) {
+            parent.parent = null;
+            parent.right = null;
+            parent.left = null;
+        }
+    }
 
     public void removeNode(T data) {
         removeNode0(data, root);
@@ -391,57 +612,6 @@ public class RBTree<T extends Comparable> {
 
     public synchronized int size() {
         return size;
-    }
-
-    //右旋转
-    private void rightBlance(Node node) {
-        //右旋节点左子树一定存在
-        Node lNode = node.left;
-        if (lNode.right != NIL) {
-            lNode.right.parent = node;
-        }
-        Node pNode = node.parent;
-        lNode.parent = pNode;
-        if (pNode != null) {
-            if (pNode.left == node) {
-                pNode.left = lNode;
-            } else {
-                pNode.right = lNode;
-            }
-        } else {
-            root = lNode;
-        }
-        node.left = lNode.right;
-        lNode.right = node;
-        node.parent = lNode;
-        node.color = ColorModel.RED;
-        lNode.color = ColorModel.BLACK;
-    }
-
-    //左旋转
-    private void leftBlance(Node node) {
-        //左旋节点一定存在右子树
-        Node rNode = node.right;
-
-        Node pNode = node.parent;
-        if (rNode.left != NIL) {
-            rNode.left.parent = node;
-        }
-        rNode.parent = pNode;
-        if (pNode != null) {
-            if (pNode.left == node) {
-                pNode.left = rNode;
-            } else {
-                pNode.right = rNode;
-            }
-        } else {
-            root = rNode;
-        }
-        node.right = rNode.left;
-        rNode.left = node;
-        node.parent = rNode;
-        node.color = ColorModel.RED;
-        rNode.color = ColorModel.BLACK;
     }
 
     private class Node {
