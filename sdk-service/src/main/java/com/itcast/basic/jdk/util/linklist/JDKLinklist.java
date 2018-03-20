@@ -9,11 +9,66 @@ public class JDKLinklist {
     private Node tail;
     private int size;
 
+    public boolean push(Object o) {
+        Node h = head;
+        Node node = new Node(null, o, h);
+        head = node;
+        if (h == null) {
+            tail = node;
+        } else {
+            h.prev = node;
+        }
+        size++;
+        return true;
+    }
+
+    public Object pop() {
+        Node h = head;
+        if (h == null) {
+            throw new NullPointerException("head is null");
+        }
+        Node next = h.next;
+        head = next;
+        if (next == null) {
+            tail = null;
+        } else {
+            next.prev = null;
+        }
+        h.next = null;
+        return h.data;
+    }
+
+
+    public int indexOf(Object o) {
+        int index = -1;
+        Node h = head;
+        while (h != null) {
+            index++;
+            if (h.data.equals(o)) {
+                return index;
+            }
+            h = h.next;
+        }
+        return index;
+    }
+
+    public int lastIndexOf(Object o) {
+        int index = -1;
+        Node t = tail;
+        while (t != null) {
+            index++;
+            if (t.data.equals(o)) {
+                return size - index;
+            }
+            t = t.prev;
+        }
+        return index;
+    }
 
     public boolean contains(Object o) {
         Node h = head;
         while (h != null) {
-            if (h.equals(o)) {
+            if (h.data.equals(o)) {
                 return true;
             }
             h = h.getNext();
@@ -34,12 +89,76 @@ public class JDKLinklist {
         return true;
     }
 
+    public boolean set(int index, Object o) {
+        if (index < 0 || index > size - 1) {
+            throw new ArrayIndexOutOfBoundsException("index is not valid");
+        }
+        Node h = head;
+        int i = 0;
+        while (i < index) {
+            h = h.next;
+            i++;
+        }
+        h.data = o;
+        return true;
+    }
+
     public boolean add(int index, Object o) {
         if (index < 0 || index > size - 1) {
             throw new ArrayIndexOutOfBoundsException("index is not valid");
         }
-
+        Node h = head;
+        int i = 0;
+        while (i < index) {
+            h = h.next;
+            i++;
+        }
+        Node prev = h.prev;
+        Node node = new Node(prev, o, h);
+        if (prev == null) {
+            head = node;
+        } else {
+            prev.next = node;
+        }
+        h.prev = node;
+        node.prev = prev;
+        size++;
         return true;
+    }
+
+    public boolean remove(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new ArrayIndexOutOfBoundsException("index is not valid");
+        }
+        Node h = head;
+        for (int i = 0; i < index; i++) {
+            h = h.next;
+        }
+        Node prev = h.prev;
+        h.next.prev = prev;
+        if (prev == null) {
+            head = h.next;
+        } else {
+            prev.next = h.next;
+            h.prev = null;
+        }
+        h.next = null;
+        size--;
+        return true;
+    }
+
+
+    public Object get(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new ArrayIndexOutOfBoundsException("index is not valid");
+        }
+        Node h = head;
+        int i = 0;
+        while (i < index) {
+            h = h.next;
+            i++;
+        }
+        return h.data;
     }
 
     public boolean remove(Object o) {
