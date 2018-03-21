@@ -1,50 +1,26 @@
-package com.itcast.basic.jdk.util.collection;
+package com.itcast.basic.jdk.util.vector;
 
 import java.util.Arrays;
 
 /**
- * Created by treey.qian on 2018/3/20.
+ * Created by treey.qian on 2018/3/21.
  */
-public class JDKArrayList {
-    private Object[] elements = {};
+public class JDKVector {
 
-    private int size;
+    protected Object[] elements = {};
+    protected int size;
+    protected int capacity;
 
-    private int capacity;
-
-    public JDKArrayList() {
+    public JDKVector() {
         capacity = 16;
         elements = new Object[capacity];
     }
 
-    public boolean add(Object o) {
-        checkCapacity(size);
-        elements[size++] = o;
-        return true;
+    public synchronized int capacity() {
+        return capacity;
     }
 
-    public boolean set(int index, Object o) {
-        if (index < 0 || index > size - 1) {
-            throw new IndexOutOfBoundsException("index is not valid");
-        }
-        elements[index] = o;
-        return true;
-    }
-
-    public boolean contains(Object o) {
-        for (int i = 0; i < size; i++) {
-            if (elements[i].equals(o)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    public int lastIndexOf(Object o) {
+    public synchronized int lastIndexOf(Object o) {
         int index = -1;
         for (int i = size - 1; i >= 0; i--) {
             if (elements[i].equals(o)) {
@@ -55,7 +31,7 @@ public class JDKArrayList {
         return index;
     }
 
-    public int indexOf(Object o) {
+    public synchronized int indexOf(Object o) {
         int index = -1;
         for (int i = 0; i < size; i++) {
             if (elements[i].equals(o)) {
@@ -66,12 +42,17 @@ public class JDKArrayList {
         return index;
     }
 
-    public boolean remove(int index) {
-        System.out.println("**************");
-        if (index < 0 || index > size - 1) {
+    public synchronized Object get(int index) {
+        if (index < 0 && index >= size) {
             throw new IndexOutOfBoundsException("index is not valid");
         }
+        return elements[index];
+    }
 
+    public synchronized boolean remove(int index) {
+        if (index < 0 && index >= size) {
+            throw new IndexOutOfBoundsException("index is not valid");
+        }
         while (index < size - 1) {
             elements[index] = elements[index + 1];
             index++;
@@ -80,10 +61,8 @@ public class JDKArrayList {
         return true;
     }
 
-
-    public boolean remove(Object o) {
+    public synchronized boolean remove(Object o) {
         int index = -1;
-        System.out.println("--------------");
         for (int i = 0; i < size; i++) {
             if (elements[i].equals(o)) {
                 index = i;
@@ -101,48 +80,64 @@ public class JDKArrayList {
         return false;
     }
 
-    public boolean add(int index, Object o) {
-        if (index < 0 || index > size - 1) {
+    public synchronized boolean add(Object o) {
+        checkCapacity(size);
+        elements[size++] = o;
+        return true;
+    }
+
+    public synchronized boolean add(int index, Object o) {
+        if (index < 0 && index >= size) {
             throw new IndexOutOfBoundsException("index is not valid");
         }
         checkCapacity(size);
-        int k = size - 1;
-        while (index <= k) {
-            elements[k + 1] = elements[k];
-            k--;
+        int j = size - 1;
+        while (j >= index) {
+            elements[j + 1] = elements[j];
+            j--;
         }
         elements[index] = o;
         size++;
         return true;
     }
 
-    public Object get(int index) {
-        if (index < 0 || index > size - 1) {
+    public synchronized boolean set(int index, Object o) {
+        if (index < 0 && index >= size) {
             throw new IndexOutOfBoundsException("index is not valid");
         }
-        return elements[index];
+        elements[index] = o;
+        return true;
+    }
+
+    public synchronized boolean contains(Object o) {
+        for (int i = 0; i < size; i++) {
+            if (elements[i].equals(o)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
     private void checkCapacity(int size) {
-        if (capacity <= size) {
-            while (capacity <= size) {
+        if (size >= capacity) {
+            while (size >= capacity) {
                 capacity += capacity;
             }
             Object[] oldElements = elements;
             elements = new Object[capacity];
-            System.arraycopy(oldElements, 0, elements, 0, size);
+            System.arraycopy(oldElements, 0, elements, 0, oldElements.length);
         }
-
     }
 
-    public int size() {
+
+    public synchronized int size() {
         return size;
     }
 
     @Override
-    public String toString() {
-        return "JDKArrayList{" +
+    public synchronized String toString() {
+        return "JDKVector{" +
                 "elements=" + Arrays.toString(elements) +
                 ", size=" + size +
                 ", capacity=" + capacity +

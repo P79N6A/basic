@@ -1,4 +1,4 @@
-package com.itcast.basic.jdk.util.collection;
+package com.itcast.basic.jdk.util.arraylist;
 
 /**
  * Created by treey.qian on 2018/3/20.
