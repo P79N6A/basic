@@ -12,6 +12,7 @@ public class JDKHashMapMain {
             jdkHashMap.put("name", "root");
             jdkHashMap.put("sex", "man");
             Object oldV = jdkHashMap.put("name", "admin");
+            jdkHashMap.remove("name");
             System.out.println("oldV=" + oldV
                     + " jdkHashMap=" + jdkHashMap
                     + " isContainValue=" + jdkHashMap.containsKey("name")

@@ -49,7 +49,7 @@ public class JDKHashMap {
             return null;
         }
         do {
-            if (h.getKey().equals(key)) {
+            if (key.equals(h.getKey())) {
                 Object old = h.getValue();
                 h.setValue(value);
                 return old;
@@ -134,17 +134,51 @@ public class JDKHashMap {
 
     public Object remove(Object key) {
         if (key == null) {
-            return removeNullKey(key);
+            return removeNullKey();
         }
         return removeKey(key);
     }
 
-    private Object removeNullKey(Object key) {
-       
+    private Object removeNullKey() {
+        Node node = tables[0];
+        Node prev = null;
+        while (node != null) {
+            if (node.getKey() == null) {
+                Object oldV = node.value;
+                if (prev == null) {
+                    tables[0] = node.next;
+                } else {
+                    prev.next = node.next;
+                }
+                node.next = null;
+                size--;
+                return oldV;
+            }
+            prev = node;
+            node = node.next;
+        }
         return null;
     }
 
     private Object removeKey(Object key) {
+        int index = index(key);
+        Node node = tables[index];
+        Node prev = null;
+        while (node != null) {
+            if (key.equals(node.getKey())) {
+                Object oldV = node.value;
+                if (prev == null) {
+                    tables[index] = node.next;
+                } else {
+                    prev.next = node.next;
+                }
+                node.next = null;
+                size--;
+                return oldV;
+            }
+            prev = node;
+            node = node.next;
+        }
         return null;
     }
 
