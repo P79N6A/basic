@@ -15,10 +15,19 @@ public class JDKHashMap {
     }
 
     public Object put(Object key, Object value) {
+        addEntry(key,value);
         if (key == null) {
             return putNullKey(value);
         }
         return putValue(key, value);
+    }
+
+    protected void addEntry(Object key, Object value) {
+
+    }
+
+    protected void removeEntry(Object key) {
+
     }
 
     private Object putNullKey(Object value) {
@@ -133,6 +142,7 @@ public class JDKHashMap {
     }
 
     public Object remove(Object key) {
+        removeEntry(key);
         if (key == null) {
             return removeNullKey();
         }
