@@ -139,6 +139,7 @@ public class JDKHashMap {
         return removeKey(key);
     }
 
+
     private Object removeNullKey() {
         Node node = tables[0];
         Node prev = null;
@@ -182,12 +183,20 @@ public class JDKHashMap {
         return null;
     }
 
-    private int capacity() {
+    public Node[] tables() {
+        return tables;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public int capacity() {
         return capacity;
     }
 
     private int index(Object key) {
-        return hash(key) % capacity;
+        return Math.abs(hash(key) % capacity);
     }
 
     private int hash(Object key) {
@@ -216,7 +225,7 @@ public class JDKHashMap {
         return size == 0;
     }
 
-    private class Node {
+    public class Node {
         private Object key;
         private Object value;
         private Node next;
