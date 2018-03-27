@@ -103,6 +103,8 @@
         <common.pool2.version>2.4.2</common.pool2.version>
         <!--配置spring mongodb session 版本号-->
         <spring.mongodb.session>2.0.0.RELEASE</spring.mongodb.session>
+        <!--excel版本号-->
+        <excel.version>2.6</excel.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.api.version>1.7.5</slf4j.api.version>
         <slf4j.version>1.7.12</slf4j.version>
@@ -120,6 +122,13 @@
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
             <scope>test</scope>
+        </dependency>
+
+        <!--excel-->
+        <dependency>
+            <groupId>jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>${excel.version}</version>
         </dependency>
 
         <dependency>

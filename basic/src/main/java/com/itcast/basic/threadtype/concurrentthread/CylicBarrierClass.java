@@ -33,6 +33,7 @@ class Player extends Thread {
         try {
             System.out.println(Thread.currentThread().getName() + "到位等待中......");
             cylicBarrier.await();
+            System.out.println("*****************************");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (BrokenBarrierException e) {
