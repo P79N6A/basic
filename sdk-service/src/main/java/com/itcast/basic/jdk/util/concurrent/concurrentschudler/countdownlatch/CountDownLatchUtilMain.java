@@ -11,7 +11,7 @@ public class CountDownLatchUtilMain {
         try {
             System.out.println("enter into CountDownLatchUtilMain");
 //            CountDownLatchUtil.downLoad(new File("E:\\person.xls"));
-            CountDownLatchUtil.quickDownLoad(new File("E:\\person1.xls"));
+            CountDownLatchUtil.quickDownLoad();
         } catch (Exception e) {
             e.printStackTrace();
         }

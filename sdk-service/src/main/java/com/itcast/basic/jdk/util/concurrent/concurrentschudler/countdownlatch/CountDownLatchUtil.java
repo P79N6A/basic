@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by treey.qian on 2018/3/27.
@@ -20,33 +20,18 @@ import java.util.concurrent.*;
 public class CountDownLatchUtil {
     private static final List<Person> persons = new ArrayList();
 
-    private static int defaultSize = 20;
-
-    private static ExecutorService pools = Executors.newCachedThreadPool();
+    private static int defaultSize = 10000;
 
     private static List initPersons() {
-        for (int i = 1; i < 35; i++) {
+        for (int i = 1; i < 65001; i++) {
             persons.add(new Person(i, "我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子我是一个好孩子" + i, "这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校这是我的学校" + i, "我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子我真的是一个好孩子" + i, "我是男人" + i, "山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号" + i, "无业农民" + i, "山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号山东省枣庄市山亭区桑村镇马场村361号" + i));
         }
         return persons;
     }
 
-    public static void quickDownLoad(File file) {
+    public static void quickDownLoad() {
         try {
             long beginTime = System.currentTimeMillis();
-            //创建excel文件
-            WritableWorkbook workbook = Workbook.createWorkbook(file);
-            //创建tab
-            WritableSheet writableSheet = workbook.createSheet("用户信息表", 0);
-            //创建表头
-            writableSheet.addCell(new Label(0, 0, "编号"));
-            writableSheet.addCell(new Label(1, 0, "用户名"));
-            writableSheet.addCell(new Label(2, 0, "学校"));
-            writableSheet.addCell(new Label(3, 0, "昵称"));
-            writableSheet.addCell(new Label(4, 0, "性别"));
-            writableSheet.addCell(new Label(5, 0, "籍贯"));
-            writableSheet.addCell(new Label(6, 0, "职业"));
-            writableSheet.addCell(new Label(7, 0, "现居城市"));
             List<Person> persons = initPersons();
             //模拟分页查询
             int page = 1;
@@ -56,7 +41,7 @@ public class CountDownLatchUtil {
             //线程数
             CountDownLatch countDownLatch = new CountDownLatch(totalPage);
             //返回结果
-            List<Future<String>> futures = new ArrayList<>();
+            List<String> results = new ArrayList<>();
             //线程池
             for (int j = 0; j < totalPage; j++) {
                 int offset = (page - 1) * pageSize;
@@ -64,48 +49,50 @@ public class CountDownLatchUtil {
                 if (subSize > total) {
                     subSize = total;
                 }
+                String fileName = new StringBuilder("E:\\persons").append(page).append(".xls").toString();
+                File file = new File(fileName);
                 final List<Person> subList = persons.subList(offset, subSize);
-                System.out.println("subList=" + subList.size() + " offset=" + offset + " subSize=" + subSize + " totalPage=" + totalPage);
-                Future future = pools.submit(() -> {
+                new Thread(() -> {
                     String result = " success";
                     String threadName = Thread.currentThread().getName();
                     try {
-                        downCore(writableSheet, subList, offset);
+                        downCore(file, subList);
                     } catch (Exception e) {
                         e.printStackTrace();
                         result = " fail";
                     }
+                    results.add(threadName + result);
                     countDownLatch.countDown();
-                    return threadName + result;
-                });
-                futures.add(future);
+                }).start();
                 page++;
             }
             countDownLatch.await();
-            workbook.write();
-            workbook.close();
             System.out.println("耗时:" + (System.currentTimeMillis() - beginTime) + "ms");
-            for (Future future : futures) {
-                System.out.println("result is " + future.get());
+            for (String result : results) {
+                System.out.println("result is " + result);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (RowsExceededException e) {
-            e.printStackTrace();
-        } catch (WriteException e) {
-            e.printStackTrace();
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
             e.printStackTrace();
         }
     }
 
-    private static void downCore(WritableSheet writableSheet, List<Person> personList, int index) throws WriteException {
+    private static void downCore(File file, List<Person> personList) throws WriteException, IOException {
+        //创建excel文件
+        WritableWorkbook workbook = Workbook.createWorkbook(file);
+        //创建tab
+        WritableSheet writableSheet = workbook.createSheet("用户信息表", 0);
+        //创建表头
+        writableSheet.addCell(new Label(0, 0, "编号"));
+        writableSheet.addCell(new Label(1, 0, "用户名"));
+        writableSheet.addCell(new Label(2, 0, "学校"));
+        writableSheet.addCell(new Label(3, 0, "昵称"));
+        writableSheet.addCell(new Label(4, 0, "性别"));
+        writableSheet.addCell(new Label(5, 0, "籍贯"));
+        writableSheet.addCell(new Label(6, 0, "职业"));
+        writableSheet.addCell(new Label(7, 0, "现居城市"));
         for (int i = 0, size = personList.size(); i < size; i++) {
             Person person = personList.get(i);
-            int k = index + i + 1;
-            System.out.println("***********k=*********" + k);
+            int k = i + 1;
             if (person != null) {
                 writableSheet.addCell(new Label(0, k, String.valueOf(person.getId())));
                 writableSheet.addCell(new Label(1, k, person.getName()));
@@ -117,7 +104,8 @@ public class CountDownLatchUtil {
                 writableSheet.addCell(new Label(7, k, person.getLiveCity()));
             }
         }
-        System.out.println("index= " + index + " size=" + personList.size());
+        workbook.write();
+        workbook.close();
     }
 
     public static void downLoad(File file) {
