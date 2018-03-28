@@ -1,0 +1,9 @@
+本包演示jdk线程池
+单线程池
+newSingleThreadExecutor
+固定线程池
+newFixedThreadPool
+缓存线程池
+newCachedThreadPool
+任务线程池
+newScheduledThreadPool
