@@ -15,6 +15,7 @@ public class ProductAndConsumerDemo {
                 productAndConsumer.consumer();
             }
         }).start();
+
         productAndConsumer.product();
     }
 }
