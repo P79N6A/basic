@@ -7,7 +7,9 @@ public class PhaserUtilMain {
     public static void main(String[] args) {
         try {
             System.out.println("enter into PhaserUtilMain");
-
+//            PhaserUtil.countDownLatch();
+//            PhaserUtil.cycliBarrier();
+            PhaserUtil.doExam();
         } catch (Exception e) {
             e.printStackTrace();
         }
