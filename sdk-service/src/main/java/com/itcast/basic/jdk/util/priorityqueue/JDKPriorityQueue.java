@@ -40,14 +40,21 @@ public class JDKPriorityQueue {
     }
 
 
-    public Object pop() {
-        Object old = queue[size - 1];
-        queue[--size] = 0;
+    public Object poll() {
+        if (size == 0) {
+            return null;
+        }
+        int index = --size;
+        for (int i = 0; i < index; i++) {
+            queue[i] = queue[i + 1];
+        }
+        Object old = queue[index];
+        queue[index] = null;
         return old;
     }
 
     public Object peek() {
-        return queue[size - 1];
+        return size == 0 ? null : queue[0];
     }
 
     public boolean remove(Object e) {
