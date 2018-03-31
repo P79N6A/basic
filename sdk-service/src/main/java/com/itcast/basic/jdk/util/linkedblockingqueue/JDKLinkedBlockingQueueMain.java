@@ -1,12 +1,13 @@
 package com.itcast.basic.jdk.util.linkedblockingqueue;
 
 /**
- * Created by qfl on 2018/3/30.
+ * Created by treey.qian on 2018/3/31.
  */
 public class JDKLinkedBlockingQueueMain {
     public static void main(String[] args) {
         try {
-          System.out.println("enter into JDKLinkedBlockingQueueMain");
+            System.out.println("enter into LinkedBlockingQueueMain");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
