@@ -126,7 +126,7 @@ public class BasicHashMap<K, V> extends BasicAbstractMap implements Serializable
     private int hash(Object k) {
         int h = hashSeed;
         if (0 != h && k instanceof String) {
-            return sun.misc.Hashing.stringHash32((String) k);
+            return k.hashCode();
         }
         h ^= k.hashCode();
         h ^= (h >>> 20) ^ (h >>> 12);
