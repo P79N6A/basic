@@ -147,7 +147,7 @@ public class ElasticSearchUtils {
 	/**
 	 * 更新别名
 	 * 
-	 * @param oldName
+	 * @param oldNames
 	 * @param newName
 	 * @param aliasName
 	 * @return
