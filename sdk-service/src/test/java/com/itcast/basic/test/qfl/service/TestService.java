@@ -1,11 +1,14 @@
 package com.itcast.basic.test.qfl.service;
 
 import com.itcast.basic.jdk.lang.classloader.classloader.ClassFileObject;
+import com.itcast.basic.jdk.rpc.customer.ServiceCustomer;
+import com.itcast.basic.jdk.rpc.service.UserService;
 import com.itcast.basic.jdk.util.concurrent.concurrentschudler.model.Person;
 import org.junit.Test;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -215,6 +218,19 @@ public class TestService {
         // 把新数组中的数覆盖nums数组
         for (int x = 0; x < temp.length; x++) {
             a[x + low] = temp[x];
+        }
+    }
+
+    @Test
+    public void testRPC() {
+        try {
+            System.out.println("enter into ServiceCustomerMain");
+            ServiceCustomer serviceCustomer = new ServiceCustomer();
+            UserService userService = (UserService) serviceCustomer.customer(UserService.class, new InetSocketAddress(8888), "userServiceImpl");
+            Object result = userService.select();
+            System.out.println("result=" + result);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
