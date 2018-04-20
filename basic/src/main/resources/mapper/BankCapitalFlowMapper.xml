@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.vpal.basereport.repository.BankCapitalFlowMapper">
+  <resultMap id="BaseResultMap" type="com.vip.vpal.basereport.entity.BankCapitalFlow">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bank_code" jdbcType="VARCHAR" property="bankCode" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+    <result column="account_code" jdbcType="VARCHAR" property="accountCode" />
+    <result column="account_abbr_name" jdbcType="VARCHAR" property="accountAbbrName" />
+    <result column="account_date" jdbcType="VARCHAR" property="accountDate" />
+    <result column="last_balance" jdbcType="DECIMAL" property="lastBalance" />
+    <result column="bank_pay_amount" jdbcType="DECIMAL" property="bankPayAmount" />
+    <result column="bank_refund_amount" jdbcType="DECIMAL" property="bankRefundAmount" />
+    <result column="bank_pay_fee" jdbcType="DECIMAL" property="bankPayFee" />
+    <result column="quick_pay_amount" jdbcType="DECIMAL" property="quickPayAmount" />
+    <result column="quick_refund_amount" jdbcType="DECIMAL" property="quickRefundAmount" />
+    <result column="quick_pay_fee" jdbcType="DECIMAL" property="quickPayFee" />
+    <result column="collect_pay_amount" jdbcType="DECIMAL" property="collectPayAmount" />
+    <result column="collect_pay_fee" jdbcType="DECIMAL" property="collectPayFee" />
+    <result column="withdrawal_pay_amount" jdbcType="DECIMAL" property="withdrawalPayAmount" />
+    <result column="refund_pay_amount" jdbcType="DECIMAL" property="refundPayAmount" />
+    <result column="pay_fee" jdbcType="DECIMAL" property="payFee" />
+    <result column="bank_refund_fee" jdbcType="DECIMAL" property="bankRefundFee" />
+    <result column="quick_refund_fee" jdbcType="DECIMAL" property="quickRefundFee" />
+    <result column="interest_amount" jdbcType="DECIMAL" property="interestAmount" />
+    <result column="settle_interest_fee" jdbcType="DECIMAL" property="settleInterestFee" />
+    <result column="current_apply_store_fund" jdbcType="DECIMAL" property="currentApplyStoreFund" />
+    <result column="current_takeout_apply_store_fund" jdbcType="DECIMAL" property="currentTakeoutApplyStoreFund" />
+    <result column="bank_fee" jdbcType="DECIMAL" property="bankFee" />
+    <result column="settle_fee_income" jdbcType="DECIMAL" property="settleFeeIncome" />
+    <result column="risk_provision" jdbcType="DECIMAL" property="riskProvision" />
+    <result column="settlement_fee" jdbcType="DECIMAL" property="settlementFee" />
+    <result column="settlement_fee_cost" jdbcType="DECIMAL" property="settlementFeeCost" />
+    <result column="transfer_amount_in" jdbcType="DECIMAL" property="transferAmountIn" />
+    <result column="transfer_amount_out" jdbcType="DECIMAL" property="transferAmountOut" />
+    <result column="capital_transfer_amount" jdbcType="DECIMAL" property="capitalTransferAmount" />
+    <result column="transfer_myself" jdbcType="DECIMAL" property="transferMyself" />
+    <result column="interest_income_in" jdbcType="DECIMAL" property="interestIncomeIn" />
+    <result column="interest_income_out" jdbcType="DECIMAL" property="interestIncomeOut" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="regular_current_amount_in" jdbcType="DECIMAL" property="regularCurrentAmountIn" />
+    <result column="regular_current_amount_out" jdbcType="DECIMAL" property="regularCurrentAmountOut" />
+    <result column="current_regular_amount_in" jdbcType="DECIMAL" property="currentRegularAmountIn" />
+    <result column="current_regular_amount_out" jdbcType="DECIMAL" property="currentRegularAmountOut" />
+    <result column="other_amount" jdbcType="DECIMAL" property="otherAmount" />
+    <result column="current_balance" jdbcType="DECIMAL" property="currentBalance" />
+    <result column="trail_result" jdbcType="VARCHAR" property="trailResult" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="ext_1" jdbcType="VARCHAR" property="ext1" />
+    <result column="ext_2" jdbcType="VARCHAR" property="ext2" />
+    <result column="ext_3" jdbcType="VARCHAR" property="ext3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, bank_code, bank_name, account_code, account_abbr_name, account_date, last_balance, 
+    bank_pay_amount, bank_refund_amount, bank_pay_fee, quick_pay_amount, quick_refund_amount, 
+    quick_pay_fee, collect_pay_amount, collect_pay_fee, withdrawal_pay_amount, refund_pay_amount, 
+    pay_fee, bank_refund_fee, quick_refund_fee, interest_amount, settle_interest_fee, 
+    current_apply_store_fund, current_takeout_apply_store_fund, bank_fee, settle_fee_income, 
+    risk_provision, settlement_fee, settlement_fee_cost, transfer_amount_in, transfer_amount_out, 
+    capital_transfer_amount, transfer_myself, interest_income_in, interest_income_out, 
+    status, regular_current_amount_in, regular_current_amount_out, current_regular_amount_in, 
+    current_regular_amount_out, other_amount, current_balance, trail_result, create_time, 
+    update_time, ext_1, ext_2, ext_3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cap_bank_capital_flow
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cap_bank_capital_flow
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.vip.vpal.basereport.entity.BankCapitalFlow">
+    insert into cap_bank_capital_flow (id, bank_code, bank_name, 
+      account_code, account_abbr_name, account_date, 
+      last_balance, bank_pay_amount, bank_refund_amount, 
+      bank_pay_fee, quick_pay_amount, quick_refund_amount, 
+      quick_pay_fee, collect_pay_amount, collect_pay_fee, 
+      withdrawal_pay_amount, refund_pay_amount, pay_fee, 
+      bank_refund_fee, quick_refund_fee, interest_amount, 
+      settle_interest_fee, current_apply_store_fund, 
+      current_takeout_apply_store_fund, bank_fee, 
+      settle_fee_income, risk_provision, settlement_fee, 
+      settlement_fee_cost, transfer_amount_in, transfer_amount_out, 
+      capital_transfer_amount, transfer_myself, 
+      interest_income_in, interest_income_out, status, 
+      regular_current_amount_in, regular_current_amount_out, 
+      current_regular_amount_in, current_regular_amount_out, 
+      other_amount, current_balance, trail_result, 
+      create_time, update_time, ext_1, 
+      ext_2, ext_3)
+    values (#{id,jdbcType=INTEGER}, #{bankCode,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, 
+      #{accountCode,jdbcType=VARCHAR}, #{accountAbbrName,jdbcType=VARCHAR}, #{accountDate,jdbcType=VARCHAR}, 
+      #{lastBalance,jdbcType=DECIMAL}, #{bankPayAmount,jdbcType=DECIMAL}, #{bankRefundAmount,jdbcType=DECIMAL}, 
+      #{bankPayFee,jdbcType=DECIMAL}, #{quickPayAmount,jdbcType=DECIMAL}, #{quickRefundAmount,jdbcType=DECIMAL}, 
+      #{quickPayFee,jdbcType=DECIMAL}, #{collectPayAmount,jdbcType=DECIMAL}, #{collectPayFee,jdbcType=DECIMAL}, 
+      #{withdrawalPayAmount,jdbcType=DECIMAL}, #{refundPayAmount,jdbcType=DECIMAL}, #{payFee,jdbcType=DECIMAL}, 
+      #{bankRefundFee,jdbcType=DECIMAL}, #{quickRefundFee,jdbcType=DECIMAL}, #{interestAmount,jdbcType=DECIMAL}, 
+      #{settleInterestFee,jdbcType=DECIMAL}, #{currentApplyStoreFund,jdbcType=DECIMAL}, 
+      #{currentTakeoutApplyStoreFund,jdbcType=DECIMAL}, #{bankFee,jdbcType=DECIMAL}, 
+      #{settleFeeIncome,jdbcType=DECIMAL}, #{riskProvision,jdbcType=DECIMAL}, #{settlementFee,jdbcType=DECIMAL}, 
+      #{settlementFeeCost,jdbcType=DECIMAL}, #{transferAmountIn,jdbcType=DECIMAL}, #{transferAmountOut,jdbcType=DECIMAL}, 
+      #{capitalTransferAmount,jdbcType=DECIMAL}, #{transferMyself,jdbcType=DECIMAL}, 
+      #{interestIncomeIn,jdbcType=DECIMAL}, #{interestIncomeOut,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
+      #{regularCurrentAmountIn,jdbcType=DECIMAL}, #{regularCurrentAmountOut,jdbcType=DECIMAL}, 
+      #{currentRegularAmountIn,jdbcType=DECIMAL}, #{currentRegularAmountOut,jdbcType=DECIMAL}, 
+      #{otherAmount,jdbcType=DECIMAL}, #{currentBalance,jdbcType=DECIMAL}, #{trailResult,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ext1,jdbcType=VARCHAR}, 
+      #{ext2,jdbcType=VARCHAR}, #{ext3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.vip.vpal.basereport.entity.BankCapitalFlow">
+    insert into cap_bank_capital_flow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bankCode != null">
+        bank_code,
+      </if>
+      <if test="bankName != null">
+        bank_name,
+      </if>
+      <if test="accountCode != null">
+        account_code,
+      </if>
+      <if test="accountAbbrName != null">
+        account_abbr_name,
+      </if>
+      <if test="accountDate != null">
+        account_date,
+      </if>
+      <if test="lastBalance != null">
+        last_balance,
+      </if>
+      <if test="bankPayAmount != null">
+        bank_pay_amount,
+      </if>
+      <if test="bankRefundAmount != null">
+        bank_refund_amount,
+      </if>
+      <if test="bankPayFee != null">
+        bank_pay_fee,
+      </if>
+      <if test="quickPayAmount != null">
+        quick_pay_amount,
+      </if>
+      <if test="quickRefundAmount != null">
+        quick_refund_amount,
+      </if>
+      <if test="quickPayFee != null">
+        quick_pay_fee,
+      </if>
+      <if test="collectPayAmount != null">
+        collect_pay_amount,
+      </if>
+      <if test="collectPayFee != null">
+        collect_pay_fee,
+      </if>
+      <if test="withdrawalPayAmount != null">
+        withdrawal_pay_amount,
+      </if>
+      <if test="refundPayAmount != null">
+        refund_pay_amount,
+      </if>
+      <if test="payFee != null">
+        pay_fee,
+      </if>
+      <if test="bankRefundFee != null">
+        bank_refund_fee,
+      </if>
+      <if test="quickRefundFee != null">
+        quick_refund_fee,
+      </if>
+      <if test="interestAmount != null">
+        interest_amount,
+      </if>
+      <if test="settleInterestFee != null">
+        settle_interest_fee,
+      </if>
+      <if test="currentApplyStoreFund != null">
+        current_apply_store_fund,
+      </if>
+      <if test="currentTakeoutApplyStoreFund != null">
+        current_takeout_apply_store_fund,
+      </if>
+      <if test="bankFee != null">
+        bank_fee,
+      </if>
+      <if test="settleFeeIncome != null">
+        settle_fee_income,
+      </if>
+      <if test="riskProvision != null">
+        risk_provision,
+      </if>
+      <if test="settlementFee != null">
+        settlement_fee,
+      </if>
+      <if test="settlementFeeCost != null">
+        settlement_fee_cost,
+      </if>
+      <if test="transferAmountIn != null">
+        transfer_amount_in,
+      </if>
+      <if test="transferAmountOut != null">
+        transfer_amount_out,
+      </if>
+      <if test="capitalTransferAmount != null">
+        capital_transfer_amount,
+      </if>
+      <if test="transferMyself != null">
+        transfer_myself,
+      </if>
+      <if test="interestIncomeIn != null">
+        interest_income_in,
+      </if>
+      <if test="interestIncomeOut != null">
+        interest_income_out,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="regularCurrentAmountIn != null">
+        regular_current_amount_in,
+      </if>
+      <if test="regularCurrentAmountOut != null">
+        regular_current_amount_out,
+      </if>
+      <if test="currentRegularAmountIn != null">
+        current_regular_amount_in,
+      </if>
+      <if test="currentRegularAmountOut != null">
+        current_regular_amount_out,
+      </if>
+      <if test="otherAmount != null">
+        other_amount,
+      </if>
+      <if test="currentBalance != null">
+        current_balance,
+      </if>
+      <if test="trailResult != null">
+        trail_result,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="ext1 != null">
+        ext_1,
+      </if>
+      <if test="ext2 != null">
+        ext_2,
+      </if>
+      <if test="ext3 != null">
+        ext_3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCode != null">
+        #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAbbrName != null">
+        #{accountAbbrName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDate != null">
+        #{accountDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBalance != null">
+        #{lastBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="bankPayAmount != null">
+        #{bankPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="bankRefundAmount != null">
+        #{bankRefundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="bankPayFee != null">
+        #{bankPayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="quickPayAmount != null">
+        #{quickPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="quickRefundAmount != null">
+        #{quickRefundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="quickPayFee != null">
+        #{quickPayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPayAmount != null">
+        #{collectPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPayFee != null">
+        #{collectPayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawalPayAmount != null">
+        #{withdrawalPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundPayAmount != null">
+        #{refundPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payFee != null">
+        #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankRefundFee != null">
+        #{bankRefundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="quickRefundFee != null">
+        #{quickRefundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="interestAmount != null">
+        #{interestAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="settleInterestFee != null">
+        #{settleInterestFee,jdbcType=DECIMAL},
+      </if>
+      <if test="currentApplyStoreFund != null">
+        #{currentApplyStoreFund,jdbcType=DECIMAL},
+      </if>
+      <if test="currentTakeoutApplyStoreFund != null">
+        #{currentTakeoutApplyStoreFund,jdbcType=DECIMAL},
+      </if>
+      <if test="bankFee != null">
+        #{bankFee,jdbcType=DECIMAL},
+      </if>
+      <if test="settleFeeIncome != null">
+        #{settleFeeIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="riskProvision != null">
+        #{riskProvision,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementFee != null">
+        #{settlementFee,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementFeeCost != null">
+        #{settlementFeeCost,jdbcType=DECIMAL},
+      </if>
+      <if test="transferAmountIn != null">
+        #{transferAmountIn,jdbcType=DECIMAL},
+      </if>
+      <if test="transferAmountOut != null">
+        #{transferAmountOut,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalTransferAmount != null">
+        #{capitalTransferAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferMyself != null">
+        #{transferMyself,jdbcType=DECIMAL},
+      </if>
+      <if test="interestIncomeIn != null">
+        #{interestIncomeIn,jdbcType=DECIMAL},
+      </if>
+      <if test="interestIncomeOut != null">
+        #{interestIncomeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="regularCurrentAmountIn != null">
+        #{regularCurrentAmountIn,jdbcType=DECIMAL},
+      </if>
+      <if test="regularCurrentAmountOut != null">
+        #{regularCurrentAmountOut,jdbcType=DECIMAL},
+      </if>
+      <if test="currentRegularAmountIn != null">
+        #{currentRegularAmountIn,jdbcType=DECIMAL},
+      </if>
+      <if test="currentRegularAmountOut != null">
+        #{currentRegularAmountOut,jdbcType=DECIMAL},
+      </if>
+      <if test="otherAmount != null">
+        #{otherAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentBalance != null">
+        #{currentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="trailResult != null">
+        #{trailResult,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ext1 != null">
+        #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null">
+        #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null">
+        #{ext3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vip.vpal.basereport.entity.BankCapitalFlow">
+    update cap_bank_capital_flow
+    <set>
+      <if test="bankCode != null">
+        bank_code = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCode != null">
+        account_code = #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountAbbrName != null">
+        account_abbr_name = #{accountAbbrName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDate != null">
+        account_date = #{accountDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBalance != null">
+        last_balance = #{lastBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="bankPayAmount != null">
+        bank_pay_amount = #{bankPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="bankRefundAmount != null">
+        bank_refund_amount = #{bankRefundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="bankPayFee != null">
+        bank_pay_fee = #{bankPayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="quickPayAmount != null">
+        quick_pay_amount = #{quickPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="quickRefundAmount != null">
+        quick_refund_amount = #{quickRefundAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="quickPayFee != null">
+        quick_pay_fee = #{quickPayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPayAmount != null">
+        collect_pay_amount = #{collectPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPayFee != null">
+        collect_pay_fee = #{collectPayFee,jdbcType=DECIMAL},
+      </if>
+      <if test="withdrawalPayAmount != null">
+        withdrawal_pay_amount = #{withdrawalPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundPayAmount != null">
+        refund_pay_amount = #{refundPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payFee != null">
+        pay_fee = #{payFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankRefundFee != null">
+        bank_refund_fee = #{bankRefundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="quickRefundFee != null">
+        quick_refund_fee = #{quickRefundFee,jdbcType=DECIMAL},
+      </if>
+      <if test="interestAmount != null">
+        interest_amount = #{interestAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="settleInterestFee != null">
+        settle_interest_fee = #{settleInterestFee,jdbcType=DECIMAL},
+      </if>
+      <if test="currentApplyStoreFund != null">
+        current_apply_store_fund = #{currentApplyStoreFund,jdbcType=DECIMAL},
+      </if>
+      <if test="currentTakeoutApplyStoreFund != null">
+        current_takeout_apply_store_fund = #{currentTakeoutApplyStoreFund,jdbcType=DECIMAL},
+      </if>
+      <if test="bankFee != null">
+        bank_fee = #{bankFee,jdbcType=DECIMAL},
+      </if>
+      <if test="settleFeeIncome != null">
+        settle_fee_income = #{settleFeeIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="riskProvision != null">
+        risk_provision = #{riskProvision,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementFee != null">
+        settlement_fee = #{settlementFee,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementFeeCost != null">
+        settlement_fee_cost = #{settlementFeeCost,jdbcType=DECIMAL},
+      </if>
+      <if test="transferAmountIn != null">
+        transfer_amount_in = #{transferAmountIn,jdbcType=DECIMAL},
+      </if>
+      <if test="transferAmountOut != null">
+        transfer_amount_out = #{transferAmountOut,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalTransferAmount != null">
+        capital_transfer_amount = #{capitalTransferAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferMyself != null">
+        transfer_myself = #{transferMyself,jdbcType=DECIMAL},
+      </if>
+      <if test="interestIncomeIn != null">
+        interest_income_in = #{interestIncomeIn,jdbcType=DECIMAL},
+      </if>
+      <if test="interestIncomeOut != null">
+        interest_income_out = #{interestIncomeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="regularCurrentAmountIn != null">
+        regular_current_amount_in = #{regularCurrentAmountIn,jdbcType=DECIMAL},
+      </if>
+      <if test="regularCurrentAmountOut != null">
+        regular_current_amount_out = #{regularCurrentAmountOut,jdbcType=DECIMAL},
+      </if>
+      <if test="currentRegularAmountIn != null">
+        current_regular_amount_in = #{currentRegularAmountIn,jdbcType=DECIMAL},
+      </if>
+      <if test="currentRegularAmountOut != null">
+        current_regular_amount_out = #{currentRegularAmountOut,jdbcType=DECIMAL},
+      </if>
+      <if test="otherAmount != null">
+        other_amount = #{otherAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="currentBalance != null">
+        current_balance = #{currentBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="trailResult != null">
+        trail_result = #{trailResult,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ext1 != null">
+        ext_1 = #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null">
+        ext_2 = #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null">
+        ext_3 = #{ext3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vip.vpal.basereport.entity.BankCapitalFlow">
+    update cap_bank_capital_flow
+    set bank_code = #{bankCode,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      account_code = #{accountCode,jdbcType=VARCHAR},
+      account_abbr_name = #{accountAbbrName,jdbcType=VARCHAR},
+      account_date = #{accountDate,jdbcType=VARCHAR},
+      last_balance = #{lastBalance,jdbcType=DECIMAL},
+      bank_pay_amount = #{bankPayAmount,jdbcType=DECIMAL},
+      bank_refund_amount = #{bankRefundAmount,jdbcType=DECIMAL},
+      bank_pay_fee = #{bankPayFee,jdbcType=DECIMAL},
+      quick_pay_amount = #{quickPayAmount,jdbcType=DECIMAL},
+      quick_refund_amount = #{quickRefundAmount,jdbcType=DECIMAL},
+      quick_pay_fee = #{quickPayFee,jdbcType=DECIMAL},
+      collect_pay_amount = #{collectPayAmount,jdbcType=DECIMAL},
+      collect_pay_fee = #{collectPayFee,jdbcType=DECIMAL},
+      withdrawal_pay_amount = #{withdrawalPayAmount,jdbcType=DECIMAL},
+      refund_pay_amount = #{refundPayAmount,jdbcType=DECIMAL},
+      pay_fee = #{payFee,jdbcType=DECIMAL},
+      bank_refund_fee = #{bankRefundFee,jdbcType=DECIMAL},
+      quick_refund_fee = #{quickRefundFee,jdbcType=DECIMAL},
+      interest_amount = #{interestAmount,jdbcType=DECIMAL},
+      settle_interest_fee = #{settleInterestFee,jdbcType=DECIMAL},
+      current_apply_store_fund = #{currentApplyStoreFund,jdbcType=DECIMAL},
+      current_takeout_apply_store_fund = #{currentTakeoutApplyStoreFund,jdbcType=DECIMAL},
+      bank_fee = #{bankFee,jdbcType=DECIMAL},
+      settle_fee_income = #{settleFeeIncome,jdbcType=DECIMAL},
+      risk_provision = #{riskProvision,jdbcType=DECIMAL},
+      settlement_fee = #{settlementFee,jdbcType=DECIMAL},
+      settlement_fee_cost = #{settlementFeeCost,jdbcType=DECIMAL},
+      transfer_amount_in = #{transferAmountIn,jdbcType=DECIMAL},
+      transfer_amount_out = #{transferAmountOut,jdbcType=DECIMAL},
+      capital_transfer_amount = #{capitalTransferAmount,jdbcType=DECIMAL},
+      transfer_myself = #{transferMyself,jdbcType=DECIMAL},
+      interest_income_in = #{interestIncomeIn,jdbcType=DECIMAL},
+      interest_income_out = #{interestIncomeOut,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      regular_current_amount_in = #{regularCurrentAmountIn,jdbcType=DECIMAL},
+      regular_current_amount_out = #{regularCurrentAmountOut,jdbcType=DECIMAL},
+      current_regular_amount_in = #{currentRegularAmountIn,jdbcType=DECIMAL},
+      current_regular_amount_out = #{currentRegularAmountOut,jdbcType=DECIMAL},
+      other_amount = #{otherAmount,jdbcType=DECIMAL},
+      current_balance = #{currentBalance,jdbcType=DECIMAL},
+      trail_result = #{trailResult,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      ext_1 = #{ext1,jdbcType=VARCHAR},
+      ext_2 = #{ext2,jdbcType=VARCHAR},
+      ext_3 = #{ext3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
