@@ -44,6 +44,7 @@
     <result column="current_regular_amount_out" jdbcType="DECIMAL" property="currentRegularAmountOut" />
     <result column="other_amount" jdbcType="DECIMAL" property="otherAmount" />
     <result column="current_balance" jdbcType="DECIMAL" property="currentBalance" />
+    <result column="downline_amount" jdbcType="DECIMAL" property="downlineAmount" />
     <result column="trail_result" jdbcType="VARCHAR" property="trailResult" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -60,8 +61,8 @@
     risk_provision, settlement_fee, settlement_fee_cost, transfer_amount_in, transfer_amount_out, 
     capital_transfer_amount, transfer_myself, interest_income_in, interest_income_out, 
     status, regular_current_amount_in, regular_current_amount_out, current_regular_amount_in, 
-    current_regular_amount_out, other_amount, current_balance, trail_result, create_time, 
-    update_time, ext_1, ext_2, ext_3
+    current_regular_amount_out, other_amount, current_balance, downline_amount, trail_result, 
+    create_time, update_time, ext_1, ext_2, ext_3
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -89,9 +90,9 @@
       interest_income_in, interest_income_out, status, 
       regular_current_amount_in, regular_current_amount_out, 
       current_regular_amount_in, current_regular_amount_out, 
-      other_amount, current_balance, trail_result, 
-      create_time, update_time, ext_1, 
-      ext_2, ext_3)
+      other_amount, current_balance, downline_amount, 
+      trail_result, create_time, update_time, 
+      ext_1, ext_2, ext_3)
     values (#{id,jdbcType=INTEGER}, #{bankCode,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, 
       #{accountCode,jdbcType=VARCHAR}, #{accountAbbrName,jdbcType=VARCHAR}, #{accountDate,jdbcType=VARCHAR}, 
       #{lastBalance,jdbcType=DECIMAL}, #{bankPayAmount,jdbcType=DECIMAL}, #{bankRefundAmount,jdbcType=DECIMAL}, 
@@ -107,9 +108,9 @@
       #{interestIncomeIn,jdbcType=DECIMAL}, #{interestIncomeOut,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
       #{regularCurrentAmountIn,jdbcType=DECIMAL}, #{regularCurrentAmountOut,jdbcType=DECIMAL}, 
       #{currentRegularAmountIn,jdbcType=DECIMAL}, #{currentRegularAmountOut,jdbcType=DECIMAL}, 
-      #{otherAmount,jdbcType=DECIMAL}, #{currentBalance,jdbcType=DECIMAL}, #{trailResult,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{ext1,jdbcType=VARCHAR}, 
-      #{ext2,jdbcType=VARCHAR}, #{ext3,jdbcType=VARCHAR})
+      #{otherAmount,jdbcType=DECIMAL}, #{currentBalance,jdbcType=DECIMAL}, #{downlineAmount,jdbcType=DECIMAL}, 
+      #{trailResult,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{ext1,jdbcType=VARCHAR}, #{ext2,jdbcType=VARCHAR}, #{ext3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.vip.vpal.basereport.entity.BankCapitalFlow">
     insert into cap_bank_capital_flow
@@ -239,6 +240,9 @@
       </if>
       <if test="currentBalance != null">
         current_balance,
+      </if>
+      <if test="downlineAmount != null">
+        downline_amount,
       </if>
       <if test="trailResult != null">
         trail_result,
@@ -386,6 +390,9 @@
       <if test="currentBalance != null">
         #{currentBalance,jdbcType=DECIMAL},
       </if>
+      <if test="downlineAmount != null">
+        #{downlineAmount,jdbcType=DECIMAL},
+      </if>
       <if test="trailResult != null">
         #{trailResult,jdbcType=VARCHAR},
       </if>
@@ -532,6 +539,9 @@
       <if test="currentBalance != null">
         current_balance = #{currentBalance,jdbcType=DECIMAL},
       </if>
+      <if test="downlineAmount != null">
+        downline_amount = #{downlineAmount,jdbcType=DECIMAL},
+      </if>
       <if test="trailResult != null">
         trail_result = #{trailResult,jdbcType=VARCHAR},
       </if>
@@ -596,6 +606,7 @@
       current_regular_amount_out = #{currentRegularAmountOut,jdbcType=DECIMAL},
       other_amount = #{otherAmount,jdbcType=DECIMAL},
       current_balance = #{currentBalance,jdbcType=DECIMAL},
+      downline_amount = #{downlineAmount,jdbcType=DECIMAL},
       trail_result = #{trailResult,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

@@ -1,0 +1,34 @@
+rabbitmq-service remove移除rabbitmq服务
+rabbitmq-service install安装rabbitmq服务
+rabbitmq-service start启动rabbitmq服务
+rabbitmq-service restart重启rabbitmq服务
+rabbitmq-service stop关闭rabbitmq服务
+rabbitmq-plugins enable rabbitmq_management开启插件
+rabbitmq-plugins disable rabbitmq_management关闭插件
+rabbitmq-plugins list列出已安装插件
+rabbitmq-server -detached启动rabbitmq服务(包括erlang)
+rabbitmqctl stop关闭rabbitmq服务(包括erlang)
+rabbitmqctl start_app启动rabbitmq实例
+rabbitmqctl stop_app关闭rabbitmq实例
+单机器创建集群
+创建集群节点rabbit
+set RABBITMQ_NODENAME=rabbit
+set RABBITMQ_NODE_PORT=5672
+rabbitmq-server -detached
+rabbitmq-plugins disable rabbitmq_management
+创建集群节点rabbit_1
+set RABBITMQ_NODENAME=rabbit_1
+set RABBITMQ_NODE_PORT=5673
+rabbitmq-server -detached
+rabbitmqctl -n rabbit_1@TREEY-QIAN01 stop_app
+rabbitmqctl -n rabbit_1@TREEY-QIAN01 reset
+rabbitmqctl -n rabbit_1@TREEY-QIAN01 join_cluster rabbit@TREEY-QIAN01
+rabbitmqctl -n rabbit_1@TREEY-QIAN01 start_app
+创建集群节点rabbit_2
+set RABBITMQ_NODENAME=rabbit_2
+set RABBITMQ_NODE_PORT=5674
+rabbitmq-server -detached
+rabbitmqctl -n rabbit_2@TREEY-QIAN01 stop_app
+rabbitmqctl -n rabbit_2@TREEY-QIAN01 reset
+rabbitmqctl -n rabbit_2@TREEY-QIAN01 join_cluster --ram rabbit@TREEY-QIAN01
+rabbitmqctl -n rabbit_2@TREEY-QIAN01 start_app

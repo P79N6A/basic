@@ -88,6 +88,8 @@ public class BankCapitalFlow {
 
     private BigDecimal currentBalance;
 
+    private BigDecimal downlineAmount;
+
     private String trailResult;
 
     private Date createTime;
@@ -434,6 +436,14 @@ public class BankCapitalFlow {
 
     public void setCurrentBalance(BigDecimal currentBalance) {
         this.currentBalance = currentBalance;
+    }
+
+    public BigDecimal getDownlineAmount() {
+        return downlineAmount;
+    }
+
+    public void setDownlineAmount(BigDecimal downlineAmount) {
+        this.downlineAmount = downlineAmount;
     }
 
     public String getTrailResult() {

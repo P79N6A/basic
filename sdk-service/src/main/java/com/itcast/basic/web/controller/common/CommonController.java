@@ -24,6 +24,21 @@ import java.io.OutputStream;
 public class CommonController {
     private static Log logger = LogFactory.getLog(CommonController.class);
 
+    //验证referer
+    @RequestMapping(value = "/show/referer", method = RequestMethod.POST)
+    @ResponseBody
+    public String showReferer(HttpServletRequest request) {
+        try {
+            logger.info("enter into CommonController,  show Referer ");
+            String referer = request.getHeader("Referer");
+            logger.info("referer= " + referer);
+        } catch (Exception e) {
+            logger.info("error message is {}", e);
+        }
+        return "success";
+    }
+
+    //验证session
     @RequestMapping(value = "/create/session", method = RequestMethod.POST)
     @ResponseBody
     public String createLogFile(HttpServletRequest request, HttpServletResponse response) {
