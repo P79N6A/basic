@@ -32,3 +32,7 @@ rabbitmqctl -n rabbit_2@TREEY-QIAN01 stop_app
 rabbitmqctl -n rabbit_2@TREEY-QIAN01 reset
 rabbitmqctl -n rabbit_2@TREEY-QIAN01 join_cluster --ram rabbit@TREEY-QIAN01
 rabbitmqctl -n rabbit_2@TREEY-QIAN01 start_app
+创建集群节点rabbit_3
+set RABBITMQ_NODENAME=rabbit_3
+set RABBITMQ_NODE_PORT=5675
+rabbitmq-server -detached
