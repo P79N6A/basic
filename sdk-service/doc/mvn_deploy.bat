@@ -1,0 +1,2 @@
+mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=E:\\xalan.jar -DrepositoryId=thirdparty -Durl=http://mvn1.tools.vipshop.com:8081/nexus/content/repositories/thirdparty/  -DgroupId=org.apache.xalan -DartifactId=xalan -Dversion=2.7.1 -Dpackaging=jar
+pause
