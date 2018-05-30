@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>二维码登录</title>
+</head>
+<script type="text/javascript" src="/sdk-service/js/jquery.min.js"></script>
+<body>
+<img id="QrCodeImg" src="" width="235px" height="235px"/>
+<script type="text/javascript">
+        $(function(){
+		   $.get("/sdk-service/freemarker/reset", function(data, status) {
+		       var arr=data.split(";");
+		       console.log("data="+data+" arr="+arr);
+                //存储UUID
+                var uuid = arr[0].split("=")[1];
+                var src= arr[1].split("=")[1];
+                //显示二维码
+                $("#QrCodeImg").attr("src", src);
+                console.log("uuid="+uuid+" src="+src);
+                //开始验证登录
+                validateLogin(uuid);
+		});
+
+		function validateLogin(uuid){
+		   console.log("validateLogin uuid="+uuid);
+			$.get("/sdk-service/freemarker/authUser?uuid=" + uuid , function(data, status) {
+			   console.log("data="+data);
+				if(data == "success"){
+					console.log("登录成功");
+					window.location.href="http://localhost:8080/sdk-service/freemarker/user";
+				}else{
+					validateLogin();
+				}
+			});
+		    }
+       });
+
+
+
+
+</script>
+</body>
+</html>

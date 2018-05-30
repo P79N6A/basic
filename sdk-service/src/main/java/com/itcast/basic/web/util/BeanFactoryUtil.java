@@ -24,7 +24,7 @@ public class BeanFactoryUtil {
      * @param classType   实体类类型
      * @return 真实排序字段集
      */
-    public static List<SortColumn> createSortColumns(List<SortColumn> sortColumns, Class classType) {
+    public final static List<SortColumn> createSortColumns(List<SortColumn> sortColumns, Class classType) {
         return sortColumns.stream()
                 .filter(sortColumn -> extractFieldName(classType).contains(sortColumn.getColumn()))
                 .map(sortColumn -> new SortColumn(convertFieldToColumn(sortColumn.getColumn()), sortColumn.getSort()))
@@ -38,7 +38,7 @@ public class BeanFactoryUtil {
      * @param classType 实体类类型
      * @return 真实查询字段集
      */
-    public static List<String> createResultColumns(List<String> fileds, Class classType) {
+    public final static List<String> createResultColumns(List<String> fileds, Class classType) {
         return fileds
                 .stream()
                 .filter(column -> extractFieldName(classType).contains(column))
@@ -65,7 +65,7 @@ public class BeanFactoryUtil {
      * @param sortColumn        前端传入字段
      * @param sortColumnList    排序参数
      */
-    public static void createSortColumns(String resultColumns, List<String> resultColumnsList, SortColumn sortColumn, List<SortColumn> sortColumnList) {
+    public final static void createSortColumns(String resultColumns, List<String> resultColumnsList, SortColumn sortColumn, List<SortColumn> sortColumnList) {
 
         if (resultColumns != null && "".equalsIgnoreCase(resultColumns.trim())) {
             resultColumnsList = Arrays.asList(resultColumns.split(COMMA_SIGN));

@@ -124,6 +124,13 @@
             <scope>test</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.apache.QRCode</groupId>
+            <artifactId>QRCode</artifactId>
+            <version>1.0</version>
+        </dependency>
+
         <!--excel-->
         <dependency>
             <groupId>jexcelapi</groupId>
