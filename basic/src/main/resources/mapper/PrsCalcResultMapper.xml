@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.vpal.basereport.repository.PrsCalcResultMapper">
+  <resultMap id="BaseResultMap" type="com.vip.vpal.basereport.entity.PrsCalcResult">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="key" jdbcType="VARCHAR" property="key" />
+    <result column="result_value" jdbcType="VARCHAR" property="resultValue" />
+    <result column="bank_code" jdbcType="VARCHAR" property="bankCode" />
+    <result column="payment_channel" jdbcType="VARCHAR" property="paymentChannel" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="account_date" jdbcType="VARCHAR" property="accountDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="ext1" jdbcType="VARCHAR" property="ext1" />
+    <result column="edit_flag" jdbcType="VARCHAR" property="editFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, table_name, key, result_value, bank_code, payment_channel, account_id, account_date, 
+    create_time, update_time, ext1, edit_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cap_prs_calc_result
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from cap_prs_calc_result
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.vip.vpal.basereport.entity.PrsCalcResult">
+    insert into cap_prs_calc_result (id, table_name, key, 
+      result_value, bank_code, payment_channel, 
+      account_id, account_date, create_time, 
+      update_time, ext1, edit_flag
+      )
+    values (#{id,jdbcType=BIGINT}, #{tableName,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, 
+      #{resultValue,jdbcType=VARCHAR}, #{bankCode,jdbcType=VARCHAR}, #{paymentChannel,jdbcType=VARCHAR}, 
+      #{accountId,jdbcType=VARCHAR}, #{accountDate,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{ext1,jdbcType=VARCHAR}, #{editFlag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.vip.vpal.basereport.entity.PrsCalcResult">
+    insert into cap_prs_calc_result
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tableName != null">
+        table_name,
+      </if>
+      <if test="key != null">
+        key,
+      </if>
+      <if test="resultValue != null">
+        result_value,
+      </if>
+      <if test="bankCode != null">
+        bank_code,
+      </if>
+      <if test="paymentChannel != null">
+        payment_channel,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="accountDate != null">
+        account_date,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="ext1 != null">
+        ext1,
+      </if>
+      <if test="editFlag != null">
+        edit_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="resultValue != null">
+        #{resultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentChannel != null">
+        #{paymentChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDate != null">
+        #{accountDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ext1 != null">
+        #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="editFlag != null">
+        #{editFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vip.vpal.basereport.entity.PrsCalcResult">
+    update cap_prs_calc_result
+    <set>
+      <if test="tableName != null">
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        key = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="resultValue != null">
+        result_value = #{resultValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCode != null">
+        bank_code = #{bankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentChannel != null">
+        payment_channel = #{paymentChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDate != null">
+        account_date = #{accountDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ext1 != null">
+        ext1 = #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="editFlag != null">
+        edit_flag = #{editFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vip.vpal.basereport.entity.PrsCalcResult">
+    update cap_prs_calc_result
+    set table_name = #{tableName,jdbcType=VARCHAR},
+      key = #{key,jdbcType=VARCHAR},
+      result_value = #{resultValue,jdbcType=VARCHAR},
+      bank_code = #{bankCode,jdbcType=VARCHAR},
+      payment_channel = #{paymentChannel,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      account_date = #{accountDate,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      ext1 = #{ext1,jdbcType=VARCHAR},
+      edit_flag = #{editFlag,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

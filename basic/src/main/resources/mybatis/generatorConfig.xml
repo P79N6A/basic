@@ -43,7 +43,7 @@
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
         <!-- 配置表信息,不生成帮助类examples-->
-        <table schema="" tableName="cap_bank_capital_flow" domainObjectName="BankCapitalFlow"
+        <table schema="" tableName="cap_prs_calc_result" domainObjectName="PrsCalcResult"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
     </context>

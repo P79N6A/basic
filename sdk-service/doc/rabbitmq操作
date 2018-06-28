@@ -36,3 +36,5 @@ rabbitmqctl -n rabbit_2@TREEY-QIAN01 start_app
 set RABBITMQ_NODENAME=rabbit_3
 set RABBITMQ_NODE_PORT=5675
 rabbitmq-server -detached
+
+rabbitmqctl stop
