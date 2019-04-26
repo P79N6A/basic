@@ -12,7 +12,9 @@ public class PersonServiceImpl {
     private PersonDao personDao;
 
     public void savePerson() {
-        System.out.println("enter into PersonServiceImpl");
+        System.out.println("enter into PersonServiceImpl" + personDao);
         personDao.save();
+        System.out.println("enter into PersonServiceImpl" + personDao);
+
     }
 }

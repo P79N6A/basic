@@ -11,7 +11,7 @@ public class DubboServiceClient {
     public static void main(String[] args) {
         try {
             System.out.println("enter into DubboServiceClient");
-            new ClassPathXmlApplicationContext(new String[]{"spring/dubbo/configdetail/provider/application.xml"});
+            new ClassPathXmlApplicationContext(new String[]{"spring/dubbo/provider/application.xml"});
             String lock = "lock";
             synchronized (lock) {
                 lock.wait();

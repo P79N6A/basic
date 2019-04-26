@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public final class SimpleClassLoader extends ClassLoader {
 
-    private final String USER_DIR = new StringBuilder("D:")
+    private final String USER_DIR = new StringBuilder("E:")
             .append(File.separator)
             .append("github")
             .append(File.separator)
