@@ -19,17 +19,17 @@ public class ClassLoaderMain {
             Class classType = simpleClassLoader.loadClass("ClassFileObject");
             //类字节码和类加载器决定类的类型 此处强制转换不成功
 //            ClassFileObject classFileObject= (ClassFileObject) classType.newInstance();
-            Method method = classType.getMethod("getName");
-            System.out.println("name is " + method.invoke(classType.newInstance()));
-
-            Class c = ClassLoaderUtils.loadClass(ClassFileObject.class.getName());
-            ClassFileObject classFileObject = (ClassFileObject) c.newInstance();
-            System.out.println("name is " + classFileObject.getName());
-
-            String jarPath = "C:\\Users\\treey.qian\\.m2\\repository\\redis\\clients\\jedis\\2.8.0\\jedis-2.8.0.jar";
-            Class redis = ClassLoaderUtils.loadClass(jarPath, Jedis.class.getName());
-            Object redisObj = redis.newInstance();
-            System.out.println("name is " + (redisObj instanceof Jedis));
+//            Method method = classType.getMethod("getName");
+//            System.out.println("name is " + method.invoke(classType.newInstance()));
+//
+//            Class c = ClassLoaderUtils.loadClass(ClassFileObject.class.getName());
+//            ClassFileObject classFileObject = (ClassFileObject) c.newInstance();
+//            System.out.println("name is " + classFileObject.getName());
+//
+//            String jarPath = "C:\\Users\\treey.qian\\.m2\\repository\\redis\\clients\\jedis\\2.8.0\\jedis-2.8.0.jar";
+//            Class redis = ClassLoaderUtils.loadClass(jarPath, Jedis.class.getName());
+//            Object redisObj = redis.newInstance();
+//            System.out.println("name is " + (redisObj instanceof Jedis));
         } catch (Exception e) {
             e.printStackTrace();
         }
