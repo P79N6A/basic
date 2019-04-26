@@ -19,12 +19,13 @@ public class SpringJedisServiceClient {
             logger.info("enter into SpringJedisServiceClient");
             ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{"spring/tools/redis/application.xml"});
             redisTemplate = (RedisTemplate) applicationContext.getBean("redisTemplate");
-//            redisTemplate.opsForValue().set("name", "qfl");
+            redisTemplate.opsForValue().set("name", "qfl");
 //            transaction();
 //            concurrent();
-            lock();
+//            lock();
         } catch (Exception e) {
             logger.info("SpringJedisServiceClient error message is {}", e);
+            e.printStackTrace();
         }
     }
 

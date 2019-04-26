@@ -20,6 +20,7 @@ public class SpringDirectExchangeServiceClient {
             amqpTemplate.convertAndSend("same.route", "hello world");
         } catch (Exception e) {
             logger.info("error is {}", e);
+            e.printStackTrace();
         }
     }
 

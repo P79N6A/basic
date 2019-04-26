@@ -4,10 +4,10 @@ import com.sdk.common.model.Image;
 import com.sdk.common.util.ImageUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ import java.io.OutputStream;
 /**
  * Created by Administrator on 2018/1/27.
  */
-@Controller
+@RestController
 @RequestMapping("/common")
 public class CommonController {
     private static Log logger = LogFactory.getLog(CommonController.class);
@@ -52,7 +52,6 @@ public class CommonController {
         }
         return "success";
     }
-
 
     //图片验证码生成器
     @RequestMapping(value = "/create/valicode", method = RequestMethod.GET)

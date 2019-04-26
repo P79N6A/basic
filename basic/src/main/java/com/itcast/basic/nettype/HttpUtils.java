@@ -6,10 +6,7 @@ import javax.mail.internet.MimeMessage;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by qfl on 16/5/4.
@@ -19,6 +16,7 @@ public class HttpUtils {
     public static void doGet(String urlStr) {
 
         try {
+
             URL url = new URL(urlStr);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             if (connection.getResponseCode() >= 300)
